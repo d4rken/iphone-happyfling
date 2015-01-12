@@ -8,6 +8,7 @@
 
 import SpriteKit
 
+
 class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -25,7 +26,9 @@ class GameScene: SKScene {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
             
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
+            let sprite = BucketClass(name:"Spaceship", size: CGRectMake(100, 100, 100, 100))
+        
+            
             
             sprite.xScale = 0.5
             sprite.yScale = 0.5
