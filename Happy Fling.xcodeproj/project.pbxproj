@@ -15,6 +15,15 @@
 		18BACE8D1A5E90BD00D4D69C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18BACE8C1A5E90BD00D4D69C /* Images.xcassets */; };
 		18BACE901A5E90BD00D4D69C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BACE8E1A5E90BD00D4D69C /* LaunchScreen.xib */; };
 		18BACE9C1A5E90BD00D4D69C /* Happy_FlingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BACE9B1A5E90BD00D4D69C /* Happy_FlingTests.swift */; };
+		92CC77F81A642258002A86CD /* BucketClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F41A642258002A86CD /* BucketClass.swift */; };
+		92CC77F91A642258002A86CD /* ThemeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F51A642258002A86CD /* ThemeClass.swift */; };
+		92CC77FA1A642258002A86CD /* ThemeHistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */; };
+		92CC77FB1A642258002A86CD /* ThrowItemClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F71A642258002A86CD /* ThrowItemClass.swift */; };
+		92CC77FD1A642416002A86CD /* ThemeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77FC1A642416002A86CD /* ThemeFactory.swift */; };
+		92CC77FF1A642470002A86CD /* ColorThemeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77FE1A642470002A86CD /* ColorThemeFactory.swift */; };
+		92CC78011A642489002A86CD /* ShapeThemeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78001A642489002A86CD /* ShapeThemeFactory.swift */; };
+		92CC78031A6425E4002A86CD /* BucketTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78021A6425E4002A86CD /* BucketTheme.swift */; };
+		92CC78051A642921002A86CD /* ThrowItemTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78041A642921002A86CD /* ThrowItemTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +49,15 @@
 		18BACE951A5E90BD00D4D69C /* Happy FlingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Happy FlingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BACE9A1A5E90BD00D4D69C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18BACE9B1A5E90BD00D4D69C /* Happy_FlingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_FlingTests.swift; sourceTree = "<group>"; };
+		92CC77F41A642258002A86CD /* BucketClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketClass.swift; sourceTree = "<group>"; };
+		92CC77F51A642258002A86CD /* ThemeClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeClass.swift; sourceTree = "<group>"; };
+		92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeHistoryEntry.swift; sourceTree = "<group>"; };
+		92CC77F71A642258002A86CD /* ThrowItemClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowItemClass.swift; sourceTree = "<group>"; };
+		92CC77FC1A642416002A86CD /* ThemeFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeFactory.swift; sourceTree = "<group>"; };
+		92CC77FE1A642470002A86CD /* ColorThemeFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorThemeFactory.swift; sourceTree = "<group>"; };
+		92CC78001A642489002A86CD /* ShapeThemeFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeThemeFactory.swift; sourceTree = "<group>"; };
+		92CC78021A6425E4002A86CD /* BucketTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketTheme.swift; sourceTree = "<group>"; };
+		92CC78041A642921002A86CD /* ThrowItemTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowItemTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +99,15 @@
 		18BACE7E1A5E90BD00D4D69C /* Happy Fling */ = {
 			isa = PBXGroup;
 			children = (
+				92CC77F41A642258002A86CD /* BucketClass.swift */,
+				92CC78021A6425E4002A86CD /* BucketTheme.swift */,
+				92CC78041A642921002A86CD /* ThrowItemTheme.swift */,
+				92CC77F51A642258002A86CD /* ThemeClass.swift */,
+				92CC77FC1A642416002A86CD /* ThemeFactory.swift */,
+				92CC78001A642489002A86CD /* ShapeThemeFactory.swift */,
+				92CC77FE1A642470002A86CD /* ColorThemeFactory.swift */,
+				92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */,
+				92CC77F71A642258002A86CD /* ThrowItemClass.swift */,
 				18BACE811A5E90BD00D4D69C /* AppDelegate.swift */,
 				18BACE831A5E90BD00D4D69C /* GameScene.sks */,
 				18BACE851A5E90BD00D4D69C /* GameScene.swift */,
@@ -219,9 +246,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92CC77FD1A642416002A86CD /* ThemeFactory.swift in Sources */,
+				92CC78051A642921002A86CD /* ThrowItemTheme.swift in Sources */,
+				92CC77FF1A642470002A86CD /* ColorThemeFactory.swift in Sources */,
+				92CC77F81A642258002A86CD /* BucketClass.swift in Sources */,
 				18BACE861A5E90BD00D4D69C /* GameScene.swift in Sources */,
+				92CC78011A642489002A86CD /* ShapeThemeFactory.swift in Sources */,
+				92CC77F91A642258002A86CD /* ThemeClass.swift in Sources */,
 				18BACE881A5E90BD00D4D69C /* GameViewController.swift in Sources */,
+				92CC77FB1A642258002A86CD /* ThrowItemClass.swift in Sources */,
 				18BACE821A5E90BD00D4D69C /* AppDelegate.swift in Sources */,
+				92CC78031A6425E4002A86CD /* BucketTheme.swift in Sources */,
+				92CC77FA1A642258002A86CD /* ThemeHistoryEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +449,7 @@
 				18BACEA11A5E90BD00D4D69C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18BACEA21A5E90BD00D4D69C /* Build configuration list for PBXNativeTarget "Happy FlingTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +458,7 @@
 				18BACEA41A5E90BD00D4D69C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

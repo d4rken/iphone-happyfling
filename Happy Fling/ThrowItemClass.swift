@@ -13,16 +13,18 @@ class ThrowItemClass: SKSpriteNode
 {
     //properties
     var throwItemName: String = ""
-    var throwItemSize: CGRect
-    var throwItemAnimations:[String] = []
-    var throwItemSounds: [String] = []
-    
+    var throwItemSize: CGSize
+    var throwAnimations:[String] = []
+    var throwSounds: [String] = []
+
     
     //func
-    init(name:String, size:CGRect)
+    init(theme:ThrowItemTheme)
     {
-        self.throwItemName = name
-        self.throwItemSize = size
+        self.throwItemName = theme.name
+        self.throwItemSize = theme.size
+        self.throwAnimations = theme.throwAnimations
+        self.throwSounds = theme.throwSounds
         
         let texture = SKTexture(imageNamed: self.throwItemName)
         super.init(texture: texture, color: nil, size: size.size)

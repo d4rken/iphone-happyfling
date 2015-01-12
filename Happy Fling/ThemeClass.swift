@@ -17,29 +17,14 @@ class ThemeClass: NSObject
     var themeName: String = ""
     var themeIcon:String = ""
     var themeStory: String = "" // The story to display on the transition screen
-    var bucketClass:[BucketClass] = []
-    var throwItemClass:[ThrowItemClass] = []
+    var bucketClass:[BucketTheme] = []
+    var throwItemClass:[ThrowItemTheme] = []
     var timeUpGreetingsMessage:String = ""
     var accuracyMessage:String = ""
-    var successfullThrowsMessage:String = ""
+    var successfullThrowsMessage:[String] = ""
+    var maxGameTime:Int
+    var maxNumBuckets:Int
+    var minNumBuckets:Int
     
-    //func
-    init(introBackgroundPicture: String, gameBackgroundPicture: String,
-        gameEndBackgroundPicture: String, themeName: String , themeIcon:String,
-        themeStory: String, bucketClass:[BucketClass], throwItemClass:[ThrowItemClass],
-        timeUpGreetingsMessage:String, accuracyMessage:String, successfullThrowsMessage:String)
-    {
-        self.introBackgroundPicture  = introBackgroundPicture;
-        self.gameBackgroundPicture = gameBackgroundPicture;
-        self.gameEndBackgroundPicture  = gameEndBackgroundPicture;
-        self.themeName = themeName;
-        self.themeIcon = themeIcon;
-        self.themeStory = themeStory;
-        self.bucketClass = bucketClass;
-        self.throwItemClass = throwItemClass;
-        self.timeUpGreetingsMessage = timeUpGreetingsMessage
-        self.successfullThrowsMessage = successfullThrowsMessage
-        self.accuracyMessage = accuracyMessage;
-    }
    
 }
