@@ -30,5 +30,5 @@ class ThemeClass: NSObject
     var maxNumBuckets:Int = 0
     var minNumBuckets:Int = 0
     
-   
+    
 }
