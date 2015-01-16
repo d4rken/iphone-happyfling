@@ -15,6 +15,7 @@
 		18BACE8D1A5E90BD00D4D69C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18BACE8C1A5E90BD00D4D69C /* Images.xcassets */; };
 		18BACE901A5E90BD00D4D69C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BACE8E1A5E90BD00D4D69C /* LaunchScreen.xib */; };
 		18BACE9C1A5E90BD00D4D69C /* Happy_FlingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BACE9B1A5E90BD00D4D69C /* Happy_FlingTests.swift */; };
+		18F97F391A694ED4006BAC80 /* ThemeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */; };
 		92CC77F81A642258002A86CD /* BucketClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F41A642258002A86CD /* BucketClass.swift */; };
 		92CC77F91A642258002A86CD /* ThemeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F51A642258002A86CD /* ThemeClass.swift */; };
 		92CC77FA1A642258002A86CD /* ThemeHistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */; };
@@ -49,6 +50,7 @@
 		18BACE951A5E90BD00D4D69C /* Happy FlingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Happy FlingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BACE9A1A5E90BD00D4D69C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18BACE9B1A5E90BD00D4D69C /* Happy_FlingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_FlingTests.swift; sourceTree = "<group>"; };
+		18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewController.swift; sourceTree = "<group>"; };
 		92CC77F41A642258002A86CD /* BucketClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketClass.swift; sourceTree = "<group>"; };
 		92CC77F51A642258002A86CD /* ThemeClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeClass.swift; sourceTree = "<group>"; };
 		92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeHistoryEntry.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */,
 				92CC77F71A642258002A86CD /* ThrowItemClass.swift */,
 				18BACE811A5E90BD00D4D69C /* AppDelegate.swift */,
+				18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */,
 				18BACE831A5E90BD00D4D69C /* GameScene.sks */,
 				18BACE851A5E90BD00D4D69C /* GameScene.swift */,
 				18BACE871A5E90BD00D4D69C /* GameViewController.swift */,
@@ -249,6 +252,7 @@
 				92CC77FD1A642416002A86CD /* ThemeFactory.swift in Sources */,
 				92CC78051A642921002A86CD /* ThrowItemTheme.swift in Sources */,
 				92CC77FF1A642470002A86CD /* ColorThemeFactory.swift in Sources */,
+				18F97F391A694ED4006BAC80 /* ThemeSelectionViewController.swift in Sources */,
 				92CC77F81A642258002A86CD /* BucketClass.swift in Sources */,
 				18BACE861A5E90BD00D4D69C /* GameScene.swift in Sources */,
 				92CC78011A642489002A86CD /* ShapeThemeFactory.swift in Sources */,
