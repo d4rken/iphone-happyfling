@@ -26,6 +26,9 @@ extension SKNode {
 }
 
 class GameViewController: UIViewController {
+    
+    
+    var theme: ThemeClass = ThemeClass()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,5 +68,14 @@ class GameViewController: UIViewController {
 
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)
+    {
+        if (segue.identifier == "Load View") {
+            // pass data to next view
+        }
+        
     }
 }

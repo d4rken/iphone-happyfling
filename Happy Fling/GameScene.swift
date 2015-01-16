@@ -13,11 +13,16 @@ import SpriteKit
 
 
 class GameScene: SKScene {
+
+    
+    var theme: ThemeClass = ThemeClass()
     
     func createContent()
     {
+        var bucketThemeArray:[BucketTheme] = theme.bucketThemeArray
         
     }
+    
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
