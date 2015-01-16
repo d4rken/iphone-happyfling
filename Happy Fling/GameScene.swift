@@ -9,7 +9,16 @@
 import SpriteKit
 
 
+
+
+
 class GameScene: SKScene {
+    
+    func createContent()
+    {
+        
+    }
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
@@ -26,7 +35,10 @@ class GameScene: SKScene {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
             
-            let sprite = BucketClass(name:"Spaceship", size: CGRectMake(100, 100, 100, 100))
+            
+            let theme = BucketTheme()
+            theme.shapeSize = CGSizeMake(100, 100)
+            let sprite = BucketClass(theme: theme)
         
             
             

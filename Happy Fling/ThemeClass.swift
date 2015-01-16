@@ -21,10 +21,10 @@ class ThemeClass: NSObject
     var throwItemClass:[ThrowItemTheme] = []
     var timeUpGreetingsMessage:String = ""
     var accuracyMessage:String = ""
-    var successfullThrowsMessage:[String] = ""
-    var maxGameTime:Int
-    var maxNumBuckets:Int
-    var minNumBuckets:Int
+    var successfullThrowsMessage:[String] = []
+    var maxGameTime:Int = 0
+    var maxNumBuckets:Int = 0
+    var minNumBuckets:Int = 0
     
    
 }

@@ -24,17 +24,17 @@ class BucketClass: SKSpriteNode
     init(theme:BucketTheme)
     {
         self.bucketName = theme.name
-        self.bucketSize = theme.size
+        self.bucketSize = theme.shapeSize
         self.acceptedThrowItems = theme.acceptedThrowItems;
         self.successSounds = theme.successSounds
         self.bucketAnimations = theme.bucketAnimations
         
         let texture = SKTexture(imageNamed: bucketName)
-        super.init(texture: texture, color: nil, size: size.size)
-        self.position = size.origin
+        super.init(texture: texture, color: nil, size: bucketSize)
     }
-    func accept() -> BOOLEAN
+    func accept() -> Boolean
     {
+        return 1;
         
     }
     

@@ -10,8 +10,8 @@ import UIKit
 
 class BucketTheme: NSObject
 {
-    var name:String
-    var shapeSize: CGSize
+    var name:String = ""
+    var shapeSize: CGSize = CGSizeMake(0, 0)
     var acceptedThrowItems:[String] = []
     var successSounds: [String] = []
     var bucketAnimations:[String] = []
