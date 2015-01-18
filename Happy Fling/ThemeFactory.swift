@@ -8,6 +8,8 @@
 
 import UIKit
 
-class ThemeFactory: NSObject {
-   
+protocol ThemeFactory {
+    func getName() -> NSString
+    func getIconResource() -> NSString
+    func makeTheme() -> ThemeClass
 }

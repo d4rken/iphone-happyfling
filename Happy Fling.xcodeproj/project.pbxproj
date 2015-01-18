@@ -16,6 +16,8 @@
 		18BACE901A5E90BD00D4D69C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BACE8E1A5E90BD00D4D69C /* LaunchScreen.xib */; };
 		18BACE9C1A5E90BD00D4D69C /* Happy_FlingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BACE9B1A5E90BD00D4D69C /* Happy_FlingTests.swift */; };
 		18F97F391A694ED4006BAC80 /* ThemeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */; };
+		18F97F441A695BB3006BAC80 /* ThemeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F97F431A695BB3006BAC80 /* ThemeCellView.swift */; };
+		18F97F521A6C54EF006BAC80 /* Themes in Resources */ = {isa = PBXBuildFile; fileRef = 18F97F511A6C54EF006BAC80 /* Themes */; };
 		92CC77F81A642258002A86CD /* BucketClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F41A642258002A86CD /* BucketClass.swift */; };
 		92CC77F91A642258002A86CD /* ThemeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F51A642258002A86CD /* ThemeClass.swift */; };
 		92CC77FA1A642258002A86CD /* ThemeHistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */; };
@@ -51,6 +53,8 @@
 		18BACE9A1A5E90BD00D4D69C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18BACE9B1A5E90BD00D4D69C /* Happy_FlingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_FlingTests.swift; sourceTree = "<group>"; };
 		18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewController.swift; sourceTree = "<group>"; };
+		18F97F431A695BB3006BAC80 /* ThemeCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCellView.swift; sourceTree = "<group>"; };
+		18F97F511A6C54EF006BAC80 /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Themes; sourceTree = "<group>"; };
 		92CC77F41A642258002A86CD /* BucketClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketClass.swift; sourceTree = "<group>"; };
 		92CC77F51A642258002A86CD /* ThemeClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeClass.swift; sourceTree = "<group>"; };
 		92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeHistoryEntry.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 		18BACE7E1A5E90BD00D4D69C /* Happy Fling */ = {
 			isa = PBXGroup;
 			children = (
+				18F97F4F1A6C5494006BAC80 /* Resources */,
 				92CC77F41A642258002A86CD /* BucketClass.swift */,
 				92CC78021A6425E4002A86CD /* BucketTheme.swift */,
 				92CC78041A642921002A86CD /* ThrowItemTheme.swift */,
@@ -108,6 +113,7 @@
 				92CC77FC1A642416002A86CD /* ThemeFactory.swift */,
 				92CC78001A642489002A86CD /* ShapeThemeFactory.swift */,
 				92CC77FE1A642470002A86CD /* ColorThemeFactory.swift */,
+				18F97F431A695BB3006BAC80 /* ThemeCellView.swift */,
 				92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */,
 				92CC77F71A642258002A86CD /* ThrowItemClass.swift */,
 				18BACE811A5E90BD00D4D69C /* AppDelegate.swift */,
@@ -146,6 +152,14 @@
 				18BACE9A1A5E90BD00D4D69C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18F97F4F1A6C5494006BAC80 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				18F97F511A6C54EF006BAC80 /* Themes */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18F97F521A6C54EF006BAC80 /* Themes in Resources */,
 				18BACE901A5E90BD00D4D69C /* LaunchScreen.xib in Resources */,
 				18BACE8D1A5E90BD00D4D69C /* Images.xcassets in Resources */,
 				18BACE841A5E90BD00D4D69C /* GameScene.sks in Resources */,
@@ -257,6 +272,7 @@
 				18BACE861A5E90BD00D4D69C /* GameScene.swift in Sources */,
 				92CC78011A642489002A86CD /* ShapeThemeFactory.swift in Sources */,
 				92CC77F91A642258002A86CD /* ThemeClass.swift in Sources */,
+				18F97F441A695BB3006BAC80 /* ThemeCellView.swift in Sources */,
 				18BACE881A5E90BD00D4D69C /* GameViewController.swift in Sources */,
 				92CC77FB1A642258002A86CD /* ThrowItemClass.swift in Sources */,
 				18BACE821A5E90BD00D4D69C /* AppDelegate.swift in Sources */,
