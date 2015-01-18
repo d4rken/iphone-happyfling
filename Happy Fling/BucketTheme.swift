@@ -8,13 +8,13 @@
 
 import UIKit
 
-class BucketTheme: NSObject
-{
-    var name:String
-    var shapeSize: CGSize
-    var acceptedThrowItems:[String] = []
-    var successSounds: [String] = []
-    var bucketAnimations:[String] = []
-    
-   
-}
+//class BucketTheme: NSObject
+//{
+//    var name:String = ""
+//    var shapeSize: CGSize
+//    var acceptedThrowItems:[String] = []
+//    var successSounds: [String] = []
+//    var bucketAnimations:[String] = []
+//    
+//   
+//}

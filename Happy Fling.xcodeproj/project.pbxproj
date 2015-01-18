@@ -24,6 +24,7 @@
 		92CC78011A642489002A86CD /* ShapeThemeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78001A642489002A86CD /* ShapeThemeFactory.swift */; };
 		92CC78031A6425E4002A86CD /* BucketTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78021A6425E4002A86CD /* BucketTheme.swift */; };
 		92CC78051A642921002A86CD /* ThrowItemTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78041A642921002A86CD /* ThrowItemTheme.swift */; };
+		D1F9C8C71A6811C70017DAE8 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9C8C61A6811C70017DAE8 /* StartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		92CC78001A642489002A86CD /* ShapeThemeFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeThemeFactory.swift; sourceTree = "<group>"; };
 		92CC78021A6425E4002A86CD /* BucketTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketTheme.swift; sourceTree = "<group>"; };
 		92CC78041A642921002A86CD /* ThrowItemTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowItemTheme.swift; sourceTree = "<group>"; };
+		D1F9C8C61A6811C70017DAE8 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				18BACE831A5E90BD00D4D69C /* GameScene.sks */,
 				18BACE851A5E90BD00D4D69C /* GameScene.swift */,
 				18BACE871A5E90BD00D4D69C /* GameViewController.swift */,
+				D1F9C8C61A6811C70017DAE8 /* StartViewController.swift */,
 				18BACE891A5E90BD00D4D69C /* Main.storyboard */,
 				18BACE8C1A5E90BD00D4D69C /* Images.xcassets */,
 				18BACE8E1A5E90BD00D4D69C /* LaunchScreen.xib */,
@@ -254,6 +257,7 @@
 				92CC78011A642489002A86CD /* ShapeThemeFactory.swift in Sources */,
 				92CC77F91A642258002A86CD /* ThemeClass.swift in Sources */,
 				18BACE881A5E90BD00D4D69C /* GameViewController.swift in Sources */,
+				D1F9C8C71A6811C70017DAE8 /* StartViewController.swift in Sources */,
 				92CC77FB1A642258002A86CD /* ThrowItemClass.swift in Sources */,
 				18BACE821A5E90BD00D4D69C /* AppDelegate.swift in Sources */,
 				92CC78031A6425E4002A86CD /* BucketTheme.swift in Sources */,
@@ -383,6 +387,7 @@
 				INFOPLIST_FILE = "Happy Fling/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -393,6 +398,7 @@
 				INFOPLIST_FILE = "Happy Fling/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

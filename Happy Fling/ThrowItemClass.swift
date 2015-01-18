@@ -19,17 +19,17 @@ class ThrowItemClass: SKSpriteNode
 
     
     //func
-    init(theme:ThrowItemTheme)
-    {
-        self.throwItemName = theme.name
-        self.throwItemSize = theme.size
-        self.throwAnimations = theme.throwAnimations
-        self.throwSounds = theme.throwSounds
-        
-        let texture = SKTexture(imageNamed: self.throwItemName)
-        super.init(texture: texture, color: nil, size: size.size)
-        self.position = size.origin
-    }
+//    init(theme:ThrowItemTheme)
+//    {
+//        self.throwItemName = theme.name
+//        self.throwItemSize = theme.size
+//        self.throwAnimations = theme.throwAnimations
+//        self.throwSounds = theme.throwSounds
+//        
+//        let texture = SKTexture(imageNamed: self.throwItemName)
+//        super.init(texture: texture, color: nil, size: size.size)
+//        self.position = size.origin
+//    }
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
