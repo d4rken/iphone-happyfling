@@ -29,6 +29,7 @@
 		92CC78051A642921002A86CD /* ThrowItemTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78041A642921002A86CD /* ThrowItemTheme.swift */; };
 		B1CB7B451A6D61370002C6AA /* Theme-1.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CB7B441A6D61370002C6AA /* Theme-1.png */; };
 		B1CB7B471A6D61620002C6AA /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CB7B461A6D61620002C6AA /* TransitionViewController.swift */; };
+		D1F9C8C71A6811C70017DAE8 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9C8C61A6811C70017DAE8 /* StartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		92CC78041A642921002A86CD /* ThrowItemTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowItemTheme.swift; sourceTree = "<group>"; };
 		B1CB7B441A6D61370002C6AA /* Theme-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Theme-1.png"; sourceTree = "<group>"; };
 		B1CB7B461A6D61620002C6AA /* TransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
+		D199E6391A6D5EAA00B708C2 /* DIMIS___.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIMIS___.otf"; sourceTree = "<group>"; };
+		D1F9C8C61A6811C70017DAE8 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,7 @@
 				18BACE851A5E90BD00D4D69C /* GameScene.swift */,
 				18BACE871A5E90BD00D4D69C /* GameViewController.swift */,
 				B1CB7B461A6D61620002C6AA /* TransitionViewController.swift */,
+				D1F9C8C61A6811C70017DAE8 /* StartViewController.swift */,
 				18BACE891A5E90BD00D4D69C /* Main.storyboard */,
 				18BACE8C1A5E90BD00D4D69C /* Images.xcassets */,
 				18BACE8E1A5E90BD00D4D69C /* LaunchScreen.xib */,
@@ -138,6 +142,7 @@
 		18BACE7F1A5E90BD00D4D69C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D199E6391A6D5EAA00B708C2 /* DIMIS___.otf */,
 				18BACE801A5E90BD00D4D69C /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -217,6 +222,7 @@
 				TargetAttributes = {
 					18BACE7B1A5E90BD00D4D69C = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = W88773838E;
 					};
 					18BACE941A5E90BD00D4D69C = {
 						CreatedOnToolsVersion = 6.1;
@@ -281,6 +287,7 @@
 				92CC77F91A642258002A86CD /* ThemeClass.swift in Sources */,
 				18F97F441A695BB3006BAC80 /* ThemeCellView.swift in Sources */,
 				18BACE881A5E90BD00D4D69C /* GameViewController.swift in Sources */,
+				D1F9C8C71A6811C70017DAE8 /* StartViewController.swift in Sources */,
 				92CC77FB1A642258002A86CD /* ThrowItemClass.swift in Sources */,
 				18BACE821A5E90BD00D4D69C /* AppDelegate.swift in Sources */,
 				92CC78031A6425E4002A86CD /* BucketTheme.swift in Sources */,
@@ -408,9 +415,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Happy Fling/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -418,9 +429,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Happy Fling/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
