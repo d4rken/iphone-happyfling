@@ -42,5 +42,21 @@ class ThemeSelectionViewController: UICollectionViewController {
         
         return cell
     }
-    
+
+    let toGameTransitionTag = "ThemeSelectionToGame"
+    var themeClass: ThemeClass?
+
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        themeClass = themeFactoryForIndexPath(indexPath).makeTheme()
+        self.performSegueWithIdentifier(toGameTransitionTag, sender: self)
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
+        if (segue?.identifier == toGameTransitionTag) {
+            var gameViewController = segue!.destinationViewController as GameViewController
+            // TODO set themeclass
+        }
+        
+    }
+
 }
