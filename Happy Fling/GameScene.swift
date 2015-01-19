@@ -56,7 +56,7 @@ class GameScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        createContent()
+        //createContent()
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -66,21 +66,21 @@ class GameScene: SKScene {
             let location = touch.locationInNode(self)
             
             
-            let theme = BucketTheme()
-            theme.shapeSize = CGSizeMake(100, 100)
-            let sprite = BucketClass(theme: theme)
-            
-            
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
+//            let theme = BucketTheme()
+//            theme.shapeSize = CGSizeMake(100, 100)
+//            let sprite = BucketClass(theme: theme)
+//            
+//            
+//            
+//            sprite.xScale = 0.5
+//            sprite.yScale = 0.5
+//            sprite.position = location
+//            
+//            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
+//            
+//            sprite.runAction(SKAction.repeatActionForever(action))
+//            
+//            self.addChild(sprite)
         }
     }
     
