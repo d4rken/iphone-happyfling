@@ -24,6 +24,8 @@
 		92CC78011A642489002A86CD /* ShapeThemeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78001A642489002A86CD /* ShapeThemeFactory.swift */; };
 		92CC78031A6425E4002A86CD /* BucketTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78021A6425E4002A86CD /* BucketTheme.swift */; };
 		92CC78051A642921002A86CD /* ThrowItemTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78041A642921002A86CD /* ThrowItemTheme.swift */; };
+		B1CB7B451A6D61370002C6AA /* Theme-1.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CB7B441A6D61370002C6AA /* Theme-1.png */; };
+		B1CB7B471A6D61620002C6AA /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CB7B461A6D61620002C6AA /* TransitionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		92CC78001A642489002A86CD /* ShapeThemeFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeThemeFactory.swift; sourceTree = "<group>"; };
 		92CC78021A6425E4002A86CD /* BucketTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketTheme.swift; sourceTree = "<group>"; };
 		92CC78041A642921002A86CD /* ThrowItemTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowItemTheme.swift; sourceTree = "<group>"; };
+		B1CB7B441A6D61370002C6AA /* Theme-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Theme-1.png"; sourceTree = "<group>"; };
+		B1CB7B461A6D61620002C6AA /* TransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		18BACE7E1A5E90BD00D4D69C /* Happy Fling */ = {
 			isa = PBXGroup;
 			children = (
+				B1CB7B441A6D61370002C6AA /* Theme-1.png */,
 				92CC77F41A642258002A86CD /* BucketClass.swift */,
 				92CC78021A6425E4002A86CD /* BucketTheme.swift */,
 				92CC78041A642921002A86CD /* ThrowItemTheme.swift */,
@@ -112,6 +117,7 @@
 				18BACE831A5E90BD00D4D69C /* GameScene.sks */,
 				18BACE851A5E90BD00D4D69C /* GameScene.swift */,
 				18BACE871A5E90BD00D4D69C /* GameViewController.swift */,
+				B1CB7B461A6D61620002C6AA /* TransitionViewController.swift */,
 				18BACE891A5E90BD00D4D69C /* Main.storyboard */,
 				18BACE8C1A5E90BD00D4D69C /* Images.xcassets */,
 				18BACE8E1A5E90BD00D4D69C /* LaunchScreen.xib */,
@@ -228,6 +234,7 @@
 				18BACE901A5E90BD00D4D69C /* LaunchScreen.xib in Resources */,
 				18BACE8D1A5E90BD00D4D69C /* Images.xcassets in Resources */,
 				18BACE841A5E90BD00D4D69C /* GameScene.sks in Resources */,
+				B1CB7B451A6D61370002C6AA /* Theme-1.png in Resources */,
 				18BACE8B1A5E90BD00D4D69C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +265,7 @@
 				18BACE821A5E90BD00D4D69C /* AppDelegate.swift in Sources */,
 				92CC78031A6425E4002A86CD /* BucketTheme.swift in Sources */,
 				92CC77FA1A642258002A86CD /* ThemeHistoryEntry.swift in Sources */,
+				B1CB7B471A6D61620002C6AA /* TransitionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
