@@ -25,9 +25,7 @@ class StartViewController: UIViewController {
         self.highscoreImage.hidden = true
         
         //self.highscoreLabel.font = UIFont(name: "Dimitri Swank", size: 50)
-        
        
-        
     }
   
     
