@@ -49,6 +49,64 @@
                 </panGestureRecognizer>
             </objects>
         </scene>
+        <!--Theme Selection View Controller-->
+        <scene sceneID="Zx5-FS-o7D">
+            <objects>
+                <collectionViewController id="dPe-gE-3bA" customClass="ThemeSelectionViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" dataMode="prototypes" id="CsR-hm-950">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="Z3T-ic-235">
+                            <size key="itemSize" width="150" height="150"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ThemeCell" id="LWW-IV-Q0d" customClass="ThemeCellView" customModule="Happy_Fling" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gUL-lr-6hv">
+                                            <rect key="frame" x="8" y="8" width="134" height="134"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDA-8z-BdK">
+                                            <rect key="frame" x="8" y="121" width="134" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gUL-lr-6hv" secondAttribute="trailing" constant="8" id="3Z9-6V-Cpw"/>
+                                    <constraint firstItem="gUL-lr-6hv" firstAttribute="top" secondItem="LWW-IV-Q0d" secondAttribute="top" constant="8" id="4tS-Rf-Ian"/>
+                                    <constraint firstItem="gUL-lr-6hv" firstAttribute="leading" secondItem="LWW-IV-Q0d" secondAttribute="leading" constant="8" id="6dX-h3-ohr"/>
+                                    <constraint firstAttribute="bottom" secondItem="gUL-lr-6hv" secondAttribute="bottom" constant="8" id="XAs-sG-6W1"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="icon" destination="gUL-lr-6hv" id="ZNA-5H-6M8"/>
+                                    <outlet property="name" destination="PDA-8z-BdK" id="TP5-70-7mJ"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="dPe-gE-3bA" id="ogj-4e-y3w"/>
+                            <outlet property="delegate" destination="dPe-gE-3bA" id="0dQ-sU-Onf"/>
+                        </connections>
+                    </collectionView>
+                    <connections>
+                        <outlet property="collectionView" destination="CsR-hm-950" id="ggg-GA-3yV"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WYE-ya-gz7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="844"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Spaceship" width="394" height="347"/>
