@@ -12,19 +12,23 @@ class ThemeClass: NSObject
 {
     //properties
     var introBackgroundPicture: String = ""
-    var gameBackgroundPicture: String = ""
+    var gameBackgroundPicture: String = "" //
     var gameEndBackgroundPicture: String = ""
     var themeName: String = ""
     var themeIcon:String = ""
     var themeStory: String = "" // The story to display on the transition screen
-    var bucketClass:[BucketTheme] = []
-    var throwItemClass:[ThrowItemTheme] = []
+    var bucketThemeArray:[BucketTheme] = [] //
+    var throwItemThemeArray:[ThrowItemTheme] = [] //
+    
+    //GameEnding screen
     var timeUpGreetingsMessage:String = ""
     var accuracyMessage:String = ""
-    var successfullThrowsMessage:[String] = []
+    
+    
+    var successfullThrowsMessage:[String] = [] //
     var maxGameTime:Int = 0
     var maxNumBuckets:Int = 0
     var minNumBuckets:Int = 0
     
-   
+    
 }
