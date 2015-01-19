@@ -31,6 +31,9 @@ class StartViewController: UIViewController {
        
     }
   
+    @IBAction func onPlayTapped(sender: AnyObject) {
+        self.performSegueWithIdentifier("StartScreenToThemeSelection", sender: self)
+    }
     
     override func viewDidAppear(animated: Bool) {
         
