@@ -20,11 +20,14 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
         self.titleImage.hidden = true
         self.button.hidden = true
         self.highscoreImage.hidden = true
-        
-        //self.highscoreLabel.font = UIFont(name: "Dimitri Swank", size: 50)
+
+        var highscoreFont = UIFont(name: "Dimitri Swank", size: 50)
+        self.highscoreLabel.font = highscoreFont
        
     }
   
