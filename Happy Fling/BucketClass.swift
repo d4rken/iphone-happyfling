@@ -21,22 +21,22 @@ class BucketClass: SKSpriteNode
    
     
     //func
-//    init(theme:BucketTheme)
-//    {
-////        self.bucketName = theme.name
-////        self.bucketSize = theme.size
-////        self.acceptedThrowItems = theme.acceptedThrowItems;
-////        self.successSounds = theme.successSounds
-////        self.bucketAnimations = theme.bucketAnimations
-////        
-////        let texture = SKTexture(imageNamed: bucketName)
-////        super.init(texture: texture, color: nil, size: size.size)
-////        self.position = size.origin
-////    }
-////    func accept() -> BOOLEAN
-////    {
-//        
-//    }
+    init(theme:BucketTheme)
+    {
+        self.bucketName = theme.name
+        self.bucketSize = theme.shapeSize
+        self.acceptedThrowItems = theme.acceptedThrowItems;
+        self.successSounds = theme.successSounds
+        self.bucketAnimations = theme.bucketAnimations
+        
+        let texture = SKTexture(imageNamed: bucketName)
+        super.init(texture: texture, color: nil, size: bucketSize)
+    }
+    func accept() -> Boolean
+    {
+        return 1;
+        
+    }
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

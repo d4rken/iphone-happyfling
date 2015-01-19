@@ -112,7 +112,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="6446" height="8637"/>
+        <image name="Background" width="750" height="1334"/>
         <image name="Highscore" width="6571" height="1426"/>
         <image name="Title" width="6571" height="1800"/>
         <image name="Unpressed Button" width="2483" height="2488"/>

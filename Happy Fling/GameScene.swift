@@ -30,25 +30,28 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-//        /* Called when a touch begins */
-//        
-//        for touch: AnyObject in touches {
-//            let location = touch.locationInNode(self)
-//            
-////            let sprite = BucketClass(name:"Spaceship", size: CGRectMake(100, 100, 100, 100))
-//        
-//            
-//            
-//            sprite.xScale = 0.5
-//            sprite.yScale = 0.5
-//            sprite.position = location
-//            
-//            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-//            
-//            sprite.runAction(SKAction.repeatActionForever(action))
-//            
-//            self.addChild(sprite)
-//        }
+        /* Called when a touch begins */
+        
+        for touch: AnyObject in touches {
+            let location = touch.locationInNode(self)
+            
+            
+            let theme = BucketTheme()
+            theme.shapeSize = CGSizeMake(100, 100)
+            let sprite = BucketClass(theme: theme)
+        
+            
+            
+            sprite.xScale = 0.5
+            sprite.yScale = 0.5
+            sprite.position = location
+            
+            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
+            
+            sprite.runAction(SKAction.repeatActionForever(action))
+            
+            self.addChild(sprite)
+        }
     }
    
     override func update(currentTime: CFTimeInterval) {
