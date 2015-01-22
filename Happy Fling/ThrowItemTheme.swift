@@ -14,5 +14,6 @@ class ThrowItemTheme: NSObject
     var shapeSize: CGSize = CGSizeMake(0, 0)
     var throwSounds: [String] = []
     var throwAnimations:[String] = []
+    var image:String = ""
    
 }

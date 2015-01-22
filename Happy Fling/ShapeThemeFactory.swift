@@ -14,7 +14,7 @@ class ShapeThemeFactory: ThemeFactory {
     }
 
     func getIconResource() -> NSString {
-        return "Themes/Shapes/theme_icon.png"
+        return "Themes/Shapes/shape_theme_icon.png"
     }
 
     func makeTheme() -> ThemeClass {

@@ -27,9 +27,10 @@
 		92CC78011A642489002A86CD /* ShapeThemeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78001A642489002A86CD /* ShapeThemeFactory.swift */; };
 		92CC78031A6425E4002A86CD /* BucketTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78021A6425E4002A86CD /* BucketTheme.swift */; };
 		92CC78051A642921002A86CD /* ThrowItemTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78041A642921002A86CD /* ThrowItemTheme.swift */; };
-		D199E63A1A6D688000B708C2 /* DIMIS___.otf in Resources */ = {isa = PBXBuildFile; fileRef = D199E6391A6D5EAA00B708C2 /* DIMIS___.otf */; };
 		B1CB7B451A6D61370002C6AA /* Theme-1.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CB7B441A6D61370002C6AA /* Theme-1.png */; };
 		B1CB7B471A6D61620002C6AA /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CB7B461A6D61620002C6AA /* TransitionViewController.swift */; };
+		D140D2861A71713800AB8217 /* AnimalThemeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140D2851A71713800AB8217 /* AnimalThemeFactory.swift */; };
+		D199E63A1A6D688000B708C2 /* DIMIS___.otf in Resources */ = {isa = PBXBuildFile; fileRef = D199E6391A6D5EAA00B708C2 /* DIMIS___.otf */; };
 		D1F9C8C71A6811C70017DAE8 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9C8C61A6811C70017DAE8 /* StartViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		92CC78041A642921002A86CD /* ThrowItemTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowItemTheme.swift; sourceTree = "<group>"; };
 		B1CB7B441A6D61370002C6AA /* Theme-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Theme-1.png"; sourceTree = "<group>"; };
 		B1CB7B461A6D61620002C6AA /* TransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
+		D140D2851A71713800AB8217 /* AnimalThemeFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalThemeFactory.swift; sourceTree = "<group>"; };
 		D199E6391A6D5EAA00B708C2 /* DIMIS___.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIMIS___.otf"; sourceTree = "<group>"; };
 		D1F9C8C61A6811C70017DAE8 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 				92CC78041A642921002A86CD /* ThrowItemTheme.swift */,
 				92CC77F51A642258002A86CD /* ThemeClass.swift */,
 				92CC77FC1A642416002A86CD /* ThemeFactory.swift */,
+				D140D2851A71713800AB8217 /* AnimalThemeFactory.swift */,
 				92CC78001A642489002A86CD /* ShapeThemeFactory.swift */,
 				92CC77FE1A642470002A86CD /* ColorThemeFactory.swift */,
 				18F97F431A695BB3006BAC80 /* ThemeCellView.swift */,
@@ -287,6 +290,7 @@
 				18BACE861A5E90BD00D4D69C /* GameScene.swift in Sources */,
 				92CC78011A642489002A86CD /* ShapeThemeFactory.swift in Sources */,
 				92CC77F91A642258002A86CD /* ThemeClass.swift in Sources */,
+				D140D2861A71713800AB8217 /* AnimalThemeFactory.swift in Sources */,
 				18F97F441A695BB3006BAC80 /* ThemeCellView.swift in Sources */,
 				18BACE881A5E90BD00D4D69C /* GameViewController.swift in Sources */,
 				D1F9C8C71A6811C70017DAE8 /* StartViewController.swift in Sources */,

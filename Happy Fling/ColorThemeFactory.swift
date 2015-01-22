@@ -15,7 +15,7 @@ class ColorThemeFactory: ThemeFactory {
     }
 
     func getIconResource() -> NSString {
-        return "Themes/Colors/theme_icon.png"
+        return "Themes/Colors/color_theme_icon.png"
     }
 
     func makeTheme() -> ThemeClass {
