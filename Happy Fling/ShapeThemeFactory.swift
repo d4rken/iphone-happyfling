@@ -10,7 +10,7 @@ import UIKit
 
 class ShapeThemeFactory: ThemeFactory {
     func getName() -> NSString {
-        return "Shapes Theme"
+        return "Shapes"
     }
 
     func getIconResource() -> NSString {

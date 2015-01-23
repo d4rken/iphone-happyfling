@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C94b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p2C-O8-F9i">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p2C-O8-F9i">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -165,6 +165,9 @@
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDA-8z-BdK">
                                             <rect key="frame" x="17" y="113" width="117" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="3DL-4a-Plc"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -173,14 +176,13 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="PDA-8z-BdK" secondAttribute="bottom" constant="16" id="15Y-KL-Ltd"/>
                                     <constraint firstAttribute="trailing" secondItem="gUL-lr-6hv" secondAttribute="trailing" constant="8" id="3Z9-6V-Cpw"/>
                                     <constraint firstItem="gUL-lr-6hv" firstAttribute="top" secondItem="LWW-IV-Q0d" secondAttribute="top" constant="8" id="4tS-Rf-Ian"/>
                                     <constraint firstItem="gUL-lr-6hv" firstAttribute="leading" secondItem="LWW-IV-Q0d" secondAttribute="leading" constant="8" id="6dX-h3-ohr"/>
-                                    <constraint firstItem="PDA-8z-BdK" firstAttribute="top" secondItem="LWW-IV-Q0d" secondAttribute="top" constant="113" id="9X9-yH-R4t"/>
-                                    <constraint firstAttribute="trailing" secondItem="PDA-8z-BdK" secondAttribute="trailing" constant="16" id="Tgx-vg-YET"/>
+                                    <constraint firstItem="PDA-8z-BdK" firstAttribute="leading" secondItem="LWW-IV-Q0d" secondAttribute="leadingMargin" constant="9" id="KYJ-YI-0ET"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="PDA-8z-BdK" secondAttribute="bottom" constant="8" id="THA-Re-YGv"/>
                                     <constraint firstAttribute="bottom" secondItem="gUL-lr-6hv" secondAttribute="bottom" constant="8" id="XAs-sG-6W1"/>
-                                    <constraint firstItem="PDA-8z-BdK" firstAttribute="leading" secondItem="LWW-IV-Q0d" secondAttribute="leading" constant="17" id="gHK-L9-OwB"/>
+                                    <constraint firstItem="PDA-8z-BdK" firstAttribute="centerX" secondItem="gUL-lr-6hv" secondAttribute="centerX" id="XPa-R5-ryP"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="icon" destination="gUL-lr-6hv" id="ZNA-5H-6M8"/>

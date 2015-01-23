@@ -12,7 +12,7 @@ import UIKit
 
 class AnimalThemeFactory: ThemeFactory {
     func getName() -> NSString {
-        return "Animal Theme"
+        return "Animal"
     }
     
     func getIconResource() -> NSString {

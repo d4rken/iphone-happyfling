@@ -11,7 +11,7 @@ import UIKit
 class ColorThemeFactory: ThemeFactory {
 
     func getName() -> NSString {
-        return "Colors Theme"
+        return "Colors"
     }
 
     func getIconResource() -> NSString {
