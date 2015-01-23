@@ -39,6 +39,7 @@ class ThemeSelectionViewController: UICollectionViewController {
 
         cell.icon.image = UIImage(named:themeFactory.getIconResource())
         cell.name.text = themeFactory.getName()
+        cell.name.font = UIFont(name: "Dimitri Swank", size: 20.0)
         
         return cell
     }
