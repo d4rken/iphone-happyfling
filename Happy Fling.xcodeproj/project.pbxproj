@@ -17,7 +17,6 @@
 		18BACE9C1A5E90BD00D4D69C /* Happy_FlingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BACE9B1A5E90BD00D4D69C /* Happy_FlingTests.swift */; };
 		18F97F391A694ED4006BAC80 /* ThemeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */; };
 		18F97F441A695BB3006BAC80 /* ThemeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F97F431A695BB3006BAC80 /* ThemeCellView.swift */; };
-		18F97F521A6C54EF006BAC80 /* Themes in Resources */ = {isa = PBXBuildFile; fileRef = 18F97F511A6C54EF006BAC80 /* Themes */; };
 		92CC77F81A642258002A86CD /* BucketClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F41A642258002A86CD /* BucketClass.swift */; };
 		92CC77F91A642258002A86CD /* ThemeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F51A642258002A86CD /* ThemeClass.swift */; };
 		92CC77FA1A642258002A86CD /* ThemeHistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */; };
@@ -31,6 +30,9 @@
 		B1CB7B471A6D61620002C6AA /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CB7B461A6D61620002C6AA /* TransitionViewController.swift */; };
 		D140D2861A71713800AB8217 /* AnimalThemeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140D2851A71713800AB8217 /* AnimalThemeFactory.swift */; };
 		D199E63A1A6D688000B708C2 /* DIMIS___.otf in Resources */ = {isa = PBXBuildFile; fileRef = D199E6391A6D5EAA00B708C2 /* DIMIS___.otf */; };
+		D1D9DC201A7243D100C0DBC9 /* shape_theme_icon.png.png in Resources */ = {isa = PBXBuildFile; fileRef = D1D9DC1F1A7243D100C0DBC9 /* shape_theme_icon.png.png */; };
+		D1D9DC231A7243FD00C0DBC9 /* color_theme_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D1D9DC221A7243FD00C0DBC9 /* color_theme_icon.png */; };
+		D1D9DC261A72442400C0DBC9 /* animal_theme_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D1D9DC251A72442400C0DBC9 /* animal_theme_icon.png */; };
 		D1F9C8C71A6811C70017DAE8 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9C8C61A6811C70017DAE8 /* StartViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +61,6 @@
 		18BACE9B1A5E90BD00D4D69C /* Happy_FlingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_FlingTests.swift; sourceTree = "<group>"; };
 		18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewController.swift; sourceTree = "<group>"; };
 		18F97F431A695BB3006BAC80 /* ThemeCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCellView.swift; sourceTree = "<group>"; };
-		18F97F511A6C54EF006BAC80 /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Themes; sourceTree = "<group>"; };
 		92CC77F41A642258002A86CD /* BucketClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketClass.swift; sourceTree = "<group>"; };
 		92CC77F51A642258002A86CD /* ThemeClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeClass.swift; sourceTree = "<group>"; };
 		92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeHistoryEntry.swift; sourceTree = "<group>"; };
@@ -73,6 +74,9 @@
 		B1CB7B461A6D61620002C6AA /* TransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
 		D140D2851A71713800AB8217 /* AnimalThemeFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalThemeFactory.swift; sourceTree = "<group>"; };
 		D199E6391A6D5EAA00B708C2 /* DIMIS___.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIMIS___.otf"; sourceTree = "<group>"; };
+		D1D9DC1F1A7243D100C0DBC9 /* shape_theme_icon.png.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shape_theme_icon.png.png; sourceTree = "<group>"; };
+		D1D9DC221A7243FD00C0DBC9 /* color_theme_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = color_theme_icon.png; sourceTree = "<group>"; };
+		D1D9DC251A72442400C0DBC9 /* animal_theme_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animal_theme_icon.png; sourceTree = "<group>"; };
 		D1F9C8C61A6811C70017DAE8 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +119,7 @@
 		18BACE7E1A5E90BD00D4D69C /* Happy Fling */ = {
 			isa = PBXGroup;
 			children = (
+				D1D9DC1D1A72437D00C0DBC9 /* Themes */,
 				18F97F4F1A6C5494006BAC80 /* Resources */,
 				B1CB7B441A6D61370002C6AA /* Theme-1.png */,
 				92CC77F41A642258002A86CD /* BucketClass.swift */,
@@ -172,9 +177,42 @@
 		18F97F4F1A6C5494006BAC80 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				18F97F511A6C54EF006BAC80 /* Themes */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		D1D9DC1D1A72437D00C0DBC9 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				D1D9DC241A72442400C0DBC9 /* Animals */,
+				D1D9DC211A7243FD00C0DBC9 /* Colors */,
+				D1D9DC1E1A7243AE00C0DBC9 /* Shapes */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
+		D1D9DC1E1A7243AE00C0DBC9 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				D1D9DC1F1A7243D100C0DBC9 /* shape_theme_icon.png.png */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		D1D9DC211A7243FD00C0DBC9 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				D1D9DC221A7243FD00C0DBC9 /* color_theme_icon.png */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		D1D9DC241A72442400C0DBC9 /* Animals */ = {
+			isa = PBXGroup;
+			children = (
+				D1D9DC251A72442400C0DBC9 /* animal_theme_icon.png */,
+			);
+			path = Animals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,13 +296,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1D9DC231A7243FD00C0DBC9 /* color_theme_icon.png in Resources */,
 				D199E63A1A6D688000B708C2 /* DIMIS___.otf in Resources */,
-				18F97F521A6C54EF006BAC80 /* Themes in Resources */,
 				18BACE901A5E90BD00D4D69C /* LaunchScreen.xib in Resources */,
+				D1D9DC261A72442400C0DBC9 /* animal_theme_icon.png in Resources */,
 				18BACE8D1A5E90BD00D4D69C /* Images.xcassets in Resources */,
 				18BACE841A5E90BD00D4D69C /* GameScene.sks in Resources */,
 				B1CB7B451A6D61370002C6AA /* Theme-1.png in Resources */,
 				18BACE8B1A5E90BD00D4D69C /* Main.storyboard in Resources */,
+				D1D9DC201A7243D100C0DBC9 /* shape_theme_icon.png.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

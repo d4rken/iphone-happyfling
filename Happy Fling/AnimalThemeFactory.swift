@@ -16,7 +16,7 @@ class AnimalThemeFactory: ThemeFactory {
     }
     
     func getIconResource() -> NSString {
-        return "Themes/Shapes/animal_theme_icon.png"
+        return "Themes/Animals/animal_theme_icon.png"
     }
     
     func makeTheme() -> ThemeClass {
