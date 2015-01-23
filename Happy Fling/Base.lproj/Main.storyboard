@@ -88,7 +88,7 @@
                         <outlet property="button" destination="Aul-4P-ae7" id="7Y4-TZ-nzG"/>
                         <outlet property="highscoreImage" destination="Pt8-jI-sn9" id="Odz-qQ-wvl"/>
                         <outlet property="titleImage" destination="Gh2-eg-ggw" id="bfZ-Rq-SBr"/>
-                        <segue destination="dPe-gE-3bA" kind="show" identifier="StartScreenToThemeSelection" id="NBr-gZ-fl1"/>
+                        <segue destination="dPe-gE-3bA" kind="presentation" identifier="StartScreenToThemeSelection" modalPresentationStyle="fullScreen" animates="NO" id="NBr-gZ-fl1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jfm-i7-2rP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -163,8 +163,8 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gUL-lr-6hv">
                                             <rect key="frame" x="8" y="8" width="134" height="134"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDA-8z-BdK">
-                                            <rect key="frame" x="8" y="121" width="134" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDA-8z-BdK">
+                                            <rect key="frame" x="17" y="113" width="117" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -173,10 +173,14 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="PDA-8z-BdK" secondAttribute="bottom" constant="16" id="15Y-KL-Ltd"/>
                                     <constraint firstAttribute="trailing" secondItem="gUL-lr-6hv" secondAttribute="trailing" constant="8" id="3Z9-6V-Cpw"/>
                                     <constraint firstItem="gUL-lr-6hv" firstAttribute="top" secondItem="LWW-IV-Q0d" secondAttribute="top" constant="8" id="4tS-Rf-Ian"/>
                                     <constraint firstItem="gUL-lr-6hv" firstAttribute="leading" secondItem="LWW-IV-Q0d" secondAttribute="leading" constant="8" id="6dX-h3-ohr"/>
+                                    <constraint firstItem="PDA-8z-BdK" firstAttribute="top" secondItem="LWW-IV-Q0d" secondAttribute="top" constant="113" id="9X9-yH-R4t"/>
+                                    <constraint firstAttribute="trailing" secondItem="PDA-8z-BdK" secondAttribute="trailing" constant="16" id="Tgx-vg-YET"/>
                                     <constraint firstAttribute="bottom" secondItem="gUL-lr-6hv" secondAttribute="bottom" constant="8" id="XAs-sG-6W1"/>
+                                    <constraint firstItem="PDA-8z-BdK" firstAttribute="leading" secondItem="LWW-IV-Q0d" secondAttribute="leading" constant="17" id="gHK-L9-OwB"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="icon" destination="gUL-lr-6hv" id="ZNA-5H-6M8"/>
@@ -189,6 +193,7 @@
                             <outlet property="delegate" destination="dPe-gE-3bA" id="0dQ-sU-Onf"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="wSs-ZN-5nC"/>
                     <connections>
                         <outlet property="collectionView" destination="CsR-hm-950" id="ggg-GA-3yV"/>
                         <segue destination="6m3-4X-eIS" kind="show" identifier="ThemeSelectionToTransitionScreen" id="jXT-2I-hgk"/>
