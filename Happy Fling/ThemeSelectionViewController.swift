@@ -16,7 +16,7 @@ class ThemeSelectionViewController: UICollectionViewController {
     let themes = ThemeFactoryHelper.getAllFactories()
 
     override func viewDidLoad() {
-        
+        self.collectionView.backgroundView = UIImageView(image: UIImage(named: "Background")!)
         super.viewDidLoad()
     }
 
