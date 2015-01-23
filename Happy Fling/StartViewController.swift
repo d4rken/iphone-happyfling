@@ -15,6 +15,7 @@ class StartViewController: UIViewController {
     @IBOutlet weak var titleImage: UIImageView!
     @IBOutlet weak var highscoreImage: UIImageView!
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     
     override func viewDidLoad() {
@@ -24,6 +25,7 @@ class StartViewController: UIViewController {
         self.titleImage.hidden = true
         self.button.hidden = true
         self.highscoreImage.hidden = true
+        backgroundImage.image = UIImage(named: "Background")
        
     }
   

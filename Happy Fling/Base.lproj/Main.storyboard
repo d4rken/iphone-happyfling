@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="p55-pv-NGr">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p55-pv-NGr">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aul-4P-ae7">
@@ -84,6 +84,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="backgroundImage" destination="p55-pv-NGr" id="cpo-hq-YAu"/>
                         <outlet property="button" destination="Aul-4P-ae7" id="7Y4-TZ-nzG"/>
                         <outlet property="highscoreImage" destination="Pt8-jI-sn9" id="Odz-qQ-wvl"/>
                         <outlet property="titleImage" destination="Gh2-eg-ggw" id="bfZ-Rq-SBr"/>
@@ -247,7 +248,6 @@ She will come back in two minutes.</string>
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="750" height="1334"/>
         <image name="Highscore" width="6571" height="1426"/>
         <image name="Spaceship" width="394" height="347"/>
         <image name="Theme-1.png" width="2048" height="1536"/>
