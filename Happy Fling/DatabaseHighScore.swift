@@ -23,7 +23,7 @@ struct ScoreEntry {
     var scoreBoard: Array<ScoreEntry> = Array()
     var databasePath: String
     
-    let KEY_POINTS: String = "points"
+    let KEY_POINTS: String = "points" 
     let KEY_TIME: String = "time"
     let KEY_ACCURACY: String = "accuracy"
     let KEY_NUMBEROFTHWORS : String = "numberOfThrows"
