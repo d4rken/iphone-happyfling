@@ -32,7 +32,6 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="p2C-O8-F9i" eventType="touchUpInside" id="3fL-3I-xo8"/>
-                                    <action selector="onPlayTapped:" destination="p2C-O8-F9i" eventType="touchUpInside" id="w2y-bv-iTI"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title" translatesAutoresizingMaskIntoConstraints="NO" id="Gh2-eg-ggw">

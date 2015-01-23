@@ -31,9 +31,6 @@ class StartViewController: UIViewController {
        
     }
   
-    @IBAction func onPlayTapped(sender: AnyObject) {
-        self.performSegueWithIdentifier("StartScreenToThemeSelection", sender: self)
-    }
     
     override func viewDidAppear(animated: Bool) {
         
@@ -70,7 +67,9 @@ class StartViewController: UIViewController {
                     self.button.alpha = 0
                     self.highscoreImage.transform = CGAffineTransformMakeScale(0.01, 0.01)
                     self.highscoreImage.alpha = 0
-                    }, completion: nil)
+                    }, completion: {(success) -> Void in
+                        self.performSegueWithIdentifier("StartScreenToThemeSelection", sender: self)
+                })
         })
     
         //Animate Title
