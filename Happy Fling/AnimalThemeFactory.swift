@@ -28,13 +28,13 @@ class AnimalThemeFactory: ThemeFactory {
             //Honey
             var itemHoney = ThrowItemTheme()
             itemHoney.name = "Honey Item"
-            itemHoney.image = "Honey.png"
+            itemHoney.image = "Themes/Animals/Bear/Honey.png"
             theme.throwItemThemeArray.append(itemHoney)
         
             //Bear
             var itemBear = ThrowItemTheme()
             itemBear.name = "Bear Item"
-            itemBear.image = "Bear.png"
+            itemBear.image = "Themes/Animals/Bear/Bear.png"
             theme.throwItemThemeArray.append(itemBear)
             var bucketBear = BucketTheme()
             bucketBear.name = "Bear Bucket"
@@ -44,14 +44,14 @@ class AnimalThemeFactory: ThemeFactory {
         //Bird & Worm   -> Feed the worm to the bear
             //Worm
             var itemWorm = ThrowItemTheme()
-            itemWorm.name = "Worm Item"
+            itemWorm.name = "Themes/Animals/Bird/Worm Item"
             itemWorm.image = "Worm.png"
             theme.throwItemThemeArray.append(itemWorm)
         
             //Bird
             var itemBird = ThrowItemTheme()
             itemBird.name = "Bird Item"
-            itemBird.image = "Bird.png"
+            itemBird.image = "Themes/Animals/Bird/Bird.png"
             theme.throwItemThemeArray.append(itemBird)
             var bucketBird = BucketTheme()
             bucketBear.name = "Bird Bucket"
@@ -62,13 +62,13 @@ class AnimalThemeFactory: ThemeFactory {
             //Fish
             var itemFish = ThrowItemTheme()
             itemFish.name = "Fish Item"
-            itemFish.image = "Fish.png"
+            itemFish.image = "Themes/Animals/Cat/Fish.png"
             theme.throwItemThemeArray.append(itemFish)
         
             //Cat
             var itemCat = ThrowItemTheme()
             itemCat.name = "Cat Item"
-            itemCat.image = "Cat.png"
+            itemCat.image = "Themes/Animals/Cat/Cat.png"
             theme.throwItemThemeArray.append(itemCat)
             var bucketCat = BucketTheme()
             bucketCat.name = "Cat Bucket"
@@ -79,13 +79,13 @@ class AnimalThemeFactory: ThemeFactory {
             //Bone
             var itemBone = ThrowItemTheme()
             itemBone.name = "Bone Item"
-            itemBone.image = "Bone.png"
+            itemBone.image = "Themes/Animals/Dog/Bone.png"
             theme.throwItemThemeArray.append(itemBone)
         
             //Dog
             var itemDog = ThrowItemTheme()
             itemDog.name = "Dog Item"
-            itemDog.image = "Dog.png"
+            itemDog.image = "Themes/Animals/Dog/Dog.png"
             theme.throwItemThemeArray.append(itemDog)
             var bucketDog = BucketTheme()
             bucketDog.name = "Dog Bucket"

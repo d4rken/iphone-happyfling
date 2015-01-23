@@ -12,7 +12,6 @@ import Foundation
 class StartViewController: UIViewController {
     
     
-    @IBOutlet weak var highscoreLabel: UILabel!
     @IBOutlet weak var titleImage: UIImageView!
     @IBOutlet weak var highscoreImage: UIImageView!
     @IBOutlet weak var button: UIButton!
@@ -25,9 +24,6 @@ class StartViewController: UIViewController {
         self.titleImage.hidden = true
         self.button.hidden = true
         self.highscoreImage.hidden = true
-
-        var highscoreFont = UIFont(name: "Dimitri Swank", size: 50)
-        self.highscoreLabel.font = highscoreFont
        
     }
   
