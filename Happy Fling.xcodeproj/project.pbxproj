@@ -17,6 +17,9 @@
 		18BACE9C1A5E90BD00D4D69C /* Happy_FlingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BACE9B1A5E90BD00D4D69C /* Happy_FlingTests.swift */; };
 		18F97F391A694ED4006BAC80 /* ThemeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */; };
 		18F97F441A695BB3006BAC80 /* ThemeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F97F431A695BB3006BAC80 /* ThemeCellView.swift */; };
+		18F97F521A6C54EF006BAC80 /* Themes in Resources */ = {isa = PBXBuildFile; fileRef = 18F97F511A6C54EF006BAC80 /* Themes */; };
+		545C08F01A7244AC00383762 /* DatabaseHighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C08EF1A7244AC00383762 /* DatabaseHighScore.swift */; };
+		545C08F21A72479B00383762 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C08F11A72479B00383762 /* GameOverViewController.swift */; };
 		92CC77F81A642258002A86CD /* BucketClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F41A642258002A86CD /* BucketClass.swift */; };
 		92CC77F91A642258002A86CD /* ThemeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F51A642258002A86CD /* ThemeClass.swift */; };
 		92CC77FA1A642258002A86CD /* ThemeHistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */; };
@@ -59,6 +62,9 @@
 		18BACE9B1A5E90BD00D4D69C /* Happy_FlingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_FlingTests.swift; sourceTree = "<group>"; };
 		18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewController.swift; sourceTree = "<group>"; };
 		18F97F431A695BB3006BAC80 /* ThemeCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCellView.swift; sourceTree = "<group>"; };
+		18F97F511A6C54EF006BAC80 /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Themes; sourceTree = "<group>"; };
+		545C08EF1A7244AC00383762 /* DatabaseHighScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHighScore.swift; sourceTree = "<group>"; };
+		545C08F11A72479B00383762 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		92CC77F41A642258002A86CD /* BucketClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketClass.swift; sourceTree = "<group>"; };
 		92CC77F51A642258002A86CD /* ThemeClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeClass.swift; sourceTree = "<group>"; };
 		92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeHistoryEntry.swift; sourceTree = "<group>"; };
@@ -120,6 +126,8 @@
 				B1CB7B441A6D61370002C6AA /* Theme-1.png */,
 				92CC77F41A642258002A86CD /* BucketClass.swift */,
 				92CC78021A6425E4002A86CD /* BucketTheme.swift */,
+				545C08EF1A7244AC00383762 /* DatabaseHighScore.swift */,
+				545C08F11A72479B00383762 /* GameOverViewController.swift */,
 				92CC78041A642921002A86CD /* ThrowItemTheme.swift */,
 				92CC77F51A642258002A86CD /* ThemeClass.swift */,
 				92CC77FC1A642416002A86CD /* ThemeFactory.swift */,
@@ -291,11 +299,13 @@
 				92CC78011A642489002A86CD /* ShapeThemeFactory.swift in Sources */,
 				92CC77F91A642258002A86CD /* ThemeClass.swift in Sources */,
 				D140D2861A71713800AB8217 /* AnimalThemeFactory.swift in Sources */,
+				545C08F21A72479B00383762 /* GameOverViewController.swift in Sources */,
 				18F97F441A695BB3006BAC80 /* ThemeCellView.swift in Sources */,
 				18BACE881A5E90BD00D4D69C /* GameViewController.swift in Sources */,
 				D1F9C8C71A6811C70017DAE8 /* StartViewController.swift in Sources */,
 				92CC77FB1A642258002A86CD /* ThrowItemClass.swift in Sources */,
 				18BACE821A5E90BD00D4D69C /* AppDelegate.swift in Sources */,
+				545C08F01A7244AC00383762 /* DatabaseHighScore.swift in Sources */,
 				92CC78031A6425E4002A86CD /* BucketTheme.swift in Sources */,
 				92CC77FA1A642258002A86CD /* ThemeHistoryEntry.swift in Sources */,
 				B1CB7B471A6D61620002C6AA /* TransitionViewController.swift in Sources */,
