@@ -22,7 +22,7 @@ class ShapeThemeFactory: ThemeFactory {
         theme.themeName = getName()
         theme.themeIcon = getIconResource()
         theme.gameBackgroundPicture = "Theme-1.png"
-        theme.themeStory = "How messy it is!\nYour lovely 2 years old daughter played with her toy bricks.\nYou’d better tidy up the table as soon as possible, if you don’t want your wife shout you!\nShe will come back in two minutes."
+        theme.themeStory = "How messy it is!\nYour lovely 2 years old daughter played with her toy bricks.\nYou’d better tidy up the table as soon as possible, if you don’t want your wife shout you!\nShe will come back in two minutes.\n\n\n \"Tap the screen to continue\""
         var itemSquare = ThrowItemTheme()
         itemSquare.name = "Square Item"
         theme.throwItemThemeArray.append(itemSquare)
