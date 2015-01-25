@@ -22,7 +22,7 @@ class ColorThemeFactory: ThemeFactory {
         var theme = ThemeClass()
         theme.themeName = getName()
         theme.themeIcon = getIconResource()
-
+        theme.gameBackgroundPicture = "Theme-1.png"
         var itemGreen = ThrowItemTheme()
         itemGreen.name = "Green Item"
         theme.throwItemThemeArray.append(itemGreen)
