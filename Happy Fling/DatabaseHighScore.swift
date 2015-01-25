@@ -54,8 +54,6 @@ struct ScoreEntry {
             let numberOfThrows = score[KEY_NUMBEROFTHWORS] as NSInteger
             let numberSuccThrows = score[KEY_NUMBERSUCCTHROWS] as NSInteger
             
-            
-            
             let scoreEntry = ScoreEntry( points: points, time: time, accuracy: accuracy, numberOfThrows : numberOfThrows, numberSuccThrows: numberSuccThrows);
             scoreBoard.append(scoreEntry)
         }
