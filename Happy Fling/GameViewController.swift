@@ -80,7 +80,9 @@ class GameViewController: UIViewController {
             throw3.name = "Background"
             throw3.shapeSize = CGSizeMake(50, 50)
             
-            self.theme.bucketThemeArray = [bucket1,bucket2,bucket3]
+            theme.bucketThemeArray.append(bucket1)
+            theme.bucketThemeArray.append(bucket2)
+            theme.bucketThemeArray.append(bucket3)
             self.theme.throwItemThemeArray = [throw1,throw2,throw3]
 
             
