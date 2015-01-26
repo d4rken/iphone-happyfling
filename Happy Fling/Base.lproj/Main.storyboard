@@ -135,6 +135,7 @@
                         <outlet property="blueSquare" destination="S5t-uI-d4H" id="qPb-mV-AvG"/>
                         <outlet property="image" destination="iw5-ON-Zg3" id="dBm-wo-W75"/>
                         <outlet property="redSquare" destination="Ex8-K6-VLw" id="4i0-cK-Se2"/>
+                        <segue destination="jqi-zz-zfY" kind="show" id="htC-dF-jci"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
@@ -144,7 +145,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1121" y="143"/>
+            <point key="canvasLocation" x="1121" y="215"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="iiW-bq-N1k">
@@ -155,7 +156,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lwd-vd-rxe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oAh-3n-DEF">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4D3-Wr-Nrj">
@@ -197,10 +198,15 @@
                             <constraint firstAttribute="centerX" secondItem="fB2-hB-4vy" secondAttribute="centerX" constant="-8" id="SP7-ms-8qh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="6m3-4X-eIS" kind="show" id="9d7-qP-4yG"/>
+                        <segue destination="LVB-YS-i5n" kind="show" id="gIR-3P-H5u"/>
+                        <segue destination="dPe-gE-3bA" kind="show" id="wnS-8r-ZXU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3f3-Q1-2dh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-261" y="1102"/>
+            <point key="canvasLocation" x="288" y="1014"/>
         </scene>
         <!--Theme Selection View Controller-->
         <scene sceneID="Zx5-FS-o7D">
@@ -259,7 +265,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYE-ya-gz7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-846" y="137"/>
+            <point key="canvasLocation" x="-784" y="-141"/>
         </scene>
         <!--Transition View Controller-->
         <scene sceneID="bQB-ph-iCd">
@@ -307,7 +313,7 @@ She will come back in two minutes.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4es-se-QHq" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108" y="137"/>
+            <point key="canvasLocation" x="190" y="149"/>
         </scene>
     </scenes>
     <resources>
@@ -318,4 +324,9 @@ She will come back in two minutes.</string>
         <image name="Title" width="6571" height="1800"/>
         <image name="Unpressed Button" width="2483" height="2488"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="gIR-3P-H5u"/>
+        <segue reference="wnS-8r-ZXU"/>
+        <segue reference="9d7-qP-4yG"/>
+    </inferredMetricsTieBreakers>
 </document>
