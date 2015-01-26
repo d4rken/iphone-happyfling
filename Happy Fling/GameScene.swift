@@ -112,7 +112,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
      CGPoint(x:CGRectGetMaxX(self.frame)-self.itemSize, y:CGRectGetMaxY(self.frame)-self.itemSize)]
         //parameter number of bucket and throwItems
         self.throwItemNum = self.theme.throwItemThemeArray.count
-        self.bucketNum = Int(arc4random_uniform(UInt32(self.theme.maxNumBuckets))) + self.theme.minNumBuckets
+        self.bucketNum = Int(arc4random_uniform(UInt32(self.theme.maxNumBuckets - self.theme.minNumBuckets))) + self.theme.minNumBuckets
         //gesture
         var gesture = UIPanGestureRecognizer(target: self, action: "handleAttachmentGesture:")
         self.view?.addGestureRecognizer(gesture)

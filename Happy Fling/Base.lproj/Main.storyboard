@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p2C-O8-F9i">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p2C-O8-F9i">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -104,17 +104,19 @@
                         <viewControllerLayoutGuide type="bottom" id="b3d-qh-BLL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bdc-N1-crn" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                     </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="jqi-zz-zfY" kind="show" id="htC-dF-jci"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1121" y="143"/>
+            <point key="canvasLocation" x="1121" y="215"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="iiW-bq-N1k">
@@ -125,7 +127,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lwd-vd-rxe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oAh-3n-DEF">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4D3-Wr-Nrj">
@@ -167,17 +169,22 @@
                             <constraint firstAttribute="centerX" secondItem="fB2-hB-4vy" secondAttribute="centerX" constant="-8" id="SP7-ms-8qh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="6m3-4X-eIS" kind="show" id="9d7-qP-4yG"/>
+                        <segue destination="LVB-YS-i5n" kind="show" id="gIR-3P-H5u"/>
+                        <segue destination="dPe-gE-3bA" kind="show" id="wnS-8r-ZXU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3f3-Q1-2dh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-261" y="1102"/>
+            <point key="canvasLocation" x="190" y="776"/>
         </scene>
         <!--Theme Selection View Controller-->
         <scene sceneID="Zx5-FS-o7D">
             <objects>
                 <collectionViewController id="dPe-gE-3bA" customClass="ThemeSelectionViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" dataMode="prototypes" id="CsR-hm-950">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="Z3T-ic-235">
                             <size key="itemSize" width="150" height="150"/>
@@ -236,7 +243,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYE-ya-gz7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-846" y="137"/>
+            <point key="canvasLocation" x="-784" y="-141"/>
         </scene>
         <!--Transition View Controller-->
         <scene sceneID="bQB-ph-iCd">
@@ -284,7 +291,7 @@ She will come back in two minutes.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4es-se-QHq" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108" y="137"/>
+            <point key="canvasLocation" x="156" y="-205"/>
         </scene>
     </scenes>
     <resources>
@@ -293,4 +300,9 @@ She will come back in two minutes.</string>
         <image name="Title" width="6571" height="1800"/>
         <image name="Unpressed Button" width="2483" height="2488"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="gIR-3P-H5u"/>
+        <segue reference="9d7-qP-4yG"/>
+        <segue reference="wnS-8r-ZXU"/>
+    </inferredMetricsTieBreakers>
 </document>
