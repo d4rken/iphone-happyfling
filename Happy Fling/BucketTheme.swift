@@ -15,6 +15,6 @@ class BucketTheme: NSObject
     var acceptedThrowItems:[String] = []
     var successSounds: [String] = []
     var bucketAnimations:[String] = []
-    
+    var image:String = "Themes/bucket.png"
    
 }

@@ -13,11 +13,11 @@ class ThrowItemClass: SKSpriteNode
 {
     //properties
     var throwItemName: String = ""
-    var throwItemSize: CGSize
+    var throwItemSize: CGSize = CGSizeMake(50, 50)
     var throwAnimations:[String] = []
     var throwSounds: [String] = []
 
-    
+
     //func
     init(theme:ThrowItemTheme)
     {
@@ -26,14 +26,12 @@ class ThrowItemClass: SKSpriteNode
         self.throwAnimations = theme.throwAnimations
         self.throwSounds = theme.throwSounds
         
-        let texture = SKTexture(imageNamed: self.throwItemName)
+        let texture = SKTexture(imageNamed: theme.image)
         super.init(texture: texture, color: nil, size: throwItemSize)
     }
-    
-    required init(coder aDecoder: NSCoder) {
+
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    
    
 }

@@ -11,7 +11,7 @@ import UIKit
 class ThrowItemTheme: NSObject
 {
     var name:String = ""
-    var shapeSize: CGSize = CGSizeMake(0, 0)
+    var shapeSize: CGSize = CGSizeMake(50, 50)
     var throwSounds: [String] = []
     var throwAnimations:[String] = []
     var image:String = ""
