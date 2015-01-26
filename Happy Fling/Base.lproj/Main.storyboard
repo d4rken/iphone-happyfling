@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p2C-O8-F9i">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p2C-O8-F9i">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -104,16 +104,13 @@
                         <viewControllerLayoutGuide type="bottom" id="b3d-qh-BLL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bdc-N1-crn" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="blueSquare" destination="S5t-uI-d4H" id="qPb-mV-AvG"/>
-                        <outlet property="image" destination="iw5-ON-Zg3" id="dBm-wo-W75"/>
-                        <outlet property="redSquare" destination="Ex8-K6-VLw" id="4i0-cK-Se2"/>
                         <segue destination="jqi-zz-zfY" kind="show" id="htC-dF-jci"/>
                     </connections>
                 </viewController>
@@ -130,7 +127,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lwd-vd-rxe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oAh-3n-DEF">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4D3-Wr-Nrj">
@@ -180,14 +177,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3f3-Q1-2dh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="288" y="1014"/>
+            <point key="canvasLocation" x="190" y="776"/>
         </scene>
         <!--Theme Selection View Controller-->
         <scene sceneID="Zx5-FS-o7D">
             <objects>
                 <collectionViewController id="dPe-gE-3bA" customClass="ThemeSelectionViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" dataMode="prototypes" id="CsR-hm-950">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="Z3T-ic-235">
                             <size key="itemSize" width="150" height="150"/>
@@ -294,7 +291,7 @@ She will come back in two minutes.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4es-se-QHq" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="190" y="149"/>
+            <point key="canvasLocation" x="156" y="-205"/>
         </scene>
     </scenes>
     <resources>
@@ -305,7 +302,7 @@ She will come back in two minutes.</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gIR-3P-H5u"/>
-        <segue reference="wnS-8r-ZXU"/>
         <segue reference="9d7-qP-4yG"/>
+        <segue reference="wnS-8r-ZXU"/>
     </inferredMetricsTieBreakers>
 </document>
