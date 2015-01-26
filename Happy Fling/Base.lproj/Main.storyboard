@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p2C-O8-F9i">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LVB-YS-i5n">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -111,38 +111,15 @@
                         <viewControllerLayoutGuide type="bottom" id="b3d-qh-BLL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bdc-N1-crn" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ex8-K6-VLw">
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S5t-uI-d4H">
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Spaceship" translatesAutoresizingMaskIntoConstraints="NO" id="iw5-ON-Zg3">
-                                <rect key="frame" x="115" y="470" width="91" height="72"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="2ci-O1-aXo" appends="YES" id="Axc-KM-NDD"/>
-                        </connections>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="blueSquare" destination="S5t-uI-d4H" id="qPb-mV-AvG"/>
-                        <outlet property="image" destination="iw5-ON-Zg3" id="dBm-wo-W75"/>
-                        <outlet property="redSquare" destination="Ex8-K6-VLw" id="4i0-cK-Se2"/>
-                    </connections>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="2ci-O1-aXo">
-                    <connections>
-                        <action selector="handleAttachmentGesture:" destination="LVB-YS-i5n" id="erZ-8G-ACF"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1123" y="137"/>
         </scene>
@@ -257,7 +234,6 @@ She will come back in two minutes.</string>
     <resources>
         <image name="Background" width="750" height="1334"/>
         <image name="Highscore" width="6571" height="1426"/>
-        <image name="Spaceship" width="394" height="347"/>
         <image name="Theme-1.png" width="2048" height="1536"/>
         <image name="Title" width="6571" height="1800"/>
         <image name="Unpressed Button" width="2483" height="2488"/>
