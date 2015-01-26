@@ -29,7 +29,7 @@ class BucketClass: SKSpriteNode
         self.successSounds = theme.successSounds
         self.bucketAnimations = theme.bucketAnimations
         
-        let texture = SKTexture(imageNamed: bucketName)
+        let texture = SKTexture(imageNamed: theme.image)
         super.init(texture: texture, color: nil, size: bucketSize)
     }
     func accept() -> Boolean

@@ -26,9 +26,9 @@ class ThemeClass: NSObject
     
     
     var successfullThrowsMessage:[String] = [] //
-    var maxGameTime:Int = 0
-    var maxNumBuckets:Int = 0
-    var minNumBuckets:Int = 0
+    var maxGameTime:Int = 120
+    var maxNumBuckets:Int = 3
+    var minNumBuckets:Int = 3
     
     
 }
