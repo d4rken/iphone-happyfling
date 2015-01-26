@@ -20,6 +20,7 @@ class ThemeFactoryHelper: NSObject {
         // Add all available themes
         factories.append(ColorThemeFactory())
         factories.append(ShapeThemeFactory())
+        factories.append(AnimalThemeFactory())
 
         // Lets add some more just for testing
         factories.append(ColorThemeFactory())

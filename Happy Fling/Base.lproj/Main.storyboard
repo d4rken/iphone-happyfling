@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LVB-YS-i5n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p2C-O8-F9i">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="p55-pv-NGr">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p55-pv-NGr">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aul-4P-ae7">
@@ -32,7 +32,6 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="p2C-O8-F9i" eventType="touchUpInside" id="3fL-3I-xo8"/>
-                                    <action selector="onPlayTapped:" destination="p2C-O8-F9i" eventType="touchUpInside" id="w2y-bv-iTI"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title" translatesAutoresizingMaskIntoConstraints="NO" id="Gh2-eg-ggw">
@@ -56,12 +55,6 @@
                                     <constraint firstAttribute="height" constant="65" id="kHK-LL-uaF"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKI-nA-oo1">
-                                <rect key="frame" x="82" y="236" width="32" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -91,11 +84,11 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="backgroundImage" destination="p55-pv-NGr" id="cpo-hq-YAu"/>
                         <outlet property="button" destination="Aul-4P-ae7" id="7Y4-TZ-nzG"/>
                         <outlet property="highscoreImage" destination="Pt8-jI-sn9" id="Odz-qQ-wvl"/>
-                        <outlet property="highscoreLabel" destination="fKI-nA-oo1" id="Cc8-Mb-pPt"/>
                         <outlet property="titleImage" destination="Gh2-eg-ggw" id="bfZ-Rq-SBr"/>
-                        <segue destination="dPe-gE-3bA" kind="show" identifier="StartScreenToThemeSelection" id="NBr-gZ-fl1"/>
+                        <segue destination="dPe-gE-3bA" kind="presentation" identifier="StartScreenToThemeSelection" modalPresentationStyle="fullScreen" animates="NO" id="NBr-gZ-fl1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jfm-i7-2rP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -121,7 +114,63 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1123" y="137"/>
+            <point key="canvasLocation" x="1121" y="143"/>
+        </scene>
+        <!--Game Over View Controller-->
+        <scene sceneID="iiW-bq-N1k">
+            <objects>
+                <viewController id="jqi-zz-zfY" customClass="GameOverViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gMh-cZ-zbZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="lwd-vd-rxe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oAh-3n-DEF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4D3-Wr-Nrj">
+                                <rect key="frame" x="248" y="206" width="88" height="30"/>
+                                <state key="normal" title="PLAY AGAIN">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playAgain:" destination="jqi-zz-zfY" eventType="touchUpInside" id="eRJ-Zh-zmN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CuY-y2-A0Q">
+                                <rect key="frame" x="246" y="291" width="90" height="30"/>
+                                <state key="normal" title="HOMEMENU">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToHome:" destination="jqi-zz-zfY" eventType="touchUpInside" id="DdM-hu-0Pb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMn-a6-jb1">
+                                <rect key="frame" x="231" y="253" width="120" height="30"/>
+                                <state key="normal" title="CHANGE THEME">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeTheme:" destination="jqi-zz-zfY" eventType="touchUpInside" id="lZx-VI-56S"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="WELL DONE!!! YOU CLEANED WELL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fB2-hB-4vy">
+                                <rect key="frame" x="164" y="72" width="286" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="fB2-hB-4vy" secondAttribute="centerX" constant="-8" id="SP7-ms-8qh"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3f3-Q1-2dh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-261" y="1102"/>
         </scene>
         <!--Theme Selection View Controller-->
         <scene sceneID="Zx5-FS-o7D">
@@ -147,8 +196,11 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gUL-lr-6hv">
                                             <rect key="frame" x="8" y="8" width="134" height="134"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDA-8z-BdK">
-                                            <rect key="frame" x="8" y="121" width="134" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDA-8z-BdK">
+                                            <rect key="frame" x="17" y="113" width="117" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="3DL-4a-Plc"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -160,7 +212,10 @@
                                     <constraint firstAttribute="trailing" secondItem="gUL-lr-6hv" secondAttribute="trailing" constant="8" id="3Z9-6V-Cpw"/>
                                     <constraint firstItem="gUL-lr-6hv" firstAttribute="top" secondItem="LWW-IV-Q0d" secondAttribute="top" constant="8" id="4tS-Rf-Ian"/>
                                     <constraint firstItem="gUL-lr-6hv" firstAttribute="leading" secondItem="LWW-IV-Q0d" secondAttribute="leading" constant="8" id="6dX-h3-ohr"/>
+                                    <constraint firstItem="PDA-8z-BdK" firstAttribute="leading" secondItem="LWW-IV-Q0d" secondAttribute="leadingMargin" constant="9" id="KYJ-YI-0ET"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="PDA-8z-BdK" secondAttribute="bottom" constant="8" id="THA-Re-YGv"/>
                                     <constraint firstAttribute="bottom" secondItem="gUL-lr-6hv" secondAttribute="bottom" constant="8" id="XAs-sG-6W1"/>
+                                    <constraint firstItem="PDA-8z-BdK" firstAttribute="centerX" secondItem="gUL-lr-6hv" secondAttribute="centerX" id="XPa-R5-ryP"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="icon" destination="gUL-lr-6hv" id="ZNA-5H-6M8"/>
@@ -173,6 +228,7 @@
                             <outlet property="delegate" destination="dPe-gE-3bA" id="0dQ-sU-Onf"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="wSs-ZN-5nC"/>
                     <connections>
                         <outlet property="collectionView" destination="CsR-hm-950" id="ggg-GA-3yV"/>
                         <segue destination="6m3-4X-eIS" kind="show" identifier="ThemeSelectionToTransitionScreen" id="jXT-2I-hgk"/>
@@ -232,7 +288,6 @@ She will come back in two minutes.</string>
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="750" height="1334"/>
         <image name="Highscore" width="6571" height="1426"/>
         <image name="Theme-1.png" width="2048" height="1536"/>
         <image name="Title" width="6571" height="1800"/>

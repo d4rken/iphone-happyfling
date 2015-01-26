@@ -12,25 +12,23 @@ import Foundation
 class StartViewController: UIViewController {
     
     
-    @IBOutlet weak var highscoreLabel: UILabel!
     @IBOutlet weak var titleImage: UIImageView!
     @IBOutlet weak var highscoreImage: UIImageView!
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
         self.titleImage.hidden = true
         self.button.hidden = true
         self.highscoreImage.hidden = true
-        
-        //self.highscoreLabel.font = UIFont(name: "Dimitri Swank", size: 50)
+        backgroundImage.image = UIImage(named: "Background")
        
     }
   
-    @IBAction func onPlayTapped(sender: AnyObject) {
-        self.performSegueWithIdentifier("StartScreenToThemeSelection", sender: self)
-    }
     
     override func viewDidAppear(animated: Bool) {
         
@@ -67,7 +65,9 @@ class StartViewController: UIViewController {
                     self.button.alpha = 0
                     self.highscoreImage.transform = CGAffineTransformMakeScale(0.01, 0.01)
                     self.highscoreImage.alpha = 0
-                    }, completion: nil)
+                    }, completion: {(success) -> Void in
+                        self.performSegueWithIdentifier("StartScreenToThemeSelection", sender: self)
+                })
         })
     
         //Animate Title
