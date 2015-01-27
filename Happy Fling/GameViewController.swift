@@ -48,42 +48,42 @@ class GameViewController: UIViewController {
             
             
             //set up for test
-            self.theme = ThemeClass()
-            self.theme.gameBackgroundPicture = "Background"
-            self.theme.minNumBuckets = 1
-            self.theme.minNumBuckets = 3
-            
-            var bucket1 = BucketTheme()
-            bucket1.name = "Spaceship"
-            bucket1.shapeSize = CGSizeMake(50, 50)
-            bucket1.acceptedThrowItems = ["Spaceship","Title","Background"]
-            
-            var bucket2 = BucketTheme()
-            bucket2.name = "Title"
-            bucket2.shapeSize = CGSizeMake(50, 50)
-            bucket2.acceptedThrowItems = ["Title","Background"]
-            
-            var bucket3 = BucketTheme()
-            bucket3.name = "Background"
-            bucket3.shapeSize = CGSizeMake(50, 50)
-            bucket3.acceptedThrowItems = ["Background"]
-            
-            var throw1 = ThrowItemTheme()
-            throw1.name = "Spaceship"
-            throw1.shapeSize = CGSizeMake(50, 50)
-            
-            var throw2 = ThrowItemTheme()
-            throw2.name = "Title"
-            throw2.shapeSize = CGSizeMake(50, 50)
-            
-            var throw3 = ThrowItemTheme()
-            throw3.name = "Background"
-            throw3.shapeSize = CGSizeMake(50, 50)
-            
-            theme.bucketThemeArray.append(bucket1)
-            theme.bucketThemeArray.append(bucket2)
-            theme.bucketThemeArray.append(bucket3)
-            self.theme.throwItemThemeArray = [throw1,throw2,throw3]
+//            self.theme = ThemeClass()
+//            self.theme.gameBackgroundPicture = "Background"
+//            self.theme.minNumBuckets = 1
+//            self.theme.minNumBuckets = 3
+//            
+//            var bucket1 = BucketTheme()
+//            bucket1.name = "Spaceship"
+//            bucket1.shapeSize = CGSizeMake(50, 50)
+//            bucket1.acceptedThrowItems = ["Spaceship","Title","Background"]
+//            
+//            var bucket2 = BucketTheme()
+//            bucket2.name = "Title"
+//            bucket2.shapeSize = CGSizeMake(50, 50)
+//            bucket2.acceptedThrowItems = ["Title","Background"]
+//            
+//            var bucket3 = BucketTheme()
+//            bucket3.name = "Background"
+//            bucket3.shapeSize = CGSizeMake(50, 50)
+//            bucket3.acceptedThrowItems = ["Background"]
+//            
+//            var throw1 = ThrowItemTheme()
+//            throw1.name = "Spaceship"
+//            throw1.shapeSize = CGSizeMake(50, 50)
+//            
+//            var throw2 = ThrowItemTheme()
+//            throw2.name = "Title"
+//            throw2.shapeSize = CGSizeMake(50, 50)
+//            
+//            var throw3 = ThrowItemTheme()
+//            throw3.name = "Background"
+//            throw3.shapeSize = CGSizeMake(50, 50)
+//            
+//            theme.bucketThemeArray.append(bucket1)
+//            theme.bucketThemeArray.append(bucket2)
+//            theme.bucketThemeArray.append(bucket3)
+//            self.theme.throwItemThemeArray = [throw1,throw2,throw3]
 
             
             //give the data to the scene
