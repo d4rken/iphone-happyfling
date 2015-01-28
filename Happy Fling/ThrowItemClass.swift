@@ -13,7 +13,7 @@ class ThrowItemClass: SKSpriteNode
 {
     //properties
     var throwItemName: String = ""
-    var throwItemSize: CGSize = CGSizeMake(50, 50)
+    var throwItemSize: CGSize = CGSizeMake(0, 0)
     var throwAnimations:[String] = []
     var throwSounds: [String] = []
 
