@@ -84,7 +84,7 @@ class SpawnHelper : NSObject {
         return "ThrowItem"
     }
 
-    func spawnThrowItem(gameScene: GameScene, position: CGPoint) {
+    func spawnThrowItem(gameScene: GameScene, position: CGPoint) -> ThrowItemClass? {
         var randomBucket = theme.bucketThemeArray[bucketTypes[SpawnHelper.randPos(0, max: bucketTypes.count - 1)]]
         var randomThrowItemName = randomBucket.acceptedThrowItems[SpawnHelper.randPos(0, max: randomBucket.acceptedThrowItems.count - 1)]
         var throwItemTheme: ThrowItemTheme!
@@ -94,7 +94,7 @@ class SpawnHelper : NSObject {
             }
         }
         if(throwItemTheme == nil) {
-            return
+            return nil
         }
 
         //set up new throwItem
@@ -107,5 +107,6 @@ class SpawnHelper : NSObject {
         throwItem.name = getThrowItemTag()
         throwItem.position = position
         gameScene.addChild(throwItem)
+        return throwItem
     }
 }

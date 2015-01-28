@@ -35,7 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         cheerLeader = CheerLeader(theme: theme)
         spawnHelper = SpawnHelper(theme: theme)
-        
+
         //background
         let background = SKSpriteNode(imageNamed: theme.gameBackgroundPicture)
         background.position = CGPoint(x:self.frame.size.width/2 , y: self.frame.size.height/2)
@@ -106,28 +106,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         cheerLeader.handleCheers(self)
 
-        var num = 0
+        var spawnItem = true
         enumerateChildNodesWithName(spawnHelper.getThrowItemTag(), usingBlock: {
             (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
             // do something with node or stop
-            num += 1
-            if(node.position.y > self.frame.size.height || node.position.x > self.frame.size.width ||
-                node.position.y < 0 || node.position.x < 0) {
-                    node.removeFromParent()
+            var throwItem = node as ThrowItemClass
+            if(throwItem.getState() == ThrowItemClass.State.Spawned) {
+                spawnItem = false
+            } else {
+            if(throwItem.position.y > self.frame.size.height || throwItem.position.x > self.frame.size.width ||
+                throwItem.position.y < 0 || throwItem.position.x < 0) {
+                    throwItem.removeFromParent()
+            }
             }
         })
-        if(num == 0) {
+        if(spawnItem) {
             var position = CGPoint(x:CGRectGetMidX(self.frame), y:0)
-            spawnHelper.spawnThrowItem(self, position: position)
-
-//            enumerateChildNodesWithName(spawnHelper.getThrowItemTag(), usingBlock: {
-//                (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
-//                // Create the actions
-//                let zoom = SKAction.scaleBy(3, duration: 0.5)
-//                let actionMove = SKAction.moveTo(CGPoint(x: self.frame.size.width/2, y: self.itemSize*1.5), duration: NSTimeInterval(0.5))
-//                node.runAction(SKAction.sequence([zoom]))
-//                node.runAction(SKAction.sequence([actionMove]))
-//            })
+            var throwItem = spawnHelper.spawnThrowItem(self, position: position)
+            if(throwItem != nil) {
+                let zoom = SKAction.scaleBy(3, duration: 0.5)
+                let actionMove = SKAction.moveTo(CGPoint(x: self.frame.size.width/2, y: self.itemSize*1.5), duration: NSTimeInterval(0.5))
+                throwItem!.runAction(SKAction.sequence([zoom]))
+                throwItem!.runAction(SKAction.sequence([actionMove]))
+            }
         }
         enumerateChildNodesWithName(self.spawnHelper.getBucketTag(), usingBlock: {
             (bucket: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
@@ -184,6 +185,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 
     func didBeginContact(contact: SKPhysicsContact) {
+        if (contact.bodyA.node == nil || contact.bodyB.node == nil) {
+            return
+        }
         var throwItem: ThrowItemClass
         var bucket: BucketClass
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
@@ -215,12 +219,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case UIGestureRecognizerState.Ended:
             enumerateChildNodesWithName(spawnHelper.getThrowItemTag(), usingBlock:
                 {(node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
-                    var velocity:CGPoint = gesture.velocityInView(self.view)
-                    var magnitude:CGFloat = sqrt(pow(velocity.x, 2) + pow(velocity.y,2))
-                    NSLog("location image ended is %@", NSStringFromCGPoint(velocity))
-                    // do something with node or stop
-                    if(magnitude > self.ThrowingThreshold) {
-                        node.physicsBody?.applyImpulse(CGVectorMake(velocity.x, -velocity.y))
+                    var throwItem = node as ThrowItemClass
+                    if(throwItem.getState() != ThrowItemClass.State.Launched) {
+                        var velocity:CGPoint = gesture.velocityInView(self.view)
+                        var magnitude:CGFloat = sqrt(pow(velocity.x, 2) + pow(velocity.y,2))
+                        NSLog("location image ended is %@", NSStringFromCGPoint(velocity))
+                        // do something with node or stop
+                        if(magnitude > self.ThrowingThreshold) {
+                            throwItem.physicsBody?.applyImpulse(CGVectorMake(velocity.x, -velocity.y))
+                        }
+                        throwItem.setState(ThrowItemClass.State.Launched)
                     }
             })
             break
