@@ -12,11 +12,9 @@ import SpriteKit
 class CheerLeader : NSObject {
     let fontName = "Dimitri Swank"
     var theme: ThemeClass
-    var gameScene: GameScene
 
-    init(gameScene: GameScene) {
-        self.theme = gameScene.theme
-        self.gameScene = gameScene
+    init(theme: ThemeClass) {
+        self.theme = theme
     }
 
     func getCheerTag() -> String {
@@ -35,29 +33,27 @@ class CheerLeader : NSObject {
     var lastTimeScored = NSDate.timeIntervalSinceReferenceDate()
     var currentScore = 0
 
-    func onPointScored() {
+    func onPointScored(gameScene: GameScene) {
         currentScore++
         var currentTime = NSDate.timeIntervalSinceReferenceDate()
-        if(currentScore % 3 == 0) {
-            showCheer()
-        } else if(currentTime - lastTimeScored < 1) {
-            showCheer()
+        if(currentScore % 3 == 0 || currentTime - lastTimeScored < 1) {
+            showCheer(gameScene)
         }
         lastTimeScored = NSDate.timeIntervalSinceReferenceDate()
     }
 
-    func showCheer() {
+    private func showCheer(gameScene: GameScene) {
         var cheer:SKLabelNode = SKLabelNode(fontNamed: fontName)
         cheer.fontSize = 40
         var index = Int(arc4random_uniform(UInt32(self.theme.successfullThrowsMessage.count)))
         cheer.text = self.theme.successfullThrowsMessage[index]
         cheer.fontColor = SKColor(hue: 1, saturation: 0, brightness: 0, alpha: 5)
-        cheer.name = getCheerTag()
         cheer.position = CGPointMake(CGRectGetMidX(gameScene.frame), CGRectGetMidY(gameScene.frame))
+        cheer.name = getCheerTag()
         gameScene.addChild(cheer)
     }
 
-    func handleCheers() {
+    func handleCheers(gameScene: GameScene) {
         gameScene.enumerateChildNodesWithName(getCheerTag(), usingBlock: {
             (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
             // Create the actions
