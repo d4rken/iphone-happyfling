@@ -22,7 +22,6 @@ class ColorThemeFactory: ThemeFactory {
         var theme = ThemeClass()
         theme.themeName = getName()
         theme.themeIcon = getIconResource()
-        theme.gameBackgroundPicture = "Theme-1.png"
 
         //Black
         var itemBlack = ThrowItemTheme()

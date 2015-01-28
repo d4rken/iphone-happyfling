@@ -37,18 +37,18 @@ class GameViewController: UIViewController {
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             // Configure the view.
             let skView = self.view as SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
+            //skView.showsFPS = true
+           // skView.showsNodeCount = true
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
             
             /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
+            //sscene.scaleMode = .AspectFill
             
             
             //set up for test
-            //self.theme = ThemeClass()
+//            self.theme = ThemeClass()
 //            self.theme.gameBackgroundPicture = "Background"
 //            self.theme.minNumBuckets = 1
 //            self.theme.minNumBuckets = 3
@@ -80,7 +80,9 @@ class GameViewController: UIViewController {
 //            throw3.name = "Background"
 //            throw3.shapeSize = CGSizeMake(50, 50)
 //            
-//            self.theme.bucketThemeArray = [bucket1,bucket2,bucket3]
+//            theme.bucketThemeArray.append(bucket1)
+//            theme.bucketThemeArray.append(bucket2)
+//            theme.bucketThemeArray.append(bucket3)
 //            self.theme.throwItemThemeArray = [throw1,throw2,throw3]
 
             

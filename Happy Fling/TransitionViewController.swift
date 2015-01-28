@@ -14,7 +14,7 @@ class TransitionViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        var backgroundImageView: UIImageView! = UIImageView(image: UIImage(named:self.theme!.gameBackgroundPicture))
+        var backgroundImageView: UIImageView! = UIImageView(image: UIImage(named:self.theme!.introBackgroundPicture))
         var storyLabel: UILabel! = UILabel()
  //       var continueButton = UIButton()
         // Do any additional setup after loading the view, typically from a nib.
