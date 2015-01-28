@@ -12,7 +12,7 @@ class ThemeClass: NSObject
 {
     //properties
     var introBackgroundPicture: String = ""
-    var gameBackgroundPicture: String = "" //
+    var gameBackgroundPicture: String = "Background" //
     var gameEndBackgroundPicture: String = ""
     var themeName: String = ""
     var themeIcon:String = ""
@@ -25,7 +25,7 @@ class ThemeClass: NSObject
     var accuracyMessage:String = ""
     
     
-    var successfullThrowsMessage:[String] = [] //
+    var successfullThrowsMessage:[String] = ["Good!","Excellent!"]
     var maxGameTime:Int = 120
     var maxNumBuckets:Int = 3
     var minNumBuckets:Int = 3

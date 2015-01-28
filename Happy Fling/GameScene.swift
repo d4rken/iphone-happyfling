@@ -126,14 +126,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.time = self.time + 1
     }
     
-    override func didMoveToView(view: SKView) {
-        
-        //slogen test
-        
-        self.theme.successfullThrowsMessage = ["Good!","Excellent!"];
-        
+    override func didMoveToView(view: SKView) {        
         //background
-        let background = SKSpriteNode(imageNamed: "Background")
+        let background = SKSpriteNode(imageNamed: theme.gameBackgroundPicture)
         background.position = CGPoint(x:self.frame.size.width/2 , y: self.frame.size.height/2)
         background.size = CGSizeMake(self.frame.size.width+15, self.frame.size.height+15)
         self.addChild(background)

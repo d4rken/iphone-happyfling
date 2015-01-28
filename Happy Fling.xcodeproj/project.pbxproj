@@ -32,7 +32,6 @@
 		92CC78011A642489002A86CD /* ShapeThemeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78001A642489002A86CD /* ShapeThemeFactory.swift */; };
 		92CC78031A6425E4002A86CD /* BucketTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78021A6425E4002A86CD /* BucketTheme.swift */; };
 		92CC78051A642921002A86CD /* ThrowItemTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78041A642921002A86CD /* ThrowItemTheme.swift */; };
-		B1CB7B451A6D61370002C6AA /* Theme-1.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CB7B441A6D61370002C6AA /* Theme-1.png */; };
 		B1CB7B471A6D61620002C6AA /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CB7B461A6D61620002C6AA /* TransitionViewController.swift */; };
 		D12C4E2E1A724C6C008ED9C4 /* Themes in Resources */ = {isa = PBXBuildFile; fileRef = D12C4E2D1A724C6C008ED9C4 /* Themes */; };
 		D140D2861A71713800AB8217 /* AnimalThemeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140D2851A71713800AB8217 /* AnimalThemeFactory.swift */; };
@@ -80,7 +79,6 @@
 		92CC78001A642489002A86CD /* ShapeThemeFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeThemeFactory.swift; sourceTree = "<group>"; };
 		92CC78021A6425E4002A86CD /* BucketTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketTheme.swift; sourceTree = "<group>"; };
 		92CC78041A642921002A86CD /* ThrowItemTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowItemTheme.swift; sourceTree = "<group>"; };
-		B1CB7B441A6D61370002C6AA /* Theme-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Theme-1.png"; sourceTree = "<group>"; };
 		B1CB7B461A6D61620002C6AA /* TransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
 		D12C4E2D1A724C6C008ED9C4 /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Themes; sourceTree = "<group>"; };
 		D140D2851A71713800AB8217 /* AnimalThemeFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalThemeFactory.swift; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 			children = (
 				D12C4E2D1A724C6C008ED9C4 /* Themes */,
 				18F97F4F1A6C5494006BAC80 /* Resources */,
-				B1CB7B441A6D61370002C6AA /* Theme-1.png */,
 				92CC77F41A642258002A86CD /* BucketClass.swift */,
 				92CC78021A6425E4002A86CD /* BucketTheme.swift */,
 				545C08EF1A7244AC00383762 /* DatabaseHighScore.swift */,
@@ -284,7 +281,6 @@
 				D12C4E2E1A724C6C008ED9C4 /* Themes in Resources */,
 				928EB4E81A780159003CC797 /* MyParticle1.sks in Resources */,
 				928EB4E61A780159003CC797 /* bokeh.png in Resources */,
-				B1CB7B451A6D61370002C6AA /* Theme-1.png in Resources */,
 				928EB4E71A780159003CC797 /* MyParticle0.sks in Resources */,
 				18BACE8B1A5E90BD00D4D69C /* Main.storyboard in Resources */,
 			);

@@ -31,8 +31,7 @@ class ShapeThemeFactory: ThemeFactory {
         bucketTriangle.name = "Triangle Bucket"
         bucketTriangle.acceptedThrowItems.append(itemTriangle.name)
         theme.bucketThemeArray.append(bucketTriangle)
-
-        theme.gameBackgroundPicture = "Theme-1.png"
+        theme.introBackgroundPicture = "Themes/Shapes/BackgroundIntro.png"
         theme.themeStory = "How messy it is!\nYour lovely 2 years old daughter played with her toy bricks.\nYou’d better tidy up the table as soon as possible, if you don’t want your wife shout you!\nShe will come back in two minutes.\n\n\n \"Tap the screen to continue\""
 
         //Square
