@@ -17,9 +17,12 @@
 		18BACE9C1A5E90BD00D4D69C /* Happy_FlingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BACE9B1A5E90BD00D4D69C /* Happy_FlingTests.swift */; };
 		18F97F391A694ED4006BAC80 /* ThemeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */; };
 		18F97F441A695BB3006BAC80 /* ThemeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F97F431A695BB3006BAC80 /* ThemeCellView.swift */; };
-		18F97F521A6C54EF006BAC80 /* Themes in Resources */ = {isa = PBXBuildFile; fileRef = 18F97F511A6C54EF006BAC80 /* Themes */; };
 		545C08F01A7244AC00383762 /* DatabaseHighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C08EF1A7244AC00383762 /* DatabaseHighScore.swift */; };
 		545C08F21A72479B00383762 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C08F11A72479B00383762 /* GameOverViewController.swift */; };
+		928EB4E61A780159003CC797 /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = 928EB4E21A780159003CC797 /* bokeh.png */; };
+		928EB4E71A780159003CC797 /* MyParticle0.sks in Resources */ = {isa = PBXBuildFile; fileRef = 928EB4E31A780159003CC797 /* MyParticle0.sks */; };
+		928EB4E81A780159003CC797 /* MyParticle1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 928EB4E41A780159003CC797 /* MyParticle1.sks */; };
+		928EB4E91A780159003CC797 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 928EB4E51A780159003CC797 /* spark.png */; };
 		92CC77F81A642258002A86CD /* BucketClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F41A642258002A86CD /* BucketClass.swift */; };
 		92CC77F91A642258002A86CD /* ThemeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F51A642258002A86CD /* ThemeClass.swift */; };
 		92CC77FA1A642258002A86CD /* ThemeHistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */; };
@@ -62,9 +65,12 @@
 		18BACE9B1A5E90BD00D4D69C /* Happy_FlingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_FlingTests.swift; sourceTree = "<group>"; };
 		18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewController.swift; sourceTree = "<group>"; };
 		18F97F431A695BB3006BAC80 /* ThemeCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCellView.swift; sourceTree = "<group>"; };
-		18F97F511A6C54EF006BAC80 /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Themes; sourceTree = "<group>"; };
 		545C08EF1A7244AC00383762 /* DatabaseHighScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHighScore.swift; sourceTree = "<group>"; };
 		545C08F11A72479B00383762 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
+		928EB4E21A780159003CC797 /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bokeh.png; path = Resources/bokeh.png; sourceTree = "<group>"; };
+		928EB4E31A780159003CC797 /* MyParticle0.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MyParticle0.sks; path = Resources/MyParticle0.sks; sourceTree = "<group>"; };
+		928EB4E41A780159003CC797 /* MyParticle1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MyParticle1.sks; path = Resources/MyParticle1.sks; sourceTree = "<group>"; };
+		928EB4E51A780159003CC797 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = Resources/spark.png; sourceTree = "<group>"; };
 		92CC77F41A642258002A86CD /* BucketClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketClass.swift; sourceTree = "<group>"; };
 		92CC77F51A642258002A86CD /* ThemeClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeClass.swift; sourceTree = "<group>"; };
 		92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeHistoryEntry.swift; sourceTree = "<group>"; };
@@ -181,6 +187,10 @@
 		18F97F4F1A6C5494006BAC80 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				928EB4E21A780159003CC797 /* bokeh.png */,
+				928EB4E31A780159003CC797 /* MyParticle0.sks */,
+				928EB4E41A780159003CC797 /* MyParticle1.sks */,
+				928EB4E51A780159003CC797 /* spark.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -266,12 +276,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				928EB4E91A780159003CC797 /* spark.png in Resources */,
 				D199E63A1A6D688000B708C2 /* DIMIS___.otf in Resources */,
 				18BACE901A5E90BD00D4D69C /* LaunchScreen.xib in Resources */,
 				18BACE8D1A5E90BD00D4D69C /* Images.xcassets in Resources */,
 				18BACE841A5E90BD00D4D69C /* GameScene.sks in Resources */,
 				D12C4E2E1A724C6C008ED9C4 /* Themes in Resources */,
+				928EB4E81A780159003CC797 /* MyParticle1.sks in Resources */,
+				928EB4E61A780159003CC797 /* bokeh.png in Resources */,
 				B1CB7B451A6D61370002C6AA /* Theme-1.png in Resources */,
+				928EB4E71A780159003CC797 /* MyParticle0.sks in Resources */,
 				18BACE8B1A5E90BD00D4D69C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
