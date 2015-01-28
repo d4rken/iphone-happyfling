@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18B2E0081A79243C009F283B /* CheerLeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2E0071A79243C009F283B /* CheerLeader.swift */; };
 		18BACE821A5E90BD00D4D69C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BACE811A5E90BD00D4D69C /* AppDelegate.swift */; };
 		18BACE841A5E90BD00D4D69C /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 18BACE831A5E90BD00D4D69C /* GameScene.sks */; };
 		18BACE861A5E90BD00D4D69C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BACE851A5E90BD00D4D69C /* GameScene.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18B2E0071A79243C009F283B /* CheerLeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheerLeader.swift; sourceTree = "<group>"; };
 		18BACE7C1A5E90BD00D4D69C /* Happy Fling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Fling.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BACE801A5E90BD00D4D69C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18BACE811A5E90BD00D4D69C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				18BACE811A5E90BD00D4D69C /* AppDelegate.swift */,
 				18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */,
 				18BACE831A5E90BD00D4D69C /* GameScene.sks */,
+				18B2E0071A79243C009F283B /* CheerLeader.swift */,
 				18BACE851A5E90BD00D4D69C /* GameScene.swift */,
 				18BACE871A5E90BD00D4D69C /* GameViewController.swift */,
 				B1CB7B461A6D61620002C6AA /* TransitionViewController.swift */,
@@ -308,6 +311,7 @@
 				18BACE861A5E90BD00D4D69C /* GameScene.swift in Sources */,
 				92CC78011A642489002A86CD /* ShapeThemeFactory.swift in Sources */,
 				92CC77F91A642258002A86CD /* ThemeClass.swift in Sources */,
+				18B2E0081A79243C009F283B /* CheerLeader.swift in Sources */,
 				D140D2861A71713800AB8217 /* AnimalThemeFactory.swift in Sources */,
 				545C08F21A72479B00383762 /* GameOverViewController.swift in Sources */,
 				18F97F441A695BB3006BAC80 /* ThemeCellView.swift in Sources */,
