@@ -11,12 +11,6 @@
 import SpriteKit
 
 
-struct PhysicsCategory {
-    static let None     : UInt32 = 0
-    static let All      : UInt32 = UInt32.max
-    static let throw   : UInt32 = 0b0000000001      // 1
-    static let bucket    : UInt32 = 0b10000000000      // 2
-}
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
 
@@ -39,6 +33,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let ThrowingVelocityPadding:CGFloat = 1;
 
     var cheerLeader: CheerLeader!
+
+    enum PhysicsCategory : UInt32 {
+        case ThrowItem = 1 // (1 << 0)
+        case Bucket = 2 // (1 << 1)
+        case Wall = 4 // (1 << 2)
+    }
 
     override func didMoveToView(view: SKView) {
         cheerLeader = CheerLeader(gameScene: self)
@@ -86,21 +86,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             bucket.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(bucket.size.width/2, bucket.size.height/2))
             bucket.physicsBody?.mass = 1
             bucket.physicsBody?.dynamic = false
-
-            var result = UInt32(0b1)
-            for k in bucket.acceptedThrowItems {
-                var num = UInt32(0)
-                var bitThrow = PhysicsCategory.throw
-                for l in self.theme.throwItemThemeArray {
-                    if(k == l.name) {
-                        bitThrow =  bitThrow << num
-                    }
-                    num = num + 1
-                }
-                result = result | bitThrow
-            }
-
-            bucket.physicsBody?.categoryBitMask = result << 10
+            bucket.physicsBody?.categoryBitMask = PhysicsCategory.Bucket.rawValue
             bucket.physicsBody?.contactTestBitMask = 0b1111111111
             bucket.name = "bucket"
             self.addChild(bucket)
@@ -179,8 +165,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             throwItem.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(throwItem.size.width/2, throwItem.size.height/2))
             throwItem.physicsBody?.mass = 1
             throwItem.physicsBody?.dynamic = true
-            var bitThrowItem = PhysicsCategory.throw
-            throwItem.physicsBody?.categoryBitMask = bitThrowItem << index
+            throwItem.physicsBody?.categoryBitMask = PhysicsCategory.ThrowItem.rawValue
             throwItem.physicsBody?.contactTestBitMask = 0b1111111111
             throwItem.name = "throw"
             throwItem.position = CGPoint(x:CGRectGetMidX(self.frame), y:0)
@@ -238,20 +223,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 
     func didBeginContact(contact: SKPhysicsContact) {
-        var firstBody: SKPhysicsBody
-        var secondBody: SKPhysicsBody
+        var throwItem: ThrowItemClass
+        var bucket: BucketClass
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
-            firstBody = contact.bodyA
-            secondBody = contact.bodyB
+            throwItem = contact.bodyA.node as ThrowItemClass
+            bucket = contact.bodyB.node as BucketClass
         } else {
-            firstBody = contact.bodyB
-            secondBody = contact.bodyA
+            throwItem = contact.bodyB.node as ThrowItemClass
+            bucket = contact.bodyA.node as BucketClass
         }
-
-        if (firstBody.categoryBitMask & (secondBody.categoryBitMask>>10) != 0) {
-            acceptedReaction(firstBody.node as SKSpriteNode, bucket: secondBody.node as SKSpriteNode)
+        if (contains(bucket.acceptedThrowItems, throwItem.throwItemName)) {
+            acceptedReaction(throwItem, bucket: bucket)
         } else {
-            unacceptedReaction(firstBody.node as SKSpriteNode, bucket: secondBody.node as SKSpriteNode)
+            unacceptedReaction(throwItem, bucket: bucket)
         }
         enumerateChildNodesWithName("particle", usingBlock: {
             (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
@@ -260,7 +244,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let actionMove = SKAction.removeFromParent()
             node.runAction(SKAction.sequence([zoom]))
             node.runAction(SKAction.sequence([zoom, actionMove]))
-
         })
     }
 
