@@ -23,20 +23,16 @@ class SpawnHelper : NSObject {
         self.theme = theme
     }
 
-    class func randPos(min: Int, max: Int) -> Int {
-        return Int(arc4random_uniform(UInt32(max-min))) + min
-    }
-
     var bucketTypes = Array<Int>()
 
     func spawnBuckets(gameScene: GameScene, bucketPositions: Array<CGPoint>) {
-        var bucketCount = SpawnHelper.randPos(theme.minNumBuckets, max: theme.maxNumBuckets)
+        var bucketCount = Helper.rand(theme.minNumBuckets, maxVal: theme.maxNumBuckets)
         if(bucketPositions.count < bucketCount) {
             bucketCount = bucketPositions.count
         }
 
         while(bucketTypes.count != bucketCount) {
-            var randomPos = SpawnHelper.randPos(0, max: theme.bucketThemeArray.count - 1)
+            var randomPos = Helper.rand(0, maxVal: theme.bucketThemeArray.count - 1)
             if(!contains(bucketTypes, randomPos)) {
                 bucketTypes.append(randomPos)
             }
@@ -58,8 +54,9 @@ class SpawnHelper : NSObject {
     }
 
     func spawnThrowItem(gameScene: GameScene, position: CGPoint) -> ThrowItemClass? {
-        var randomBucket = theme.bucketThemeArray[bucketTypes[SpawnHelper.randPos(0, max: bucketTypes.count - 1)]]
-        var randomThrowItemName = randomBucket.acceptedThrowItems[SpawnHelper.randPos(0, max: randomBucket.acceptedThrowItems.count - 1)]
+        var randomBucketType = bucketTypes[Helper.rand(0, maxVal: bucketTypes.count - 1)]
+        var randomBucket = theme.bucketThemeArray[randomBucketType]
+        var randomThrowItemName = randomBucket.acceptedThrowItems[Helper.rand(0, maxVal: randomBucket.acceptedThrowItems.count - 1)]
         var throwItemTheme: ThrowItemTheme!
         for item in theme.throwItemThemeArray {
             if(item.name == randomThrowItemName) {
