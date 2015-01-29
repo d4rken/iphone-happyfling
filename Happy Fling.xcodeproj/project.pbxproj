@@ -41,6 +41,7 @@
 		D199E63A1A6D688000B708C2 /* DIMIS___.otf in Resources */ = {isa = PBXBuildFile; fileRef = D199E6391A6D5EAA00B708C2 /* DIMIS___.otf */; };
 		D1A089CF1A7A9329002B1611 /* MyParticle2.sks in Resources */ = {isa = PBXBuildFile; fileRef = D1A089CD1A7A9329002B1611 /* MyParticle2.sks */; };
 		D1A089D01A7A9329002B1611 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = D1A089CE1A7A9329002B1611 /* spark.png */; };
+		D1A089D21A7AA283002B1611 /* gravityCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = D1A089D11A7AA283002B1611 /* gravityCircle.png */; };
 		D1F9C8C71A6811C70017DAE8 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9C8C61A6811C70017DAE8 /* StartViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +94,7 @@
 		D199E6391A6D5EAA00B708C2 /* DIMIS___.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIMIS___.otf"; sourceTree = "<group>"; };
 		D1A089CD1A7A9329002B1611 /* MyParticle2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle2.sks; sourceTree = "<group>"; };
 		D1A089CE1A7A9329002B1611 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		D1A089D11A7AA283002B1611 /* gravityCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gravityCircle.png; sourceTree = "<group>"; };
 		D1F9C8C61A6811C70017DAE8 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,6 +199,7 @@
 		18F97F4F1A6C5494006BAC80 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D1A089D11A7AA283002B1611 /* gravityCircle.png */,
 				928EB4E21A780159003CC797 /* bokeh.png */,
 				928EB4E31A780159003CC797 /* MyParticle0.sks */,
 				928EB4E41A780159003CC797 /* MyParticle1.sks */,
@@ -294,6 +297,7 @@
 				18BACE8D1A5E90BD00D4D69C /* Images.xcassets in Resources */,
 				D1217DDF1A7A78C2001BC6B8 /* Sounds in Resources */,
 				D1A089D01A7A9329002B1611 /* spark.png in Resources */,
+				D1A089D21A7AA283002B1611 /* gravityCircle.png in Resources */,
 				18BACE841A5E90BD00D4D69C /* GameScene.sks in Resources */,
 				D12C4E2E1A724C6C008ED9C4 /* Themes in Resources */,
 				928EB4E81A780159003CC797 /* MyParticle1.sks in Resources */,
