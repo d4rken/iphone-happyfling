@@ -59,7 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createContent()
 
         // Last init? Game should start now
-        cheerLeader.showGreeting()
+        cheerLeader.showGreeting(self)
     }
 
     func createContent() {
@@ -103,9 +103,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-
-        cheerLeader.handleCheers(self)
-
         var spawnItem = true
         enumerateChildNodesWithName(spawnHelper.getThrowItemTag(), usingBlock: {
             (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
