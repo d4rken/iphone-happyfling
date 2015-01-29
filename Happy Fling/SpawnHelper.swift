@@ -65,7 +65,7 @@ class SpawnHelper : NSObject {
             bucket.physicsBody?.mass = 1
             bucket.physicsBody?.dynamic = false
             bucket.physicsBody?.categoryBitMask = PhysicsCategory.Bucket.rawValue
-            bucket.physicsBody?.contactTestBitMask = 0b1111111111
+            bucket.physicsBody?.collisionBitMask = PhysicsCategory.ThrowItem.rawValue
             bucket.name = getBucketTag()
             gameScene.addChild(bucket)
 
@@ -103,7 +103,8 @@ class SpawnHelper : NSObject {
         throwItem.physicsBody?.mass = 1
         throwItem.physicsBody?.dynamic = true
         throwItem.physicsBody?.categoryBitMask = PhysicsCategory.ThrowItem.rawValue
-        throwItem.physicsBody?.contactTestBitMask = 0b1111111111
+        throwItem.physicsBody?.contactTestBitMask = PhysicsCategory.Bucket.rawValue
+        throwItem.physicsBody?.collisionBitMask = PhysicsCategory.ThrowItem.rawValue | PhysicsCategory.Bucket.rawValue
         throwItem.name = getThrowItemTag()
         throwItem.position = position
         gameScene.addChild(throwItem)
