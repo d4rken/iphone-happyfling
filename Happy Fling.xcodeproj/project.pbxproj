@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18092C1F1A7AA0AE008402A7 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18092C1E1A7AA0AE008402A7 /* Helper.swift */; };
 		18B2E0081A79243C009F283B /* CheerLeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2E0071A79243C009F283B /* CheerLeader.swift */; };
 		18B2E00A1A793551009F283B /* SpawnHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2E0091A793551009F283B /* SpawnHelper.swift */; };
 		18BACE821A5E90BD00D4D69C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BACE811A5E90BD00D4D69C /* AppDelegate.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18092C1E1A7AA0AE008402A7 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		18B2E0071A79243C009F283B /* CheerLeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheerLeader.swift; sourceTree = "<group>"; };
 		18B2E0091A793551009F283B /* SpawnHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpawnHelper.swift; sourceTree = "<group>"; };
 		18BACE7C1A5E90BD00D4D69C /* Happy Fling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Fling.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +146,7 @@
 				18F97F431A695BB3006BAC80 /* ThemeCellView.swift */,
 				92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */,
 				92CC77F71A642258002A86CD /* ThrowItemClass.swift */,
+				18092C1E1A7AA0AE008402A7 /* Helper.swift */,
 				18BACE811A5E90BD00D4D69C /* AppDelegate.swift */,
 				18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */,
 				18BACE831A5E90BD00D4D69C /* GameScene.sks */,
@@ -317,6 +320,7 @@
 				92CC77F91A642258002A86CD /* ThemeClass.swift in Sources */,
 				18B2E0081A79243C009F283B /* CheerLeader.swift in Sources */,
 				D140D2861A71713800AB8217 /* AnimalThemeFactory.swift in Sources */,
+				18092C1F1A7AA0AE008402A7 /* Helper.swift in Sources */,
 				545C08F21A72479B00383762 /* GameOverViewController.swift in Sources */,
 				18F97F441A695BB3006BAC80 /* ThemeCellView.swift in Sources */,
 				18BACE881A5E90BD00D4D69C /* GameViewController.swift in Sources */,

@@ -27,14 +27,6 @@ class SpawnHelper : NSObject {
         return Int(arc4random_uniform(UInt32(max-min))) + min
     }
 
-    func getBucketTag() -> String {
-        return "bucket"
-    }
-
-    func getBucketGravityTag() -> String {
-        return "bucket-gravity"
-    }
-
     var bucketTypes = Array<Int>()
 
     func spawnBuckets(gameScene: GameScene, bucketPositions: Array<CGPoint>) {
@@ -59,29 +51,10 @@ class SpawnHelper : NSObject {
             //bucketItem
             var bucket = BucketClass(theme: theme.bucketThemeArray[bucketArrayPos])
             bucket.position = bucketPositions[startPos++]
-
-            //self.bucketPosition.append(bucket.position)
-            bucket.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(bucket.size.width/2, bucket.size.height/2))
-            bucket.physicsBody?.mass = 1
-            bucket.physicsBody?.dynamic = false
             bucket.physicsBody?.categoryBitMask = PhysicsCategory.Bucket.rawValue
             bucket.physicsBody?.collisionBitMask = PhysicsCategory.ThrowItem.rawValue
-            bucket.name = getBucketTag()
             gameScene.addChild(bucket)
-
-            //gravity
-            var gravityField = SKFieldNode.radialGravityField()
-            gravityField.strength = 6
-            gravityField.falloff = -3
-            gravityField.region = SKRegion(radius: Float(bucket.size.width+200))
-            gravityField.enabled = true
-            gravityField.name = getBucketGravityTag()
-            bucket.addChild(gravityField)
         }
-    }
-
-    func getThrowItemTag() -> String {
-        return "ThrowItem"
     }
 
     func spawnThrowItem(gameScene: GameScene, position: CGPoint) -> ThrowItemClass? {
@@ -99,13 +72,9 @@ class SpawnHelper : NSObject {
 
         //set up new throwItem
         var throwItem:ThrowItemClass = ThrowItemClass(theme: throwItemTheme)
-        throwItem.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(throwItem.size.width/2, throwItem.size.height/2))
-        throwItem.physicsBody?.mass = 1
-        throwItem.physicsBody?.dynamic = true
         throwItem.physicsBody?.categoryBitMask = PhysicsCategory.ThrowItem.rawValue
         throwItem.physicsBody?.contactTestBitMask = PhysicsCategory.Bucket.rawValue
         throwItem.physicsBody?.collisionBitMask = PhysicsCategory.ThrowItem.rawValue | PhysicsCategory.Bucket.rawValue
-        throwItem.name = getThrowItemTag()
         throwItem.position = position
         gameScene.addChild(throwItem)
         return throwItem

@@ -27,6 +27,7 @@ class CheerLeader : NSObject {
         cheer.text = "Begin!"
         cheer.fontColor = SKColor(hue: 1, saturation: 0, brightness: 0, alpha: 5)
         cheer.name = getCheerTag()
+        cheer.position = CGPointMake(CGRectGetMidX(gameScene.frame), CGRectGetMidY(gameScene.frame))
         gameScene.addChild(cheer)
         addAnimation(cheer)
         return cheer

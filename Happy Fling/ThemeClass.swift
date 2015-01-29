@@ -14,8 +14,8 @@ class ThemeClass: NSObject
     var introBackgroundPicture: String = ""
     var gameBackgroundPicture: String = "Background" //
     var gameEndBackgroundPicture: String = ""
-    var themeName: String = ""
-    var themeIcon:String = ""
+    var themeName: String!
+    var themeIcon:String!
     var themeStory: String = "" // The story to display on the transition screen
     var bucketThemeArray:[BucketTheme] = [] //
     var throwItemThemeArray:[ThrowItemTheme] = [] //
