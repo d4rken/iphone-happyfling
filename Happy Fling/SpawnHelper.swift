@@ -56,6 +56,7 @@ class SpawnHelper : NSObject {
     func spawnThrowItem(gameScene: GameScene, position: CGPoint) -> ThrowItemClass? {
         var randomBucketType = bucketTypes[Helper.rand(0, maxVal: bucketTypes.count - 1)]
         var randomBucket = theme.bucketThemeArray[randomBucketType]
+        NSLog(randomBucket.name)
         var randomThrowItemName = randomBucket.acceptedThrowItems[Helper.rand(0, maxVal: randomBucket.acceptedThrowItems.count - 1)]
         var throwItemTheme: ThrowItemTheme!
         for item in theme.throwItemThemeArray {

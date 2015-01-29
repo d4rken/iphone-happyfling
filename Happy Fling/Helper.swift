@@ -13,7 +13,7 @@ import SpriteKit
 class Helper : NSObject {
 
     class func rand(minVal: Int, maxVal: Int) -> Int {
-        return Int(arc4random_uniform(UInt32(maxVal - minVal))) + minVal
+        return Int(arc4random_uniform(UInt32(maxVal - minVal) + 1)) + minVal
     }
 
     class func rand(minVal: CGFloat, maxVal: CGFloat) -> CGFloat{

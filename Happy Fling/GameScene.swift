@@ -148,7 +148,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         })
 
-        if(itemsInSpawn < 3) {
+        if(itemsInSpawn < 2) {
             var position = CGPoint(x: Helper.rand(spawnArea.frame.minX, maxVal: spawnArea.frame.maxX), y: spawnArea.position.y)
             var throwItem = spawnHelper.spawnThrowItem(self, position: position)
             if(throwItem != nil) {
