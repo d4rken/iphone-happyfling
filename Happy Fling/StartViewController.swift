@@ -55,12 +55,13 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func buttonPressed(sender: AnyObject) {
+        
         //Animate button & Highscore
         UIView.animateWithDuration(0.5, delay: 0.2, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             self.button.transform = CGAffineTransformMakeScale(1.1, 1.1)
             self.highscoreImage.transform = CGAffineTransformMakeScale(1.1, 1.1)
             }, completion: {(success) -> Void in
-                UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                     self.button.transform = CGAffineTransformMakeScale(0.01, 0.01)
                     self.button.alpha = 0
                     self.highscoreImage.transform = CGAffineTransformMakeScale(0.01, 0.01)
@@ -71,14 +72,20 @@ class StartViewController: UIViewController {
         })
     
         //Animate Title
-        UIView.animateWithDuration(0.8, delay: 0.2, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, delay: 0.2, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             self.titleImage.center.y += 20
             }, completion: {(success) -> Void in
                 
-                UIView.animateWithDuration(0.8, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                     self.titleImage.center.y -= 300
                     }, completion: nil)
         })
         
     }
+    
+    //Hide Statusbar
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 }
+

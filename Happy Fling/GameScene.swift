@@ -180,22 +180,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     //accepted
-    func acceptedReaction(throw:SKSpriteNode, bucket:SKSpriteNode) {
+    func acceptedReaction(throw:ThrowItemClass, bucket:BucketClass) {
         throw.removeFromParent()
         NSLog("successful")
         self.score = self.score + 1
         self.killContinues = self.killContinues + 1
 
-        var particle = SKEmitterNode(fileNamed: "MyParticle"+String(1))
+//        var particle = SKEmitterNode(fileNamed: "MyParticle"+String(1))
+//        particle.name = "particle"
+//        particle.position = bucket.position
+//        self.addChild(particle)
+        var particle = SKEmitterNode(fileNamed: "MyParticle2")
         particle.name = "particle"
-        particle.position = bucket.position
+        particle.position = CGPoint(x: bucket.position.x, y: bucket.position.y - bucket.size.height/3)
         self.addChild(particle)
+
+        let soundAction = SKAction.playSoundFileNamed(bucket.successSounds[0], waitForCompletion: true)
+        bucket.runAction(soundAction)
+        
+        let firstScale = SKAction.scaleBy(5/4, duration: 0.1)
+        let secondScale = SKAction.scaleBy(4/5, duration: 0.1)
+        bucket.runAction(firstScale, completion: { () -> Void in
+            bucket.runAction(secondScale)
+        })
         // CheerLeader decided on whether it should be cheered or not
         cheerLeader.onPointScored(self)
     }
 
     //unaccepted
-    func unacceptedReaction(throw:SKSpriteNode, bucket:SKSpriteNode) {
+    func unacceptedReaction(throw:ThrowItemClass, bucket:BucketClass) {
         throw.removeFromParent()
         self.killContinues = 0;
         NSLog("fail")
@@ -203,6 +216,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         particle.name = "particle"
         particle.position = bucket.position
         self.addChild(particle)
+        let soundAction = SKAction.playSoundFileNamed(bucket.failureSounds[0], waitForCompletion: true)
+        
+   
+        //failed animation
+        let shake = SKAction.shake(bucket.position, duration: 0.1, amplitudeX: 25, amplitudeY: 15)
+        bucket.runAction(SKAction.group([shake, soundAction]))
+        
+
     }
 
 
@@ -267,3 +288,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
 }
+
+extension SKAction {
+    class func shake(initialPosition:CGPoint, duration:Float, amplitudeX:Int = 12, amplitudeY:Int = 3) -> SKAction {
+        let startingX = initialPosition.x
+        let startingY = initialPosition.y
+        let numberOfShakes = duration / 0.015
+        var actionsArray:[SKAction] = []
+        for index in 1...Int(numberOfShakes) {
+            let newXPos = startingX + CGFloat(arc4random_uniform(UInt32(amplitudeX))) - CGFloat(amplitudeX / 2)
+            let newYPos = startingY + CGFloat(arc4random_uniform(UInt32(amplitudeY))) - CGFloat(amplitudeY / 2)
+            actionsArray.append(SKAction.moveTo(CGPointMake(newXPos, newYPos), duration: 0.015))
+        }
+        actionsArray.append(SKAction.moveTo(initialPosition, duration: 0.015))
+        return SKAction.sequence(actionsArray)
+    }
+    
+}
+
