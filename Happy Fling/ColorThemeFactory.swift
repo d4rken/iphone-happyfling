@@ -22,6 +22,8 @@ class ColorThemeFactory: ThemeFactory {
         var theme = ThemeClass()
         theme.themeName = getName()
         theme.themeIcon = getIconResource()
+        theme.minNumBuckets = 5
+        theme.maxNumBuckets = 5
 
         //Black
         var itemBlack = ThrowItemTheme()
@@ -129,8 +131,8 @@ class ColorThemeFactory: ThemeFactory {
         
         //White
         var itemWhite = ThrowItemTheme()
-        itemRed.name = "White Item"
-        itemRed.image = "Themes/Colors/White.png"
+        itemWhite.name = "White Item"
+        itemWhite.image = "Themes/Colors/White.png"
         theme.throwItemThemeArray.append(itemWhite)
         var bucketWhite = BucketTheme()
         bucketWhite.name = "White Bucket"
