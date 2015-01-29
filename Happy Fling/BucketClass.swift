@@ -17,6 +17,7 @@ class BucketClass: SKSpriteNode
     var bucketSize: CGSize
     var acceptedThrowItems:[String] = []
     var successSounds: [String] = []
+    var failureSounds: [String] = []
     var bucketAnimations:[String] = []
    
     
@@ -27,6 +28,7 @@ class BucketClass: SKSpriteNode
         self.bucketSize = theme.shapeSize
         self.acceptedThrowItems = theme.acceptedThrowItems;
         self.successSounds = theme.successSounds
+        self.failureSounds = theme.failureSounds
         self.bucketAnimations = theme.bucketAnimations
         
         let texture = SKTexture(imageNamed: theme.image)
