@@ -82,4 +82,10 @@ class StartViewController: UIViewController {
         })
         
     }
+    
+    //Hide Statusbar
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 }
+

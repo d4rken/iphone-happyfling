@@ -29,6 +29,9 @@ class ShapeThemeFactory: ThemeFactory {
         theme.throwItemThemeArray.append(itemTriangle)
         var bucketTriangle = BucketTheme()
         bucketTriangle.name = "Triangle Bucket"
+        bucketTriangle.image = "Themes/Shapes/Buckets/bucketTriangle.png"
+        bucketTriangle.successSounds.append("Sounds/right.wav")
+        bucketTriangle.failureSounds.append("Sounds/wrong.wav")
         bucketTriangle.acceptedThrowItems.append(itemTriangle.name)
         theme.bucketThemeArray.append(bucketTriangle)
         theme.introBackgroundPicture = "Themes/Shapes/BackgroundIntro.png"
@@ -41,6 +44,9 @@ class ShapeThemeFactory: ThemeFactory {
         theme.throwItemThemeArray.append(itemSquare)
         var bucketSquare = BucketTheme()
         bucketSquare.name = "Square Bucket"
+        bucketSquare.image = "Themes/Shapes/Buckets/bucketSquare.png"
+        bucketSquare.successSounds.append("Sounds/right.wav")
+        bucketSquare.failureSounds.append("Sounds/wrong.wav")
         bucketSquare.acceptedThrowItems.append(itemSquare.name)
         theme.bucketThemeArray.append(bucketSquare)
         
@@ -50,7 +56,10 @@ class ShapeThemeFactory: ThemeFactory {
         itemPentagon.image = "Themes/Shapes/Pentagon.png"
         theme.throwItemThemeArray.append(itemPentagon)
         var bucketPentagon = BucketTheme()
-        bucketPentagon.name = "Square Bucket"
+        bucketPentagon.name = "Pentagon Bucket"
+        bucketPentagon.image = "Themes/Shapes/Buckets/bucketPentagon.png"
+        bucketPentagon.successSounds.append("Sounds/right.wav")
+        bucketPentagon.failureSounds.append("Sounds/wrong.wav")
         bucketPentagon.acceptedThrowItems.append(itemPentagon.name)
         theme.bucketThemeArray.append(bucketPentagon)
         
@@ -60,7 +69,10 @@ class ShapeThemeFactory: ThemeFactory {
         itemHexagon.image = "Themes/Shapes/Hexagon.png"
         theme.throwItemThemeArray.append(itemHexagon)
         var bucketHexagon = BucketTheme()
-        bucketHexagon.name = "Square Bucket"
+        bucketHexagon.name = "Hexagon Bucket"
+        bucketHexagon.image = "Themes/Shapes/Buckets/bucketHexagon.png"
+        bucketHexagon.successSounds.append("Sounds/right.wav")
+        bucketHexagon.failureSounds.append("Sounds/wrong.wav")
         bucketHexagon.acceptedThrowItems.append(itemHexagon.name)
         theme.bucketThemeArray.append(bucketPentagon)
 
@@ -71,6 +83,9 @@ class ShapeThemeFactory: ThemeFactory {
         theme.throwItemThemeArray.append(itemCircle)
         var bucketCircle = BucketTheme()
         bucketCircle.name = "Circle Bucket"
+        bucketCircle.image = "Themes/Shapes/Buckets/bucketCircle.png"
+        bucketCircle.successSounds.append("Sounds/right.wav")
+        bucketCircle.failureSounds.append("Sounds/wrong.wav")
         bucketCircle.acceptedThrowItems.append(itemCircle.name)
         theme.bucketThemeArray.append(bucketCircle)
         
@@ -81,6 +96,9 @@ class ShapeThemeFactory: ThemeFactory {
         theme.throwItemThemeArray.append(itemCircle)
         var bucketEllipse = BucketTheme()
         bucketEllipse.name = "Ellipse Bucket"
+        bucketEllipse.image = "Themes/Shapes/Buckets/bucketEllipse.png"
+        bucketEllipse.successSounds.append("Sounds/right.wav")
+        bucketEllipse.failureSounds.append("Sounds/wrong.wav")
         bucketEllipse.acceptedThrowItems.append(itemEllipse.name)
         theme.bucketThemeArray.append(bucketEllipse)
         
