@@ -21,6 +21,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var score = 0
     var time = 0
     var killContinues = 0;
+    // gameEnd parameter
+    var gameEnding = false
 
 
     //how fast so that "toss" can be thrown out
@@ -102,6 +104,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     override func update(currentTime: CFTimeInterval) {
+        
+        //check if game should be ended
+        if self.isGameOver() {
+            self.endGame()
+        }
+        
         /* Called before each frame is rendered */
 
         cheerLeader.handleCheers(self)
@@ -234,6 +242,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             break
         default:
             break
+        }
+    }
+    
+    // function that checks, when the game is over, you can have different end conditions
+    func isGameOver() -> Bool {
+        if(self.time == 15){return true}
+        return false
+    }
+    
+    
+    //function that actually ends the game and loads the gameoverscreen
+    func endGame() {
+        if !self.gameEnding {
+            
+            self.gameEnding = true
+        // load gameOverscreen
+            NSLog("game end reachead")
+            
+            NSNotificationCenter.defaultCenter().postNotificationName("GameEnd", object: nil)
+
         }
     }
     

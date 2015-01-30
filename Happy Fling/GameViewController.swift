@@ -9,6 +9,15 @@
 import UIKit
 import SpriteKit
 
+protocol AppComs {
+    
+//    var currentPoints: Int {  get set }
+//    var levelPoints: Int { get set }
+    func goToGameover()
+    
+}
+
+
 extension SKNode {
     class func unarchiveFromFile(file : NSString) -> SKNode? {
         if let path = NSBundle.mainBundle().pathForResource(file, ofType: "sks") {
@@ -29,7 +38,8 @@ class GameViewController: UIViewController {
     
     
     var theme: ThemeClass = ThemeClass()
-
+    var delegate: AppComs?
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -90,9 +100,26 @@ class GameViewController: UIViewController {
             scene.theme = self.theme
             
             skView.presentScene(scene)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "gameend:", name:"GameEnd", object: nil)
+           
         }
     }
 
+  
+    func gameend(notification: NSNotification) {
+        delegate?.goToGameover()
+    }
+    
+    
+    func goToGameover() {
+        dismissViewControllerAnimated(false, completion: {
+            self.performSegueWithIdentifier("GameViewToGameOver", sender: self)
+            // and send data
+         
+        })
+    }
+
+    
 
     override func shouldAutorotate() -> Bool {
         return true
@@ -115,12 +142,15 @@ class GameViewController: UIViewController {
         return true
     }
     
+    
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)
     {
         if (segue.identifier == "Load View") {
             // pass data to next view
         }
+      
         
     }
 }

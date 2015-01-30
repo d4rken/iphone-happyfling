@@ -20,6 +20,8 @@ struct ScoreEntry {
 
 @objc class DatabaseHighscore : NSObject {
     
+    
+    var themeName: String
     var scoreBoard: Array<ScoreEntry> = Array()
     var databasePath: String
     
@@ -36,6 +38,8 @@ struct ScoreEntry {
         
         let documentsDirectory: AnyObject = paths[0]
         databasePath = documentsDirectory.stringByAppendingPathComponent("highscores.plist")
+        themeName = "defaultName"
+        
         
         let fileManager = NSFileManager.defaultManager()
         
