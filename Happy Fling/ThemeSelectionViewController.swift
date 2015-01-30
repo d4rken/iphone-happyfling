@@ -59,5 +59,10 @@ class ThemeSelectionViewController: UICollectionViewController {
         }
         
     }
+    
+    //Hide statusbar
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 
 }

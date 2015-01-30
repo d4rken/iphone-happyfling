@@ -21,12 +21,15 @@ class CheerLeader : NSObject {
         return "cheer"
     }
 
-    func showGreeting() -> SKNode {
+    func showGreeting(gameScene: GameScene) -> SKNode {
         var cheer:SKLabelNode = SKLabelNode(fontNamed: fontName)
         cheer.fontSize = 40
         cheer.text = "Begin!"
         cheer.fontColor = SKColor(hue: 1, saturation: 0, brightness: 0, alpha: 5)
         cheer.name = getCheerTag()
+        cheer.position = CGPointMake(CGRectGetMidX(gameScene.frame), CGRectGetMidY(gameScene.frame))
+        gameScene.addChild(cheer)
+        addAnimation(cheer)
         return cheer
     }
 
@@ -42,7 +45,7 @@ class CheerLeader : NSObject {
         lastTimeScored = NSDate.timeIntervalSinceReferenceDate()
     }
 
-    private func showCheer(gameScene: GameScene) {
+    private func showCheer(gameScene: GameScene) -> SKNode {
         var cheer:SKLabelNode = SKLabelNode(fontNamed: fontName)
         cheer.fontSize = 40
         var index = Int(arc4random_uniform(UInt32(self.theme.successfullThrowsMessage.count)))
@@ -51,16 +54,14 @@ class CheerLeader : NSObject {
         cheer.position = CGPointMake(CGRectGetMidX(gameScene.frame), CGRectGetMidY(gameScene.frame))
         cheer.name = getCheerTag()
         gameScene.addChild(cheer)
+        addAnimation(cheer)
+        return cheer
     }
 
-    func handleCheers(gameScene: GameScene) {
-        gameScene.enumerateChildNodesWithName(getCheerTag(), usingBlock: {
-            (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
-            // Create the actions
-            let zoomIn = SKAction.scaleBy(1.08, duration: 0.8)
-            let zoomOut = SKAction.scaleBy(0.5, duration: 0.5)
-            let actionMove = SKAction.removeFromParent()
-            node.runAction(SKAction.sequence([zoomIn,zoomOut,actionMove]))
-        })
+    private func addAnimation(node: SKNode) {
+        let zoomIn = SKAction.scaleBy(1.08, duration: 0.8)
+        let zoomOut = SKAction.scaleBy(0.5, duration: 0.5)
+        let actionMove = SKAction.removeFromParent()
+        node.runAction(SKAction.sequence([zoomIn,zoomOut,actionMove]))
     }
 }

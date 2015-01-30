@@ -26,7 +26,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 
     //how fast so that "toss" can be thrown out
-    let ThrowingThreshold:CGFloat = 100;
+    let ThrowingThreshold:CGFloat = 50;
     //the speed of moving after throw
     let ThrowingVelocityPadding:CGFloat = 1;
 
@@ -34,7 +34,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var cheerLeader: CheerLeader!
     var spawnHelper: SpawnHelper!
 
+    var spawnArea: SKShapeNode!
+    var spawnPoint: CGPoint!
+
+    var itemToTouch = Dictionary<ThrowItemClass,UITouch>()
+    var touchToItem = Dictionary<UITouch,ThrowItemClass>()
+
+    var timerNode: SKLabelNode!
+    var scoreNode: SKLabelNode!
+
     override func didMoveToView(view: SKView) {
+        //theme = ShapeThemeFactory().makeTheme()
+
         cheerLeader = CheerLeader(theme: theme)
         spawnHelper = SpawnHelper(theme: theme)
 
@@ -44,38 +55,52 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background.size = CGSizeMake(self.frame.size.width+15, self.frame.size.height+15)
         self.addChild(background)
 
+        spawnPoint = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/6)
+        spawnArea = SKShapeNode(circleOfRadius: 150)
+        spawnArea.position = spawnPoint
+        spawnArea.fillColor = UIColor.greenColor()
+        spawnArea.strokeColor = UIColor.greenColor()
+        spawnArea.lineWidth = 1; //set your border
+
+        //gravity
+        var spawnGravity = SKFieldNode.radialGravityField()
+        spawnGravity.strength = 3
+        spawnGravity.falloff = 0
+        spawnGravity.region = SKRegion(radius: Float(spawnArea!.frame.width))
+        spawnGravity.enabled = true
+        spawnGravity.name = "SpawnGravity"
+        spawnArea.addChild(spawnGravity)
+        self.addChild(spawnArea);
+
         //setup a timer
         var timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: Selector("updateTimer"), userInfo: nil, repeats: true)
 
         /* Setup your scene here */
         //world gravity
-        physicsWorld.gravity = CGVectorMake(0.0, 0.0);
+        physicsWorld.gravity = CGVectorMake(0.0, -0.5);
         physicsWorld.contactDelegate = self
         //parameters for positions and size of item
         self.itemSize = self.theme.bucketThemeArray[0].shapeSize.height
 
-        //gesture
-        var gesture = UIPanGestureRecognizer(target: self, action: "handleAttachmentGesture:")
-        self.view?.addGestureRecognizer(gesture)
         //content
         createContent()
 
         // Last init? Game should start now
-        cheerLeader.showGreeting()
+        cheerLeader.showGreeting(self)
     }
 
     func createContent() {
         bucketPosition =
-            [CGPoint(x:CGRectGetMinX(self.frame)+self.itemSize, y:CGRectGetMaxY(self.frame)-self.itemSize),
-                CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMaxY(self.frame)-self.itemSize),
+            [   CGPoint(x:CGRectGetMinX(self.frame)+self.itemSize, y:CGRectGetMidY(self.frame)),
+                CGPoint(x:CGRectGetMinX(self.frame)+self.itemSize, y:CGRectGetMaxY(self.frame)-self.itemSize),
+                CGPoint(x:CGRectGetMidX(self.frame)              , y:CGRectGetMaxY(self.frame)-self.itemSize),
                 CGPoint(x:CGRectGetMaxX(self.frame)-self.itemSize, y:CGRectGetMaxY(self.frame)-self.itemSize),
-                CGPoint(x:CGRectGetMinX(self.frame)+self.itemSize, y:CGRectGetMidY(self.frame)-self.itemSize),
-                CGPoint(x:CGRectGetMaxX(self.frame)+self.itemSize, y:CGRectGetMidY(self.frame)-self.itemSize),]
+                CGPoint(x:CGRectGetMaxX(self.frame)-self.itemSize, y:CGRectGetMidY(self.frame))                 ]
 
         spawnHelper.spawnBuckets(self, bucketPositions: bucketPosition)
 
         //timerNode and scoreNode
-        var timerNode:SKLabelNode = SKLabelNode(fontNamed: "Courier-Bold")
+        timerNode = SKLabelNode(fontNamed: "Courier-Bold")
         timerNode.fontSize = 30
         timerNode.text = String(self.score)
         timerNode.position = CGPointMake(CGRectGetMinX(self.frame)+self.itemSize, CGRectGetMinY(self.frame)+self.itemSize/5)
@@ -83,7 +108,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         timerNode.name = "time"
         self.addChild(timerNode)
 
-        var scoreNode:SKLabelNode = SKLabelNode(fontNamed: "Courier-Bold")
+        scoreNode = SKLabelNode(fontNamed: "Courier-Bold")
         scoreNode.fontSize = 30
         scoreNode.text = String(self.score)
         scoreNode.position = CGPointMake(CGRectGetMaxX(self.frame)-self.itemSize, CGRectGetMinY(self.frame)+self.itemSize/5)
@@ -96,13 +121,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.time = self.time + 1
     }
 
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        /* Called when a touch begins */
-        for touch: AnyObject in touches {
-            let location = touch.locationInNode(self)
-        }
-    }
-
     override func update(currentTime: CFTimeInterval) {
         
         //check if game should be ended
@@ -111,77 +129,94 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         /* Called before each frame is rendered */
-
-        cheerLeader.handleCheers(self)
-
-        var spawnItem = true
-        enumerateChildNodesWithName(spawnHelper.getThrowItemTag(), usingBlock: {
+        var itemsInSpawn = 0
+        enumerateChildNodesWithName(ThrowItemClass.getTag(), usingBlock: {
             (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
             // do something with node or stop
             var throwItem = node as ThrowItemClass
-            if(throwItem.getState() == ThrowItemClass.State.Spawned) {
-                spawnItem = false
+            if(!self.containsPoint(throwItem.position)) {
+                throwItem.removeFromParent()
             } else {
-            if(throwItem.position.y > self.frame.size.height || throwItem.position.x > self.frame.size.width ||
-                throwItem.position.y < 0 || throwItem.position.x < 0) {
-                    throwItem.removeFromParent()
-            }
+                if(self.spawnArea.containsPoint(throwItem.position)) {
+                    itemsInSpawn++
+                    throwItem.setState(ThrowItemClass.State.Spawned)
+                    var touch = self.itemToTouch[throwItem] as UITouch!
+                    if(touch != nil) {
+                        let location = touch.locationInNode(self)
+                        let impulseVector = CGVector(dx: (location.x - throwItem.position.x), dy: (location.y - throwItem.position.y))
+                        throwItem.physicsBody?.applyImpulse(impulseVector)
+                    }
+                } else {
+                    throwItem.setState(ThrowItemClass.State.Launched)
+                    var touch = self.itemToTouch.removeValueForKey(throwItem)
+                    if (touch != nil) {
+                        self.touchToItem.removeValueForKey(touch!)
+                    }
+                }
             }
         })
-        if(spawnItem) {
-            var position = CGPoint(x:CGRectGetMidX(self.frame), y:0)
+
+        if(itemsInSpawn < 2) {
+            var position = CGPoint(x: Helper.rand(spawnArea.frame.minX, maxVal: spawnArea.frame.maxX), y: spawnArea.position.y)
             var throwItem = spawnHelper.spawnThrowItem(self, position: position)
             if(throwItem != nil) {
-                let zoom = SKAction.scaleBy(3, duration: 0.5)
-                let actionMove = SKAction.moveTo(CGPoint(x: self.frame.size.width/2, y: self.itemSize*1.5), duration: NSTimeInterval(0.5))
-                throwItem!.runAction(SKAction.sequence([zoom]))
+                let scaleDown = SKAction.scaleBy(0.25, duration: 0.0)
+                let actionMove = SKAction.moveTo(spawnPoint, duration: NSTimeInterval(0.5))
+                let scaleUp = SKAction.scaleBy(4, duration: 0.5)
+                throwItem!.runAction(SKAction.sequence([scaleDown]))
                 throwItem!.runAction(SKAction.sequence([actionMove]))
+                throwItem!.runAction(SKAction.sequence([scaleUp]))
             }
         }
-        enumerateChildNodesWithName(self.spawnHelper.getBucketTag(), usingBlock: {
+
+        enumerateChildNodesWithName(BucketClass.getTag(), usingBlock: {
             (bucket: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
-            self.enumerateChildNodesWithName(self.spawnHelper.getThrowItemTag(), usingBlock: {
+            self.enumerateChildNodesWithName(ThrowItemClass.getTag(), usingBlock: {
                 (throwItem: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
                 var dx = (throwItem.position.x - bucket.position.x);
                 var dy = (throwItem.position.y - bucket.position.y)
                 var dist = sqrt(dx*dx + dy*dy);
-                if (dist < 150 ) {
+                if (dist < 80 ) {
                     let actionMove = SKAction.moveTo(bucket.position, duration: NSTimeInterval(0.3))
                     throwItem.runAction(SKAction.sequence([actionMove]))
                 }
             })
         })
-        enumerateChildNodesWithName("time", usingBlock: {
-            (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
-            // do something with node or stop
-            (node as SKLabelNode).text = String(self.time)
-        })
 
-        enumerateChildNodesWithName("score", usingBlock: {
-            (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
-            // do something with node or stop
-            (node as SKLabelNode).text = String(self.score)
-        })
-
+        timerNode.text = String(self.time)
+        scoreNode.text = String(self.score)
     }
 
     //accepted
-    func acceptedReaction(throw:SKSpriteNode, bucket:SKSpriteNode) {
+    func acceptedReaction(throw:ThrowItemClass, bucket:BucketClass) {
         throw.removeFromParent()
         NSLog("successful")
         self.score = self.score + 1
         self.killContinues = self.killContinues + 1
 
-        var particle = SKEmitterNode(fileNamed: "MyParticle"+String(1))
+//        var particle = SKEmitterNode(fileNamed: "MyParticle"+String(1))
+//        particle.name = "particle"
+//        particle.position = bucket.position
+//        self.addChild(particle)
+        var particle = SKEmitterNode(fileNamed: "MyParticle2")
         particle.name = "particle"
-        particle.position = bucket.position
+        particle.position = CGPoint(x: bucket.position.x, y: bucket.position.y - bucket.size.height/3)
         self.addChild(particle)
+
+        let soundAction = SKAction.playSoundFileNamed(bucket.successSounds[0], waitForCompletion: true)
+        bucket.runAction(soundAction)
+        
+        let firstScale = SKAction.scaleBy(5/4, duration: 0.1)
+        let secondScale = SKAction.scaleBy(4/5, duration: 0.1)
+        bucket.runAction(firstScale, completion: { () -> Void in
+            bucket.runAction(secondScale)
+        })
         // CheerLeader decided on whether it should be cheered or not
         cheerLeader.onPointScored(self)
     }
 
     //unaccepted
-    func unacceptedReaction(throw:SKSpriteNode, bucket:SKSpriteNode) {
+    func unacceptedReaction(throw:ThrowItemClass, bucket:BucketClass) {
         throw.removeFromParent()
         self.killContinues = 0;
         NSLog("fail")
@@ -189,6 +224,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         particle.name = "particle"
         particle.position = bucket.position
         self.addChild(particle)
+        let soundAction = SKAction.playSoundFileNamed(bucket.failureSounds[0], waitForCompletion: true)
+        
+   
+        //failed animation
+        let shake = SKAction.shake(bucket.position, duration: 0.1, amplitudeX: 25, amplitudeY: 15)
+        bucket.runAction(SKAction.group([shake, soundAction]))
+        
+
     }
 
 
@@ -220,29 +263,53 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         })
     }
 
-    func handleAttachmentGesture(gesture: UIPanGestureRecognizer) {
-        switch gesture.state {
-        case UIGestureRecognizerState.Began:
-            break
-        case UIGestureRecognizerState.Ended:
-            enumerateChildNodesWithName(spawnHelper.getThrowItemTag(), usingBlock:
-                {(node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
-                    var throwItem = node as ThrowItemClass
-                    if(throwItem.getState() != ThrowItemClass.State.Launched) {
-                        var velocity:CGPoint = gesture.velocityInView(self.view)
-                        var magnitude:CGFloat = sqrt(pow(velocity.x, 2) + pow(velocity.y,2))
-                        NSLog("location image ended is %@", NSStringFromCGPoint(velocity))
-                        // do something with node or stop
-                        if(magnitude > self.ThrowingThreshold) {
-                            throwItem.physicsBody?.applyImpulse(CGVectorMake(velocity.x, -velocity.y))
-                        }
-                        throwItem.setState(ThrowItemClass.State.Launched)
-                    }
-            })
-            break
-        default:
-            break
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        for touch: AnyObject in touches {
+            let location = touch.locationInNode(self)
+            var throwItem = self.nodeAtPoint(location) as? ThrowItemClass
+            if (throwItem != nil) {
+                if throwItem!.getState() == ThrowItemClass.State.Spawned {
+                    itemToTouch.updateValue(touch as UITouch, forKey: throwItem!)
+                    touchToItem.updateValue(throwItem!, forKey: touch as UITouch)
+                }
+            }
         }
+    }
+
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+        for touch: AnyObject in touches {
+            var uiTouch = touch as UITouch
+            if (touchToItem.indexForKey(uiTouch) != nil) {
+                let throwItem = touchToItem[touch as UITouch]
+                itemToTouch.updateValue(touch as UITouch, forKey: throwItem!)
+            }
+        }
+    }
+
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        for touch: AnyObject in touches {
+            var throwItem = touchToItem.removeValueForKey(touch as UITouch)
+            if (throwItem != nil) {
+                itemToTouch.removeValueForKey(throwItem!)
+            }
+        }
+    }
+
+}
+
+extension SKAction {
+    class func shake(initialPosition:CGPoint, duration:Float, amplitudeX:Int = 12, amplitudeY:Int = 3) -> SKAction {
+        let startingX = initialPosition.x
+        let startingY = initialPosition.y
+        let numberOfShakes = duration / 0.015
+        var actionsArray:[SKAction] = []
+        for index in 1...Int(numberOfShakes) {
+            let newXPos = startingX + CGFloat(arc4random_uniform(UInt32(amplitudeX))) - CGFloat(amplitudeX / 2)
+            let newYPos = startingY + CGFloat(arc4random_uniform(UInt32(amplitudeY))) - CGFloat(amplitudeY / 2)
+            actionsArray.append(SKAction.moveTo(CGPointMake(newXPos, newYPos), duration: 0.015))
+        }
+        actionsArray.append(SKAction.moveTo(initialPosition, duration: 0.015))
+        return SKAction.sequence(actionsArray)
     }
     
     // function that checks, when the game is over, you can have different end conditions
@@ -266,3 +333,4 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
 }
+

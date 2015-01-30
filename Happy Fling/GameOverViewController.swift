@@ -17,6 +17,8 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var backgroundImage: UIImageView!
     var theme: ThemeClass = ThemeClass()
        //TODO: func to store the data into the database
+    
+    //only testdata
     var highscoredata: [String] = ["1000", "accuracy", "succ. Throws"]
     
     @IBOutlet weak var highscoreViewTable: UITableView!

@@ -72,9 +72,11 @@ class TransitionViewController: UIViewController {
         
         
     }
-    
-    
-  
-    
+
+    //Hide Statusbar
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+
     
 }
