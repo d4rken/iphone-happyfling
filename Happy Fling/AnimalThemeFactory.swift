@@ -43,8 +43,8 @@ class AnimalThemeFactory: ThemeFactory {
         //Bird & Worm   -> Feed the worm to the bear
             //Worm
             var itemWorm = ThrowItemTheme()
-            itemWorm.name = "Themes/Animals/Bird/Worm.png"
-            itemWorm.image = "Worm.png"
+            itemWorm.name = "Worm Item"
+            itemWorm.image = "Themes/Animals/Bird/Worm.png"
             theme.throwItemThemeArray.append(itemWorm)
         
             //Bird

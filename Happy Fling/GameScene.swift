@@ -125,6 +125,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enumerateChildNodesWithName(ThrowItemClass.getTag(), usingBlock: {
             (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
             // do something with node or stop
+            self.updateNodeSizeRelativeToMainGravityCenter(node)
             var throwItem = node as ThrowItemClass
             if(!self.containsPoint(throwItem.position)) {
                 throwItem.removeFromParent()
@@ -287,6 +288,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
 
+    func updateNodeSizeRelativeToMainGravityCenter(node:SKNode){
+        //Right now, they keep getting smaller if they are not in the center, I will work on it!    (Jose)
+        
+        //distance between Node and main gravity center
+        var distance = node.position.distance(spawnPoint)
+        var skSpriteNode = node as SKSpriteNode
+        skSpriteNode.size = CGSizeMake(skSpriteNode.size.width * exp(-distance*0.001), skSpriteNode.size.height * exp(-distance*0.001))
+        
+    }
 }
 
 extension SKAction {
@@ -304,5 +314,21 @@ extension SKAction {
         return SKAction.sequence(actionsArray)
     }
     
+}
+
+extension CGPoint {
+    
+    /**
+    Calculates a distance to the given point.
+    
+    :param: point - the point to calculate a distance to
+    
+    :returns: distance between current and the given points
+    */
+    func distance(point: CGPoint) -> CGFloat {
+        let dx = self.x - point.x
+        let dy = self.y - point.y
+        return sqrt(dx * dx + dy * dy);
+    }
 }
 
