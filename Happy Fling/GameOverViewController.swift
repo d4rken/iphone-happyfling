@@ -26,7 +26,7 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         backgroundImage.image = UIImage(named: "Background")
         
-        //register cellclass
+        //register cellclass var tableView: UITableView  =   UITableView()
         self.highscoreViewTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
