@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18092C1F1A7AA0AE008402A7 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18092C1E1A7AA0AE008402A7 /* Helper.swift */; };
+		188140D61A7B932A005E4795 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188140D51A7B932A005E4795 /* RootViewController.swift */; };
 		18B2E0081A79243C009F283B /* CheerLeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2E0071A79243C009F283B /* CheerLeader.swift */; };
 		18B2E00A1A793551009F283B /* SpawnHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2E0091A793551009F283B /* SpawnHelper.swift */; };
 		18BACE821A5E90BD00D4D69C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BACE811A5E90BD00D4D69C /* AppDelegate.swift */; };
@@ -24,8 +25,9 @@
 		545C08F21A72479B00383762 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C08F11A72479B00383762 /* GameOverViewController.swift */; };
 		928EB4E61A780159003CC797 /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = 928EB4E21A780159003CC797 /* bokeh.png */; };
 		928EB4E71A780159003CC797 /* MyParticle0.sks in Resources */ = {isa = PBXBuildFile; fileRef = 928EB4E31A780159003CC797 /* MyParticle0.sks */; };
-		928EB4E81A780159003CC797 /* MyParticle1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 928EB4E41A780159003CC797 /* MyParticle1.sks */; };
 		928EB4E91A780159003CC797 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 928EB4E51A780159003CC797 /* spark.png */; };
+		928EB4EB1A7B8916003CC797 /* MyParticle1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 928EB4EA1A7B8916003CC797 /* MyParticle1.sks */; };
+		928EB4ED1A7B9C67003CC797 /* MyParticle3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 928EB4EC1A7B9C67003CC797 /* MyParticle3.sks */; };
 		92CC77F81A642258002A86CD /* BucketClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F41A642258002A86CD /* BucketClass.swift */; };
 		92CC77F91A642258002A86CD /* ThemeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F51A642258002A86CD /* ThemeClass.swift */; };
 		92CC77FA1A642258002A86CD /* ThemeHistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */; };
@@ -58,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		18092C1E1A7AA0AE008402A7 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		188140D51A7B932A005E4795 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		18B2E0071A79243C009F283B /* CheerLeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheerLeader.swift; sourceTree = "<group>"; };
 		18B2E0091A793551009F283B /* SpawnHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpawnHelper.swift; sourceTree = "<group>"; };
 		18BACE7C1A5E90BD00D4D69C /* Happy Fling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Fling.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,8 +81,9 @@
 		545C08F11A72479B00383762 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		928EB4E21A780159003CC797 /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bokeh.png; path = Resources/bokeh.png; sourceTree = "<group>"; };
 		928EB4E31A780159003CC797 /* MyParticle0.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MyParticle0.sks; path = Resources/MyParticle0.sks; sourceTree = "<group>"; };
-		928EB4E41A780159003CC797 /* MyParticle1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MyParticle1.sks; path = Resources/MyParticle1.sks; sourceTree = "<group>"; };
 		928EB4E51A780159003CC797 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = Resources/spark.png; sourceTree = "<group>"; };
+		928EB4EA1A7B8916003CC797 /* MyParticle1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle1.sks; sourceTree = "<group>"; };
+		928EB4EC1A7B9C67003CC797 /* MyParticle3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle3.sks; sourceTree = "<group>"; };
 		92CC77F41A642258002A86CD /* BucketClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketClass.swift; sourceTree = "<group>"; };
 		92CC77F51A642258002A86CD /* ThemeClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeClass.swift; sourceTree = "<group>"; };
 		92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeHistoryEntry.swift; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 				18BACE871A5E90BD00D4D69C /* GameViewController.swift */,
 				B1CB7B461A6D61620002C6AA /* TransitionViewController.swift */,
 				D1F9C8C61A6811C70017DAE8 /* StartViewController.swift */,
+				188140D51A7B932A005E4795 /* RootViewController.swift */,
 				18BACE891A5E90BD00D4D69C /* Main.storyboard */,
 				18BACE8C1A5E90BD00D4D69C /* Images.xcassets */,
 				18BACE8E1A5E90BD00D4D69C /* LaunchScreen.xib */,
@@ -202,10 +207,11 @@
 		18F97F4F1A6C5494006BAC80 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				928EB4EC1A7B9C67003CC797 /* MyParticle3.sks */,
 				D1A089D11A7AA283002B1611 /* gravityCircle.png */,
 				928EB4E21A780159003CC797 /* bokeh.png */,
 				928EB4E31A780159003CC797 /* MyParticle0.sks */,
-				928EB4E41A780159003CC797 /* MyParticle1.sks */,
+				928EB4EA1A7B8916003CC797 /* MyParticle1.sks */,
 				928EB4E51A780159003CC797 /* spark.png */,
 				D1A089CD1A7A9329002B1611 /* MyParticle2.sks */,
 				D1A089CE1A7A9329002B1611 /* spark.png */,
@@ -295,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				928EB4E91A780159003CC797 /* spark.png in Resources */,
+				928EB4EB1A7B8916003CC797 /* MyParticle1.sks in Resources */,
 				D199E63A1A6D688000B708C2 /* DIMIS___.otf in Resources */,
 				18BACE901A5E90BD00D4D69C /* LaunchScreen.xib in Resources */,
 				18BACE8D1A5E90BD00D4D69C /* Images.xcassets in Resources */,
@@ -303,10 +310,10 @@
 				D1A089D21A7AA283002B1611 /* gravityCircle.png in Resources */,
 				18BACE841A5E90BD00D4D69C /* GameScene.sks in Resources */,
 				D12C4E2E1A724C6C008ED9C4 /* Themes in Resources */,
-				928EB4E81A780159003CC797 /* MyParticle1.sks in Resources */,
 				928EB4E61A780159003CC797 /* bokeh.png in Resources */,
 				928EB4E71A780159003CC797 /* MyParticle0.sks in Resources */,
 				D1A089CF1A7A9329002B1611 /* MyParticle2.sks in Resources */,
+				928EB4ED1A7B9C67003CC797 /* MyParticle3.sks in Resources */,
 				18BACE8B1A5E90BD00D4D69C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,6 +345,7 @@
 				D140D2861A71713800AB8217 /* AnimalThemeFactory.swift in Sources */,
 				18092C1F1A7AA0AE008402A7 /* Helper.swift in Sources */,
 				545C08F21A72479B00383762 /* GameOverViewController.swift in Sources */,
+				188140D61A7B932A005E4795 /* RootViewController.swift in Sources */,
 				18F97F441A695BB3006BAC80 /* ThemeCellView.swift in Sources */,
 				18BACE881A5E90BD00D4D69C /* GameViewController.swift in Sources */,
 				D1F9C8C71A6811C70017DAE8 /* StartViewController.swift in Sources */,

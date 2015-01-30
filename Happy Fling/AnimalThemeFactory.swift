@@ -42,11 +42,11 @@ class AnimalThemeFactory: ThemeFactory {
             bucketBear.acceptedThrowItems.append(itemHoney.name)
             theme.bucketThemeArray.append(bucketBear)
         
-        //Bird & Worm   -> Feed the worm to the bear
+        //Bird & Worm   -> Feed the worm to the bird
             //Worm
             var itemWorm = ThrowItemTheme()
-            itemWorm.name = "Themes/Animals/Bird/Worm.png"
-            itemWorm.image = "Worm.png"
+            itemWorm.name = "Worm Item"
+            itemWorm.image = "Themes/Animals/Bird/Worm.png"
             theme.throwItemThemeArray.append(itemWorm)
         
             //Bird

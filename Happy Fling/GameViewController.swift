@@ -34,7 +34,7 @@ extension SKNode {
     }
 }
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
     
     
     var theme: ThemeClass = ThemeClass()

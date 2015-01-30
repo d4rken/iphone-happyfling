@@ -8,10 +8,19 @@
 
 import UIKit
 
-class TransitionViewController: UIViewController {
+class TransitionViewController: UIViewController, VCCCustomer, ThemeCustomer {
 
-    var theme: ThemeClass?
-  
+    private var theme: ThemeClass!
+    private var vcc: VCC!
+
+    func setVCC(vcc: VCC) {
+        self.vcc = vcc
+    }
+
+    func setTheme(theme: ThemeClass) {
+        self.theme = theme
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         var backgroundImageView: UIImageView! = UIImageView(image: UIImage(named:self.theme!.introBackgroundPicture))

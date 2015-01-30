@@ -10,10 +10,16 @@ import Foundation
 import UIKit
 
 
-class ThemeSelectionViewController: UICollectionViewController {
+class ThemeSelectionViewController: UICollectionViewController, VCCCustomer {
 
     private let reuseIdentifier = "ThemeCell"
-    let themes = ThemeFactoryHelper.getAllFactories()
+    private let themes = ThemeFactoryHelper.getAllFactories()
+
+    private var vcc: VCC!
+
+    func setVCC(vcc: VCC) {
+        self.vcc = vcc
+    }
 
     override func viewDidLoad() {
         self.collectionView!.backgroundView = UIImageView(image: UIImage(named: "Background")!)
@@ -44,20 +50,11 @@ class ThemeSelectionViewController: UICollectionViewController {
         return cell
     }
 
-    let toTransitionScreenTag = "ThemeSelectionToTransitionScreen"
     var selectedTheme: ThemeClass?
 
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         selectedTheme = themeFactoryForIndexPath(indexPath).makeTheme()
-        self.performSegueWithIdentifier(toTransitionScreenTag, sender: self)
-    }
-
-    override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
-        if (segue?.identifier == toTransitionScreenTag) {
-            var transitionScreenViewController = segue!.destinationViewController as TransitionViewController
-            transitionScreenViewController.theme = selectedTheme
-        }
-        
+        vcc.goToTransitionScreen(selectedTheme!)
     }
     
     //Hide statusbar

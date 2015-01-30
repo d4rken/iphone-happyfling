@@ -9,27 +9,29 @@
 import UIKit
 import Foundation
 
-class StartViewController: UIViewController {
-    
-    
+
+
+class StartViewController: UIViewController, VCCCustomer {
+
     @IBOutlet weak var titleImage: UIImageView!
     @IBOutlet weak var highscoreImage: UIImageView!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var backgroundImage: UIImageView!
-    
-    
+
+    private var vcc: VCC!
+
+    func setVCC(vcc: VCC) {
+        self.vcc = vcc
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
         self.titleImage.hidden = true
         self.button.hidden = true
         self.highscoreImage.hidden = true
         backgroundImage.image = UIImage(named: "Background")
-       
     }
-  
-    
+
     override func viewDidAppear(animated: Bool) {
         
         //Animate title, button and Highscore
@@ -67,7 +69,7 @@ class StartViewController: UIViewController {
                     self.highscoreImage.transform = CGAffineTransformMakeScale(0.01, 0.01)
                     self.highscoreImage.alpha = 0
                     }, completion: {(success) -> Void in
-                        self.performSegueWithIdentifier("StartScreenToThemeSelection", sender: self)
+                        self.vcc.goToThemeSelection()
                 })
         })
     
@@ -81,11 +83,6 @@ class StartViewController: UIViewController {
                     }, completion: nil)
         })
         
-    }
-    
-    //Hide Statusbar
-    override func prefersStatusBarHidden() -> Bool {
-        return true
     }
 }
 
