@@ -294,6 +294,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
+    
+    
+    
+    
+    // function that checks, when the game is over, you can have different end conditions
+    func isGameOver() -> Bool {
+        if(self.time == 15){return true}
+        return false
+    }
+    
+    
+    //function that actually ends the game and loads the gameoverscreen
+    func endGame() {
+        if !self.gameEnding {
+            
+            self.gameEnding = true
+            // load gameOverscreen
+            NSLog("game end reachead")
+            
+            NSNotificationCenter.defaultCenter().postNotificationName("GameEnd", object: nil)
+            
+        }
+    }
+    
 
 }
 
@@ -312,25 +336,7 @@ extension SKAction {
         return SKAction.sequence(actionsArray)
     }
     
-    // function that checks, when the game is over, you can have different end conditions
-    func isGameOver() -> Bool {
-        if(self.time == 15){return true}
-        return false
-    }
-    
-    
-    //function that actually ends the game and loads the gameoverscreen
-    func endGame() {
-        if !self.gameEnding {
-            
-            self.gameEnding = true
-        // load gameOverscreen
-            NSLog("game end reachead")
-            
-            NSNotificationCenter.defaultCenter().postNotificationName("GameEnd", object: nil)
-
-        }
-    }
+   
     
 }
 
