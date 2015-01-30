@@ -22,7 +22,7 @@ class ColorThemeFactory: ThemeFactory {
         var theme = ThemeClass()
         theme.themeName = getName()
         theme.themeIcon = getIconResource()
-        theme.minNumBuckets = 5
+        theme.minNumBuckets = 2
         theme.maxNumBuckets = 5
 
         //Black
