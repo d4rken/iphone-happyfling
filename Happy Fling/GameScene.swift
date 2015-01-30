@@ -54,7 +54,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(background)
 
         spawnPoint = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/6)
-        spawnArea = SKShapeNode(circleOfRadius: 150)
+        spawnArea = SKShapeNode(circleOfRadius: 100)
         spawnArea.position = spawnPoint
         spawnArea.fillColor = UIColor.greenColor()
         spawnArea.strokeColor = UIColor.greenColor()
@@ -63,7 +63,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //gravity
         var spawnGravity = SKFieldNode.radialGravityField()
         spawnGravity.strength = 3
-        spawnGravity.falloff = 0
+        spawnGravity.falloff = -1
         spawnGravity.region = SKRegion(radius: Float(spawnArea!.frame.width))
         spawnGravity.enabled = true
         spawnGravity.name = "SpawnGravity"
@@ -96,7 +96,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 CGPoint(x:CGRectGetMaxX(self.frame)-self.itemSize, y:CGRectGetMidY(self.frame))                 ]
 
         spawnHelper.spawnBuckets(self, bucketPositions: bucketPosition)
-
+        
+        
+        //create circle of particles
+        var circle = CGPathCreateWithEllipseInRect(CGRectMake(self.spawnPoint.x-100,10, 200,200), nil)
+        var followTrack = SKAction.followPath(circle, asOffset: false, orientToPath: false, duration: 3)
+        var forever:SKAction = SKAction.repeatActionForever(followTrack)
+        var particle = SKEmitterNode(fileNamed: "MyParticle"+String(1))
+        particle.particleAction = forever
+        self.addChild(particle)
+        
         //timerNode and scoreNode
         timerNode = SKLabelNode(fontNamed: "Courier-Bold")
         timerNode.fontSize = 30
@@ -146,6 +155,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     }
                 }
             }
+            
+            
+            
         })
 
         if(itemsInSpawn < 2) {
@@ -177,6 +189,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         timerNode.text = String(self.time)
         scoreNode.text = String(self.score)
+        
+        
+        
     }
 
     //accepted
@@ -186,10 +201,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.score = self.score + 1
         self.killContinues = self.killContinues + 1
 
-//        var particle = SKEmitterNode(fileNamed: "MyParticle"+String(1))
-//        particle.name = "particle"
-//        particle.position = bucket.position
-//        self.addChild(particle)
         var particle = SKEmitterNode(fileNamed: "MyParticle2")
         particle.name = "particle"
         particle.position = CGPoint(x: bucket.position.x, y: bucket.position.y - bucket.size.height/3)

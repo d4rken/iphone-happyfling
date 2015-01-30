@@ -19,4 +19,8 @@ class Helper : NSObject {
     class func rand(minVal: CGFloat, maxVal: CGFloat) -> CGFloat{
         return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(minVal - maxVal) + min(minVal, maxVal)
     }
+    
+    class func calDis(first: CGPoint, second:CGPoint) -> CGFloat {
+        return sqrt((first.x - second.x)*(first.x - second.x)+(first.y - second.y)*(first.y - second.y))
+    }
 }
