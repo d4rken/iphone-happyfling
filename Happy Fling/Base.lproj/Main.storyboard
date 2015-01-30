@@ -1,15 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p2C-O8-F9i">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XvB-Z3-kQX">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Start View Controller-->
+        <!--Root View Controller-->
+        <scene sceneID="Rxl-zM-78K">
+            <objects>
+                <viewController id="XvB-Z3-kQX" customClass="RootViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o4B-TQ-Nyq"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gy9-M2-gBk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yhy-tk-Tf0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="p2C-O8-F9i" kind="show" identifier="RootToStart" id="wVP-uX-Jr4"/>
+                        <segue destination="dPe-gE-3bA" kind="show" identifier="RootToSelection" id="l8Z-Gb-quf"/>
+                        <segue destination="LVB-YS-i5n" kind="show" identifier="RootToGame" id="Lic-N0-fQX"/>
+                        <segue destination="jqi-zz-zfY" kind="show" identifier="RootToScore" id="vYb-VF-J3e"/>
+                        <segue destination="6m3-4X-eIS" kind="show" identifier="RootToTransition" id="HUJ-bP-Wfw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bgR-XO-8iq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1446" y="-1083"/>
+        </scene>
+        <!--Start-->
         <scene sceneID="o8Y-5Z-8Az">
             <objects>
-                <viewController id="p2C-O8-F9i" customClass="StartViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Start" id="p2C-O8-F9i" customClass="StartViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hlx-2I-KGP"/>
                         <viewControllerLayoutGuide type="bottom" id="nUT-om-mRb"/>
@@ -88,12 +113,11 @@
                         <outlet property="button" destination="Aul-4P-ae7" id="7Y4-TZ-nzG"/>
                         <outlet property="highscoreImage" destination="Pt8-jI-sn9" id="Odz-qQ-wvl"/>
                         <outlet property="titleImage" destination="Gh2-eg-ggw" id="bfZ-Rq-SBr"/>
-                        <segue destination="dPe-gE-3bA" kind="presentation" identifier="StartScreenToThemeSelection" modalPresentationStyle="fullScreen" animates="NO" id="NBr-gZ-fl1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jfm-i7-2rP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1593" y="137"/>
+            <point key="canvasLocation" x="-2118" y="283"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="CtS-rA-C9T">
@@ -109,13 +133,10 @@
                         <gestureRecognizers/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <segue destination="jqi-zz-zfY" kind="show" id="htC-dF-jci"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1121" y="215"/>
+            <point key="canvasLocation" x="-843" y="283"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="iiW-bq-N1k">
@@ -126,7 +147,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lwd-vd-rxe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oAh-3n-DEF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4D3-Wr-Nrj">
@@ -168,15 +189,10 @@
                             <constraint firstAttribute="centerX" secondItem="fB2-hB-4vy" secondAttribute="centerX" constant="-8" id="SP7-ms-8qh"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <segue destination="6m3-4X-eIS" kind="show" id="9d7-qP-4yG"/>
-                        <segue destination="LVB-YS-i5n" kind="show" id="gIR-3P-H5u"/>
-                        <segue destination="dPe-gE-3bA" kind="show" id="wnS-8r-ZXU"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3f3-Q1-2dh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="190" y="776"/>
+            <point key="canvasLocation" x="-146" y="276"/>
         </scene>
         <!--Theme Selection View Controller-->
         <scene sceneID="Zx5-FS-o7D">
@@ -237,12 +253,11 @@
                     <navigationItem key="navigationItem" id="wSs-ZN-5nC"/>
                     <connections>
                         <outlet property="collectionView" destination="CsR-hm-950" id="ggg-GA-3yV"/>
-                        <segue destination="6m3-4X-eIS" kind="show" identifier="ThemeSelectionToTransitionScreen" id="jXT-2I-hgk"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYE-ya-gz7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-784" y="-141"/>
+            <point key="canvasLocation" x="-1446" y="283"/>
         </scene>
         <!--Transition View Controller-->
         <scene sceneID="bQB-ph-iCd">
@@ -284,13 +299,10 @@ She will come back in two minutes.</string>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
-                    <connections>
-                        <segue destination="LVB-YS-i5n" kind="show" identifier="TransitionScreenToGame" id="SyZ-Ga-DtJ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4es-se-QHq" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="156" y="-205"/>
+            <point key="canvasLocation" x="-184" y="-1097"/>
         </scene>
     </scenes>
     <resources>
@@ -299,9 +311,4 @@ She will come back in two minutes.</string>
         <image name="Title" width="6571" height="1800"/>
         <image name="Unpressed Button" width="2483" height="2488"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="NBr-gZ-fl1"/>
-        <segue reference="9d7-qP-4yG"/>
-        <segue reference="gIR-3P-H5u"/>
-    </inferredMetricsTieBreakers>
 </document>
