@@ -11,10 +11,11 @@ import UIKit
 class BucketTheme: NSObject
 {
     var name:String = ""
-    var shapeSize: CGSize = CGSizeMake(0, 0)
+    var shapeSize: CGSize = CGSizeMake(70, 70)
     var acceptedThrowItems:[String] = []
     var successSounds: [String] = []
+    var failureSounds: [String] = []
     var bucketAnimations:[String] = []
-    
+    var image:String = "Themes/bucket.png"
    
 }

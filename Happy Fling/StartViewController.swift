@@ -9,29 +9,29 @@
 import UIKit
 import Foundation
 
-class StartViewController: UIViewController {
-    
-    
-    @IBOutlet weak var highscoreLabel: UILabel!
+
+
+class StartViewController: UIViewController, VCCCustomer {
+
     @IBOutlet weak var titleImage: UIImageView!
     @IBOutlet weak var highscoreImage: UIImageView!
     @IBOutlet weak var button: UIButton!
-    
-    
+    @IBOutlet weak var backgroundImage: UIImageView!
+
+    private var vcc: VCC!
+
+    func setVCC(vcc: VCC) {
+        self.vcc = vcc
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.titleImage.hidden = true
         self.button.hidden = true
         self.highscoreImage.hidden = true
-        
-        //self.highscoreLabel.font = UIFont(name: "Dimitri Swank", size: 50)
-       
+        backgroundImage.image = UIImage(named: "Background")
     }
-  
-    @IBAction func onPlayTapped(sender: AnyObject) {
-        self.performSegueWithIdentifier("StartScreenToThemeSelection", sender: self)
-    }
-    
+
     override func viewDidAppear(animated: Bool) {
         
         //Animate title, button and Highscore
@@ -57,28 +57,32 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func buttonPressed(sender: AnyObject) {
+        
         //Animate button & Highscore
         UIView.animateWithDuration(0.5, delay: 0.2, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             self.button.transform = CGAffineTransformMakeScale(1.1, 1.1)
             self.highscoreImage.transform = CGAffineTransformMakeScale(1.1, 1.1)
             }, completion: {(success) -> Void in
-                UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                     self.button.transform = CGAffineTransformMakeScale(0.01, 0.01)
                     self.button.alpha = 0
                     self.highscoreImage.transform = CGAffineTransformMakeScale(0.01, 0.01)
                     self.highscoreImage.alpha = 0
-                    }, completion: nil)
+                    }, completion: {(success) -> Void in
+                        self.vcc.goToThemeSelection()
+                })
         })
     
         //Animate Title
-        UIView.animateWithDuration(0.8, delay: 0.2, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, delay: 0.2, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             self.titleImage.center.y += 20
             }, completion: {(success) -> Void in
                 
-                UIView.animateWithDuration(0.8, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                     self.titleImage.center.y -= 300
                     }, completion: nil)
         })
         
     }
 }
+
