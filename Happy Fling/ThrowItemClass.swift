@@ -46,10 +46,23 @@ class ThrowItemClass: SKSpriteNode {
     }
 
     func setState(state: State) {
+        if self.state == state
+        {
+            return
+        }
         self.state = state
         if(state == State.Launched) {
             physicsBody?.linearDamping = 0
             physicsBody?.angularDamping = 0
+            //if throwItem beyond the circle, give it a particle
+            var particle = SKEmitterNode(fileNamed: "MyParticle"+String(3))
+            self.insertChild(particle, atIndex: 0)
+            
+            
+        }
+        else if(state == State.Spawned)
+        {
+             self.removeAllChildren()
         }
     }
 

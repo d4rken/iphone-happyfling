@@ -21,6 +21,8 @@ class ShapeThemeFactory: ThemeFactory {
         var theme = ThemeClass()
         theme.themeName = getName()
         theme.themeIcon = getIconResource()
+        theme.minNumBuckets = 5
+        theme.maxNumBuckets = 5
 
         //Triangle
         var itemTriangle = ThrowItemTheme()

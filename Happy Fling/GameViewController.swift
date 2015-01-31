@@ -25,11 +25,19 @@ extension SKNode {
     }
 }
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
     
-    
-    var theme: ThemeClass = ThemeClass()
+    private var theme: ThemeClass!
+    private var vcc: VCC!
 
+    func setVCC(vcc: VCC) {
+        self.vcc = vcc
+    }
+
+    func setTheme(theme: ThemeClass) {
+        self.theme = theme
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()

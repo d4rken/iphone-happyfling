@@ -23,7 +23,9 @@ class AnimalThemeFactory: ThemeFactory {
         var theme = ThemeClass()
         theme.themeName = getName()
         theme.themeIcon = getIconResource()
-        
+        theme.minNumBuckets = 3
+        theme.maxNumBuckets = 4
+
         //Bear & Honey  -> Feed honey to the bear
             //Honey
             var itemHoney = ThrowItemTheme()
@@ -36,11 +38,11 @@ class AnimalThemeFactory: ThemeFactory {
             bucketBear.name = "Bear Bucket"
             bucketBear.image = "Themes/Animals/Bear/Bear.png"
             bucketBear.failureSounds.append("Sounds/wrong.wav")
-            bucketBear.successSounds.append("Sounds/right")
+            bucketBear.successSounds.append("Sounds/right.wav")
             bucketBear.acceptedThrowItems.append(itemHoney.name)
             theme.bucketThemeArray.append(bucketBear)
         
-        //Bird & Worm   -> Feed the worm to the bear
+        //Bird & Worm   -> Feed the worm to the bird
             //Worm
             var itemWorm = ThrowItemTheme()
             itemWorm.name = "Worm Item"
@@ -52,7 +54,7 @@ class AnimalThemeFactory: ThemeFactory {
             bucketBird.name = "Bird Bucket"
             bucketBird.image = "Themes/Animals/Bird/Bird.png"
             bucketBird.failureSounds.append("Sounds/wrong.wav")
-            bucketBird.successSounds.append("Sounds/right")
+            bucketBird.successSounds.append("Sounds/right.wav")
             bucketBird.acceptedThrowItems.append(itemWorm.name)
             theme.bucketThemeArray.append(bucketBird)
         
@@ -68,7 +70,7 @@ class AnimalThemeFactory: ThemeFactory {
             bucketCat.name = "Cat Bucket"
             bucketCat.image = "Themes/Animals/Cat/Cat.png"
             bucketCat.failureSounds.append("Sounds/wrong.wav")
-            bucketCat.successSounds.append("Sounds/right")
+            bucketCat.successSounds.append("Sounds/right.wav")
             bucketCat.acceptedThrowItems.append(itemFish.name)
             theme.bucketThemeArray.append(bucketCat)
         
@@ -84,7 +86,7 @@ class AnimalThemeFactory: ThemeFactory {
             bucketDog.name = "Dog Bucket"
             bucketDog.image = "Themes/Animals/Dog/Dog.png"
             bucketDog.failureSounds.append("Sounds/wrong.wav")
-            bucketDog.successSounds.append("Sounds/right")
+            bucketDog.successSounds.append("Sounds/right.wav")
             bucketDog.acceptedThrowItems.append(itemBone.name)
             theme.bucketThemeArray.append(bucketDog)
 
