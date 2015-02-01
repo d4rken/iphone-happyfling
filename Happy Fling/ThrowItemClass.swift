@@ -22,13 +22,16 @@ class ThrowItemClass: SKSpriteNode {
     var throwAnimations:[String] = []
     var throwSounds: [String] = []
     var state: State = State.Spawned
+    var previousState: State = State.Spawned
+
+    var defaultSize: CGSize!
 
     //func
     convenience init(theme:ThrowItemTheme) {
-        var throwItemSize = theme.shapeSize
+        let defaultSize = theme.shapeSize
         let texture = SKTexture(imageNamed: theme.image)
-        self.init(texture: texture, color: nil, size: throwItemSize)
-
+        self.init(texture: texture, color: nil, size: defaultSize)
+        self.defaultSize = defaultSize
         self.throwItemName = theme.name
         self.throwAnimations = theme.throwAnimations
         self.throwSounds = theme.throwSounds
@@ -46,10 +49,10 @@ class ThrowItemClass: SKSpriteNode {
     }
 
     func setState(state: State) {
-        if self.state == state
-        {
+        if self.state == state {
             return
         }
+        self.previousState = self.state
         self.state = state
         if(state == State.Launched) {
             physicsBody?.linearDamping = 0
@@ -68,6 +71,10 @@ class ThrowItemClass: SKSpriteNode {
 
     func getState() -> State {
         return state
+    }
+
+    func getPreviousState() -> State {
+        return previousState
     }
    
 }
