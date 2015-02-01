@@ -26,6 +26,11 @@ class AnimalThemeFactory: ThemeFactory {
         theme.minNumBuckets = 3
         theme.maxNumBuckets = 4
 
+        
+        theme.introBackgroundPicture = "Themes/Animals/BackgroundIntro.png"
+        theme.themeStory = "Your neighbour Stanislavsky is now having a trip.\nHe begged you to take care of his pets.\nNow you need to feed them, otherwise they will suffer from hunger.\nWait! Do you mean a bear is also a pet?\n\n\n \"Tap the screen to continue\""
+        theme.gameBackgroundPicture = "Themes/Animals/background.png";
+
         //Bear & Honey  -> Feed honey to the bear
             //Honey
             var itemHoney = ThrowItemTheme()
