@@ -94,9 +94,9 @@ class ShapeThemeFactory: ThemeFactory {
         
         //Ellipse
         var itemEllipse = ThrowItemTheme()
-        itemEllipse.name = "Circle Item"
+        itemEllipse.name = "Ellipse Item"
         itemEllipse.image = "Themes/Shapes/Ellipse.png"
-        theme.throwItemThemeArray.append(itemCircle)
+        theme.throwItemThemeArray.append(itemEllipse)
         var bucketEllipse = BucketTheme()
         bucketEllipse.name = "Ellipse Bucket"
         bucketEllipse.image = "Themes/Shapes/Buckets/bucketEllipse.png"
