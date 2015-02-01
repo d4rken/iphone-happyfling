@@ -21,7 +21,7 @@ class StartViewController: UIViewController, VCCCustomer {
 
     func setVCC(vcc: VCC) {
         self.vcc = vcc
-    }
+    } 
 
     override func viewDidLoad() {
         super.viewDidLoad()
