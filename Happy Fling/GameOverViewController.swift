@@ -30,15 +30,17 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundImage.image = UIImage(named: "Background")
-        
+        if (theme != nil) {
+            backgroundImage.image = UIImage(named: theme.gameEndBackgroundPicture)
+        } else {
+            backgroundImage.image = UIImage(named: "Background")
+        }
         //register cellclass var tableView: UITableView  =   UITableView()
         self.highscoreViewTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     @IBAction func playAgain(sender: AnyObject) {
         vcc.goToGame(theme)
-        
     }
     
     @IBAction func changeTheme(sender: AnyObject) {

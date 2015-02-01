@@ -150,6 +150,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gIM-OR-gwD">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4D3-Wr-Nrj">
                                 <rect key="frame" x="248" y="117" width="88" height="30"/>
                                 <state key="normal" title="PLAY AGAIN">
@@ -197,11 +200,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="gIM-OR-gwD" firstAttribute="leading" secondItem="oAh-3n-DEF" secondAttribute="leadingMargin" constant="-16" id="1ux-Kv-BJC"/>
+                            <constraint firstItem="gIM-OR-gwD" firstAttribute="top" secondItem="oAh-3n-DEF" secondAttribute="topMargin" id="36J-9H-oUo"/>
+                            <constraint firstItem="lwd-vd-rxe" firstAttribute="top" secondItem="gIM-OR-gwD" secondAttribute="bottom" id="9ZQ-KF-GMD"/>
                             <constraint firstItem="fB2-hB-4vy" firstAttribute="top" secondItem="gMh-cZ-zbZ" secondAttribute="bottom" constant="52" id="D1M-ud-LMQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gIM-OR-gwD" secondAttribute="trailing" constant="-16" id="Rtb-XJ-cdb"/>
                             <constraint firstAttribute="centerX" secondItem="fB2-hB-4vy" secondAttribute="centerX" constant="-8" id="SP7-ms-8qh"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundImage" destination="gIM-OR-gwD" id="Ge3-AG-1AQ"/>
                         <outlet property="highscoreViewTable" destination="7cf-w2-utR" id="Jcn-HS-tBK"/>
                     </connections>
                 </viewController>
