@@ -114,7 +114,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         var forever:SKAction = SKAction.repeatActionForever(followTrack)
         var particle = SKEmitterNode(fileNamed: "MyParticle"+String(1))
         particle.particleAction = forever
-        self.addChild(particle)
+        self.insertChild(particle, atIndex: 0)
         
         //timerNode and scoreNode
         timerNode = SKLabelNode(fontNamed: "Courier-Bold")
