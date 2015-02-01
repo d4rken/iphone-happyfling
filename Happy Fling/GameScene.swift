@@ -116,7 +116,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         var forever:SKAction = SKAction.repeatActionForever(followTrack)
         var particle = SKEmitterNode(fileNamed: "MyParticle"+String(1))
         particle.particleAction = forever
-        self.insertChild(particle, atIndex: 0)
+        self.addChild(particle)
         
         //timerNode and scoreNode
         timerNode = SKLabelNode(fontNamed: "Courier-Bold")
@@ -134,6 +134,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         scoreNode.fontColor = SKColor(hue: 10, saturation: 10, brightness: 10, alpha: 5)
         scoreNode.name = "score"
         self.addChild(scoreNode)
+        
+        //stop button menu
+        var stopButton = SKSpriteNode(imageNamed: "bucket.png")
+        stopButton.name = "stop"
+        stopButton.position = CGPointMake(self.frame.size.width-self.itemSize*2, 0)
+        self.addChild(stopButton)
     }
 
     func updateTimer() {
@@ -295,6 +301,46 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                     touchToItem.updateValue(throwItem!, forKey: touch as UITouch)
                 }
             }
+            
+            var node  = self.nodeAtPoint(location)
+            if(node.name == "stop")
+            {
+                self.paused = true
+                var menu = SKSpriteNode(imageNamed: "bucket.png")
+                var mainMenu = SKLabelNode(fontNamed: "Courier-Bold")
+                var returnButton = SKLabelNode(fontNamed: "Courier-Bold")
+                mainMenu.text = "Quit To Menu"
+                returnButton.text = "Back To Game"
+                mainMenu.fontSize = 30
+                returnButton.fontSize = 30
+                menu.name = "menu"
+                mainMenu.name = "main"
+                returnButton.name = "return"
+                menu.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2)
+                mainMenu.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - self.itemSize/2)
+                returnButton.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2)
+                
+                self.addChild(menu)
+                self.addChild(returnButton)
+                self.addChild(mainMenu)
+            }
+            else if node.name == "main"
+            {
+                vcc.goToStart()
+                
+            }
+            else if node.name == "return"
+            {
+                self.paused = false
+                var menu = self.childNodeWithName("menu")
+                var mainMenu = self.childNodeWithName("main")
+                var returnButton = self.childNodeWithName("return")
+                menu?.removeFromParent()
+                mainMenu?.removeFromParent()
+                returnButton?.removeFromParent()
+                
+            }
+            
         }
     }
 
