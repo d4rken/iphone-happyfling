@@ -9,14 +9,17 @@
 import UIKit
 import SpriteKit
 
-
-
-
-class GameOverViewController: UIViewController, VCCCustomer, ThemeCustomer {
+class GameOverViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, VCCCustomer, ThemeCustomer {
 
     private var theme: ThemeClass!
     private var vcc: VCC!
 
+    @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var highscoreViewTable: UITableView!
+    
+    //only testdata
+    var highscoredata: [String] = ["1000", "accuracy", "succ. Throws"]
+    
     func setVCC(vcc: VCC) {
         self.vcc = vcc
     }
@@ -24,27 +27,47 @@ class GameOverViewController: UIViewController, VCCCustomer, ThemeCustomer {
     func setTheme(theme: ThemeClass) {
         self.theme = theme
     }
-
-    //TODO: func to store the data into the database
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        backgroundImage.image = UIImage(named: "Background")
+        
+        //register cellclass var tableView: UITableView  =   UITableView()
+        self.highscoreViewTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
-    
     @IBAction func playAgain(sender: AnyObject) {
-        self.performSegueWithIdentifier("TransitionScreenToGame", sender: self)
+        vcc.goToGame(theme)
         
     }
     
     @IBAction func changeTheme(sender: AnyObject) {
-        self.performSegueWithIdentifier("StartScreenToThemeSelection", sender: self)
+        vcc.goToThemeSelection()
     }
     
     @IBAction func goToHome(sender: AnyObject) {
-//        self.performSequeWithIdentifier()
+        vcc.goToStart()
     }
         
+   
+   // set number of rows
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.highscoredata.count
+    }
+    
+    //create cell
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        var cell:UITableViewCell = self.highscoreViewTable.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
+        
+        cell.textLabel?.text = self.highscoredata[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
     
 }

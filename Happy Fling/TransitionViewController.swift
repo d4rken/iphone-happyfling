@@ -58,9 +58,4 @@ class TransitionViewController: UIViewController, VCCCustomer, ThemeCustomer {
         vcc.goToGame(theme)
     }
     
-    //Hide Statusbar
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
-    
 }

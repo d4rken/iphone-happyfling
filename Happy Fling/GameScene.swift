@@ -10,36 +10,48 @@
 
 import SpriteKit
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
 
     //Assigned by parent
-    var theme: ThemeClass!
+    private var theme: ThemeClass!
 
     //parameters
-    var bucketPosition: Array<CGPoint>!
-    var itemSize:CGFloat = 0;
-    var score = 0
-    var time = 0
-    var killContinues = 0;
+    private var bucketPosition: Array<CGPoint>!
+    private var itemSize:CGFloat = 0;
+    private var score = 0
+    private var time = 0
+    private var killContinues = 0;
+    // gameEnd parameter
+    var gameEnding = false
 
 
     //how fast so that "toss" can be thrown out
-    let ThrowingThreshold:CGFloat = 50;
+    private let ThrowingThreshold:CGFloat = 50;
     //the speed of moving after throw
-    let ThrowingVelocityPadding:CGFloat = 1;
+    private let ThrowingVelocityPadding:CGFloat = 1;
 
     // Helper classes to deal with node creation and logic handeling
-    var cheerLeader: CheerLeader!
-    var spawnHelper: SpawnHelper!
+    private var cheerLeader: CheerLeader!
+    private var spawnHelper: SpawnHelper!
 
-    var spawnArea: SKShapeNode!
-    var spawnPoint: CGPoint!
+    private var spawnArea: SKShapeNode!
+    private var spawnPoint: CGPoint!
 
-    var itemToTouch = Dictionary<ThrowItemClass,UITouch>()
-    var touchToItem = Dictionary<UITouch,ThrowItemClass>()
+    private var itemToTouch = Dictionary<ThrowItemClass,UITouch>()
+    private var touchToItem = Dictionary<UITouch,ThrowItemClass>()
 
-    var timerNode: SKLabelNode!
-    var scoreNode: SKLabelNode!
+    private var timerNode: SKLabelNode!
+    private var scoreNode: SKLabelNode!
+
+    private var vcc: VCC!
+
+    func setVCC(vcc: VCC) {
+        self.vcc = vcc
+    }
+
+    func setTheme(theme: ThemeClass) {
+        self.theme = theme
+    }
 
     override func didMoveToView(view: SKView) {
         //theme = ShapeThemeFactory().makeTheme()
@@ -129,6 +141,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     override func update(currentTime: CFTimeInterval) {
+        
+        //check if game should be ended
+        if self.isGameOver() {
+            self.endGame()
+        }
+        
         /* Called before each frame is rendered */
         var itemsInSpawn = 0
         enumerateChildNodesWithName(ThrowItemClass.getTag(), usingBlock: {
@@ -298,6 +316,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
+    
+    
+    
+    
+    // function that checks, when the game is over, you can have different end conditions
+    func isGameOver() -> Bool {
+        if(self.time == 15){return true}
+        return false
+    }
+    
+    
+    //function that actually ends the game and loads the gameoverscreen
+    func endGame() {
+        if !self.gameEnding {
+            self.gameEnding = true
+            vcc.goToHighscore(theme)
+        }
+    }
+    
 
     func updateNodeSizeRelativeToMainGravityCenter(node:SKNode){
         //Right now, they keep getting smaller if they are not in the center, I will work on it!    (Jose)
@@ -331,6 +368,8 @@ extension SKAction {
         actionsArray.append(SKAction.moveTo(initialPosition, duration: 0.015))
         return SKAction.sequence(actionsArray)
     }
+    
+   
     
 }
 
