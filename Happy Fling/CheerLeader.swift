@@ -25,7 +25,7 @@ class CheerLeader : NSObject {
         var cheer:SKLabelNode = SKLabelNode(fontNamed: fontName)
         cheer.fontSize = 40
         cheer.text = "Begin!"
-        cheer.fontColor = SKColor(hue: 1, saturation: 0, brightness: 0, alpha: 5)
+        cheer.fontColor = SKColor(white: 1, alpha: 5)
         cheer.name = getCheerTag()
         cheer.position = CGPointMake(CGRectGetMidX(gameScene.frame), CGRectGetMidY(gameScene.frame))
         gameScene.addChild(cheer)

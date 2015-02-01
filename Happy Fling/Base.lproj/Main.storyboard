@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p2C-O8-F9i">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XvB-Z3-kQX">
+>>>>>>> develop
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -133,9 +137,12 @@
                         <gestureRecognizers/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+<<<<<<< HEAD
                     <connections>
                         <segue destination="jqi-zz-zfY" kind="show" identifier="GameViewToGameOver" id="htC-dF-jci"/>
                     </connections>
+=======
+>>>>>>> develop
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
@@ -153,6 +160,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gIM-OR-gwD">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4D3-Wr-Nrj">
                                 <rect key="frame" x="248" y="117" width="88" height="30"/>
                                 <state key="normal" title="PLAY AGAIN">
@@ -200,21 +210,26 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="gIM-OR-gwD" firstAttribute="leading" secondItem="oAh-3n-DEF" secondAttribute="leadingMargin" constant="-16" id="1ux-Kv-BJC"/>
+                            <constraint firstItem="gIM-OR-gwD" firstAttribute="top" secondItem="oAh-3n-DEF" secondAttribute="topMargin" id="36J-9H-oUo"/>
+                            <constraint firstItem="lwd-vd-rxe" firstAttribute="top" secondItem="gIM-OR-gwD" secondAttribute="bottom" id="9ZQ-KF-GMD"/>
                             <constraint firstItem="fB2-hB-4vy" firstAttribute="top" secondItem="gMh-cZ-zbZ" secondAttribute="bottom" constant="52" id="D1M-ud-LMQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gIM-OR-gwD" secondAttribute="trailing" constant="-16" id="Rtb-XJ-cdb"/>
                             <constraint firstAttribute="centerX" secondItem="fB2-hB-4vy" secondAttribute="centerX" constant="-8" id="SP7-ms-8qh"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundImage" destination="gIM-OR-gwD" id="Ge3-AG-1AQ"/>
                         <outlet property="highscoreViewTable" destination="7cf-w2-utR" id="Jcn-HS-tBK"/>
-                        <segue destination="6m3-4X-eIS" kind="show" id="9d7-qP-4yG"/>
-                        <segue destination="LVB-YS-i5n" kind="show" identifier="gameOverToGameViewController" id="gIR-3P-H5u"/>
-                        <segue destination="dPe-gE-3bA" kind="show" identifier="GameOverToThemeSelection" id="wnS-8r-ZXU"/>
-                        <segue destination="p2C-O8-F9i" kind="show" identifier="GameOverToMain" id="GBq-sb-y2V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3f3-Q1-2dh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="118" y="870"/>
+=======
+            <point key="canvasLocation" x="-146" y="276"/>
+>>>>>>> develop
         </scene>
         <!--Theme Selection View Controller-->
         <scene sceneID="Zx5-FS-o7D">
@@ -290,37 +305,10 @@
                         <viewControllerLayoutGuide type="bottom" id="WY2-1e-VRe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SHf-bx-hON">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Theme-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="mfM-CW-Vma">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t48-Sz-c39">
-                                <rect key="frame" x="0.0" y="0.0" width="1055" height="199"/>
-                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">How messy it is!
-Your lovely 2 years old daughter played with her toy bricks. 
-You’d better tidy up the table as soon as possible, if you don’t want your wife shout you! 
-She will come back in two minutes.</string>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.95851089020000002" green="0.95851089020000002" blue="0.95851089020000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qci-Ve-6dW">
-                                <rect key="frame" x="79" y="225" width="88" height="30"/>
-                                <state key="normal" title="Continue">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onContinueTapped:" destination="6m3-4X-eIS" eventType="touchUpInside" id="M8p-AI-x8y"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4es-se-QHq" sceneMemberID="firstResponder"/>
             </objects>
@@ -329,10 +317,10 @@ She will come back in two minutes.</string>
     </scenes>
     <resources>
         <image name="Highscore" width="6571" height="1426"/>
-        <image name="Theme-1.png" width="2048" height="1536"/>
         <image name="Title" width="6571" height="1800"/>
         <image name="Unpressed Button" width="2483" height="2488"/>
     </resources>
+<<<<<<< HEAD
     <inferredMetricsTieBreakers>
         <segue reference="Lic-N0-fQX"/>
         <segue reference="vYb-VF-J3e"/>
@@ -340,4 +328,6 @@ She will come back in two minutes.</string>
         <segue reference="HUJ-bP-Wfw"/>
         <segue reference="wVP-uX-Jr4"/>
     </inferredMetricsTieBreakers>
+=======
+>>>>>>> develop
 </document>

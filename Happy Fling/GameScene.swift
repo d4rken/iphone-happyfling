@@ -10,38 +10,47 @@
 
 import SpriteKit
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
 
     //Assigned by parent
-    var theme: ThemeClass!
+    private var theme: ThemeClass!
 
     //parameters
-    var bucketPosition: Array<CGPoint>!
-    var itemSize:CGFloat = 0;
-    var score = 0
-    var time = 0
-    var killContinues = 0;
+    private var bucketPosition: Array<CGPoint>!
+    private var score = 0
+    private var time = 0
+    private var killContinues = 0;
     // gameEnd parameter
     var gameEnding = false
 
 
     //how fast so that "toss" can be thrown out
-    let ThrowingThreshold:CGFloat = 50;
+    private let ThrowingThreshold:CGFloat = 50;
     //the speed of moving after throw
-    let ThrowingVelocityPadding:CGFloat = 1;
+    private let ThrowingVelocityPadding:CGFloat = 1;
 
     // Helper classes to deal with node creation and logic handeling
-    var cheerLeader: CheerLeader!
-    var spawnHelper: SpawnHelper!
+    private var cheerLeader: CheerLeader!
+    private var spawnHelper: SpawnHelper!
 
-    var spawnArea: SKShapeNode!
-    var spawnPoint: CGPoint!
+    private var spawnArea: SKShapeNode!
+    private var spawnPoint: CGPoint!
 
-    var itemToTouch = Dictionary<ThrowItemClass,UITouch>()
-    var touchToItem = Dictionary<UITouch,ThrowItemClass>()
+    private var itemToTouch = Dictionary<ThrowItemClass,UITouch>()
+    private var touchToItem = Dictionary<UITouch,ThrowItemClass>()
 
-    var timerNode: SKLabelNode!
-    var scoreNode: SKLabelNode!
+    private var timerNode: SKLabelNode!
+    private var scoreNode: SKLabelNode!
+
+    private var vcc: VCC!
+
+    func setVCC(vcc: VCC) {
+        self.vcc = vcc
+    }
+
+    func setTheme(theme: ThemeClass) {
+        self.theme = theme
+    }
 
     override func didMoveToView(view: SKView) {
         //theme = ShapeThemeFactory().makeTheme()
@@ -79,8 +88,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //world gravity
         physicsWorld.gravity = CGVectorMake(0.0, -0.5);
         physicsWorld.contactDelegate = self
-        //parameters for positions and size of item
-        self.itemSize = self.theme.bucketThemeArray[0].shapeSize.height
 
         //content
         createContent()
@@ -90,12 +97,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     func createContent() {
+        let itemSize = self.theme.bucketThemeArray[0].shapeSize.height
         bucketPosition =
-            [   CGPoint(x:CGRectGetMinX(self.frame)+self.itemSize, y:CGRectGetMidY(self.frame)),
-                CGPoint(x:CGRectGetMinX(self.frame)+self.itemSize, y:CGRectGetMaxY(self.frame)-self.itemSize),
-                CGPoint(x:CGRectGetMidX(self.frame)              , y:CGRectGetMaxY(self.frame)-self.itemSize),
-                CGPoint(x:CGRectGetMaxX(self.frame)-self.itemSize, y:CGRectGetMaxY(self.frame)-self.itemSize),
-                CGPoint(x:CGRectGetMaxX(self.frame)-self.itemSize, y:CGRectGetMidY(self.frame))                 ]
+            [   CGPoint(x:CGRectGetMinX(self.frame)+itemSize, y:CGRectGetMidY(self.frame)),
+                CGPoint(x:CGRectGetMinX(self.frame)+itemSize, y:CGRectGetMaxY(self.frame)-itemSize),
+                CGPoint(x:CGRectGetMidX(self.frame)              , y:CGRectGetMaxY(self.frame)-itemSize),
+                CGPoint(x:CGRectGetMaxX(self.frame)-itemSize, y:CGRectGetMaxY(self.frame)-itemSize),
+                CGPoint(x:CGRectGetMaxX(self.frame)-itemSize, y:CGRectGetMidY(self.frame))                 ]
 
         spawnHelper.spawnBuckets(self, bucketPositions: bucketPosition)
         
@@ -106,13 +114,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var forever:SKAction = SKAction.repeatActionForever(followTrack)
         var particle = SKEmitterNode(fileNamed: "MyParticle"+String(1))
         particle.particleAction = forever
-        self.addChild(particle)
+        self.insertChild(particle, atIndex: 0)
         
         //timerNode and scoreNode
         timerNode = SKLabelNode(fontNamed: "Courier-Bold")
         timerNode.fontSize = 30
         timerNode.text = String(self.score)
-        timerNode.position = CGPointMake(CGRectGetMinX(self.frame)+self.itemSize, CGRectGetMinY(self.frame)+self.itemSize/5)
+        timerNode.position = CGPointMake(CGRectGetMinX(self.frame) + timerNode.frame.width, CGRectGetMinY(self.frame) + timerNode.frame.height)
         timerNode.fontColor = SKColor(hue: 0, saturation: 5, brightness: 5, alpha: 5)
         timerNode.name = "time"
         self.addChild(timerNode)
@@ -120,7 +128,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreNode = SKLabelNode(fontNamed: "Courier-Bold")
         scoreNode.fontSize = 30
         scoreNode.text = String(self.score)
-        scoreNode.position = CGPointMake(CGRectGetMaxX(self.frame)-self.itemSize, CGRectGetMinY(self.frame)+self.itemSize/5)
+        scoreNode.position = CGPointMake(CGRectGetMaxX(self.frame) - scoreNode.frame.width, CGRectGetMinY(self.frame) + scoreNode.frame.height)
         scoreNode.fontColor = SKColor(hue: 10, saturation: 10, brightness: 10, alpha: 5)
         scoreNode.name = "score"
         self.addChild(scoreNode)
@@ -141,7 +149,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var itemsInSpawn = 0
         enumerateChildNodesWithName(ThrowItemClass.getTag(), usingBlock: {
             (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
-            // do something with node or stop
             var throwItem = node as ThrowItemClass
             if(!self.containsPoint(throwItem.position)) {
                 throwItem.removeFromParent()
@@ -162,6 +169,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         self.touchToItem.removeValueForKey(touch!)
                     }
                 }
+                self.updateNodeSizeRelativeToMainGravityCenter(throwItem)
             }
             
             
@@ -197,9 +205,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         timerNode.text = String(self.time)
         scoreNode.text = String(self.score)
-        
-        
-        
+    }
+
+    func updateNodeSizeRelativeToMainGravityCenter(node: ThrowItemClass){
+        if(node.getState() == ThrowItemClass.State.Spawned && node.getPreviousState() != ThrowItemClass.State.Spawned) {
+            node.size = node.defaultSize
+        } else if(node.getState() == ThrowItemClass.State.Launched) {
+            //distance between Node and main gravity center
+            var distance = node.position.distance(spawnPoint)
+            node.size = CGSizeMake(node.size.width * exp(-distance*0.0001), node.size.height * exp(-distance*0.0001))
+        }
     }
 
     //accepted
@@ -306,30 +321,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    
-    
-    
     // function that checks, when the game is over, you can have different end conditions
     func isGameOver() -> Bool {
+<<<<<<< HEAD
         if(self.time == 8){return true}
         return false
+=======
+        return self.time >= theme.maxGameTime
+>>>>>>> develop
     }
     
     
     //function that actually ends the game and loads the gameoverscreen
     func endGame() {
         if !self.gameEnding {
-            
             self.gameEnding = true
-            // load gameOverscreen
-            NSLog("game end reachead")
-            
-            NSNotificationCenter.defaultCenter().postNotificationName("GameEnd", object: nil)
-            
+            vcc.goToHighscore(theme)
         }
     }
-    
-
 }
 
 extension SKAction {
@@ -349,5 +358,21 @@ extension SKAction {
     
    
     
+}
+
+extension CGPoint {
+    
+    /**
+    Calculates a distance to the given point.
+    
+    :param: point - the point to calculate a distance to
+    
+    :returns: distance between current and the given points
+    */
+    func distance(point: CGPoint) -> CGFloat {
+        let dx = self.x - point.x
+        let dy = self.y - point.y
+        return sqrt(dx * dx + dy * dy);
+    }
 }
 

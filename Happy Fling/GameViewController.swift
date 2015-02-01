@@ -9,15 +9,6 @@
 import UIKit
 import SpriteKit
 
-protocol AppComs {
-    
-//    var currentPoints: Int {  get set }
-//    var levelPoints: Int { get set }
-    func goToGameover()
-    
-}
-
-
 extension SKNode {
     class func unarchiveFromFile(file : NSString) -> SKNode? {
         if let path = NSBundle.mainBundle().pathForResource(file, ofType: "sks") {
@@ -36,10 +27,14 @@ extension SKNode {
 
 class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
     
+<<<<<<< HEAD
     
     var theme: ThemeClass = ThemeClass()
     
     
+=======
+    private var theme: ThemeClass!
+>>>>>>> develop
     private var vcc: VCC!
     
     func setVCC(vcc: VCC) {
@@ -49,13 +44,17 @@ class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
     func setTheme(theme: ThemeClass) {
         self.theme = theme
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
+            scene.setVCC(vcc)
             // Configure the view.
             let skView = self.view as SKView
             //skView.showsFPS = true
@@ -67,55 +66,12 @@ class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
             /* Set the scale mode to scale to fit the window */
             //sscene.scaleMode = .AspectFill
             
-            
-            //set up for test
-//            self.theme = ThemeClass()
-//            self.theme.gameBackgroundPicture = "Background"
-//            self.theme.minNumBuckets = 1
-//            self.theme.minNumBuckets = 3
-//            
-//            var bucket1 = BucketTheme()
-//            bucket1.name = "Spaceship"
-//            bucket1.shapeSize = CGSizeMake(50, 50)
-//            bucket1.acceptedThrowItems = ["Spaceship","Title","Background"]
-//            
-//            var bucket2 = BucketTheme()
-//            bucket2.name = "Title"
-//            bucket2.shapeSize = CGSizeMake(50, 50)
-//            bucket2.acceptedThrowItems = ["Title","Background"]
-//            
-//            var bucket3 = BucketTheme()
-//            bucket3.name = "Background"
-//            bucket3.shapeSize = CGSizeMake(50, 50)
-//            bucket3.acceptedThrowItems = ["Background"]
-//            
-//            var throw1 = ThrowItemTheme()
-//            throw1.name = "Spaceship"
-//            throw1.shapeSize = CGSizeMake(50, 50)
-//            
-//            var throw2 = ThrowItemTheme()
-//            throw2.name = "Title"
-//            throw2.shapeSize = CGSizeMake(50, 50)
-//            
-//            var throw3 = ThrowItemTheme()
-//            throw3.name = "Background"
-//            throw3.shapeSize = CGSizeMake(50, 50)
-//            
-//            theme.bucketThemeArray.append(bucket1)
-//            theme.bucketThemeArray.append(bucket2)
-//            theme.bucketThemeArray.append(bucket3)
-//            self.theme.throwItemThemeArray = [throw1,throw2,throw3]
-
-            
-            //give the data to the scene
-            scene.theme = self.theme
-            
+            scene.setTheme(theme)
             skView.presentScene(scene)
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "gameend:", name:"GameEnd", object: nil)
-           
         }
     }
 
+<<<<<<< HEAD
   
     func gameend(notification: NSNotification) {
         vcc.goToHighscore(theme)
@@ -124,6 +80,8 @@ class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
 
     
 
+=======
+>>>>>>> develop
     override func shouldAutorotate() -> Bool {
         return true
     }
@@ -143,17 +101,5 @@ class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
 
     override func prefersStatusBarHidden() -> Bool {
         return true
-    }
-    
-    
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)
-    {
-        if (segue.identifier == "Load View") {
-            // pass data to next view
-        }
-      
-        
     }
 }

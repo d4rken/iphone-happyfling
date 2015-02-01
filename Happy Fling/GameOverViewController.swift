@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 
+<<<<<<< HEAD
 
 
 
@@ -16,6 +17,18 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
     
     private var vcc: VCC!
     private var theme: ThemeClass!
+=======
+class GameOverViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, VCCCustomer, ThemeCustomer {
+
+    private var theme: ThemeClass!
+    private var vcc: VCC!
+
+    @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var highscoreViewTable: UITableView!
+    
+    //only testdata
+    var highscoredata: [String] = ["1000", "accuracy", "succ. Throws"]
+>>>>>>> develop
     
     func setVCC(vcc: VCC) {
         self.vcc = vcc
@@ -24,6 +37,7 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
     func setTheme(theme: ThemeClass) {
         self.theme = theme
     }
+<<<<<<< HEAD
     
     //TODO: func to store the data into the database
     
@@ -37,22 +51,30 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
 //        backgroundImage.image = UIImage(named: "Background")
         
+=======
+ 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if (theme != nil) {
+            backgroundImage.image = UIImage(named: theme.gameEndBackgroundPicture)
+        } else {
+            backgroundImage.image = UIImage(named: "Background")
+        }
+>>>>>>> develop
         //register cellclass var tableView: UITableView  =   UITableView()
         self.highscoreViewTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
-    
     @IBAction func playAgain(sender: AnyObject) {
-        self.performSegueWithIdentifier("gameOverToGameViewController", sender: self)
-        
+        vcc.goToGame(theme)
     }
     
     @IBAction func changeTheme(sender: AnyObject) {
-        self.performSegueWithIdentifier("GameOverToThemeSelection", sender: self)
+        vcc.goToThemeSelection()
     }
     
     @IBAction func goToHome(sender: AnyObject) {
-        self.performSegueWithIdentifier("GameOverToMain", sender: self)
+        vcc.goToStart()
     }
         
    

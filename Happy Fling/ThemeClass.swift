@@ -11,9 +11,9 @@ import UIKit
 class ThemeClass: NSObject
 {
     //properties
-    var introBackgroundPicture: String = ""
+    var introBackgroundPicture: String = "Background"
     var gameBackgroundPicture: String = "Background" //
-    var gameEndBackgroundPicture: String = ""
+    var gameEndBackgroundPicture: String = "Background"
     var themeName: String!
     var themeIcon:String!
     var themeStory: String = "" // The story to display on the transition screen
