@@ -10,7 +10,6 @@ import UIKit
 import Foundation
 
 
-
 class StartViewController: UIViewController, VCCCustomer {
 
     @IBOutlet weak var titleImage: UIImageView!

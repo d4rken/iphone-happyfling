@@ -38,7 +38,18 @@ class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
     
     
     var theme: ThemeClass = ThemeClass()
-    var delegate: AppComs?
+    
+    
+    private var vcc: VCC!
+    
+    func setVCC(vcc: VCC) {
+        self.vcc = vcc
+    }
+    
+    func setTheme(theme: ThemeClass) {
+        self.theme = theme
+    }
+
     
     override func viewDidLoad()
     {
@@ -107,17 +118,9 @@ class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
 
   
     func gameend(notification: NSNotification) {
-        delegate?.goToGameover()
+        vcc.goToHighscore(theme)
     }
     
-    
-    func goToGameover() {
-        dismissViewControllerAnimated(false, completion: {
-            self.performSegueWithIdentifier("GameViewToGameOver", sender: self)
-            // and send data
-         
-        })
-    }
 
     
 

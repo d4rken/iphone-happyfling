@@ -311,7 +311,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // function that checks, when the game is over, you can have different end conditions
     func isGameOver() -> Bool {
-        if(self.time == 15){return true}
+        if(self.time == 8){return true}
         return false
     }
     

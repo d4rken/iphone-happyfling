@@ -12,11 +12,20 @@ import SpriteKit
 
 
 
-class GameOverViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class GameOverViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  , VCCCustomer, ThemeCustomer {
     
-    @IBOutlet weak var backgroundImage: UIImageView!
-    var theme: ThemeClass = ThemeClass()
-       //TODO: func to store the data into the database
+    private var vcc: VCC!
+    private var theme: ThemeClass!
+    
+    func setVCC(vcc: VCC) {
+        self.vcc = vcc
+    }
+
+    func setTheme(theme: ThemeClass) {
+        self.theme = theme
+    }
+    
+    //TODO: func to store the data into the database
     
     //only testdata
     var highscoredata: [String] = ["1000", "accuracy", "succ. Throws"]
@@ -26,7 +35,7 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundImage.image = UIImage(named: "Background")
+//        backgroundImage.image = UIImage(named: "Background")
         
         //register cellclass var tableView: UITableView  =   UITableView()
         self.highscoreViewTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")

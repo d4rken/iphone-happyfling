@@ -68,7 +68,7 @@ class TransitionViewController: UIViewController, VCCCustomer, ThemeCustomer {
     }
 
     @IBAction func onContinueTapped(sender: AnyObject) {
-        self.performSegueWithIdentifier(toGameTransitionTag, sender: self)
+        vcc.goToGame(theme)
     }
 
     let toGameTransitionTag = "TransitionScreenToGame"

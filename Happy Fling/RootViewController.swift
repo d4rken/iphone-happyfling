@@ -74,6 +74,8 @@ class RootViewController : UIViewController, VCC {
             self.performSegueWithIdentifier("RootToScore", sender: self)
         })
     }
+    
+ 
 
 
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {

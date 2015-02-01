@@ -334,8 +334,10 @@ She will come back in two minutes.</string>
         <image name="Unpressed Button" width="2483" height="2488"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gIR-3P-H5u"/>
-        <segue reference="9d7-qP-4yG"/>
-        <segue reference="wnS-8r-ZXU"/>
+        <segue reference="Lic-N0-fQX"/>
+        <segue reference="vYb-VF-J3e"/>
+        <segue reference="l8Z-Gb-quf"/>
+        <segue reference="HUJ-bP-Wfw"/>
+        <segue reference="wVP-uX-Jr4"/>
     </inferredMetricsTieBreakers>
 </document>
