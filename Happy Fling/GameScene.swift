@@ -305,7 +305,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //distance between Node and main gravity center
         var distance = node.position.distance(spawnPoint)
         var skSpriteNode = node as SKSpriteNode
-        skSpriteNode.size = CGSizeMake(skSpriteNode.size.width * exp(-distance*0.001), skSpriteNode.size.height * exp(-distance*0.001))
+        
+        //If they are in the Gravity Center, they recover their normal size
+        if (distance <= spawnArea.frame.height/2){
+            skSpriteNode.size = CGSize(width: itemSize, height: itemSize)
+        }
+        
+        
+        skSpriteNode.size = CGSizeMake(skSpriteNode.size.width * exp(-distance*0.0001), skSpriteNode.size.height * exp(-distance*0.0001))
         
     }
 }
