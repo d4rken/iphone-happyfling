@@ -48,7 +48,7 @@ class ColorThemeFactory: ThemeFactory {
         itemBlue.image = "Themes/Colors/Blue.png"
         theme.throwItemThemeArray.append(itemBlue)
         var bucketBlue = BucketTheme()
-        bucketBlue.name = "Yellow Bucket"
+        bucketBlue.name = "Blue Bucket"
         bucketBlue.image = "Themes/Colors/Buckets/BucketBlue"
         bucketBlue.successSounds.append("Sounds/right.wav")
         bucketBlue.failureSounds.append("Sounds/wrong.wav")
@@ -62,11 +62,11 @@ class ColorThemeFactory: ThemeFactory {
         theme.throwItemThemeArray.append(itemBrown)
         var bucketBrown = BucketTheme()
         bucketBrown.name = "Brown Bucket"
-        bucketBlue.image = "Themes/Colors/Buckets/BucketBrown"
-        bucketBlue.successSounds.append("Sounds/right.wav")
+        bucketBrown.image = "Themes/Colors/Buckets/BucketBrown"
+        bucketBrown.successSounds.append("Sounds/right.wav")
         bucketBrown.failureSounds.append("Sounds/wrong.wav")
         bucketBrown.acceptedThrowItems.append(itemBrown.name)
-        theme.bucketThemeArray.append(bucketBlue)
+        theme.bucketThemeArray.append(bucketBrown)
 
         //Green
         var itemGreen = ThrowItemTheme()
