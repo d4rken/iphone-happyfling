@@ -19,6 +19,7 @@
 		18BACE8D1A5E90BD00D4D69C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18BACE8C1A5E90BD00D4D69C /* Images.xcassets */; };
 		18BACE901A5E90BD00D4D69C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BACE8E1A5E90BD00D4D69C /* LaunchScreen.xib */; };
 		18BACE9C1A5E90BD00D4D69C /* Happy_FlingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BACE9B1A5E90BD00D4D69C /* Happy_FlingTests.swift */; };
+		18C7153B1A7FC0B6003B3864 /* InstantReplaceSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7153A1A7FC0B6003B3864 /* InstantReplaceSegue.swift */; };
 		18F97F391A694ED4006BAC80 /* ThemeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */; };
 		18F97F441A695BB3006BAC80 /* ThemeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F97F431A695BB3006BAC80 /* ThemeCellView.swift */; };
 		545C08F01A7244AC00383762 /* DatabaseHighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C08EF1A7244AC00383762 /* DatabaseHighScore.swift */; };
@@ -77,6 +78,7 @@
 		18BACE951A5E90BD00D4D69C /* Happy FlingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Happy FlingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BACE9A1A5E90BD00D4D69C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18BACE9B1A5E90BD00D4D69C /* Happy_FlingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_FlingTests.swift; sourceTree = "<group>"; };
+		18C7153A1A7FC0B6003B3864 /* InstantReplaceSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstantReplaceSegue.swift; sourceTree = "<group>"; };
 		18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewController.swift; sourceTree = "<group>"; };
 		18F97F431A695BB3006BAC80 /* ThemeCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCellView.swift; sourceTree = "<group>"; };
 		545C08EF1A7244AC00383762 /* DatabaseHighScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHighScore.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				92CC78001A642489002A86CD /* ShapeThemeFactory.swift */,
 				92CC77FE1A642470002A86CD /* ColorThemeFactory.swift */,
 				18F97F431A695BB3006BAC80 /* ThemeCellView.swift */,
+				18C7153A1A7FC0B6003B3864 /* InstantReplaceSegue.swift */,
 				92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */,
 				92CC77F71A642258002A86CD /* ThrowItemClass.swift */,
 				18092C1E1A7AA0AE008402A7 /* Helper.swift */,
@@ -358,6 +361,7 @@
 				18BACE881A5E90BD00D4D69C /* GameViewController.swift in Sources */,
 				D1F9C8C71A6811C70017DAE8 /* StartViewController.swift in Sources */,
 				92CC77FB1A642258002A86CD /* ThrowItemClass.swift in Sources */,
+				18C7153B1A7FC0B6003B3864 /* InstantReplaceSegue.swift in Sources */,
 				18BACE821A5E90BD00D4D69C /* AppDelegate.swift in Sources */,
 				545C08F01A7244AC00383762 /* DatabaseHighScore.swift in Sources */,
 				92CC78031A6425E4002A86CD /* BucketTheme.swift in Sources */,

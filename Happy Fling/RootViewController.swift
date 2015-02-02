@@ -27,10 +27,15 @@ protocol ThemeCustomer {
     func setTheme(theme: ThemeClass)
 }
 
-class RootViewController : UIViewController, VCC {
+class RootViewController : UINavigationController, VCC {
 
     var currentTheme: ThemeClass!
     var first = true
+
+    override func viewDidLoad() {
+        self.setNavigationBarHidden(true, animated: false)
+    }
+
     override func viewDidAppear(animated: Bool) {
         if(first) {
             first = false
@@ -43,29 +48,21 @@ class RootViewController : UIViewController, VCC {
     }
 
     func goToStart() {
-        dismissViewControllerAnimated(false, completion: {
-            self.performSegueWithIdentifier("RootToStart", sender: self)
-        })
+        self.performSegueWithIdentifier("RootToStart", sender: self)
     }
 
     func goToThemeSelection() {
-        dismissViewControllerAnimated(false, completion: {
-            self.performSegueWithIdentifier("RootToSelection", sender: self)
-        })
+        self.performSegueWithIdentifier("RootToSelection", sender: self)
     }
 
     func goToTransitionScreen(theme: ThemeClass) {
         self.currentTheme = theme
-        dismissViewControllerAnimated(false, completion: {
-            self.performSegueWithIdentifier("RootToTransition", sender: self)
-        })
+        self.performSegueWithIdentifier("RootToTransition", sender: self)
     }
 
     func goToGame(theme: ThemeClass) {
         self.currentTheme = theme
-        dismissViewControllerAnimated(false, completion: {
-            self.performSegueWithIdentifier("RootToGame", sender: self)
-        })
+        self.performSegueWithIdentifier("RootToGame", sender: self)
     }
 
     func goToHighscore(theme: ThemeClass) {
