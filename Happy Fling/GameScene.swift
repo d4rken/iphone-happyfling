@@ -116,7 +116,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         var forever:SKAction = SKAction.repeatActionForever(followTrack)
         var particle = SKEmitterNode(fileNamed: "MyParticle"+String(1))
         particle.particleAction = forever
-        self.insertChild(particle, atIndex: 0)
+        self.addChild(particle)
         
         //timerNode and scoreNode
         timerNode = SKLabelNode(fontNamed: "Courier-Bold")
@@ -134,9 +134,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         scoreNode.fontColor = SKColor(hue: 10, saturation: 10, brightness: 10, alpha: 5)
         scoreNode.name = "score"
         self.addChild(scoreNode)
+        
+        //stop button menu
+        var stopButton = SKSpriteNode(imageNamed: "bucket.png")
+        stopButton.size = CGSizeMake(50, 50)
+        stopButton.name = "stop"
+        stopButton.position = CGPointMake(self.frame.size.width-self.theme.bucketThemeArray[0].shapeSize.width*1.5, CGRectGetMinY(self.frame)+self.theme.bucketThemeArray[0].shapeSize.height/5)
+        self.addChild(stopButton)
     }
 
     func updateTimer() {
+        if self.paused == true
+        {
+            return
+        }
         self.time = self.time + 1
         NSNotificationCenter.defaultCenter().postNotificationName("TimeUpdate", object: nil)
     }
@@ -309,6 +320,50 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                     touchToItem.updateValue(throwItem!, forKey: touch as UITouch)
                 }
             }
+        
+        
+            var node  = self.nodeAtPoint(location)
+            if(node.name == "stop")
+            {
+                self.paused = true
+                //set up stop menu
+                var menu = SKSpriteNode(imageNamed: "bucket.png")
+                menu.name = "menu"
+                menu.size = CGSizeMake(300, 120)
+                menu.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2-self.theme.bucketThemeArray[0].shapeSize.height/4)
+                self.addChild(menu)
+                
+                //set up return to game button and return to start button
+                var returnToStart = SKLabelNode(fontNamed: "Courier-Bold")
+                var returnToGame = SKLabelNode(fontNamed: "Courier-Bold")
+                returnToStart.text = "Quit To Menu"
+                returnToGame.text = "Back To Game"
+                returnToStart.fontSize = 30
+                returnToGame.fontSize = 30
+                returnToStart.name = "returnToStart"
+                returnToGame.name = "returnToGame"
+                returnToGame.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2)
+                returnToStart.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - self.theme.bucketThemeArray[0].shapeSize.height/2)
+                self.addChild(returnToStart)
+                self.addChild(returnToGame)
+            }
+            else if node.name == "returnToStart"
+            {
+                vcc.goToStart()
+                
+            }
+            else if node.name == "returnToGame"
+            {
+                self.paused = false
+                var menu = self.childNodeWithName("menu")
+                var returnToStart = self.childNodeWithName("returnToStart")
+                var returnToGame = self.childNodeWithName("returnToGame")
+                returnToGame?.removeFromParent()
+                returnToStart?.removeFromParent()
+                menu?.removeFromParent()
+                
+            }
+            
         }
     }
 
