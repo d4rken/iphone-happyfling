@@ -137,7 +137,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         var stopButton = SKSpriteNode(imageNamed: "bucket.png")
         stopButton.size = CGSizeMake(50, 50)
         stopButton.name = "stop"
-        stopButton.position = CGPointMake(self.frame.size.width-self.itemSize*1.5, CGRectGetMinY(self.frame)+self.itemSize/5)
+        stopButton.position = CGPointMake(self.frame.size.width-self.theme.bucketThemeArray[0].shapeSize.width*1.5, CGRectGetMinY(self.frame)+self.theme.bucketThemeArray[0].shapeSize.height/5)
         self.addChild(stopButton)
     }
 
@@ -320,7 +320,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 var menu = SKSpriteNode(imageNamed: "bucket.png")
                 menu.name = "menu"
                 menu.size = CGSizeMake(300, 120)
-                menu.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2-self.itemSize/4)
+                menu.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2-self.theme.bucketThemeArray[0].shapeSize.height/4)
                 self.addChild(menu)
                 
                 //set up return to game button and return to start button
@@ -333,7 +333,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 returnToStart.name = "returnToStart"
                 returnToGame.name = "returnToGame"
                 returnToGame.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2)
-                returnToStart.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - self.itemSize/2)
+                returnToStart.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - self.theme.bucketThemeArray[0].shapeSize.height/2)
                 self.addChild(returnToStart)
                 self.addChild(returnToGame)
             }
