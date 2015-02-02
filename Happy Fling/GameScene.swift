@@ -323,12 +323,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
     
     // function that checks, when the game is over, you can have different end conditions
     func isGameOver() -> Bool {
-<<<<<<< HEAD
-        if(self.time == 8){return true}
-        return false
-=======
         return self.time >= theme.maxGameTime
->>>>>>> develop
+
     }
     
     

@@ -27,14 +27,9 @@ extension SKNode {
 
 class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
     
-<<<<<<< HEAD
-    
-    var theme: ThemeClass = ThemeClass()
-    
-    
-=======
+
     private var theme: ThemeClass!
->>>>>>> develop
+
     private var vcc: VCC!
     
     func setVCC(vcc: VCC) {
@@ -44,10 +39,8 @@ class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
     func setTheme(theme: ThemeClass) {
         self.theme = theme
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> develop
+
     
     override func viewDidLoad()
     {
@@ -71,17 +64,6 @@ class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
         }
     }
 
-<<<<<<< HEAD
-  
-    func gameend(notification: NSNotification) {
-        vcc.goToHighscore(theme)
-    }
-    
-
-    
-
-=======
->>>>>>> develop
     override func shouldAutorotate() -> Bool {
         return true
     }
