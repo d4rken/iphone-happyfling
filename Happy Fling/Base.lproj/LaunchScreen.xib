@@ -33,8 +33,8 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="LaunchScreen_768x1024iPad 2" translatesAutoresizingMaskIntoConstraints="NO" id="ie0-OS-pH1">
-                    <rect key="frame" x="-6" y="0.0" width="486" height="480"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen_768x1024iPad 2" translatesAutoresizingMaskIntoConstraints="NO" id="ie0-OS-pH1">
+                    <rect key="frame" x="-12" y="0.0" width="504" height="480"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -49,9 +49,9 @@
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
                 <constraint firstItem="P48-Cz-pSI" firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="aZY-Ew-oKu"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
-                <constraint firstAttribute="trailing" secondItem="ie0-OS-pH1" secondAttribute="trailing" constant="-6" id="qOA-uw-r5X"/>
+                <constraint firstAttribute="trailing" secondItem="ie0-OS-pH1" secondAttribute="trailing" constant="-12" id="qOA-uw-r5X"/>
                 <constraint firstItem="ie0-OS-pH1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uko-7G-idT"/>
-                <constraint firstItem="ie0-OS-pH1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-6" id="vQn-pj-eyG"/>
+                <constraint firstItem="ie0-OS-pH1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-12" id="vQn-pj-eyG"/>
                 <constraint firstItem="P48-Cz-pSI" firstAttribute="top" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="8" symbolic="YES" id="xFE-yA-tJl"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

@@ -134,10 +134,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         self.addChild(scoreNode)
         
         //stop button menu
-        var stopButton = SKSpriteNode(imageNamed: "bucket.png")
+        var stopButton = SKSpriteNode(imageNamed: "Pause Button.png")
         stopButton.size = CGSizeMake(50, 50)
         stopButton.name = "stop"
-        stopButton.position = CGPointMake(self.frame.size.width-self.theme.bucketThemeArray[0].shapeSize.width*1.5, CGRectGetMinY(self.frame)+self.theme.bucketThemeArray[0].shapeSize.height/5)
+        
+        stopButton.position = CGPointMake(self.frame.size.width-self.theme.bucketThemeArray[0].shapeSize.width*1.5, CGRectGetMinY(self.frame)+self.theme.bucketThemeArray[0].shapeSize.height/5 + 20)
         self.addChild(stopButton)
     }
 
@@ -317,24 +318,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
             {
                 self.paused = true
                 //set up stop menu
-                var menu = SKSpriteNode(imageNamed: "bucket.png")
+                var menu = SKSpriteNode(imageNamed: "Game Paused Menu.png")
                 menu.name = "menu"
-                menu.size = CGSizeMake(300, 120)
-                menu.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2-self.theme.bucketThemeArray[0].shapeSize.height/4)
+                menu.size = CGSizeMake(300, 150)
+                menu.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2-self.theme.bucketThemeArray[0].shapeSize.height/4 + 25)
                 self.addChild(menu)
                 
                 
                 //set up return to game button and return to start button
+                var menuTitle = SKLabelNode(fontNamed: "Courier-Bold")
                 var returnToStart = SKLabelNode(fontNamed: "Courier-Bold")
                 var returnToGame = SKLabelNode(fontNamed: "Courier-Bold")
+                menuTitle.text = "Paused Game"
                 returnToStart.text = "Quit To Menu"
                 returnToGame.text = "Back To Game"
+                menuTitle.fontSize = 35
                 returnToStart.fontSize = 30
                 returnToGame.fontSize = 30
+                menuTitle.name = "menuTitle"
                 returnToStart.name = "returnToStart"
                 returnToGame.name = "returnToGame"
+                menuTitle.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 + 43)
                 returnToGame.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2)
-                returnToStart.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - self.theme.bucketThemeArray[0].shapeSize.height/2)
+                returnToStart.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - self.theme.bucketThemeArray[0].shapeSize.height/2 - 10)
+                self.addChild(menuTitle)
                 self.addChild(returnToStart)
                 self.addChild(returnToGame)
             }
@@ -349,8 +356,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 var menu = self.childNodeWithName("menu")
                 var returnToStart = self.childNodeWithName("returnToStart")
                 var returnToGame = self.childNodeWithName("returnToGame")
+                var menuTitle = self.childNodeWithName("menuTitle")
                 returnToGame?.removeFromParent()
                 returnToStart?.removeFromParent()
+                menuTitle?.removeFromParent()
                 menu?.removeFromParent()
                 
             }

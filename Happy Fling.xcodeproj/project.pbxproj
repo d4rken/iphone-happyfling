@@ -45,6 +45,8 @@
 		D1A089CF1A7A9329002B1611 /* MyParticle2.sks in Resources */ = {isa = PBXBuildFile; fileRef = D1A089CD1A7A9329002B1611 /* MyParticle2.sks */; };
 		D1A089D01A7A9329002B1611 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = D1A089CE1A7A9329002B1611 /* spark.png */; };
 		D1A089D21A7AA283002B1611 /* gravityCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = D1A089D11A7AA283002B1611 /* gravityCircle.png */; };
+		D1EC5D181A7F9F16007BC9D4 /* Pause Button.png in Resources */ = {isa = PBXBuildFile; fileRef = D1EC5D171A7F9F16007BC9D4 /* Pause Button.png */; };
+		D1EC5D1C1A7FA377007BC9D4 /* Game Paused Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = D1EC5D1B1A7FA377007BC9D4 /* Game Paused Menu.png */; };
 		D1F9C8C71A6811C70017DAE8 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9C8C61A6811C70017DAE8 /* StartViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +103,8 @@
 		D1A089CD1A7A9329002B1611 /* MyParticle2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle2.sks; sourceTree = "<group>"; };
 		D1A089CE1A7A9329002B1611 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		D1A089D11A7AA283002B1611 /* gravityCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gravityCircle.png; sourceTree = "<group>"; };
+		D1EC5D171A7F9F16007BC9D4 /* Pause Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pause Button.png"; sourceTree = "<group>"; };
+		D1EC5D1B1A7FA377007BC9D4 /* Game Paused Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Game Paused Menu.png"; sourceTree = "<group>"; };
 		D1F9C8C61A6811C70017DAE8 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -207,6 +211,8 @@
 		18F97F4F1A6C5494006BAC80 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D1EC5D1B1A7FA377007BC9D4 /* Game Paused Menu.png */,
+				D1EC5D171A7F9F16007BC9D4 /* Pause Button.png */,
 				928EB4EC1A7B9C67003CC797 /* MyParticle3.sks */,
 				D1A089D11A7AA283002B1611 /* gravityCircle.png */,
 				928EB4E21A780159003CC797 /* bokeh.png */,
@@ -309,10 +315,12 @@
 				D1A089D01A7A9329002B1611 /* spark.png in Resources */,
 				D1A089D21A7AA283002B1611 /* gravityCircle.png in Resources */,
 				18BACE841A5E90BD00D4D69C /* GameScene.sks in Resources */,
+				D1EC5D1C1A7FA377007BC9D4 /* Game Paused Menu.png in Resources */,
 				D12C4E2E1A724C6C008ED9C4 /* Themes in Resources */,
 				928EB4E61A780159003CC797 /* bokeh.png in Resources */,
 				928EB4E71A780159003CC797 /* MyParticle0.sks in Resources */,
 				D1A089CF1A7A9329002B1611 /* MyParticle2.sks in Resources */,
+				D1EC5D181A7F9F16007BC9D4 /* Pause Button.png in Resources */,
 				928EB4ED1A7B9C67003CC797 /* MyParticle3.sks in Resources */,
 				18BACE8B1A5E90BD00D4D69C /* Main.storyboard in Resources */,
 			);
