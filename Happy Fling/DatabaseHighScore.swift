@@ -34,20 +34,25 @@ struct ScoreEntry {
     
     
     override init() {
+        
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         
         let documentsDirectory: AnyObject = paths[0]
         databasePath = documentsDirectory.stringByAppendingPathComponent("highscores.plist")
 //       themeName = "defaultName"
-        
+//        let path = NSBundle.mainBundle().pathForResource("highscores", ofType: "plist")
         
         let fileManager = NSFileManager.defaultManager()
-        
+//        
+//        if (!fileManager.fileExistsAtPath(databasePath)) {
+//            let fileForCopy = NSBundle.mainBundle().pathForResource("highscores",ofType:"plist")
+//            fileManager.copyItemAtPath(fileForCopy!, toPath:databasePath, error: nil)
+//        }
+
         if (!fileManager.fileExistsAtPath(databasePath)) {
             let fileForCopy = NSBundle.mainBundle().pathForResource("highscores",ofType:"plist")
-            fileManager.copyItemAtPath(fileForCopy!,toPath:databasePath, error: nil)
+            fileManager.copyItemAtPath(fileForCopy!, toPath:databasePath, error: nil)
         }
-        
         let scoreEntries = NSArray(contentsOfFile: databasePath)!
         
         for score in scoreEntries {
@@ -60,13 +65,12 @@ struct ScoreEntry {
             let scoreEntry = ScoreEntry( points: points, time: time, accuracy: accuracy, numberOfThrows : numberOfThrows, numberSuccThrows: numberSuccThrows);
             scoreBoard.append(scoreEntry)
         }
-        //TODO: how to sort?? which aspects are most important?
-        scoreBoard.sort({ $0.points > $1.points })
+            scoreBoard.sort({ $0.points > $1.points })
     }
     
     func addScore(points: NSInteger, time: NSInteger, accuracy: NSInteger, numberOfThrows : NSInteger, numberSuccThrows : NSInteger) {
         var newEntry = ScoreEntry(points: points, time: time, accuracy: accuracy, numberOfThrows : numberOfThrows, numberSuccThrows: numberSuccThrows)
-        if(scoreBoard.count > 30) {
+        if(scoreBoard.count > 5) {
             scoreBoard.sort({ $0.points > $1.points })
             scoreBoard.removeLast()
         }

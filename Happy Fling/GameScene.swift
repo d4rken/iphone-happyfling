@@ -22,6 +22,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
     private var time = 0
     private var killContinues = 0;
     private var accuracy = 0
+    private var numberOfthrows = 0
     
     // open highscore Database to store the data after the game
     var highscoreDB: DatabaseHighscore = DatabaseHighscore()
@@ -413,7 +414,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
             //NSNotificationCenter.defaultCenter().postNotificationName("ScoreUpdate", object: nil)
             //NSNotificationCenter.defaultCenter().postNotificationName("AccuracyUpdate", object: nil)
             accuracy  = Int(round((Double(self.score) / Double((self.score + self.failedThrow))) * 100 ))
-            highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.score + self.failedThrow , numberSuccThrows: self.score)
+            numberOfthrows = self.score + self.failedThrow
+            highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.numberOfthrows, numberSuccThrows: self.score)
+            print("reached to store the data")
             vcc.goToHighscore(theme)
         }
     }

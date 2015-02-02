@@ -92,8 +92,8 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
         let entry = self.highscoreDB.getEntry(indexPath.row)
         cell.backgroundColor = UIColor.clearColor()
         cell.textLabel?.textColor = UIColor.blackColor()
-        cell.textLabel?.text = "test"
-//        cell.textLabel?.text = String(indexPath.row + 1) + ": " + String(entry.points) + "    " + String(entry.accuracy) + " %" + "     " + String(entry.numberSuccThrows)
+        //cell.textLabel?.text = "test"
+        cell.textLabel?.text = String(indexPath.row + 1) + ": " + String(entry.points) + "  " + String(entry.accuracy)
         return cell
     }
     
