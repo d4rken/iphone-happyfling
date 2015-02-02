@@ -145,7 +145,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         stopButton.size = CGSizeMake(50, 50)
         stopButton.name = "stop"
         
-        stopButton.position = CGPointMake(self.frame.size.width-self.theme.bucketThemeArray[0].shapeSize.width*1.5, CGRectGetMinY(self.frame)+self.theme.bucketThemeArray[0].shapeSize.height/5 + 20)
+        stopButton.position = CGPointMake(self.frame.size.width-stopButton.size.width, CGRectGetMinY(self.frame)+stopButton.size.height)
         self.addChild(stopButton)
     }
 
