@@ -67,14 +67,9 @@ class RootViewController : UINavigationController, VCC {
 
     func goToHighscore(theme: ThemeClass?) {
         self.currentTheme = theme
-        dismissViewControllerAnimated(false, completion: {
-            self.performSegueWithIdentifier("RootToScore", sender: self)
-        })
+        self.performSegueWithIdentifier("RootToScore", sender: self)
     }
     
- 
-
-
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
         // get the controller that storyboard has instantiated and set it's delegate
         if let vc: VCCCustomer = segue!.destinationViewController as? StartViewController {
