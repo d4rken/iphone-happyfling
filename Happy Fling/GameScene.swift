@@ -226,7 +226,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         } else if(node.getState() == ThrowItemClass.State.Launched) {
             //distance between Node and main gravity center
             var distance = node.position.distance(spawnPoint)
-            node.size = CGSizeMake(node.size.width * exp(-distance*0.0001), node.size.height * exp(-distance*0.0001))
+            node.size = CGSizeMake(node.size.width * exp(-distance*0.00008), node.size.height * exp(-distance*0.00008))
         }
     }
 
@@ -348,6 +348,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 self.addChild(menuTitle)
                 self.addChild(returnToStart)
                 self.addChild(returnToGame)
+                node.removeFromParent()
             }
             else if node.name == "returnToStart"
             {
@@ -366,6 +367,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 menuTitle?.removeFromParent()
                 menu?.removeFromParent()
                 
+                var stopButton = SKSpriteNode(imageNamed: "Pause Button.png")
+                stopButton.size = CGSizeMake(50, 50)
+                stopButton.name = "stop"
+        
+                stopButton.position = CGPointMake(self.frame.size.width-self.theme.bucketThemeArray[0].shapeSize.width*1.5, CGRectGetMinY(self.frame)+self.theme.bucketThemeArray[0].shapeSize.height/5 + 20)
+                self.addChild(stopButton)
             }
             
         }
