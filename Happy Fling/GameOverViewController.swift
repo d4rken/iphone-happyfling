@@ -12,9 +12,20 @@ import SpriteKit
 
 class GameOverViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, VCCCustomer, ThemeCustomer {
 
+
+
     private var theme: ThemeClass!
     private var vcc: VCC!
     var highscoreDB: DatabaseHighscore = DatabaseHighscore()
+    
+//    private var points : Int
+//    private var time: Int
+//    private var accuracy : Double
+//    private var succThrows : Int
+//    private var unsuccThrows : Int
+//    private var numberOfThrows : Int
+//    
+    
     
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var highscoreViewTable: UITableView!
@@ -31,7 +42,8 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
     func setTheme(theme: ThemeClass) {
         self.theme = theme
     }
-
+  
+    
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +55,17 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
 
         //register cellclass var tableView: UITableView  =   UITableView()
         self.highscoreViewTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+//         points  = vcc.currentPoints
+//         time = vcc.currentTime
+//         accuracy = vcc.currentAccuracy
+//         succThrows  = vcc.currentSuccThrows
+//         unsuccThrows = vcc.currentUnsuccThrows
+//         numberOfThrows = succThrows + unsuccThrows
     }
     
     @IBAction func playAgain(sender: AnyObject) {
-        highscoreDB.addScore( vcc.currentPoints, time: vcc.currentTime , accuracy: vcc.currentAccuracy, numberOfThrows: (vcc.currentSuccThrows + vcc.currentUnsuccThrows), numberSuccThrows: vcc.currentSuccThrows)
+            highscoreDB.addScore( vcc.currentPoints, time: vcc.currentTime , accuracy: vcc.currentAccuracy, numberOfThrows: (vcc.currentSuccThrows + vcc.currentUnsuccThrows), numberSuccThrows: vcc.currentSuccThrows)
         vcc.goToGame(theme)
     }
     
@@ -56,6 +75,7 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func goToHome(sender: AnyObject) {
+        
          highscoreDB.addScore( vcc.currentPoints, time: vcc.currentTime , accuracy: vcc.currentAccuracy, numberOfThrows: (vcc.currentSuccThrows + vcc.currentUnsuccThrows), numberSuccThrows: vcc.currentSuccThrows)
         vcc.goToStart()
     }

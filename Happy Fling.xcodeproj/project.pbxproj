@@ -23,6 +23,7 @@
 		18F97F441A695BB3006BAC80 /* ThemeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F97F431A695BB3006BAC80 /* ThemeCellView.swift */; };
 		545C08F01A7244AC00383762 /* DatabaseHighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C08EF1A7244AC00383762 /* DatabaseHighScore.swift */; };
 		545C08F21A72479B00383762 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C08F11A72479B00383762 /* GameOverViewController.swift */; };
+		54ABEC081A7FBB2D00ECD221 /* highscores.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54ABEC071A7FBB2D00ECD221 /* highscores.plist */; };
 		928EB4E61A780159003CC797 /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = 928EB4E21A780159003CC797 /* bokeh.png */; };
 		928EB4E71A780159003CC797 /* MyParticle0.sks in Resources */ = {isa = PBXBuildFile; fileRef = 928EB4E31A780159003CC797 /* MyParticle0.sks */; };
 		928EB4E91A780159003CC797 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 928EB4E51A780159003CC797 /* spark.png */; };
@@ -79,6 +80,7 @@
 		18F97F431A695BB3006BAC80 /* ThemeCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCellView.swift; sourceTree = "<group>"; };
 		545C08EF1A7244AC00383762 /* DatabaseHighScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHighScore.swift; sourceTree = "<group>"; };
 		545C08F11A72479B00383762 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
+		54ABEC071A7FBB2D00ECD221 /* highscores.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = highscores.plist; sourceTree = "<group>"; };
 		928EB4E21A780159003CC797 /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bokeh.png; path = Resources/bokeh.png; sourceTree = "<group>"; };
 		928EB4E31A780159003CC797 /* MyParticle0.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MyParticle0.sks; path = Resources/MyParticle0.sks; sourceTree = "<group>"; };
 		928EB4E51A780159003CC797 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = Resources/spark.png; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			children = (
 				D199E6391A6D5EAA00B708C2 /* DIMIS___.otf */,
 				18BACE801A5E90BD00D4D69C /* Info.plist */,
+				54ABEC071A7FBB2D00ECD221 /* highscores.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				D1A089D01A7A9329002B1611 /* spark.png in Resources */,
 				D1A089D21A7AA283002B1611 /* gravityCircle.png in Resources */,
 				18BACE841A5E90BD00D4D69C /* GameScene.sks in Resources */,
+				54ABEC081A7FBB2D00ECD221 /* highscores.plist in Resources */,
 				D12C4E2E1A724C6C008ED9C4 /* Themes in Resources */,
 				928EB4E61A780159003CC797 /* bokeh.png in Resources */,
 				928EB4E71A780159003CC797 /* MyParticle0.sks in Resources */,

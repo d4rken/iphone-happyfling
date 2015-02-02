@@ -84,16 +84,12 @@ struct ScoreEntry {
         return scoreBoard;
     }
     
-//    func getHighScore() -> NSInteger {
-//        //TODO: clarify which aspect should be used as highscore
-//        return getEntry(0).points;
-//        //return getEntry(0).time;
-//        //return getEntry(0).accuracy;
-//    }
+    func getHighScore() -> NSInteger {
+        //TODO: clarify which aspect should be used as highscore
+        return getEntry(0).points;
+      
+    }
     
-//    func getLastTenTableEntry() -> Array<ScoreEntry>{
-//        
-//    }
     
     func count() -> Int {
         return scoreBoard.count;
