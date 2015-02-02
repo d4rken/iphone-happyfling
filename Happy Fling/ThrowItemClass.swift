@@ -60,11 +60,7 @@ class ThrowItemClass: SKSpriteNode {
             //if throwItem beyond the circle, give it a particle
             var particle = SKEmitterNode(fileNamed: "MyParticle"+String(3))
             self.insertChild(particle, atIndex: 0)
-            
-            
-        }
-        else if(state == State.Spawned)
-        {
+        } else if(state == State.Spawned) {
              self.removeAllChildren()
         }
     }
