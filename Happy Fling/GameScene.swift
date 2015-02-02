@@ -324,7 +324,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 menu.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2-self.theme.bucketThemeArray[0].shapeSize.height/4 + 25)
                 self.addChild(menu)
                 
-                
                 //set up return to game button and return to start button
                 var menuTitle = SKLabelNode(fontNamed: "Courier-Bold")
                 var returnToStart = SKLabelNode(fontNamed: "Courier-Bold")
