@@ -326,6 +326,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 menu.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2-self.theme.bucketThemeArray[0].shapeSize.height/4 + 25)
                 self.addChild(menu)
                 
+                var blurredImage = SKSpriteNode(imageNamed: "Blurred Image.png")
+                blurredImage.name = "Blurred Image"
+                blurredImage.size = CGSizeMake(frame.width, frame.height)
+                blurredImage.zPosition = 0.4
+                blurredImage.alpha = 0.9
+                blurredImage.position = CGPointMake(frame.width/2, frame.height/2)
+                self.addChild(blurredImage)
+                
+                
+                
                 //set up return to game button and return to start button
                 var menuTitle = SKLabelNode(fontNamed: "Courier-Bold")
                 var returnToStart = SKLabelNode(fontNamed: "Courier-Bold")
@@ -362,10 +372,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 var returnToStart = self.childNodeWithName("returnToStart")
                 var returnToGame = self.childNodeWithName("returnToGame")
                 var menuTitle = self.childNodeWithName("menuTitle")
+                var blurredImage = self.childNodeWithName("Blurred Image")
                 returnToGame?.removeFromParent()
                 returnToStart?.removeFromParent()
                 menuTitle?.removeFromParent()
                 menu?.removeFromParent()
+                blurredImage?.removeFromParent()
                 
                 var stopButton = SKSpriteNode(imageNamed: "Pause Button.png")
                 stopButton.size = CGSizeMake(50, 50)

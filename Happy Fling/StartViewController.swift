@@ -25,7 +25,7 @@ class StartViewController: UIViewController, VCCCustomer {
     }
 
     @IBAction func highscoreButtonPressed(sender: AnyObject) {
-      //  vcc.goToHighscore(nil)
+        vcc.goToHighscore(nil)
     }
     
     override func viewDidLoad() {
