@@ -64,45 +64,45 @@ class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
             
             
             
+//            
+//            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateScore:", name:"ScoreUpdate", object: nil)
+//            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTime:", name:"TimeUpdate", object: nil)
+//            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateAccuracy:", name:"AccuracyUpdate", object: nil)
+//            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateSuccThrows:", name:"SuccThrowsUpdate", object: nil)
+//            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateUnsuccThrows:", name:"UnsuccThrowsUpdate", object: nil)
             
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateScore:", name:"ScoreUpdate", object: nil)
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTime:", name:"TimeUpdate", object: nil)
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateAccuracy:", name:"AccuracyUpdate", object: nil)
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateSuccThrows:", name:"SuccThrowsUpdate", object: nil)
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateUnsuccThrows:", name:"UnsuccThrowsUpdate", object: nil)
-            
         }
     }
     
     
     
-    func updateScore(notification: NSNotification) {
-        vcc.currentPoints = 1 + vcc!.currentPoints
-    }
-    
-    func updateTime(notification: NSNotification) {
-        vcc.currentTime = 1 + vcc!.currentTime
-    }
-    
-    func updateAccuracy(notification: NSNotification) {
-        if(vcc.currentUnsuccThrows == 0 && vcc.currentSuccThrows == 0){
-            vcc.currentAccuracy = 0
-        }
-        else if(vcc.currentSuccThrows == 0){
-            vcc.currentAccuracy = 0
-        }
-        else{
-            vcc.currentAccuracy  = round((Double(vcc.currentSuccThrows) / Double((vcc.currentSuccThrows + vcc.currentUnsuccThrows))) * 100 )
-        }
-    }
-    
-    func updateSuccThrows(notification: NSNotification) {
-        vcc.currentSuccThrows = 1 + vcc!.currentSuccThrows
-    }
-    
-    func updateUnsuccThrows(notification: NSNotification) {
-        vcc.currentUnsuccThrows = 1 + vcc!.currentUnsuccThrows
-    }
+//    func updateScore(notification: NSNotification) {
+//        vcc.currentPoints = 1 + vcc!.currentPoints
+//    }
+//    
+//    func updateTime(notification: NSNotification) {
+//        vcc.currentTime = 1 + vcc!.currentTime
+//    }
+//    
+//    func updateAccuracy(notification: NSNotification) {
+//        if(vcc.currentUnsuccThrows == 0 && vcc.currentSuccThrows == 0){
+//            vcc.currentAccuracy = 0
+//        }
+//        else if(vcc.currentSuccThrows == 0){
+//            vcc.currentAccuracy = 0
+//        }
+//        else{
+//            vcc.currentAccuracy  = round((Double(vcc.currentSuccThrows) / Double((vcc.currentSuccThrows + vcc.currentUnsuccThrows))) * 100 )
+//        }
+//    }
+//    
+//    func updateSuccThrows(notification: NSNotification) {
+//        vcc.currentSuccThrows = 1 + vcc!.currentSuccThrows
+//    }
+//    
+//    func updateUnsuccThrows(notification: NSNotification) {
+//        vcc.currentUnsuccThrows = 1 + vcc!.currentUnsuccThrows
+//    }
     
 
     override func shouldAutorotate() -> Bool {

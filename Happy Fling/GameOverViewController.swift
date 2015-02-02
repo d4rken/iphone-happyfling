@@ -65,18 +65,18 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func playAgain(sender: AnyObject) {
-            highscoreDB.addScore( vcc.currentPoints, time: vcc.currentTime , accuracy: vcc.currentAccuracy, numberOfThrows: (vcc.currentSuccThrows + vcc.currentUnsuccThrows), numberSuccThrows: vcc.currentSuccThrows)
+//            highscoreDB.addScore( vcc.currentPoints, time: vcc.currentTime , accuracy: vcc.currentAccuracy, numberOfThrows: (vcc.currentSuccThrows + vcc.currentUnsuccThrows), numberSuccThrows: vcc.currentSuccThrows)
         vcc.goToGame(theme)
     }
     
     @IBAction func changeTheme(sender: AnyObject) {
-         highscoreDB.addScore( vcc.currentPoints, time: vcc.currentTime , accuracy: vcc.currentAccuracy, numberOfThrows: (vcc.currentSuccThrows + vcc.currentUnsuccThrows), numberSuccThrows: vcc.currentSuccThrows)
+//         highscoreDB.addScore( vcc.currentPoints, time: vcc.currentTime , accuracy: vcc.currentAccuracy, numberOfThrows: (vcc.currentSuccThrows + vcc.currentUnsuccThrows), numberSuccThrows: vcc.currentSuccThrows)
         vcc.goToThemeSelection()
     }
     
     @IBAction func goToHome(sender: AnyObject) {
         
-         highscoreDB.addScore( vcc.currentPoints, time: vcc.currentTime , accuracy: vcc.currentAccuracy, numberOfThrows: (vcc.currentSuccThrows + vcc.currentUnsuccThrows), numberSuccThrows: vcc.currentSuccThrows)
+//         highscoreDB.addScore( vcc.currentPoints, time: vcc.currentTime , accuracy: vcc.currentAccuracy, numberOfThrows: (vcc.currentSuccThrows + vcc.currentUnsuccThrows), numberSuccThrows: vcc.currentSuccThrows)
         vcc.goToStart()
     }
         
@@ -88,11 +88,12 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
     
     //create cell
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         var cell:UITableViewCell = self.highscoreViewTable.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
-        
-        cell.textLabel?.text = self.highscoredata[indexPath.row]
-        
+        let entry = self.highscoreDB.getEntry(indexPath.row)
+        cell.backgroundColor = UIColor.clearColor()
+        cell.textLabel?.textColor = UIColor.blackColor()
+        cell.textLabel?.text = "test"
+//        cell.textLabel?.text = String(indexPath.row + 1) + ": " + String(entry.points) + "    " + String(entry.accuracy) + " %" + "     " + String(entry.numberSuccThrows)
         return cell
     }
     

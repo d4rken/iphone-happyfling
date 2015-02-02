@@ -4,15 +4,15 @@
 <array>
 	<dict>
 		<key>points</key>
-		<integer>0</integer>
+		<integer>10</integer>
 		<key>time</key>
-		<integer>0</integer>
+		<integer>15</integer>
 		<key>accuracy</key>
-		<integer>0</integer>
+		<integer>40</integer>
 		<key>numberOfThrows</key>
-		<integer>0</integer>
-		<key>numberSuccThrows</key>
-		<integer>0</integer>
+		<integer>10</integer>
+		<key>numSuccThrows</key>
+		<integer>4</integer>
 	</dict>
 </array>
 </plist>

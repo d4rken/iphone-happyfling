@@ -21,6 +21,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
     private var failedThrow = 0;
     private var time = 0
     private var killContinues = 0;
+    private var accuracy = 0
+    
+    // open highscore Database to store the data after the game
+    var highscoreDB: DatabaseHighscore = DatabaseHighscore()
     
     // gameEnd parameter
     var gameEnding = false
@@ -149,7 +153,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
             return
         }
         self.time = self.time + 1
-        NSNotificationCenter.defaultCenter().postNotificationName("TimeUpdate", object: nil)
+        //NSNotificationCenter.defaultCenter().postNotificationName("TimeUpdate", object: nil)
     }
 
     override func update(currentTime: CFTimeInterval) {
@@ -238,7 +242,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         self.score = self.score + 1
         self.killContinues = self.killContinues + 1
         
-        NSNotificationCenter.defaultCenter().postNotificationName("SuccThrowsUpdate", object: nil)
+       //NSNotificationCenter.defaultCenter().postNotificationName("SuccThrowsUpdate", object: nil)
 
         var particle = SKEmitterNode(fileNamed: "MyParticle2")
         particle.name = "particle"
@@ -265,7 +269,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         self.failedThrow = self.failedThrow + 1
         
         
-        NSNotificationCenter.defaultCenter().postNotificationName("UnsuccThrowsUpdate", object: nil)
+        //NSNotificationCenter.defaultCenter().postNotificationName("UnsuccThrowsUpdate", object: nil)
         
         var particle = SKEmitterNode(fileNamed: "MyParticle"+String(0))
         particle.name = "particle"
@@ -397,8 +401,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
     func endGame() {
         if !self.gameEnding {
             self.gameEnding = true
-            NSNotificationCenter.defaultCenter().postNotificationName("ScoreUpdate", object: nil)
-            NSNotificationCenter.defaultCenter().postNotificationName("AccuracyUpdate", object: nil)
+            //NSNotificationCenter.defaultCenter().postNotificationName("ScoreUpdate", object: nil)
+            //NSNotificationCenter.defaultCenter().postNotificationName("AccuracyUpdate", object: nil)
+            accuracy  = Int(round((Double(self.score) / Double((self.score + self.failedThrow))) * 100 ))
+            highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.score + self.failedThrow , numberSuccThrows: self.score)
             vcc.goToHighscore(theme)
         }
     }

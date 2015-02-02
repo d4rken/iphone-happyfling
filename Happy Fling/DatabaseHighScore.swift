@@ -10,10 +10,9 @@ import Foundation
 
 
 struct ScoreEntry {
-    //TODO: clarify which aspects we want to use for the highscore: eg. time, accuracy, ...?
     var points: NSInteger
     var time : NSInteger
-    var accuracy : Double
+    var accuracy : NSInteger
     var numberOfThrows : NSInteger
     var numberSuccThrows : NSInteger
     
@@ -22,7 +21,7 @@ struct ScoreEntry {
 @objc class DatabaseHighscore : NSObject {
     
     
-    var themeName: String
+//   var themeName: String
     var scoreBoard: Array<ScoreEntry> = Array()
     var databasePath: String
     
@@ -39,7 +38,7 @@ struct ScoreEntry {
         
         let documentsDirectory: AnyObject = paths[0]
         databasePath = documentsDirectory.stringByAppendingPathComponent("highscores.plist")
-        themeName = "defaultName"
+//       themeName = "defaultName"
         
         
         let fileManager = NSFileManager.defaultManager()
@@ -55,10 +54,9 @@ struct ScoreEntry {
             
             let points = score[KEY_POINTS] as NSInteger
             let time = score[KEY_TIME] as NSInteger
-            let accuracy = score[KEY_ACCURACY] as Double
+            let accuracy = score[KEY_ACCURACY] as NSInteger
             let numberOfThrows = score[KEY_NUMBEROFTHWORS] as NSInteger
             let numberSuccThrows = score[KEY_NUMBERSUCCTHROWS] as NSInteger
-            
             let scoreEntry = ScoreEntry( points: points, time: time, accuracy: accuracy, numberOfThrows : numberOfThrows, numberSuccThrows: numberSuccThrows);
             scoreBoard.append(scoreEntry)
         }
@@ -66,7 +64,7 @@ struct ScoreEntry {
         scoreBoard.sort({ $0.points > $1.points })
     }
     
-    func addScore(points: NSInteger, time: NSInteger, accuracy: Double, numberOfThrows : NSInteger, numberSuccThrows : NSInteger) {
+    func addScore(points: NSInteger, time: NSInteger, accuracy: NSInteger, numberOfThrows : NSInteger, numberSuccThrows : NSInteger) {
         var newEntry = ScoreEntry(points: points, time: time, accuracy: accuracy, numberOfThrows : numberOfThrows, numberSuccThrows: numberSuccThrows)
         if(scoreBoard.count > 30) {
             scoreBoard.sort({ $0.points > $1.points })
