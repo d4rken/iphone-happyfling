@@ -62,14 +62,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         let background = SKSpriteNode(imageNamed: theme.gameBackgroundPicture)
         background.position = CGPoint(x:self.frame.size.width/2 , y: self.frame.size.height/2)
         background.size = CGSizeMake(self.frame.size.width+15, self.frame.size.height+15)
+        background.zPosition = -1
         self.addChild(background)
 
         spawnPoint = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/6)
         spawnArea = SKShapeNode(circleOfRadius: 100)
         spawnArea.position = spawnPoint
-        spawnArea.fillColor = UIColor.greenColor()
-        spawnArea.strokeColor = UIColor.greenColor()
-        spawnArea.lineWidth = 1; //set your border
+        //spawnArea.fillColor = UIColor.greenColor()
+        //spawnArea.strokeColor = UIColor.greenColor()
+        spawnArea.lineWidth = 0; //set your border
 
         //gravity
         var spawnGravity = SKFieldNode.radialGravityField()
