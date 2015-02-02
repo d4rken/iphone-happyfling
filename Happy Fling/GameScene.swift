@@ -321,6 +321,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 var menu = SKSpriteNode(imageNamed: "Game Paused Menu.png")
                 menu.name = "menu"
                 menu.size = CGSizeMake(300, 150)
+                menu.zPosition = 0.5
                 menu.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2-self.theme.bucketThemeArray[0].shapeSize.height/4 + 25)
                 self.addChild(menu)
                 
@@ -328,6 +329,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 var menuTitle = SKLabelNode(fontNamed: "Courier-Bold")
                 var returnToStart = SKLabelNode(fontNamed: "Courier-Bold")
                 var returnToGame = SKLabelNode(fontNamed: "Courier-Bold")
+                menuTitle.zPosition = 1
+                returnToStart.zPosition = 1
+                returnToGame.zPosition = 1
                 menuTitle.text = "Paused Game"
                 returnToStart.text = "Quit To Menu"
                 returnToGame.text = "Back To Game"
