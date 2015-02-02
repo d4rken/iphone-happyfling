@@ -233,7 +233,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         } else if(node.getState() == ThrowItemClass.State.Launched) {
             //distance between Node and main gravity center
             var distance = node.position.distance(spawnPoint)
-            node.size = CGSizeMake(node.size.width * exp(-distance*0.0001), node.size.height * exp(-distance*0.0001))
+            node.size = CGSizeMake(node.size.width * exp(-distance*0.00008), node.size.height * exp(-distance*0.00008))
         }
     }
 
@@ -340,6 +340,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 menu.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2-self.theme.bucketThemeArray[0].shapeSize.height/4 + 25)
                 self.addChild(menu)
                 
+                var blurredImage = SKSpriteNode(imageNamed: "Blurred Image.png")
+                blurredImage.name = "Blurred Image"
+                blurredImage.size = CGSizeMake(frame.width, frame.height)
+                blurredImage.zPosition = 0.4
+                blurredImage.alpha = 0.9
+                blurredImage.position = CGPointMake(frame.width/2, frame.height/2)
+                self.addChild(blurredImage)
+                
+                
+                
                 //set up return to game button and return to start button
                 var menuTitle = SKLabelNode(fontNamed: "Courier-Bold")
                 var returnToStart = SKLabelNode(fontNamed: "Courier-Bold")
@@ -362,6 +372,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 self.addChild(menuTitle)
                 self.addChild(returnToStart)
                 self.addChild(returnToGame)
+                node.removeFromParent()
             }
             else if node.name == "returnToStart"
             {
@@ -375,11 +386,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 var returnToStart = self.childNodeWithName("returnToStart")
                 var returnToGame = self.childNodeWithName("returnToGame")
                 var menuTitle = self.childNodeWithName("menuTitle")
+                var blurredImage = self.childNodeWithName("Blurred Image")
                 returnToGame?.removeFromParent()
                 returnToStart?.removeFromParent()
                 menuTitle?.removeFromParent()
                 menu?.removeFromParent()
+                blurredImage?.removeFromParent()
                 
+                var stopButton = SKSpriteNode(imageNamed: "Pause Button.png")
+                stopButton.size = CGSizeMake(50, 50)
+                stopButton.name = "stop"
+        
+                stopButton.position = CGPointMake(self.frame.size.width-self.theme.bucketThemeArray[0].shapeSize.width*1.5, CGRectGetMinY(self.frame)+self.theme.bucketThemeArray[0].shapeSize.height/5 + 20)
+                self.addChild(stopButton)
             }
             
         }

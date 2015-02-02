@@ -16,7 +16,7 @@ protocol VCC {
     func goToThemeSelection()
     func goToTransitionScreen(theme: ThemeClass)
     func goToGame(theme: ThemeClass)
-    func goToHighscore(theme: ThemeClass)
+    func goToHighscore(theme: ThemeClass?)
 }
 
 protocol VCCCustomer {
@@ -65,7 +65,7 @@ class RootViewController : UINavigationController, VCC {
         self.performSegueWithIdentifier("RootToGame", sender: self)
     }
 
-    func goToHighscore(theme: ThemeClass) {
+    func goToHighscore(theme: ThemeClass?) {
         self.currentTheme = theme
         dismissViewControllerAnimated(false, completion: {
             self.performSegueWithIdentifier("RootToScore", sender: self)
@@ -89,7 +89,10 @@ class RootViewController : UINavigationController, VCC {
             vc.setTheme(currentTheme)
         } else if let vc = segue!.destinationViewController as? GameOverViewController {
             vc.setVCC(self)
-            vc.setTheme(currentTheme)
+            if currentTheme !=  nil {
+                vc.setTheme(currentTheme)
+            }
+            
         }
     }
 
