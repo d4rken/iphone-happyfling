@@ -39,7 +39,7 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
         self.vcc = vcc
     }
 
-    func setTheme(theme: ThemeClass) {
+    func setTheme(theme: ThemeClass?) {
         self.theme = theme
     }
   

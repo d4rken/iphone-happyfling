@@ -54,7 +54,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         self.vcc = vcc
     }
 
-    func setTheme(theme: ThemeClass) {
+    func setTheme(theme: ThemeClass?) {
         self.theme = theme
     }
 
@@ -216,7 +216,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 var dx = (throwItem.position.x - bucket.position.x);
                 var dy = (throwItem.position.y - bucket.position.y)
                 var dist = sqrt(dx*dx + dy*dy);
-                if (dist < 150 ) {
+                if (dist < 130 ) {
                     let actionMove = SKAction.moveTo(bucket.position, duration: NSTimeInterval(0.3))
                     throwItem.runAction(SKAction.sequence([actionMove]))
                 }

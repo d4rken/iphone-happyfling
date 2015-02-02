@@ -24,7 +24,7 @@ protocol VCCCustomer {
 }
 
 protocol ThemeCustomer {
-    func setTheme(theme: ThemeClass)
+    func setTheme(theme: ThemeClass?)
 }
 
 class RootViewController : UINavigationController, VCC {
@@ -89,10 +89,7 @@ class RootViewController : UINavigationController, VCC {
             vc.setTheme(currentTheme)
         } else if let vc = segue!.destinationViewController as? GameOverViewController {
             vc.setVCC(self)
-            if currentTheme !=  nil {
-                vc.setTheme(currentTheme)
-            }
-            
+            vc.setTheme(currentTheme)
         }
     }
 

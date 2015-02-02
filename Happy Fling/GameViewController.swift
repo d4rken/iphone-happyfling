@@ -36,7 +36,7 @@ class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
         self.vcc = vcc
     }
     
-    func setTheme(theme: ThemeClass) {
+    func setTheme(theme: ThemeClass?) {
         self.theme = theme
     }
 
