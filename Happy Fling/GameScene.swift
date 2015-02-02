@@ -17,7 +17,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
 
     //parameters
     private var bucketPosition: Array<CGPoint>!
-    private var itemSize:CGFloat = 0;
     private var score = 0
     private var time = 0
     private var killContinues = 0;
@@ -89,8 +88,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         //world gravity
         physicsWorld.gravity = CGVectorMake(0.0, -0.5);
         physicsWorld.contactDelegate = self
-        //parameters for positions and size of item
-        self.itemSize = self.theme.bucketThemeArray[0].shapeSize.height
 
         //content
         createContent()
@@ -100,12 +97,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
     }
 
     func createContent() {
+        let itemSize = self.theme.bucketThemeArray[0].shapeSize.height
         bucketPosition =
-            [   CGPoint(x:CGRectGetMinX(self.frame)+self.itemSize, y:CGRectGetMidY(self.frame)),
-                CGPoint(x:CGRectGetMinX(self.frame)+self.itemSize, y:CGRectGetMaxY(self.frame)-self.itemSize),
-                CGPoint(x:CGRectGetMidX(self.frame)              , y:CGRectGetMaxY(self.frame)-self.itemSize),
-                CGPoint(x:CGRectGetMaxX(self.frame)-self.itemSize, y:CGRectGetMaxY(self.frame)-self.itemSize),
-                CGPoint(x:CGRectGetMaxX(self.frame)-self.itemSize, y:CGRectGetMidY(self.frame))                 ]
+            [   CGPoint(x:CGRectGetMinX(self.frame)+itemSize, y:CGRectGetMidY(self.frame)),
+                CGPoint(x:CGRectGetMinX(self.frame)+itemSize, y:CGRectGetMaxY(self.frame)-itemSize),
+                CGPoint(x:CGRectGetMidX(self.frame)              , y:CGRectGetMaxY(self.frame)-itemSize),
+                CGPoint(x:CGRectGetMaxX(self.frame)-itemSize, y:CGRectGetMaxY(self.frame)-itemSize),
+                CGPoint(x:CGRectGetMaxX(self.frame)-itemSize, y:CGRectGetMidY(self.frame))                 ]
 
         spawnHelper.spawnBuckets(self, bucketPositions: bucketPosition)
         
@@ -122,7 +120,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         timerNode = SKLabelNode(fontNamed: "Courier-Bold")
         timerNode.fontSize = 30
         timerNode.text = String(self.score)
-        timerNode.position = CGPointMake(CGRectGetMinX(self.frame)+self.itemSize, CGRectGetMinY(self.frame)+self.itemSize/5)
+        timerNode.position = CGPointMake(CGRectGetMinX(self.frame) + timerNode.frame.width, CGRectGetMinY(self.frame) + timerNode.frame.height)
         timerNode.fontColor = SKColor(hue: 0, saturation: 5, brightness: 5, alpha: 5)
         timerNode.name = "time"
         self.addChild(timerNode)
@@ -130,7 +128,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         scoreNode = SKLabelNode(fontNamed: "Courier-Bold")
         scoreNode.fontSize = 30
         scoreNode.text = String(self.score)
-        scoreNode.position = CGPointMake(CGRectGetMaxX(self.frame)-self.itemSize, CGRectGetMinY(self.frame)+self.itemSize/5)
+        scoreNode.position = CGPointMake(CGRectGetMaxX(self.frame) - scoreNode.frame.width, CGRectGetMinY(self.frame) + scoreNode.frame.height)
         scoreNode.fontColor = SKColor(hue: 10, saturation: 10, brightness: 10, alpha: 5)
         scoreNode.name = "score"
         self.addChild(scoreNode)
@@ -162,8 +160,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         var itemsInSpawn = 0
         enumerateChildNodesWithName(ThrowItemClass.getTag(), usingBlock: {
             (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
-            // do something with node or stop
-            self.updateNodeSizeRelativeToMainGravityCenter(node)
             var throwItem = node as ThrowItemClass
             if(!self.containsPoint(throwItem.position)) {
                 throwItem.removeFromParent()
@@ -184,6 +180,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                         self.touchToItem.removeValueForKey(touch!)
                     }
                 }
+                self.updateNodeSizeRelativeToMainGravityCenter(throwItem)
             }
             
             
@@ -219,9 +216,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
 
         timerNode.text = String(self.time)
         scoreNode.text = String(self.score)
-        
-        
-        
+    }
+
+    func updateNodeSizeRelativeToMainGravityCenter(node: ThrowItemClass){
+        if(node.getState() == ThrowItemClass.State.Spawned && node.getPreviousState() != ThrowItemClass.State.Spawned) {
+            node.size = node.defaultSize
+        } else if(node.getState() == ThrowItemClass.State.Launched) {
+            //distance between Node and main gravity center
+            var distance = node.position.distance(spawnPoint)
+            node.size = CGSizeMake(node.size.width * exp(-distance*0.0001), node.size.height * exp(-distance*0.0001))
+        }
     }
 
     //accepted
@@ -372,13 +376,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         }
     }
     
-    
-    
-    
     // function that checks, when the game is over, you can have different end conditions
     func isGameOver() -> Bool {
-        if(self.time == 15){return true}
-        return false
+        return self.time >= theme.maxGameTime
     }
     
     
@@ -388,24 +388,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
             self.gameEnding = true
             vcc.goToHighscore(theme)
         }
-    }
-    
-
-    func updateNodeSizeRelativeToMainGravityCenter(node:SKNode){
-        //Right now, they keep getting smaller if they are not in the center, I will work on it!    (Jose)
-        
-        //distance between Node and main gravity center
-        var distance = node.position.distance(spawnPoint)
-        var skSpriteNode = node as SKSpriteNode
-        
-        //If they are in the Gravity Center, they recover their normal size
-        if (distance <= spawnArea.frame.height/2){
-            skSpriteNode.size = CGSize(width: itemSize, height: itemSize)
-        }
-        
-        
-        skSpriteNode.size = CGSizeMake(skSpriteNode.size.width * exp(-distance*0.0001), skSpriteNode.size.height * exp(-distance*0.0001))
-        
     }
 }
 

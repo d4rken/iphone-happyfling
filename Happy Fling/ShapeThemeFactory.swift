@@ -23,6 +23,11 @@ class ShapeThemeFactory: ThemeFactory {
         theme.themeIcon = getIconResource()
         theme.minNumBuckets = 5
         theme.maxNumBuckets = 5
+        theme.maxGameTime = 60
+        theme.introBackgroundPicture = "Themes/Shapes/BackgroundIntro.png"
+        theme.themeStory = "How messy it is!\nYour lovely 2 years old daughter played with her toy bricks.\nYou’d better tidy up the table as soon as possible, if you don’t want your wife shout you!\nShe will come back in two minutes.\n\n\n \"Tap the screen to continue\""
+        theme.gameBackgroundPicture = "Themes/Shapes/background.png";
+
 
         //Triangle
         var itemTriangle = ThrowItemTheme()
@@ -36,9 +41,6 @@ class ShapeThemeFactory: ThemeFactory {
         bucketTriangle.failureSounds.append("Sounds/wrong.wav")
         bucketTriangle.acceptedThrowItems.append(itemTriangle.name)
         theme.bucketThemeArray.append(bucketTriangle)
-        theme.introBackgroundPicture = "Themes/Shapes/BackgroundIntro.png"
-        theme.themeStory = "How messy it is!\nYour lovely 2 years old daughter played with her toy bricks.\nYou’d better tidy up the table as soon as possible, if you don’t want your wife shout you!\nShe will come back in two minutes.\n\n\n \"Tap the screen to continue\""
-        theme.gameBackgroundPicture = "Themes/Shapes/background.png";
 
         //Square
         var itemSquare = ThrowItemTheme()
@@ -77,7 +79,7 @@ class ShapeThemeFactory: ThemeFactory {
         bucketHexagon.successSounds.append("Sounds/right.wav")
         bucketHexagon.failureSounds.append("Sounds/wrong.wav")
         bucketHexagon.acceptedThrowItems.append(itemHexagon.name)
-        theme.bucketThemeArray.append(bucketPentagon)
+        theme.bucketThemeArray.append(bucketHexagon)
 
         //Circle
         var itemCircle = ThrowItemTheme()
@@ -94,9 +96,9 @@ class ShapeThemeFactory: ThemeFactory {
         
         //Ellipse
         var itemEllipse = ThrowItemTheme()
-        itemEllipse.name = "Circle Item"
+        itemEllipse.name = "Ellipse Item"
         itemEllipse.image = "Themes/Shapes/Ellipse.png"
-        theme.throwItemThemeArray.append(itemCircle)
+        theme.throwItemThemeArray.append(itemEllipse)
         var bucketEllipse = BucketTheme()
         bucketEllipse.name = "Ellipse Bucket"
         bucketEllipse.image = "Themes/Shapes/Buckets/bucketEllipse.png"
