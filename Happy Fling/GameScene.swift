@@ -72,7 +72,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         self.addChild(background)
 
         spawnPoint = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/6)
-        spawnArea = SKShapeNode(circleOfRadius: 100)
+        spawnArea = SKShapeNode(circleOfRadius: 130)
         spawnArea.position = spawnPoint
         //spawnArea.fillColor = UIColor.greenColor()
         //spawnArea.strokeColor = UIColor.greenColor()
@@ -116,7 +116,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         
         
         //create circle of particles
-        var circle = CGPathCreateWithEllipseInRect(CGRectMake(self.spawnPoint.x-100,10, 200,200), nil)
+        var circle = CGPathCreateWithEllipseInRect(CGRectMake(self.spawnPoint.x-100,10, spawnArea.frame.width,spawnArea.frame.height), nil)
         var followTrack = SKAction.followPath(circle, asOffset: false, orientToPath: false, duration: 3)
         var forever:SKAction = SKAction.repeatActionForever(followTrack)
         var particle = SKEmitterNode(fileNamed: "MyParticle"+String(1))
