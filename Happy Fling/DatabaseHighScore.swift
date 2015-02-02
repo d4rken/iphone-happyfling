@@ -70,7 +70,7 @@ struct ScoreEntry {
     
     func addScore(points: NSInteger, time: NSInteger, accuracy: NSInteger, numberOfThrows : NSInteger, numberSuccThrows : NSInteger) {
         var newEntry = ScoreEntry(points: points, time: time, accuracy: accuracy, numberOfThrows : numberOfThrows, numberSuccThrows: numberSuccThrows)
-        if(scoreBoard.count > 5) {
+        if(scoreBoard.count >= 5) {
             scoreBoard.sort({ $0.points > $1.points })
             scoreBoard.removeLast()
         }

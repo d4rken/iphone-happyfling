@@ -30,10 +30,7 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var highscoreViewTable: UITableView!
     
-    //only testdata
-    var highscoredata: [String] = ["1000", "accuracy", "succ. Throws"]
     
-
     
     func setVCC(vcc: VCC) {
         self.vcc = vcc
@@ -55,7 +52,9 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
 
         //register cellclass var tableView: UITableView  =   UITableView()
         self.highscoreViewTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
+        self.highscoreViewTable.backgroundView?.backgroundColor = UIColor.clearColor()
+        highscoreViewTable.backgroundView = nil;
+        self.view.addSubview(self.highscoreViewTable)
 //         points  = vcc.currentPoints
 //         time = vcc.currentTime
 //         accuracy = vcc.currentAccuracy
@@ -83,7 +82,7 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
    
    // set number of rows
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.highscoredata.count
+        return self.highscoreDB.count()
     }
     
     //create cell
@@ -92,8 +91,11 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
         let entry = self.highscoreDB.getEntry(indexPath.row)
         cell.backgroundColor = UIColor.clearColor()
         cell.textLabel?.textColor = UIColor.blackColor()
-        //cell.textLabel?.text = "test"
-        cell.textLabel?.text = String(indexPath.row + 1) + ": " + String(entry.points) + "  " + String(entry.accuracy)
+        let string1 =  String(indexPath.row + 1) + ": Points: " + String(entry.points) + "   , Accuracy: " + String(entry.accuracy)
+        let string2 = " %    , Number of succesful Throws: " + String(entry.numberSuccThrows)
+        let out = string1 + string2
+        cell.textLabel?.text = out
+//        cell.textLabel?.text = String(indexPath.row + 1) + ": Points: " + String(entry.points) + "   , Accuracy: " + String(entry.accuracy) + " %    , Number of succesfull Throws: " + String(entry.numberSuccThrows)
         return cell
     }
     

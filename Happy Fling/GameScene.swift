@@ -413,10 +413,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
             self.gameEnding = true
             //NSNotificationCenter.defaultCenter().postNotificationName("ScoreUpdate", object: nil)
             //NSNotificationCenter.defaultCenter().postNotificationName("AccuracyUpdate", object: nil)
+            if(self.score == 0 && self.failedThrow == 0){
+                accuracy = 0
+            }
+            else if(self.score == 0){
+                accuracy = 0
+            }
+            else{
             accuracy  = Int(round((Double(self.score) / Double((self.score + self.failedThrow))) * 100 ))
+            }
+            
             numberOfthrows = self.score + self.failedThrow
             highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.numberOfthrows, numberSuccThrows: self.score)
-            print("reached to store the data")
+//            print("reached to store the data")
             vcc.goToHighscore(theme)
         }
     }
