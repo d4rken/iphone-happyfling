@@ -12,10 +12,11 @@ import Foundation
 struct ScoreEntry {
     //TODO: clarify which aspects we want to use for the highscore: eg. time, accuracy, ...?
     var points: NSInteger
-    var time : String
-    var accuracy : String
+    var time : NSInteger
+    var accuracy : Double
     var numberOfThrows : NSInteger
     var numberSuccThrows : NSInteger
+    
 }
 
 @objc class DatabaseHighscore : NSObject {
@@ -53,8 +54,8 @@ struct ScoreEntry {
         for score in scoreEntries {
             
             let points = score[KEY_POINTS] as NSInteger
-            let time = score[KEY_TIME] as String
-            let accuracy = score[KEY_ACCURACY] as String
+            let time = score[KEY_TIME] as NSInteger
+            let accuracy = score[KEY_ACCURACY] as Double
             let numberOfThrows = score[KEY_NUMBEROFTHWORS] as NSInteger
             let numberSuccThrows = score[KEY_NUMBERSUCCTHROWS] as NSInteger
             
@@ -65,9 +66,9 @@ struct ScoreEntry {
         scoreBoard.sort({ $0.points > $1.points })
     }
     
-    func addScore(points: NSInteger, time: String, accuracy: String, numberOfThrows : NSInteger, numberSuccThrows : NSInteger) {
+    func addScore(points: NSInteger, time: NSInteger, accuracy: Double, numberOfThrows : NSInteger, numberSuccThrows : NSInteger) {
         var newEntry = ScoreEntry(points: points, time: time, accuracy: accuracy, numberOfThrows : numberOfThrows, numberSuccThrows: numberSuccThrows)
-        if(scoreBoard.count > 5) {
+        if(scoreBoard.count > 30) {
             scoreBoard.sort({ $0.points > $1.points })
             scoreBoard.removeLast()
         }

@@ -17,6 +17,14 @@ protocol VCC {
     func goToTransitionScreen(theme: ThemeClass)
     func goToGame(theme: ThemeClass)
     func goToHighscore(theme: ThemeClass)
+    
+    
+    
+    var currentPoints: Int {  get set }
+    var currentTime : Int{ get set }
+    var currentAccuracy: Double { get set }
+    var currentSuccThrows: Int { get set }
+    var currentUnsuccThrows: Int { get set }
 }
 
 protocol VCCCustomer {
@@ -28,6 +36,13 @@ protocol ThemeCustomer {
 }
 
 class RootViewController : UIViewController, VCC {
+    
+    
+    var currentPoints : Int = 0
+    var currentTime : Int = 0
+    var currentAccuracy : Double = 0.0
+    var currentSuccThrows : Int = 0
+    var currentUnsuccThrows : Int = 0
 
     var currentTheme: ThemeClass!
     var first = true

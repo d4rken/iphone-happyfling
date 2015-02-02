@@ -14,12 +14,14 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
 
     private var theme: ThemeClass!
     private var vcc: VCC!
-
+    var highscoreDB: DatabaseHighscore = DatabaseHighscore()
+    
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var highscoreViewTable: UITableView!
     
     //only testdata
     var highscoredata: [String] = ["1000", "accuracy", "succ. Throws"]
+    
 
     
     func setVCC(vcc: VCC) {
@@ -44,14 +46,17 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func playAgain(sender: AnyObject) {
+        highscoreDB.addScore( vcc.currentPoints, time: vcc.currentTime , accuracy: vcc.currentAccuracy, numberOfThrows: (vcc.currentSuccThrows + vcc.currentUnsuccThrows), numberSuccThrows: vcc.currentSuccThrows)
         vcc.goToGame(theme)
     }
     
     @IBAction func changeTheme(sender: AnyObject) {
+         highscoreDB.addScore( vcc.currentPoints, time: vcc.currentTime , accuracy: vcc.currentAccuracy, numberOfThrows: (vcc.currentSuccThrows + vcc.currentUnsuccThrows), numberSuccThrows: vcc.currentSuccThrows)
         vcc.goToThemeSelection()
     }
     
     @IBAction func goToHome(sender: AnyObject) {
+         highscoreDB.addScore( vcc.currentPoints, time: vcc.currentTime , accuracy: vcc.currentAccuracy, numberOfThrows: (vcc.currentSuccThrows + vcc.currentUnsuccThrows), numberSuccThrows: vcc.currentSuccThrows)
         vcc.goToStart()
     }
         
@@ -71,9 +76,6 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
-    
+
     
 }

@@ -18,8 +18,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
     //parameters
     private var bucketPosition: Array<CGPoint>!
     private var score = 0
+    private var failedThrow = 0;
     private var time = 0
     private var killContinues = 0;
+    
     // gameEnd parameter
     var gameEnding = false
 
@@ -136,6 +138,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
 
     func updateTimer() {
         self.time = self.time + 1
+        NSNotificationCenter.defaultCenter().postNotificationName("TimeUpdate", object: nil)
     }
 
     override func update(currentTime: CFTimeInterval) {
@@ -223,6 +226,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         NSLog("successful")
         self.score = self.score + 1
         self.killContinues = self.killContinues + 1
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("SuccThrowsUpdate", object: nil)
 
         var particle = SKEmitterNode(fileNamed: "MyParticle2")
         particle.name = "particle"
@@ -246,6 +251,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         throw.removeFromParent()
         self.killContinues = 0;
         NSLog("fail")
+        self.failedThrow = self.failedThrow + 1
+        
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("UnsuccThrowsUpdate", object: nil)
+        
         var particle = SKEmitterNode(fileNamed: "MyParticle"+String(0))
         particle.name = "particle"
         particle.position = bucket.position
@@ -332,9 +342,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
     func endGame() {
         if !self.gameEnding {
             self.gameEnding = true
+            NSNotificationCenter.defaultCenter().postNotificationName("ScoreUpdate", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("AccuracyUpdate", object: nil)
             vcc.goToHighscore(theme)
         }
     }
+    
+    
+
+    
 }
 
 extension SKAction {
