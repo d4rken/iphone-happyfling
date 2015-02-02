@@ -62,14 +62,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         let background = SKSpriteNode(imageNamed: theme.gameBackgroundPicture)
         background.position = CGPoint(x:self.frame.size.width/2 , y: self.frame.size.height/2)
         background.size = CGSizeMake(self.frame.size.width+15, self.frame.size.height+15)
+        background.zPosition = -1
         self.addChild(background)
 
         spawnPoint = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/6)
         spawnArea = SKShapeNode(circleOfRadius: 100)
         spawnArea.position = spawnPoint
-        spawnArea.fillColor = UIColor.greenColor()
-        spawnArea.strokeColor = UIColor.greenColor()
-        spawnArea.lineWidth = 1; //set your border
+        //spawnArea.fillColor = UIColor.greenColor()
+        //spawnArea.strokeColor = UIColor.greenColor()
+        spawnArea.lineWidth = 0; //set your border
 
         //gravity
         var spawnGravity = SKFieldNode.radialGravityField()
@@ -321,6 +322,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 var menu = SKSpriteNode(imageNamed: "Game Paused Menu.png")
                 menu.name = "menu"
                 menu.size = CGSizeMake(300, 150)
+                menu.zPosition = 0.5
                 menu.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2-self.theme.bucketThemeArray[0].shapeSize.height/4 + 25)
                 self.addChild(menu)
                 
@@ -328,6 +330,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 var menuTitle = SKLabelNode(fontNamed: "Courier-Bold")
                 var returnToStart = SKLabelNode(fontNamed: "Courier-Bold")
                 var returnToGame = SKLabelNode(fontNamed: "Courier-Bold")
+                menuTitle.zPosition = 1
+                returnToStart.zPosition = 1
+                returnToGame.zPosition = 1
                 menuTitle.text = "Paused Game"
                 returnToStart.text = "Quit To Menu"
                 returnToGame.text = "Back To Game"
