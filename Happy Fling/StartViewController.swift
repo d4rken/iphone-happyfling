@@ -10,7 +10,6 @@ import UIKit
 import Foundation
 
 
-
 class StartViewController: UIViewController, VCCCustomer {
 
     @IBOutlet weak var titleImage: UIImageView!
@@ -22,7 +21,7 @@ class StartViewController: UIViewController, VCCCustomer {
 
     func setVCC(vcc: VCC) {
         self.vcc = vcc
-    }
+    } 
 
     @IBAction func highscoreButtonPressed(sender: AnyObject) {
       //  vcc.goToHighscore(nil)

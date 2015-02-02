@@ -28,7 +28,7 @@ protocol ThemeCustomer {
 }
 
 class RootViewController : UINavigationController, VCC {
-
+    
     var currentTheme: ThemeClass!
     var first = true
 
@@ -71,6 +71,8 @@ class RootViewController : UINavigationController, VCC {
             self.performSegueWithIdentifier("RootToScore", sender: self)
         })
     }
+    
+ 
 
 
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {

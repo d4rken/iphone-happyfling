@@ -56,6 +56,9 @@ class TransitionViewController: UIViewController, VCCCustomer, ThemeCustomer {
 
     @IBAction func onContinueTapped(sender: AnyObject) {
         vcc.goToGame(theme)
+
     }
+
+    
     
 }
