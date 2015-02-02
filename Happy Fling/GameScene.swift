@@ -126,17 +126,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         //timerNode and scoreNode
         timerNode = SKLabelNode(fontNamed: "Courier-Bold")
         timerNode.fontSize = 30
-        timerNode.text = String(self.score)
+        timerNode.text = "time:"+String(self.time)
         timerNode.position = CGPointMake(CGRectGetMinX(self.frame) + timerNode.frame.width, CGRectGetMinY(self.frame) + timerNode.frame.height)
-        timerNode.fontColor = SKColor(hue: 0, saturation: 5, brightness: 5, alpha: 5)
+        timerNode.fontColor = SKColor(hue: 1, saturation: 0, brightness: 0, alpha: 0.8)
         timerNode.name = "time"
         self.addChild(timerNode)
 
         scoreNode = SKLabelNode(fontNamed: "Courier-Bold")
         scoreNode.fontSize = 30
-        scoreNode.text = String(self.score)
-        scoreNode.position = CGPointMake(CGRectGetMaxX(self.frame) - scoreNode.frame.width, CGRectGetMinY(self.frame) + scoreNode.frame.height)
-        scoreNode.fontColor = SKColor(hue: 10, saturation: 10, brightness: 10, alpha: 5)
+        scoreNode.text = "score:"+String(self.score)
+        scoreNode.position = CGPointMake(CGRectGetMinX(self.frame) + timerNode.frame.width*2+40, CGRectGetMinY(self.frame) + timerNode.frame.height+1)
+        scoreNode.fontColor = SKColor(hue: 1, saturation: 0, brightness: 0, alpha: 0.8)
         scoreNode.name = "score"
         self.addChild(scoreNode)
         
@@ -223,8 +223,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
             })
         })
 
-        timerNode.text = String(self.time)
-        scoreNode.text = String(self.score)
+        timerNode.text = "time:"+String(self.time)
+        scoreNode.text = "score:"+String(self.score)
     }
 
     func updateNodeSizeRelativeToMainGravityCenter(node: ThrowItemClass){
@@ -436,14 +436,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
             self.gameEnding = true
             //NSNotificationCenter.defaultCenter().postNotificationName("ScoreUpdate", object: nil)
             //NSNotificationCenter.defaultCenter().postNotificationName("AccuracyUpdate", object: nil)
-            accuracy  = Int(round((Double(self.score) / Double((self.score + self.failedThrow))) * 100 ))
+            accuracy  = Int(ceil((Double(self.score) / Double((self.score + self.failedThrow))) * 100 ))
             highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.score + self.failedThrow , numberSuccThrows: self.score)
             vcc.goToHighscore(theme)
         }
     }
-    
-    
-
     
 }
 
