@@ -39,7 +39,7 @@ class CheerLeader : NSObject {
     func onPointScored(gameScene: GameScene) {
         currentScore++
         var currentTime = NSDate.timeIntervalSinceReferenceDate()
-        if(currentScore % 3 == 0 || currentTime - lastTimeScored < 1) {
+        if(currentScore % 3 == 0 || currentTime - lastTimeScored < 2 || currentScore % 7 == 0 || currentScore % 5 == 0) {
             showCheer(gameScene)
         }
         lastTimeScored = NSDate.timeIntervalSinceReferenceDate()
