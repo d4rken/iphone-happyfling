@@ -36,7 +36,7 @@ class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
         self.vcc = vcc
     }
     
-    func setTheme(theme: ThemeClass) {
+    func setTheme(theme: ThemeClass?) {
         self.theme = theme
     }
 
@@ -65,7 +65,7 @@ class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
             
             
 //            
-//            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateScore:", name:"ScoreUpdate", object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateScore:", name:"ScoreUpdate", object: nil)
 //            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTime:", name:"TimeUpdate", object: nil)
 //            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateAccuracy:", name:"AccuracyUpdate", object: nil)
 //            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateSuccThrows:", name:"SuccThrowsUpdate", object: nil)
@@ -76,10 +76,10 @@ class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
     
     
     
-//    func updateScore(notification: NSNotification) {
-//        vcc.currentPoints = 1 + vcc!.currentPoints
-//    }
-//    
+    func updateScore(notification: NSNotification) {
+        vcc.currentPoints = 1 + vcc!.currentPoints
+    }
+//
 //    func updateTime(notification: NSNotification) {
 //        vcc.currentTime = 1 + vcc!.currentTime
 //    }
@@ -110,11 +110,15 @@ class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
     }
 
     override func supportedInterfaceOrientations() -> Int {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
-        } else {
-            return Int(UIInterfaceOrientationMask.All.rawValue)
-        }
+//        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+//            return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
+//        } else {
+//            return Int(UIInterfaceOrientationMask.All.rawValue)
+//        }
+        
+//        return UIInterfaceOrientation.Portrait.rawValue
+            return Int(UIInterfaceOrientationMask.LandscapeLeft.rawValue) | Int(UIInterfaceOrientationMask.LandscapeRight.rawValue)
+
     }
 
     override func didReceiveMemoryWarning() {

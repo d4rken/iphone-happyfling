@@ -17,6 +17,7 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
     private var theme: ThemeClass!
     private var vcc: VCC!
     var highscoreDB: DatabaseHighscore = DatabaseHighscore()
+ 
     
 //    private var points : Int
 //    private var time: Int
@@ -36,7 +37,7 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
         self.vcc = vcc
     }
 
-    func setTheme(theme: ThemeClass) {
+    func setTheme(theme: ThemeClass?) {
         self.theme = theme
     }
   
@@ -55,7 +56,7 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
         self.highscoreViewTable.backgroundView?.backgroundColor = UIColor.clearColor()
         highscoreViewTable.backgroundView = nil;
         self.view.addSubview(self.highscoreViewTable)
-//         points  = vcc.currentPoints
+        var points  = vcc.currentPoints
 //         time = vcc.currentTime
 //         accuracy = vcc.currentAccuracy
 //         succThrows  = vcc.currentSuccThrows
@@ -87,16 +88,33 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
     
     //create cell
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var points  = vcc.currentPoints
+        
         var cell:UITableViewCell = self.highscoreViewTable.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
         let entry = self.highscoreDB.getEntry(indexPath.row)
         cell.backgroundColor = UIColor.clearColor()
         cell.textLabel?.textColor = UIColor.blackColor()
+        
+        if(entry.points ==  points ){
+        cell.backgroundColor = UIColor.redColor()
         let string1 =  String(indexPath.row + 1) + ": Points: " + String(entry.points) + "   , Accuracy: " + String(entry.accuracy)
         let string2 = " %    , Number of succesful Throws: " + String(entry.numberSuccThrows)
         let out = string1 + string2
+//        cell.textLabel?.highlightedTextColor = UIColor.redColor()   
         cell.textLabel?.text = out
+            
 //        cell.textLabel?.text = String(indexPath.row + 1) + ": Points: " + String(entry.points) + "   , Accuracy: " + String(entry.accuracy) + " %    , Number of succesfull Throws: " + String(entry.numberSuccThrows)
-        return cell
+            return cell
+        
+        } else {
+            let string1 =  String(indexPath.row + 1) + ": Points: " + String(entry.points) + "   , Accuracy: " + String(entry.accuracy)
+            let string2 = " %    , Number of succesful Throws: " + String(entry.numberSuccThrows)
+            let out = string1 + string2
+            cell.textLabel?.text = out
+            //        cell.textLabel?.text = String(indexPath.row + 1) + ": Points: " + String(entry.points) + "   , Accuracy: " + String(entry.accuracy) + " %    , Number of succesfull Throws: " + String(entry.numberSuccThrows)
+            return cell
+        
+        }
     }
     
 

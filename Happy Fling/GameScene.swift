@@ -55,7 +55,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         self.vcc = vcc
     }
 
-    func setTheme(theme: ThemeClass) {
+    func setTheme(theme: ThemeClass?) {
         self.theme = theme
     }
 
@@ -69,14 +69,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         let background = SKSpriteNode(imageNamed: theme.gameBackgroundPicture)
         background.position = CGPoint(x:self.frame.size.width/2 , y: self.frame.size.height/2)
         background.size = CGSizeMake(self.frame.size.width+15, self.frame.size.height+15)
+        background.zPosition = -1
         self.addChild(background)
 
         spawnPoint = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/6)
-        spawnArea = SKShapeNode(circleOfRadius: 100)
+        spawnArea = SKShapeNode(circleOfRadius: 130)
         spawnArea.position = spawnPoint
-        spawnArea.fillColor = UIColor.greenColor()
-        spawnArea.strokeColor = UIColor.greenColor()
-        spawnArea.lineWidth = 1; //set your border
+        //spawnArea.fillColor = UIColor.greenColor()
+        //spawnArea.strokeColor = UIColor.greenColor()
+        spawnArea.lineWidth = 0; //set your border
 
         //gravity
         var spawnGravity = SKFieldNode.radialGravityField()
@@ -116,7 +117,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         
         
         //create circle of particles
-        var circle = CGPathCreateWithEllipseInRect(CGRectMake(self.spawnPoint.x-100,10, 200,200), nil)
+        var circle = CGPathCreateWithEllipseInRect(CGRectMake(self.spawnPoint.x-100,10, spawnArea.frame.width,spawnArea.frame.height), nil)
         var followTrack = SKAction.followPath(circle, asOffset: false, orientToPath: false, duration: 3)
         var forever:SKAction = SKAction.repeatActionForever(followTrack)
         var particle = SKEmitterNode(fileNamed: "MyParticle"+String(1))
@@ -126,17 +127,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         //timerNode and scoreNode
         timerNode = SKLabelNode(fontNamed: "Courier-Bold")
         timerNode.fontSize = 30
-        timerNode.text = String(self.score)
+        timerNode.text = "time:"+String(self.time)
         timerNode.position = CGPointMake(CGRectGetMinX(self.frame) + timerNode.frame.width, CGRectGetMinY(self.frame) + timerNode.frame.height)
-        timerNode.fontColor = SKColor(hue: 0, saturation: 5, brightness: 5, alpha: 5)
+        timerNode.fontColor = SKColor(hue: 1, saturation: 0, brightness: 0, alpha: 0.8)
         timerNode.name = "time"
         self.addChild(timerNode)
 
         scoreNode = SKLabelNode(fontNamed: "Courier-Bold")
         scoreNode.fontSize = 30
-        scoreNode.text = String(self.score)
-        scoreNode.position = CGPointMake(CGRectGetMaxX(self.frame) - scoreNode.frame.width, CGRectGetMinY(self.frame) + scoreNode.frame.height)
-        scoreNode.fontColor = SKColor(hue: 10, saturation: 10, brightness: 10, alpha: 5)
+        scoreNode.text = "score:"+String(self.score)
+        scoreNode.position = CGPointMake(CGRectGetMinX(self.frame) + timerNode.frame.width*2+40, CGRectGetMinY(self.frame) + timerNode.frame.height+1)
+        scoreNode.fontColor = SKColor(hue: 1, saturation: 0, brightness: 0, alpha: 0.8)
         scoreNode.name = "score"
         self.addChild(scoreNode)
         
@@ -145,7 +146,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         stopButton.size = CGSizeMake(50, 50)
         stopButton.name = "stop"
         
-        stopButton.position = CGPointMake(self.frame.size.width-self.theme.bucketThemeArray[0].shapeSize.width*1.5, CGRectGetMinY(self.frame)+self.theme.bucketThemeArray[0].shapeSize.height/5 + 20)
+        stopButton.position = CGPointMake(self.frame.size.width-stopButton.size.width, CGRectGetMinY(self.frame)+stopButton.size.height)
         self.addChild(stopButton)
     }
 
@@ -216,15 +217,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 var dx = (throwItem.position.x - bucket.position.x);
                 var dy = (throwItem.position.y - bucket.position.y)
                 var dist = sqrt(dx*dx + dy*dy);
-                if (dist < 80 ) {
+                if (dist < 130 ) {
                     let actionMove = SKAction.moveTo(bucket.position, duration: NSTimeInterval(0.3))
                     throwItem.runAction(SKAction.sequence([actionMove]))
                 }
             })
         })
 
-        timerNode.text = String(self.time)
-        scoreNode.text = String(self.score)
+        timerNode.text = "time:"+String(self.time)
+        scoreNode.text = "score:"+String(self.score)
     }
 
     func updateNodeSizeRelativeToMainGravityCenter(node: ThrowItemClass){
@@ -233,7 +234,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         } else if(node.getState() == ThrowItemClass.State.Launched) {
             //distance between Node and main gravity center
             var distance = node.position.distance(spawnPoint)
-            node.size = CGSizeMake(node.size.width * exp(-distance*0.0001), node.size.height * exp(-distance*0.0001))
+            node.size = CGSizeMake(node.size.width * exp(-distance*0.00008), node.size.height * exp(-distance*0.00008))
         }
     }
 
@@ -244,7 +245,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         self.score = self.score + 1
         self.killContinues = self.killContinues + 1
         
-       //NSNotificationCenter.defaultCenter().postNotificationName("SuccThrowsUpdate", object: nil)
+       NSNotificationCenter.defaultCenter().postNotificationName("ScoreUpdate", object: nil)
 
         var particle = SKEmitterNode(fileNamed: "MyParticle2")
         particle.name = "particle"
@@ -336,13 +337,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 var menu = SKSpriteNode(imageNamed: "Game Paused Menu.png")
                 menu.name = "menu"
                 menu.size = CGSizeMake(300, 150)
+                menu.zPosition = 0.5
                 menu.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2-self.theme.bucketThemeArray[0].shapeSize.height/4 + 25)
                 self.addChild(menu)
+                
+                var blurredImage = SKSpriteNode(imageNamed: "Blurred Image.png")
+                blurredImage.name = "Blurred Image"
+                blurredImage.size = CGSizeMake(frame.width, frame.height)
+                blurredImage.zPosition = 0.4
+                blurredImage.alpha = 0.9
+                blurredImage.position = CGPointMake(frame.width/2, frame.height/2)
+                self.addChild(blurredImage)
+                
+                
                 
                 //set up return to game button and return to start button
                 var menuTitle = SKLabelNode(fontNamed: "Courier-Bold")
                 var returnToStart = SKLabelNode(fontNamed: "Courier-Bold")
                 var returnToGame = SKLabelNode(fontNamed: "Courier-Bold")
+                menuTitle.zPosition = 1
+                returnToStart.zPosition = 1
+                returnToGame.zPosition = 1
                 menuTitle.text = "Paused Game"
                 returnToStart.text = "Quit To Menu"
                 returnToGame.text = "Back To Game"
@@ -358,6 +373,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 self.addChild(menuTitle)
                 self.addChild(returnToStart)
                 self.addChild(returnToGame)
+                node.removeFromParent()
             }
             else if node.name == "returnToStart"
             {
@@ -371,11 +387,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 var returnToStart = self.childNodeWithName("returnToStart")
                 var returnToGame = self.childNodeWithName("returnToGame")
                 var menuTitle = self.childNodeWithName("menuTitle")
+                var blurredImage = self.childNodeWithName("Blurred Image")
                 returnToGame?.removeFromParent()
                 returnToStart?.removeFromParent()
                 menuTitle?.removeFromParent()
                 menu?.removeFromParent()
+                blurredImage?.removeFromParent()
                 
+                var stopButton = SKSpriteNode(imageNamed: "Pause Button.png")
+                stopButton.size = CGSizeMake(50, 50)
+                stopButton.name = "stop"
+        
+                stopButton.position = CGPointMake(self.frame.size.width-self.theme.bucketThemeArray[0].shapeSize.width*1.5, CGRectGetMinY(self.frame)+self.theme.bucketThemeArray[0].shapeSize.height/5 + 20)
+                self.addChild(stopButton)
             }
             
         }
@@ -411,8 +435,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
     func endGame() {
         if !self.gameEnding {
             self.gameEnding = true
-            //NSNotificationCenter.defaultCenter().postNotificationName("ScoreUpdate", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("ScoreUpdate", object: nil)
             //NSNotificationCenter.defaultCenter().postNotificationName("AccuracyUpdate", object: nil)
+
             if(self.score == 0 && self.failedThrow == 0){
                 accuracy = 0
             }
@@ -426,12 +451,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
             numberOfthrows = self.score + self.failedThrow
             highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.numberOfthrows, numberSuccThrows: self.score)
 //            print("reached to store the data")
+            accuracy  = Int(ceil((Double(self.score) / Double((self.score + self.failedThrow))) * 100 ))
+            highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.score + self.failedThrow , numberSuccThrows: self.score)
+
             vcc.goToHighscore(theme)
         }
     }
-    
-    
-
     
 }
 

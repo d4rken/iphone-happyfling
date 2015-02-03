@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Root-->
         <scene sceneID="Rxl-zM-78K">
             <objects>
-                <viewController id="XvB-Z3-kQX" customClass="RootViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Root" title="Root" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XvB-Z3-kQX" customClass="RootViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="o4B-TQ-Nyq"/>
                         <viewControllerLayoutGuide type="bottom" id="Gy9-M2-gBk"/>
@@ -20,11 +20,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="p2C-O8-F9i" kind="show" identifier="RootToStart" id="wVP-uX-Jr4"/>
-                        <segue destination="dPe-gE-3bA" kind="show" identifier="RootToSelection" id="l8Z-Gb-quf"/>
-                        <segue destination="LVB-YS-i5n" kind="show" identifier="RootToGame" id="Lic-N0-fQX"/>
-                        <segue destination="jqi-zz-zfY" kind="show" identifier="RootToScore" id="vYb-VF-J3e"/>
-                        <segue destination="6m3-4X-eIS" kind="show" identifier="RootToTransition" id="HUJ-bP-Wfw"/>
+                        <segue destination="p2C-O8-F9i" kind="custom" identifier="RootToStart" customClass="InstantReplaceSegue" customModule="Happy_Fling" customModuleProvider="target" id="wVP-uX-Jr4"/>
+                        <segue destination="dPe-gE-3bA" kind="custom" identifier="RootToSelection" customClass="InstantReplaceSegue" customModule="Happy_Fling" customModuleProvider="target" id="l8Z-Gb-quf"/>
+                        <segue destination="LVB-YS-i5n" kind="custom" identifier="RootToGame" customClass="InstantReplaceSegue" customModule="Happy_Fling" customModuleProvider="target" id="Lic-N0-fQX"/>
+                        <segue destination="jqi-zz-zfY" kind="custom" identifier="RootToScore" customClass="InstantReplaceSegue" customModule="Happy_Fling" customModuleProvider="target" id="vYb-VF-J3e"/>
+                        <segue destination="6m3-4X-eIS" kind="custom" identifier="RootToTransition" customClass="InstantReplaceSegue" customModule="Happy_Fling" customModuleProvider="target" id="HUJ-bP-Wfw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgR-XO-8iq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -34,7 +34,7 @@
         <!--Start-->
         <scene sceneID="o8Y-5Z-8Az">
             <objects>
-                <viewController title="Start" id="p2C-O8-F9i" customClass="StartViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Start" title="Start" useStoryboardIdentifierAsRestorationIdentifier="YES" id="p2C-O8-F9i" customClass="StartViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hlx-2I-KGP"/>
                         <viewControllerLayoutGuide type="bottom" id="nUT-om-mRb"/>
@@ -136,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="-2118" y="283"/>
         </scene>
-        <!--Game View Controller-->
+        <!--Game-->
         <scene sceneID="CtS-rA-C9T">
             <objects>
-                <viewController id="LVB-YS-i5n" customClass="GameViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Game" title="Game" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LVB-YS-i5n" customClass="GameViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PCf-gQ-wO7"/>
                         <viewControllerLayoutGuide type="bottom" id="b3d-qh-BLL"/>
@@ -155,10 +155,10 @@
             </objects>
             <point key="canvasLocation" x="-843" y="283"/>
         </scene>
-        <!--Game Over View Controller-->
+        <!--GameOver-->
         <scene sceneID="iiW-bq-N1k">
             <objects>
-                <viewController id="jqi-zz-zfY" customClass="GameOverViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameOver" title="GameOver" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jqi-zz-zfY" customClass="GameOverViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gMh-cZ-zbZ"/>
                         <viewControllerLayoutGuide type="bottom" id="lwd-vd-rxe"/>
@@ -216,8 +216,8 @@
                                     <outlet property="delegate" destination="jqi-zz-zfY" id="xbE-ZF-LQv"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="WELL DONE!!! YOU CLEANED WELL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fB2-hB-4vy">
-                                <rect key="frame" x="10" y="60" width="590" height="74"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="WELL DONE!!! YOU DID PERFECT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fB2-hB-4vy">
+                                <rect key="frame" x="34" y="58" width="590" height="74"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="una-x1-Ddu"/>
                                 </constraints>
@@ -250,10 +250,10 @@
             </objects>
             <point key="canvasLocation" x="-146" y="276"/>
         </scene>
-        <!--Theme Selection View Controller-->
+        <!--ThemeSelection-->
         <scene sceneID="Zx5-FS-o7D">
             <objects>
-                <collectionViewController id="dPe-gE-3bA" customClass="ThemeSelectionViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="ThemeSelection" title="ThemeSelection" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dPe-gE-3bA" customClass="ThemeSelectionViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" dataMode="prototypes" id="CsR-hm-950">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -315,10 +315,10 @@
             </objects>
             <point key="canvasLocation" x="-1446" y="283"/>
         </scene>
-        <!--Transition View Controller-->
+        <!--Transition-->
         <scene sceneID="bQB-ph-iCd">
             <objects>
-                <viewController id="6m3-4X-eIS" customClass="TransitionViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Transition" title="Transition" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6m3-4X-eIS" customClass="TransitionViewController" customModule="Happy_Fling" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HuS-Ve-OQd"/>
                         <viewControllerLayoutGuide type="bottom" id="WY2-1e-VRe"/>

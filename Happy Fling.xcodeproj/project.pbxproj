@@ -19,6 +19,7 @@
 		18BACE8D1A5E90BD00D4D69C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18BACE8C1A5E90BD00D4D69C /* Images.xcassets */; };
 		18BACE901A5E90BD00D4D69C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BACE8E1A5E90BD00D4D69C /* LaunchScreen.xib */; };
 		18BACE9C1A5E90BD00D4D69C /* Happy_FlingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BACE9B1A5E90BD00D4D69C /* Happy_FlingTests.swift */; };
+		18C7153B1A7FC0B6003B3864 /* InstantReplaceSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7153A1A7FC0B6003B3864 /* InstantReplaceSegue.swift */; };
 		18F97F391A694ED4006BAC80 /* ThemeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */; };
 		18F97F441A695BB3006BAC80 /* ThemeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F97F431A695BB3006BAC80 /* ThemeCellView.swift */; };
 		545C08F01A7244AC00383762 /* DatabaseHighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C08EF1A7244AC00383762 /* DatabaseHighScore.swift */; };
@@ -42,6 +43,7 @@
 		D1217DDF1A7A78C2001BC6B8 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = D1217DDE1A7A78C2001BC6B8 /* Sounds */; };
 		D12C4E2E1A724C6C008ED9C4 /* Themes in Resources */ = {isa = PBXBuildFile; fileRef = D12C4E2D1A724C6C008ED9C4 /* Themes */; };
 		D140D2861A71713800AB8217 /* AnimalThemeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140D2851A71713800AB8217 /* AnimalThemeFactory.swift */; };
+		D14E14AF1A7FD73800F77C6A /* Blurred Image.png in Resources */ = {isa = PBXBuildFile; fileRef = D14E14AE1A7FD73800F77C6A /* Blurred Image.png */; };
 		D199E63A1A6D688000B708C2 /* DIMIS___.otf in Resources */ = {isa = PBXBuildFile; fileRef = D199E6391A6D5EAA00B708C2 /* DIMIS___.otf */; };
 		D1A089CF1A7A9329002B1611 /* MyParticle2.sks in Resources */ = {isa = PBXBuildFile; fileRef = D1A089CD1A7A9329002B1611 /* MyParticle2.sks */; };
 		D1A089D01A7A9329002B1611 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = D1A089CE1A7A9329002B1611 /* spark.png */; };
@@ -78,6 +80,7 @@
 		18BACE951A5E90BD00D4D69C /* Happy FlingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Happy FlingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BACE9A1A5E90BD00D4D69C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18BACE9B1A5E90BD00D4D69C /* Happy_FlingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_FlingTests.swift; sourceTree = "<group>"; };
+		18C7153A1A7FC0B6003B3864 /* InstantReplaceSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstantReplaceSegue.swift; sourceTree = "<group>"; };
 		18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewController.swift; sourceTree = "<group>"; };
 		18F97F431A695BB3006BAC80 /* ThemeCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCellView.swift; sourceTree = "<group>"; };
 		545C08EF1A7244AC00383762 /* DatabaseHighScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHighScore.swift; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		D1217DDE1A7A78C2001BC6B8 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
 		D12C4E2D1A724C6C008ED9C4 /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Themes; sourceTree = "<group>"; };
 		D140D2851A71713800AB8217 /* AnimalThemeFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalThemeFactory.swift; sourceTree = "<group>"; };
+		D14E14AE1A7FD73800F77C6A /* Blurred Image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blurred Image.png"; sourceTree = "<group>"; };
 		D199E6391A6D5EAA00B708C2 /* DIMIS___.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIMIS___.otf"; sourceTree = "<group>"; };
 		D1A089CD1A7A9329002B1611 /* MyParticle2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle2.sks; sourceTree = "<group>"; };
 		D1A089CE1A7A9329002B1611 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 				92CC78001A642489002A86CD /* ShapeThemeFactory.swift */,
 				92CC77FE1A642470002A86CD /* ColorThemeFactory.swift */,
 				18F97F431A695BB3006BAC80 /* ThemeCellView.swift */,
+				18C7153A1A7FC0B6003B3864 /* InstantReplaceSegue.swift */,
 				92CC77F61A642258002A86CD /* ThemeHistoryEntry.swift */,
 				92CC77F71A642258002A86CD /* ThrowItemClass.swift */,
 				18092C1E1A7AA0AE008402A7 /* Helper.swift */,
@@ -215,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				D1EC5D1B1A7FA377007BC9D4 /* Game Paused Menu.png */,
+				D14E14AE1A7FD73800F77C6A /* Blurred Image.png */,
 				D1EC5D171A7F9F16007BC9D4 /* Pause Button.png */,
 				928EB4EC1A7B9C67003CC797 /* MyParticle3.sks */,
 				D1A089D11A7AA283002B1611 /* gravityCircle.png */,
@@ -317,7 +323,9 @@
 				D1217DDF1A7A78C2001BC6B8 /* Sounds in Resources */,
 				D1A089D01A7A9329002B1611 /* spark.png in Resources */,
 				D1A089D21A7AA283002B1611 /* gravityCircle.png in Resources */,
+				D14E14AF1A7FD73800F77C6A /* Blurred Image.png in Resources */,
 				18BACE841A5E90BD00D4D69C /* GameScene.sks in Resources */,
+				D1EC5D1C1A7FA377007BC9D4 /* Game Paused Menu.png in Resources */,
 				54ABEC081A7FBB2D00ECD221 /* highscores.plist in Resources */,
 				D12C4E2E1A724C6C008ED9C4 /* Themes in Resources */,
 				928EB4E61A780159003CC797 /* bokeh.png in Resources */,
@@ -361,6 +369,7 @@
 				18BACE881A5E90BD00D4D69C /* GameViewController.swift in Sources */,
 				D1F9C8C71A6811C70017DAE8 /* StartViewController.swift in Sources */,
 				92CC77FB1A642258002A86CD /* ThrowItemClass.swift in Sources */,
+				18C7153B1A7FC0B6003B3864 /* InstantReplaceSegue.swift in Sources */,
 				18BACE821A5E90BD00D4D69C /* AppDelegate.swift in Sources */,
 				545C08F01A7244AC00383762 /* DatabaseHighScore.swift in Sources */,
 				92CC78031A6425E4002A86CD /* BucketTheme.swift in Sources */,

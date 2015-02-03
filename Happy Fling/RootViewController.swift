@@ -16,15 +16,9 @@ protocol VCC {
     func goToThemeSelection()
     func goToTransitionScreen(theme: ThemeClass)
     func goToGame(theme: ThemeClass)
-    func goToHighscore(theme: ThemeClass)
+    func goToHighscore(theme: ThemeClass?)
     
-    
-    
-//    var currentPoints: Int {  get set }
-//    var currentTime : Int{ get set }
-//    var currentAccuracy: Double { get set }
-//    var currentSuccThrows: Int { get set }
-//    var currentUnsuccThrows: Int { get set }
+    var currentPoints: Int {  get set }
 }
 
 protocol VCCCustomer {
@@ -32,20 +26,20 @@ protocol VCCCustomer {
 }
 
 protocol ThemeCustomer {
-    func setTheme(theme: ThemeClass)
+    func setTheme(theme: ThemeClass?)
 }
 
-class RootViewController : UIViewController, VCC {
-    
-    
-//    var currentPoints : Int = 0
-//    var currentTime : Int = 0
-//    var currentAccuracy : Double = 0.0
-//    var currentSuccThrows : Int = 0
-//    var currentUnsuccThrows : Int = 0
 
+class RootViewController : UINavigationController, VCC {
+    
     var currentTheme: ThemeClass!
     var first = true
+    var currentPoints: Int = 0
+
+    override func viewDidLoad() {
+        self.setNavigationBarHidden(true, animated: false)
+    }
+
     override func viewDidAppear(animated: Bool) {
         if(first) {
             first = false
@@ -58,41 +52,28 @@ class RootViewController : UIViewController, VCC {
     }
 
     func goToStart() {
-        dismissViewControllerAnimated(false, completion: {
-            self.performSegueWithIdentifier("RootToStart", sender: self)
-        })
+        self.performSegueWithIdentifier("RootToStart", sender: self)
     }
 
     func goToThemeSelection() {
-        dismissViewControllerAnimated(false, completion: {
-            self.performSegueWithIdentifier("RootToSelection", sender: self)
-        })
+        self.performSegueWithIdentifier("RootToSelection", sender: self)
     }
 
     func goToTransitionScreen(theme: ThemeClass) {
         self.currentTheme = theme
-        dismissViewControllerAnimated(false, completion: {
-            self.performSegueWithIdentifier("RootToTransition", sender: self)
-        })
+        self.performSegueWithIdentifier("RootToTransition", sender: self)
     }
 
     func goToGame(theme: ThemeClass) {
         self.currentTheme = theme
-        dismissViewControllerAnimated(false, completion: {
-            self.performSegueWithIdentifier("RootToGame", sender: self)
-        })
+        self.performSegueWithIdentifier("RootToGame", sender: self)
     }
 
-    func goToHighscore(theme: ThemeClass) {
+    func goToHighscore(theme: ThemeClass?) {
         self.currentTheme = theme
-        dismissViewControllerAnimated(false, completion: {
-            self.performSegueWithIdentifier("RootToScore", sender: self)
-        })
+        self.performSegueWithIdentifier("RootToScore", sender: self)
     }
     
- 
-
-
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
         // get the controller that storyboard has instantiated and set it's delegate
         if let vc: VCCCustomer = segue!.destinationViewController as? StartViewController {
