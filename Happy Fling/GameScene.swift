@@ -437,6 +437,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
             self.gameEnding = true
             NSNotificationCenter.defaultCenter().postNotificationName("ScoreUpdate", object: nil)
             //NSNotificationCenter.defaultCenter().postNotificationName("AccuracyUpdate", object: nil)
+<<<<<<< HEAD
 
             if(self.score == 0 && self.failedThrow == 0){
                 accuracy = 0
@@ -451,6 +452,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
             numberOfthrows = self.score + self.failedThrow
             highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.numberOfthrows, numberSuccThrows: self.score)
 //            print("reached to store the data")
+=======
+>>>>>>> develop
             accuracy  = Int(ceil((Double(self.score) / Double((self.score + self.failedThrow))) * 100 ))
             highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.score + self.failedThrow , numberSuccThrows: self.score)
 
