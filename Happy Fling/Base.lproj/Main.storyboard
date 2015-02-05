@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C106a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XvB-Z3-kQX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XvB-Z3-kQX">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -46,19 +46,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p55-pv-NGr">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aul-4P-ae7">
-                                <rect key="frame" x="200" y="214" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="GYR-Kv-xyb"/>
-                                    <constraint firstAttribute="width" constant="200" id="asN-al-Dv7"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="Unpressed Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonPressed:" destination="p2C-O8-F9i" eventType="touchUpInside" id="3fL-3I-xo8"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title" translatesAutoresizingMaskIntoConstraints="NO" id="Gh2-eg-ggw">
                                 <rect key="frame" x="42" y="80" width="516" height="128"/>
                                 <constraints>
@@ -91,6 +78,19 @@
                                 </variation>
                                 <connections>
                                     <action selector="highscoreButtonPressed:" destination="p2C-O8-F9i" eventType="touchUpInside" id="22l-XK-5VD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aul-4P-ae7">
+                                <rect key="frame" x="200" y="216" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="GYR-Kv-xyb"/>
+                                    <constraint firstAttribute="width" constant="200" id="asN-al-Dv7"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="Unpressed Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="p2C-O8-F9i" eventType="touchUpInside" id="3fL-3I-xo8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -170,74 +170,98 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gIM-OR-gwD">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4D3-Wr-Nrj">
-                                <rect key="frame" x="248" y="117" width="88" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4D3-Wr-Nrj">
+                                <rect key="frame" x="248" y="149" width="126" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="PLAY AGAIN">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.50196081399917603" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="playAgain:" destination="jqi-zz-zfY" eventType="touchUpInside" id="eRJ-Zh-zmN"/>
-                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CuY-y2-A0Q">
-                                <rect key="frame" x="246" y="232" width="90" height="30"/>
-                                <state key="normal" title="HOMEMENU">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="goToHome:" destination="jqi-zz-zfY" eventType="touchUpInside" id="DdM-hu-0Pb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMn-a6-jb1">
-                                <rect key="frame" x="232" y="172" width="120" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMn-a6-jb1">
+                                <rect key="frame" x="229" y="203" width="165" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="CHANGE THEME">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.50196081399917603" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="changeTheme:" destination="jqi-zz-zfY" eventType="touchUpInside" id="lZx-VI-56S"/>
-                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="WELL DONE!!! YOU CLEANED WELL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fB2-hB-4vy">
-                                <rect key="frame" x="165" y="72" width="286" height="21"/>
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" scrollEnabled="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7cf-w2-utR">
+                                <rect key="frame" x="0.0" y="241" width="600" height="351"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="una-x1-Ddu"/>
+                                    <constraint firstAttribute="height" constant="351" id="wz5-cL-Yr6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7cf-w2-utR">
-                                <rect key="frame" x="94" y="284" width="428" height="261"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="jqi-zz-zfY" id="rX1-dX-OjV"/>
                                     <outlet property="delegate" destination="jqi-zz-zfY" id="xbE-ZF-LQv"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CuY-y2-A0Q">
+                                <rect key="frame" x="229" y="167" width="161" height="66"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="50"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.50196081399917603" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToHome:" destination="jqi-zz-zfY" eventType="touchUpInside" id="DdM-hu-0Pb"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="WELL DONE!!! YOU DID PERFECT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fB2-hB-4vy">
+                                <rect key="frame" x="35" y="35" width="524" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="una-x1-Ddu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gIM-OR-gwD" firstAttribute="leading" secondItem="oAh-3n-DEF" secondAttribute="leadingMargin" constant="-16" id="1ux-Kv-BJC"/>
                             <constraint firstItem="gIM-OR-gwD" firstAttribute="top" secondItem="oAh-3n-DEF" secondAttribute="topMargin" id="36J-9H-oUo"/>
                             <constraint firstItem="lwd-vd-rxe" firstAttribute="top" secondItem="gIM-OR-gwD" secondAttribute="bottom" id="9ZQ-KF-GMD"/>
+                            <constraint firstItem="lwd-vd-rxe" firstAttribute="top" secondItem="7cf-w2-utR" secondAttribute="bottom" constant="8" symbolic="YES" id="Cc1-E0-c5V"/>
                             <constraint firstItem="fB2-hB-4vy" firstAttribute="top" secondItem="gMh-cZ-zbZ" secondAttribute="bottom" constant="52" id="D1M-ud-LMQ"/>
+                            <constraint firstAttribute="centerY" secondItem="CuY-y2-A0Q" secondAttribute="centerY" id="Fgy-vp-OZo"/>
+                            <constraint firstAttribute="centerX" secondItem="7cf-w2-utR" secondAttribute="centerX" id="IJe-Hv-GKx"/>
+                            <constraint firstItem="7cf-w2-utR" firstAttribute="leading" secondItem="gIM-OR-gwD" secondAttribute="leading" id="JOH-qJ-ziE"/>
                             <constraint firstAttribute="centerX" secondItem="7cf-w2-utR" secondAttribute="centerX" id="Lx4-zp-3J4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gIM-OR-gwD" secondAttribute="trailing" constant="-16" id="Rtb-XJ-cdb"/>
                             <constraint firstAttribute="centerX" secondItem="fB2-hB-4vy" secondAttribute="centerX" constant="-8" id="SP7-ms-8qh"/>
                             <constraint firstAttribute="centerX" secondItem="oMn-a6-jb1" secondAttribute="centerX" id="VyW-Zy-T86"/>
+                            <constraint firstAttribute="centerX" secondItem="CuY-y2-A0Q" secondAttribute="centerX" id="bDt-AI-i6z"/>
                             <constraint firstAttribute="centerX" secondItem="fB2-hB-4vy" secondAttribute="centerX" id="bek-gU-iQO"/>
+                            <constraint firstItem="7cf-w2-utR" firstAttribute="top" secondItem="CuY-y2-A0Q" secondAttribute="bottom" constant="8" symbolic="YES" id="oxN-qb-SFI"/>
+                            <constraint firstAttribute="centerX" secondItem="fB2-hB-4vy" secondAttribute="centerX" id="xzo-Hc-VKa"/>
                             <constraint firstAttribute="centerX" secondItem="CuY-y2-A0Q" secondAttribute="centerX" id="yZk-S7-fOE"/>
                             <constraint firstAttribute="centerX" secondItem="4D3-Wr-Nrj" secondAttribute="centerX" id="zSa-DJ-029"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="4D3-Wr-Nrj"/>
+                                <exclude reference="oMn-a6-jb1"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="CuY-y2-A0Q" id="CWh-LW-PIN"/>
                         <outlet property="backgroundImage" destination="gIM-OR-gwD" id="Ge3-AG-1AQ"/>
+                        <outlet property="cheerUpLabel" destination="fB2-hB-4vy" id="JQQ-bf-2tK"/>
                         <outlet property="highscoreViewTable" destination="7cf-w2-utR" id="Jcn-HS-tBK"/>
+                        <outlet property="hoghscoreViewTable" destination="7cf-w2-utR" id="XwH-IL-HrQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3f3-Q1-2dh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-146" y="276"/>
+            <point key="canvasLocation" x="-145.5" y="276"/>
         </scene>
         <!--ThemeSelection-->
         <scene sceneID="Zx5-FS-o7D">

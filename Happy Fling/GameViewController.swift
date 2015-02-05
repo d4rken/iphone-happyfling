@@ -63,8 +63,8 @@ class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
             skView.presentScene(scene)
             
             
-            
-//            
+        
+//
 //            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateScore:", name:"ScoreUpdate", object: nil)
 //            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTime:", name:"TimeUpdate", object: nil)
 //            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateAccuracy:", name:"AccuracyUpdate", object: nil)
@@ -79,7 +79,7 @@ class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
 //    func updateScore(notification: NSNotification) {
 //        vcc.currentPoints = 1 + vcc!.currentPoints
 //    }
-//    
+//
 //    func updateTime(notification: NSNotification) {
 //        vcc.currentTime = 1 + vcc!.currentTime
 //    }
@@ -104,6 +104,7 @@ class GameViewController: UIViewController, VCCCustomer, ThemeCustomer {
 //        vcc.currentUnsuccThrows = 1 + vcc!.currentUnsuccThrows
 //    }
     
+
 
     override func shouldAutorotate() -> Bool {
         return true

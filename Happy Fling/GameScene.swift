@@ -22,6 +22,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
     private var time = 0
     private var killContinues = 0;
     private var accuracy = 0
+    private var numberOfthrows = 0
+    private var freq = 0.0
+    private var deviation = 0
     
     // open highscore Database to store the data after the game
     var highscoreDB: DatabaseHighscore = DatabaseHighscore()
@@ -155,8 +158,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
             return
         }
         self.time = self.time + 1
-        //NSNotificationCenter.defaultCenter().postNotificationName("TimeUpdate", object: nil)
-    }
+            }
 
     override func update(currentTime: CFTimeInterval) {
         
@@ -216,7 +218,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 var dx = (throwItem.position.x - bucket.position.x);
                 var dy = (throwItem.position.y - bucket.position.y)
                 var dist = sqrt(dx*dx + dy*dy);
+                
                 if (dist < 130 ) {
+                    print(dist)
+                    self.deviation = self.deviation + Int(dist)
                     let actionMove = SKAction.moveTo(bucket.position, duration: NSTimeInterval(0.3))
                     throwItem.runAction(SKAction.sequence([actionMove]))
                 }
@@ -244,7 +249,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         self.score = self.score + 1
         self.killContinues = self.killContinues + 1
         
-       //NSNotificationCenter.defaultCenter().postNotificationName("SuccThrowsUpdate", object: nil)
+//       NSNotificationCenter.defaultCenter().postNotificationName("ScoreUpdate", object: nil)
 
         var particle = SKEmitterNode(fileNamed: "MyParticle2")
         particle.name = "particle"
@@ -423,6 +428,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         }
     }
     
+    
+    
     // function that checks, when the game is over, you can have different end conditions
     func isGameOver() -> Bool {
         return self.time >= theme.maxGameTime
@@ -434,15 +441,45 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
     func endGame() {
         if !self.gameEnding {
             self.gameEnding = true
-            //NSNotificationCenter.defaultCenter().postNotificationName("ScoreUpdate", object: nil)
-            //NSNotificationCenter.defaultCenter().postNotificationName("AccuracyUpdate", object: nil)
-            accuracy  = Int(ceil((Double(self.score) / Double((self.score + self.failedThrow))) * 100 ))
-            highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.score + self.failedThrow , numberSuccThrows: self.score)
-            vcc.goToHighscore(theme)
+
+            //calculate the accuracy of succ. throws:
+            
+            // if player did nothing
+            if(self.score == 0 && self.failedThrow == 0){
+                accuracy = 0
+            }
+            // if player did no reach any score
+            else if(self.score == 0){
+                accuracy = 0
+            }
+            // normal case
+            else{
+            accuracy  = Int(round((Double(self.score) / Double((self.score + self.failedThrow))) * 100))
+            }
+            
+            // the number of all throws
+            numberOfthrows = self.score + self.failedThrow
+            
+            //the number of throws per second, higher values are better
+            freq  = Double(numberOfthrows / self.time )
+            print(freq)
+            
+            //the average deviation, because of the gravity the items will be pulled to the buckets from a distance up to 130, so subtract it from the deviation, lower values are better
+            self.deviation = abs((deviation / numberOfthrows) - 130 )
+            
+            highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.numberOfthrows, numberSuccThrows: self.score, freq: self.freq, deviation: self.deviation)
+
+            let gameOverScene: GameOverScene = GameOverScene(size: self.size)
+            gameOverScene.setVCC(vcc)
+            gameOverScene.setTheme(theme)
+            view!.presentScene(gameOverScene, transition: SKTransition.fadeWithDuration(1.0))
+            
         }
     }
     
 }
+
+
 
 extension SKAction {
     class func shake(initialPosition:CGPoint, duration:Float, amplitudeX:Int = 12, amplitudeY:Int = 3) -> SKAction {

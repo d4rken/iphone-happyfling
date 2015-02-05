@@ -24,7 +24,7 @@ class ColorThemeFactory: ThemeFactory {
         theme.themeIcon = getIconResource()
         theme.minNumBuckets = 2
         theme.maxNumBuckets = 5
-        theme.maxGameTime = 15
+        theme.maxGameTime = 120
 
         theme.introBackgroundPicture = "Themes/Colors/BackgroundIntro.png"
         theme.themeStory = "Someone splashed pigments on the world famous painting - Mona Lisa.\nOf course the painting is a fake.\nBut as an internship staff of the museum，this is your first mission:\n-to clean the painting!-\n\n\n \"Tap the screen to continue\""
