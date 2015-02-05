@@ -4,6 +4,20 @@
 <array>
 	<dict>
 		<key>points</key>
+		<integer>3</integer>
+		<key>time</key>
+		<integer>10</integer>
+		<key>accuracy</key>
+		<integer>5</integer>
+		<key>numberOfThrows</key>
+		<integer>10</integer>
+		<key>numSuccThrows</key>
+		<integer>5</integer>
+		<key>freq</key>
+		<integer>1</integer>
+	</dict>
+	<dict>
+		<key>points</key>
 		<integer>5</integer>
 		<key>time</key>
 		<integer>15</integer>
@@ -13,6 +27,8 @@
 		<integer>5</integer>
 		<key>numSuccThrows</key>
 		<integer>5</integer>
+		<key>freq</key>
+		<integer>3</integer>
 	</dict>
 </array>
 </plist>

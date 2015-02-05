@@ -22,6 +22,7 @@
 		18C7153B1A7FC0B6003B3864 /* InstantReplaceSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7153A1A7FC0B6003B3864 /* InstantReplaceSegue.swift */; };
 		18F97F391A694ED4006BAC80 /* ThemeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */; };
 		18F97F441A695BB3006BAC80 /* ThemeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F97F431A695BB3006BAC80 /* ThemeCellView.swift */; };
+		541CB4631A82A8E70028178C /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CB4621A82A8E70028178C /* GameOverScene.swift */; };
 		545C08F01A7244AC00383762 /* DatabaseHighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C08EF1A7244AC00383762 /* DatabaseHighScore.swift */; };
 		545C08F21A72479B00383762 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C08F11A72479B00383762 /* GameOverViewController.swift */; };
 		54ABEC081A7FBB2D00ECD221 /* highscores.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54ABEC071A7FBB2D00ECD221 /* highscores.plist */; };
@@ -83,6 +84,7 @@
 		18C7153A1A7FC0B6003B3864 /* InstantReplaceSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstantReplaceSegue.swift; sourceTree = "<group>"; };
 		18F97F381A694ED4006BAC80 /* ThemeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewController.swift; sourceTree = "<group>"; };
 		18F97F431A695BB3006BAC80 /* ThemeCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCellView.swift; sourceTree = "<group>"; };
+		541CB4621A82A8E70028178C /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		545C08EF1A7244AC00383762 /* DatabaseHighScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHighScore.swift; sourceTree = "<group>"; };
 		545C08F11A72479B00383762 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		54ABEC071A7FBB2D00ECD221 /* highscores.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = highscores.plist; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				92CC78021A6425E4002A86CD /* BucketTheme.swift */,
 				545C08EF1A7244AC00383762 /* DatabaseHighScore.swift */,
 				545C08F11A72479B00383762 /* GameOverViewController.swift */,
+				541CB4621A82A8E70028178C /* GameOverScene.swift */,
 				92CC78041A642921002A86CD /* ThrowItemTheme.swift */,
 				92CC77F51A642258002A86CD /* ThemeClass.swift */,
 				92CC77FC1A642416002A86CD /* ThemeFactory.swift */,
@@ -361,6 +364,7 @@
 				92CC78011A642489002A86CD /* ShapeThemeFactory.swift in Sources */,
 				92CC77F91A642258002A86CD /* ThemeClass.swift in Sources */,
 				18B2E0081A79243C009F283B /* CheerLeader.swift in Sources */,
+				541CB4631A82A8E70028178C /* GameOverScene.swift in Sources */,
 				D140D2861A71713800AB8217 /* AnimalThemeFactory.swift in Sources */,
 				18092C1F1A7AA0AE008402A7 /* Helper.swift in Sources */,
 				545C08F21A72479B00383762 /* GameOverViewController.swift in Sources */,

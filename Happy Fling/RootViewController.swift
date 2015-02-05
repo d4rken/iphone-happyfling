@@ -17,11 +17,9 @@ protocol VCC {
     func goToTransitionScreen(theme: ThemeClass)
     func goToGame(theme: ThemeClass)
     func goToHighscore(theme: ThemeClass?)
-<<<<<<< HEAD
-    
-    var currentPoints: Int {  get set }
-=======
->>>>>>> develop
+
+
+
 }
 
 protocol VCCCustomer {
@@ -32,18 +30,14 @@ protocol ThemeCustomer {
     func setTheme(theme: ThemeClass?)
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> develop
 class RootViewController : UINavigationController, VCC {
     
     var currentTheme: ThemeClass!
     var first = true
-<<<<<<< HEAD
+
     var currentPoints: Int = 0
-=======
->>>>>>> develop
+
 
     override func viewDidLoad() {
         self.setNavigationBarHidden(true, animated: false)

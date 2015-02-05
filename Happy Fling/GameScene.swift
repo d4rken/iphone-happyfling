@@ -23,6 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
     private var killContinues = 0;
     private var accuracy = 0
     private var numberOfthrows = 0
+    private var freq = 0.0
     
     // open highscore Database to store the data after the game
     var highscoreDB: DatabaseHighscore = DatabaseHighscore()
@@ -245,7 +246,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         self.score = self.score + 1
         self.killContinues = self.killContinues + 1
         
-       NSNotificationCenter.defaultCenter().postNotificationName("ScoreUpdate", object: nil)
+//       NSNotificationCenter.defaultCenter().postNotificationName("ScoreUpdate", object: nil)
 
         var particle = SKEmitterNode(fileNamed: "MyParticle2")
         particle.name = "particle"
@@ -435,33 +436,46 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
     func endGame() {
         if !self.gameEnding {
             self.gameEnding = true
-            NSNotificationCenter.defaultCenter().postNotificationName("ScoreUpdate", object: nil)
-            //NSNotificationCenter.defaultCenter().postNotificationName("AccuracyUpdate", object: nil)
-<<<<<<< HEAD
 
+            //calculate the accuracy of succ. throws:
+            
+            // if player did nothing
             if(self.score == 0 && self.failedThrow == 0){
                 accuracy = 0
             }
+            // if player did no reach any score
             else if(self.score == 0){
                 accuracy = 0
             }
+            // normal case
             else{
             accuracy  = Int(round((Double(self.score) / Double((self.score + self.failedThrow))) * 100 ))
             }
             
+            // the number of all throws
             numberOfthrows = self.score + self.failedThrow
-            highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.numberOfthrows, numberSuccThrows: self.score)
-//            print("reached to store the data")
-=======
->>>>>>> develop
-            accuracy  = Int(ceil((Double(self.score) / Double((self.score + self.failedThrow))) * 100 ))
-            highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.score + self.failedThrow , numberSuccThrows: self.score)
+            
+            //the number of throws per second
+            freq  = Double(numberOfthrows / self.time )
+            
 
-            vcc.goToHighscore(theme)
+            
+            highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.numberOfthrows, numberSuccThrows: self.score, freq: self.freq)
+
+            
+            let gameOverScene: GameOverScene = GameOverScene(size: self.size)
+            gameOverScene.setVCC(vcc)
+            gameOverScene.setTheme(theme)
+            view!.presentScene(gameOverScene, transition: SKTransition.fadeWithDuration(1.0))
+            
         }
     }
     
 }
+
+
+
+
 
 extension SKAction {
     class func shake(initialPosition:CGPoint, duration:Float, amplitudeX:Int = 12, amplitudeY:Int = 3) -> SKAction {

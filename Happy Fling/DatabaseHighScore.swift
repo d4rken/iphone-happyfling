@@ -15,7 +15,7 @@ struct ScoreEntry {
     var accuracy : NSInteger
     var numberOfThrows : NSInteger
     var numberSuccThrows : NSInteger
-    
+    var freq : Double
 }
 
 @objc class DatabaseHighscore : NSObject {
@@ -30,7 +30,7 @@ struct ScoreEntry {
     let KEY_ACCURACY: String = "accuracy"
     let KEY_NUMBEROFTHWORS : String = "numberOfThrows"
     let KEY_NUMBERSUCCTHROWS : String = "numSuccThrows"
-    
+    let KEY_FREQUENCY : String = "freq"
     
     
     override init() {
@@ -53,6 +53,7 @@ struct ScoreEntry {
             let fileForCopy = NSBundle.mainBundle().pathForResource("highscores",ofType:"plist")
             fileManager.copyItemAtPath(fileForCopy!, toPath:databasePath, error: nil)
         }
+        
         let scoreEntries = NSArray(contentsOfFile: databasePath)!
         
         for score in scoreEntries {
@@ -62,14 +63,16 @@ struct ScoreEntry {
             let accuracy = score[KEY_ACCURACY] as NSInteger
             let numberOfThrows = score[KEY_NUMBEROFTHWORS] as NSInteger
             let numberSuccThrows = score[KEY_NUMBERSUCCTHROWS] as NSInteger
-            let scoreEntry = ScoreEntry( points: points, time: time, accuracy: accuracy, numberOfThrows : numberOfThrows, numberSuccThrows: numberSuccThrows);
+            let freq = score[KEY_FREQUENCY] as Double
+            
+            let scoreEntry = ScoreEntry( points: points, time: time, accuracy: accuracy, numberOfThrows : numberOfThrows, numberSuccThrows: numberSuccThrows, freq: freq);
             scoreBoard.append(scoreEntry)
         }
             scoreBoard.sort({ $0.points > $1.points })
     }
     
-    func addScore(points: NSInteger, time: NSInteger, accuracy: NSInteger, numberOfThrows : NSInteger, numberSuccThrows : NSInteger) {
-        var newEntry = ScoreEntry(points: points, time: time, accuracy: accuracy, numberOfThrows : numberOfThrows, numberSuccThrows: numberSuccThrows)
+    func addScore(points: NSInteger, time: NSInteger, accuracy: NSInteger, numberOfThrows : NSInteger, numberSuccThrows : NSInteger, freq : Double) {
+        var newEntry = ScoreEntry(points: points, time: time, accuracy: accuracy, numberOfThrows : numberOfThrows, numberSuccThrows: numberSuccThrows, freq: freq)
         if(scoreBoard.count >= 5) {
             scoreBoard.sort({ $0.points > $1.points })
             scoreBoard.removeLast()
@@ -110,6 +113,7 @@ struct ScoreEntry {
             dicChild.setValue(item.accuracy, forKey:KEY_ACCURACY)
             dicChild.setValue(item.numberOfThrows, forKey: KEY_NUMBEROFTHWORS)
             dicChild.setValue(item.numberSuccThrows, forKey: KEY_NUMBERSUCCTHROWS)
+            dicChild.setValue(item.freq, forKey: KEY_FREQUENCY)
             toSave.addObject(dicChild)
         }
         if(!toSave.writeToFile(databasePath, atomically:true)) {

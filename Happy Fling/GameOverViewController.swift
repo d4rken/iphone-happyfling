@@ -31,8 +31,10 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var highscoreViewTable: UITableView!
     
-    
-    
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var cheerUpLabel: UILabel!
+    @IBOutlet weak var hoghscoreViewTable: UITableView!
+   
     func setVCC(vcc: VCC) {
         self.vcc = vcc
     }
@@ -50,33 +52,21 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
         } else {
             backgroundImage.image = UIImage(named: "Background")
         }
+        
+    
 
-        //register cellclass var tableView: UITableView  =   UITableView()
+        
+        //register cellclass 
+        var tableView: UITableView  =   UITableView()
         self.highscoreViewTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.highscoreViewTable.backgroundView?.backgroundColor = UIColor.clearColor()
         highscoreViewTable.backgroundView = nil;
         self.view.addSubview(self.highscoreViewTable)
-        var points  = vcc.currentPoints
-//         time = vcc.currentTime
-//         accuracy = vcc.currentAccuracy
-//         succThrows  = vcc.currentSuccThrows
-//         unsuccThrows = vcc.currentUnsuccThrows
-//         numberOfThrows = succThrows + unsuccThrows
+
     }
     
-    @IBAction func playAgain(sender: AnyObject) {
-//            highscoreDB.addScore( vcc.currentPoints, time: vcc.currentTime , accuracy: vcc.currentAccuracy, numberOfThrows: (vcc.currentSuccThrows + vcc.currentUnsuccThrows), numberSuccThrows: vcc.currentSuccThrows)
-        vcc.goToGame(theme)
-    }
-    
-    @IBAction func changeTheme(sender: AnyObject) {
-//         highscoreDB.addScore( vcc.currentPoints, time: vcc.currentTime , accuracy: vcc.currentAccuracy, numberOfThrows: (vcc.currentSuccThrows + vcc.currentUnsuccThrows), numberSuccThrows: vcc.currentSuccThrows)
-        vcc.goToThemeSelection()
-    }
     
     @IBAction func goToHome(sender: AnyObject) {
-        
-//         highscoreDB.addScore( vcc.currentPoints, time: vcc.currentTime , accuracy: vcc.currentAccuracy, numberOfThrows: (vcc.currentSuccThrows + vcc.currentUnsuccThrows), numberSuccThrows: vcc.currentSuccThrows)
         vcc.goToStart()
     }
         
@@ -88,34 +78,26 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
     
     //create cell
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var points  = vcc.currentPoints
+        
         
         var cell:UITableViewCell = self.highscoreViewTable.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
         let entry = self.highscoreDB.getEntry(indexPath.row)
         cell.backgroundColor = UIColor.clearColor()
         cell.textLabel?.textColor = UIColor.blackColor()
-        
-        if(entry.points ==  points ){
-        cell.backgroundColor = UIColor.redColor()
+    
+        cell.backgroundColor = UIColor.clearColor()
         let string1 =  String(indexPath.row + 1) + ": Points: " + String(entry.points) + "   , Accuracy: " + String(entry.accuracy)
-        let string2 = " %    , Number of succesful Throws: " + String(entry.numberSuccThrows)
-        let out = string1 + string2
-//        cell.textLabel?.highlightedTextColor = UIColor.redColor()   
+        let string2 = " %    , Succesful Throws: " + String(entry.numberSuccThrows)
+      //  let string3 = " frequency: " + String(entry.freq) + " per sec."
+        entry.freq
+        
+        let out = string1 + string2 
+        
+
         cell.textLabel?.text = out
-            
-//        cell.textLabel?.text = String(indexPath.row + 1) + ": Points: " + String(entry.points) + "   , Accuracy: " + String(entry.accuracy) + " %    , Number of succesfull Throws: " + String(entry.numberSuccThrows)
+
             return cell
-        
-        } else {
-            let string1 =  String(indexPath.row + 1) + ": Points: " + String(entry.points) + "   , Accuracy: " + String(entry.accuracy)
-            let string2 = " %    , Number of succesful Throws: " + String(entry.numberSuccThrows)
-            let out = string1 + string2
-            cell.textLabel?.text = out
-            //        cell.textLabel?.text = String(indexPath.row + 1) + ": Points: " + String(entry.points) + "   , Accuracy: " + String(entry.accuracy) + " %    , Number of succesfull Throws: " + String(entry.numberSuccThrows)
-            return cell
-        
         }
-    }
     
 
     
