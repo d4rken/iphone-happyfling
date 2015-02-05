@@ -17,24 +17,16 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
     private var theme: ThemeClass!
     private var vcc: VCC!
     var highscoreDB: DatabaseHighscore = DatabaseHighscore()
- 
-    
-//    private var points : Int
-//    private var time: Int
-//    private var accuracy : Double
-//    private var succThrows : Int
-//    private var unsuccThrows : Int
-//    private var numberOfThrows : Int
-//    
     
     
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var highscoreViewTable: UITableView!
-    
+
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var cheerUpLabel: UILabel!
     @IBOutlet weak var hoghscoreViewTable: UITableView!
    
+    
     func setVCC(vcc: VCC) {
         self.vcc = vcc
     }
@@ -53,9 +45,6 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
             backgroundImage.image = UIImage(named: "Background")
         }
         
-    
-
-        
         //register cellclass 
         var tableView: UITableView  =   UITableView()
         self.highscoreViewTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -64,7 +53,6 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
         self.view.addSubview(self.highscoreViewTable)
 
     }
-    
     
     @IBAction func goToHome(sender: AnyObject) {
         vcc.goToStart()
@@ -86,14 +74,11 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
         cell.textLabel?.textColor = UIColor.blackColor()
     
         cell.backgroundColor = UIColor.clearColor()
-        let string1 =  String(indexPath.row + 1) + ": Points: " + String(entry.points) + "   , Accuracy: " + String(entry.accuracy)
-        let string2 = " %    , Succesful Throws: " + String(entry.numberSuccThrows)
-      //  let string3 = " frequency: " + String(entry.freq) + " per sec."
-        entry.freq
+        let string1 =  String(indexPath.row + 1) + ": Points: " + String(entry.points) + "   ; Accuracy: " + String(entry.accuracy)
+        let string2 = " %    ; Succesful Throws: " + String(entry.numberSuccThrows)
+        let string3 = "; deviation: " + String(entry.deviation) + " points away from bucket(overage)"
         
-        let out = string1 + string2 
-        
-
+        let out = string1 + string2 + string3
         cell.textLabel?.text = out
 
             return cell

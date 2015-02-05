@@ -16,6 +16,7 @@ struct ScoreEntry {
     var numberOfThrows : NSInteger
     var numberSuccThrows : NSInteger
     var freq : Double
+    var deviation: NSInteger
 }
 
 @objc class DatabaseHighscore : NSObject {
@@ -31,7 +32,7 @@ struct ScoreEntry {
     let KEY_NUMBEROFTHWORS : String = "numberOfThrows"
     let KEY_NUMBERSUCCTHROWS : String = "numSuccThrows"
     let KEY_FREQUENCY : String = "freq"
-    
+    let KEY_DEVIATION : String = "deviation"
     
     override init() {
         
@@ -39,15 +40,8 @@ struct ScoreEntry {
         
         let documentsDirectory: AnyObject = paths[0]
         databasePath = documentsDirectory.stringByAppendingPathComponent("highscores.plist")
-//       themeName = "defaultName"
-//        let path = NSBundle.mainBundle().pathForResource("highscores", ofType: "plist")
         
         let fileManager = NSFileManager.defaultManager()
-//        
-//        if (!fileManager.fileExistsAtPath(databasePath)) {
-//            let fileForCopy = NSBundle.mainBundle().pathForResource("highscores",ofType:"plist")
-//            fileManager.copyItemAtPath(fileForCopy!, toPath:databasePath, error: nil)
-//        }
 
         if (!fileManager.fileExistsAtPath(databasePath)) {
             let fileForCopy = NSBundle.mainBundle().pathForResource("highscores",ofType:"plist")
@@ -64,15 +58,16 @@ struct ScoreEntry {
             let numberOfThrows = score[KEY_NUMBEROFTHWORS] as NSInteger
             let numberSuccThrows = score[KEY_NUMBERSUCCTHROWS] as NSInteger
             let freq = score[KEY_FREQUENCY] as Double
+            let deviation = score[KEY_DEVIATION] as NSInteger
             
-            let scoreEntry = ScoreEntry( points: points, time: time, accuracy: accuracy, numberOfThrows : numberOfThrows, numberSuccThrows: numberSuccThrows, freq: freq);
+            let scoreEntry = ScoreEntry( points: points, time: time, accuracy: accuracy, numberOfThrows : numberOfThrows, numberSuccThrows: numberSuccThrows, freq: freq, deviation: deviation);
             scoreBoard.append(scoreEntry)
         }
             scoreBoard.sort({ $0.points > $1.points })
     }
     
-    func addScore(points: NSInteger, time: NSInteger, accuracy: NSInteger, numberOfThrows : NSInteger, numberSuccThrows : NSInteger, freq : Double) {
-        var newEntry = ScoreEntry(points: points, time: time, accuracy: accuracy, numberOfThrows : numberOfThrows, numberSuccThrows: numberSuccThrows, freq: freq)
+    func addScore(points: NSInteger, time: NSInteger, accuracy: NSInteger, numberOfThrows : NSInteger, numberSuccThrows : NSInteger, freq : Double, deviation: NSInteger) {
+        var newEntry = ScoreEntry(points: points, time: time, accuracy: accuracy, numberOfThrows : numberOfThrows, numberSuccThrows: numberSuccThrows, freq: freq, deviation: deviation)
         if(scoreBoard.count >= 5) {
             scoreBoard.sort({ $0.points > $1.points })
             scoreBoard.removeLast()
@@ -90,9 +85,7 @@ struct ScoreEntry {
     }
     
     func getHighScore() -> NSInteger {
-        //TODO: clarify which aspect should be used as highscore
         return getEntry(0).points;
-      
     }
     
     
@@ -114,6 +107,7 @@ struct ScoreEntry {
             dicChild.setValue(item.numberOfThrows, forKey: KEY_NUMBEROFTHWORS)
             dicChild.setValue(item.numberSuccThrows, forKey: KEY_NUMBERSUCCTHROWS)
             dicChild.setValue(item.freq, forKey: KEY_FREQUENCY)
+            dicChild.setValue(item.deviation, forKey: KEY_DEVIATION)
             toSave.addObject(dicChild)
         }
         if(!toSave.writeToFile(databasePath, atomically:true)) {

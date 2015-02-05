@@ -24,6 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
     private var accuracy = 0
     private var numberOfthrows = 0
     private var freq = 0.0
+    private var deviation = 0
     
     // open highscore Database to store the data after the game
     var highscoreDB: DatabaseHighscore = DatabaseHighscore()
@@ -157,8 +158,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
             return
         }
         self.time = self.time + 1
-        //NSNotificationCenter.defaultCenter().postNotificationName("TimeUpdate", object: nil)
-    }
+            }
 
     override func update(currentTime: CFTimeInterval) {
         
@@ -218,7 +218,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 var dx = (throwItem.position.x - bucket.position.x);
                 var dy = (throwItem.position.y - bucket.position.y)
                 var dist = sqrt(dx*dx + dy*dy);
+                
                 if (dist < 130 ) {
+                    print(dist)
+                    self.deviation = self.deviation + Int(dist)
                     let actionMove = SKAction.moveTo(bucket.position, duration: NSTimeInterval(0.3))
                     throwItem.runAction(SKAction.sequence([actionMove]))
                 }
@@ -425,6 +428,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         }
     }
     
+    
+    
     // function that checks, when the game is over, you can have different end conditions
     func isGameOver() -> Bool {
         return self.time >= theme.maxGameTime
@@ -449,20 +454,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
             }
             // normal case
             else{
-            accuracy  = Int(round((Double(self.score) / Double((self.score + self.failedThrow))) * 100 ))
+            accuracy  = Int(round((Double(self.score) / Double((self.score + self.failedThrow))) * 100))
             }
             
             // the number of all throws
             numberOfthrows = self.score + self.failedThrow
             
-            //the number of throws per second
+            //the number of throws per second, higher values are better
             freq  = Double(numberOfthrows / self.time )
+            print(freq)
             
+            //the average deviation, because of the gravity the items will be pulled to the buckets from a distance up to 130, so subtract it from the deviation, lower values are better
+            self.deviation = abs((deviation / numberOfthrows) - 130 )
+            
+            highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.numberOfthrows, numberSuccThrows: self.score, freq: self.freq, deviation: self.deviation)
 
-            
-            highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.numberOfthrows, numberSuccThrows: self.score, freq: self.freq)
-
-            
             let gameOverScene: GameOverScene = GameOverScene(size: self.size)
             gameOverScene.setVCC(vcc)
             gameOverScene.setTheme(theme)
@@ -472,8 +478,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
     }
     
 }
-
-
 
 
 
