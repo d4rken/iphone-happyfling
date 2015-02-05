@@ -41,6 +41,9 @@
 		92CC78031A6425E4002A86CD /* BucketTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78021A6425E4002A86CD /* BucketTheme.swift */; };
 		92CC78051A642921002A86CD /* ThrowItemTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78041A642921002A86CD /* ThrowItemTheme.swift */; };
 		B1CB7B471A6D61620002C6AA /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CB7B461A6D61620002C6AA /* TransitionViewController.swift */; };
+		D11A6B921A801ECE00EE5EF7 /* LaunchScreenBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = D11A6B8F1A801ECE00EE5EF7 /* LaunchScreenBackground.png */; };
+		D11A6B931A801ECE00EE5EF7 /* Happy Fling Hand Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D11A6B901A801ECE00EE5EF7 /* Happy Fling Hand Icon.png */; };
+		D11A6B941A801ECE00EE5EF7 /* Happy Fling Title.png in Resources */ = {isa = PBXBuildFile; fileRef = D11A6B911A801ECE00EE5EF7 /* Happy Fling Title.png */; };
 		D1217DDF1A7A78C2001BC6B8 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = D1217DDE1A7A78C2001BC6B8 /* Sounds */; };
 		D12C4E2E1A724C6C008ED9C4 /* Themes in Resources */ = {isa = PBXBuildFile; fileRef = D12C4E2D1A724C6C008ED9C4 /* Themes */; };
 		D140D2861A71713800AB8217 /* AnimalThemeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140D2851A71713800AB8217 /* AnimalThemeFactory.swift */; };
@@ -103,6 +106,9 @@
 		92CC78021A6425E4002A86CD /* BucketTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketTheme.swift; sourceTree = "<group>"; };
 		92CC78041A642921002A86CD /* ThrowItemTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowItemTheme.swift; sourceTree = "<group>"; };
 		B1CB7B461A6D61620002C6AA /* TransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
+		D11A6B8F1A801ECE00EE5EF7 /* LaunchScreenBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreenBackground.png; sourceTree = "<group>"; };
+		D11A6B901A801ECE00EE5EF7 /* Happy Fling Hand Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Happy Fling Hand Icon.png"; sourceTree = "<group>"; };
+		D11A6B911A801ECE00EE5EF7 /* Happy Fling Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Happy Fling Title.png"; sourceTree = "<group>"; };
 		D1217DDE1A7A78C2001BC6B8 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
 		D12C4E2D1A724C6C008ED9C4 /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Themes; sourceTree = "<group>"; };
 		D140D2851A71713800AB8217 /* AnimalThemeFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalThemeFactory.swift; sourceTree = "<group>"; };
@@ -222,6 +228,9 @@
 		18F97F4F1A6C5494006BAC80 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D11A6B8F1A801ECE00EE5EF7 /* LaunchScreenBackground.png */,
+				D11A6B901A801ECE00EE5EF7 /* Happy Fling Hand Icon.png */,
+				D11A6B911A801ECE00EE5EF7 /* Happy Fling Title.png */,
 				D1EC5D1B1A7FA377007BC9D4 /* Game Paused Menu.png */,
 				D14E14AE1A7FD73800F77C6A /* Blurred Image.png */,
 				D1EC5D171A7F9F16007BC9D4 /* Pause Button.png */,
@@ -325,17 +334,20 @@
 				18BACE8D1A5E90BD00D4D69C /* Images.xcassets in Resources */,
 				D1217DDF1A7A78C2001BC6B8 /* Sounds in Resources */,
 				D1A089D01A7A9329002B1611 /* spark.png in Resources */,
+				D11A6B931A801ECE00EE5EF7 /* Happy Fling Hand Icon.png in Resources */,
 				D1A089D21A7AA283002B1611 /* gravityCircle.png in Resources */,
 				D14E14AF1A7FD73800F77C6A /* Blurred Image.png in Resources */,
 				18BACE841A5E90BD00D4D69C /* GameScene.sks in Resources */,
 				D1EC5D1C1A7FA377007BC9D4 /* Game Paused Menu.png in Resources */,
 				54ABEC081A7FBB2D00ECD221 /* highscores.plist in Resources */,
+				D11A6B921A801ECE00EE5EF7 /* LaunchScreenBackground.png in Resources */,
 				D12C4E2E1A724C6C008ED9C4 /* Themes in Resources */,
 				928EB4E61A780159003CC797 /* bokeh.png in Resources */,
 				928EB4E71A780159003CC797 /* MyParticle0.sks in Resources */,
 				D1A089CF1A7A9329002B1611 /* MyParticle2.sks in Resources */,
 				D1EC5D181A7F9F16007BC9D4 /* Pause Button.png in Resources */,
 				928EB4ED1A7B9C67003CC797 /* MyParticle3.sks in Resources */,
+				D11A6B941A801ECE00EE5EF7 /* Happy Fling Title.png in Resources */,
 				18BACE8B1A5E90BD00D4D69C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
