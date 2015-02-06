@@ -127,7 +127,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         self.addChild(particle)
         
         //timerNode and scoreNode
-        timerNode = SKLabelNode(fontNamed: "Courier-Bold")
+        timerNode = SKLabelNode(fontNamed: "Dimitri Swank")
         timerNode.fontSize = 30
         timerNode.text = "time:"+String(self.time)
         timerNode.position = CGPointMake(CGRectGetMinX(self.frame) + timerNode.frame.width, CGRectGetMinY(self.frame) + timerNode.frame.height)
@@ -135,7 +135,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         timerNode.name = "time"
         self.addChild(timerNode)
 
-        scoreNode = SKLabelNode(fontNamed: "Courier-Bold")
+        scoreNode = SKLabelNode(fontNamed: "Dimitri Swank")
         scoreNode.fontSize = 30
         scoreNode.text = "score:"+String(self.score)
         scoreNode.position = CGPointMake(CGRectGetMinX(self.frame) + timerNode.frame.width*2+40, CGRectGetMinY(self.frame) + timerNode.frame.height+1)
