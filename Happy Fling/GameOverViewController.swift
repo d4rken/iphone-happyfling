@@ -45,6 +45,9 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
             backgroundImage.image = UIImage(named: "Background")
         }
         
+        backButton.titleLabel?.font = UIFont(name: "Dimitri Swank", size: 130.0)
+        cheerUpLabel.font = UIFont (name: "Dimitri Swank", size: 55)
+        
         //register cellclass 
         var tableView: UITableView  =   UITableView()
         self.highscoreViewTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -76,12 +79,15 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
         cell.backgroundColor = UIColor.clearColor()
         let string1 =  String(indexPath.row + 1) + ": Points: " + String(entry.points) + "    Accuracy: " + String(entry.accuracy)
         let string2 = " %     Succesful Throws: " + String(entry.numberSuccThrows)
-        let string3 = " deviation: " + String(entry.deviation) + " points away from bucket(average)"
+        let string3 = " deviation: " + String(entry.deviation) + " points away from bucket"
+       
         
         let out = string1 + string2 + string3
+        
+        cell.textLabel?.font = UIFont(name: "Dimitri Swank", size: 17.0)
         cell.textLabel?.text = out
-
-            return cell
+        
+        return cell
         }
     
 
