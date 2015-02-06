@@ -74,9 +74,9 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
         cell.textLabel?.textColor = UIColor.blackColor()
     
         cell.backgroundColor = UIColor.clearColor()
-        let string1 =  String(indexPath.row + 1) + ": Points: " + String(entry.points) + "   ; Accuracy: " + String(entry.accuracy)
-        let string2 = " %    ; Succesful Throws: " + String(entry.numberSuccThrows)
-        let string3 = "; deviation: " + String(entry.deviation) + " points away from bucket(overage)"
+        let string1 =  String(indexPath.row + 1) + ": Points: " + String(entry.points) + "    Accuracy: " + String(entry.accuracy)
+        let string2 = " %     Succesful Throws: " + String(entry.numberSuccThrows)
+        let string3 = " deviation: " + String(entry.deviation) + " points away from bucket(average)"
         
         let out = string1 + string2 + string3
         cell.textLabel?.text = out
