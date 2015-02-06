@@ -29,6 +29,7 @@ class ColorThemeFactory: ThemeFactory {
         theme.introBackgroundPicture = "Themes/Colors/BackgroundIntro.png"
         theme.themeStory = "Someone splashed pigments on the world famous painting - Mona Lisa.\nOf course the painting is a fake.\nBut as an internship staff of the museum，this is your first mission:\n-to clean the painting!-\n\n\n \"Tap the screen to continue\""
         theme.gameBackgroundPicture = "Themes/Colors/background.png";
+
         //Black
         var itemBlack = ThrowItemTheme()
         itemBlack.name = "Black Item"
@@ -41,7 +42,7 @@ class ColorThemeFactory: ThemeFactory {
         bucketBlack.failureSounds.append("Sounds/wrong.wav")
         bucketBlack.acceptedThrowItems.append(itemBlack.name)
         theme.bucketThemeArray.append(bucketBlack)
-        
+
         //Blue
         var itemBlue = ThrowItemTheme()
         itemBlue.name = "Blue Item"
@@ -54,7 +55,7 @@ class ColorThemeFactory: ThemeFactory {
         bucketBlue.failureSounds.append("Sounds/wrong.wav")
         bucketBlue.acceptedThrowItems.append(itemBlue.name)
         theme.bucketThemeArray.append(bucketBlue)
-        
+
         //Brown
         var itemBrown = ThrowItemTheme()
         itemBrown.name = "Brown Item"
@@ -80,7 +81,7 @@ class ColorThemeFactory: ThemeFactory {
         bucketGreen.failureSounds.append("Sounds/wrong.wav")
         bucketGreen.acceptedThrowItems.append(itemGreen.name)
         theme.bucketThemeArray.append(bucketGreen)
-        
+
         //Orange
         var itemOrange = ThrowItemTheme()
         itemOrange.name = "Orange Item"
@@ -106,7 +107,7 @@ class ColorThemeFactory: ThemeFactory {
         bucketPink.failureSounds.append("Sounds/wrong.wav")
         bucketPink.acceptedThrowItems.append(itemPink.name)
         theme.bucketThemeArray.append(bucketPink)
-        
+
         //Purple
         var itemPurple = ThrowItemTheme()
         itemPurple.name = "Purple Item"
@@ -119,7 +120,7 @@ class ColorThemeFactory: ThemeFactory {
         bucketPurple.failureSounds.append("Sounds/wrong.wav")
         bucketPurple.acceptedThrowItems.append(itemPurple.name)
         theme.bucketThemeArray.append(bucketPurple)
-        
+
         //Red
         var itemRed = ThrowItemTheme()
         itemRed.name = "Red Item"
@@ -132,7 +133,7 @@ class ColorThemeFactory: ThemeFactory {
         bucketRed.failureSounds.append("Sounds/wrong.wav")
         bucketRed.acceptedThrowItems.append(itemRed.name)
         theme.bucketThemeArray.append(bucketRed)
-        
+
         //White
         var itemWhite = ThrowItemTheme()
         itemWhite.name = "White Item"
@@ -145,7 +146,7 @@ class ColorThemeFactory: ThemeFactory {
         bucketWhite.failureSounds.append("Sounds/wrong.wav")
         bucketWhite.acceptedThrowItems.append(itemWhite.name)
         theme.bucketThemeArray.append(bucketWhite)
-        
+
         //Yellow
         var itemYellow = ThrowItemTheme()
         itemYellow.name = "Yellow Item"
@@ -158,7 +159,7 @@ class ColorThemeFactory: ThemeFactory {
         bucketYellow.failureSounds.append("Sounds/wrong.wav")
         bucketYellow.acceptedThrowItems.append(itemYellow.name)
         theme.bucketThemeArray.append(bucketYellow)
-
+        
         return theme;
     }
 }

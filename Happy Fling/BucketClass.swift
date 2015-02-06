@@ -9,8 +9,7 @@
 
 import SpriteKit
 
-class BucketClass: SKSpriteNode
-{
+class BucketClass: SKSpriteNode {
     
     //property
     var bucketName: String = ""
@@ -36,24 +35,15 @@ class BucketClass: SKSpriteNode
         self.name = BucketClass.getTag()
 
         physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(size.width/1.5, size.height/1.5))
-         physicsBody?.mass = 1
-         physicsBody?.dynamic = false
-//
-//        //gravity
-//        var gravityField = SKFieldNode.radialGravityField()
-//        gravityField.strength = 4
-//        gravityField.falloff = -4
-//        gravityField.region = SKRegion(radius: Float(size.width*2))
-//        gravityField.enabled = true
-//        addChild(gravityField)
+        physicsBody?.mass = 1
+        physicsBody?.dynamic = false
     }
 
     class func getTag() -> String {
         return "bucket"
     }
 
-    func accept() -> Boolean
-    {
+    func accept() -> Boolean {
         return 1;
         
     }

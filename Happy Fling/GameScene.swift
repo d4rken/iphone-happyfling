@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 JJJLM. All rights reserved.
 //
 
-//throwItem can not exceed 10
-
 import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
@@ -25,10 +23,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
     private var numberOfthrows = 0
     private var freq = 0.0
     private var deviation = 0
-    
+
     // open highscore Database to store the data after the game
     var highscoreDB: DatabaseHighscore = DatabaseHighscore()
-    
+
     // gameEnd parameter
     var gameEnding = false
 
@@ -116,8 +114,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 CGPoint(x:CGRectGetMaxX(self.frame)-itemSize, y:CGRectGetMidY(self.frame))                 ]
 
         spawnHelper.spawnBuckets(self, bucketPositions: bucketPosition)
-        
-        
+
+
         //create circle of particles
         var circle = CGPathCreateWithEllipseInRect(CGRectMake(self.spawnPoint.x-100,10, spawnArea.frame.width,spawnArea.frame.height), nil)
         var followTrack = SKAction.followPath(circle, asOffset: false, orientToPath: false, duration: 3)
@@ -125,7 +123,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         var particle = SKEmitterNode(fileNamed: "MyParticle"+String(1))
         particle.particleAction = forever
         self.addChild(particle)
-        
+
         //timerNode and scoreNode
         timerNode = SKLabelNode(fontNamed: "Courier-Bold")
         timerNode.fontSize = 30
@@ -142,12 +140,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         scoreNode.fontColor = SKColor(hue: 1, saturation: 0, brightness: 0, alpha: 0.8)
         scoreNode.name = "score"
         self.addChild(scoreNode)
-        
+
         //stop button menu
         var stopButton = SKSpriteNode(imageNamed: "Pause Button.png")
         stopButton.size = CGSizeMake(50, 50)
         stopButton.name = "stop"
-        
+
         stopButton.position = CGPointMake(self.frame.size.width-stopButton.size.width, CGRectGetMinY(self.frame)+stopButton.size.height)
         self.addChild(stopButton)
     }
@@ -158,15 +156,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
             return
         }
         self.time = self.time + 1
-            }
+    }
 
     override func update(currentTime: CFTimeInterval) {
-        
+
         //check if game should be ended
         if self.isGameOver() {
             self.endGame()
         }
-        
+
         /* Called before each frame is rendered */
         var itemsInSpawn = 0
         enumerateChildNodesWithName(ThrowItemClass.getTag(), usingBlock: {
@@ -193,9 +191,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 }
                 self.updateNodeSizeRelativeToMainGravityCenter(throwItem)
             }
-            
-            
-            
         })
 
         if(itemsInSpawn < 2) {
@@ -218,7 +213,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 var dx = (throwItem.position.x - bucket.position.x);
                 var dy = (throwItem.position.y - bucket.position.y)
                 var dist = sqrt(dx*dx + dy*dy);
-                
+
                 if (dist < 130 ) {
                     print(dist)
                     self.deviation = self.deviation + Int(dist)
@@ -248,8 +243,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         NSLog("successful")
         self.score = self.score + 1
         self.killContinues = self.killContinues + 1
-        
-//       NSNotificationCenter.defaultCenter().postNotificationName("ScoreUpdate", object: nil)
 
         var particle = SKEmitterNode(fileNamed: "MyParticle2")
         particle.name = "particle"
@@ -258,7 +251,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
 
         let soundAction = SKAction.playSoundFileNamed(bucket.successSounds[0], waitForCompletion: true)
         bucket.runAction(soundAction)
-        
+
         let firstScale = SKAction.scaleBy(5/4, duration: 0.1)
         let secondScale = SKAction.scaleBy(4/5, duration: 0.1)
         bucket.runAction(firstScale, completion: { () -> Void in
@@ -274,22 +267,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         self.killContinues = 0;
         NSLog("fail")
         self.failedThrow = self.failedThrow + 1
-        
-        
-        //NSNotificationCenter.defaultCenter().postNotificationName("UnsuccThrowsUpdate", object: nil)
-        
+
         var particle = SKEmitterNode(fileNamed: "MyParticle"+String(0))
         particle.name = "particle"
         particle.position = bucket.position
         self.addChild(particle)
         let soundAction = SKAction.playSoundFileNamed(bucket.failureSounds[0], waitForCompletion: true)
-        
-   
+
         //failed animation
         let shake = SKAction.shake(bucket.position, duration: 0.1, amplitudeX: 25, amplitudeY: 15)
         bucket.runAction(SKAction.group([shake, soundAction]))
-        
-
     }
 
 
@@ -331,20 +318,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                     touchToItem.updateValue(throwItem!, forKey: touch as UITouch)
                 }
             }
-        
-        
+
             var node  = self.nodeAtPoint(location)
-            if(node.name == "stop")
-            {
+            if(node.name == "stop") {
                 self.paused = true
                 //set up stop menu
                 var menu = SKSpriteNode(imageNamed: "Game Paused Menu.png")
                 menu.name = "menu"
                 menu.size = CGSizeMake(300, 150)
                 menu.zPosition = 0.5
-                menu.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2-self.theme.bucketThemeArray[0].shapeSize.height/4 + 25)
+                menu.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 + 8)
                 self.addChild(menu)
-                
+
                 var blurredImage = SKSpriteNode(imageNamed: "Blurred Image.png")
                 blurredImage.name = "Blurred Image"
                 blurredImage.size = CGSizeMake(frame.width, frame.height)
@@ -352,9 +337,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 blurredImage.alpha = 0.9
                 blurredImage.position = CGPointMake(frame.width/2, frame.height/2)
                 self.addChild(blurredImage)
-                
-                
-                
+
                 //set up return to game button and return to start button
                 var menuTitle = SKLabelNode(fontNamed: "Courier-Bold")
                 var returnToStart = SKLabelNode(fontNamed: "Courier-Bold")
@@ -373,19 +356,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 returnToGame.name = "returnToGame"
                 menuTitle.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 + 43)
                 returnToGame.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2)
-                returnToStart.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - self.theme.bucketThemeArray[0].shapeSize.height/2 - 10)
+                returnToStart.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 45)
                 self.addChild(menuTitle)
                 self.addChild(returnToStart)
                 self.addChild(returnToGame)
                 node.removeFromParent()
-            }
-            else if node.name == "returnToStart"
-            {
+            } else if node.name == "returnToStart" {
                 vcc.goToStart()
-                
-            }
-            else if node.name == "returnToGame"
-            {
+            } else if node.name == "returnToGame" {
                 self.paused = false
                 var menu = self.childNodeWithName("menu")
                 var returnToStart = self.childNodeWithName("returnToStart")
@@ -397,15 +375,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
                 menuTitle?.removeFromParent()
                 menu?.removeFromParent()
                 blurredImage?.removeFromParent()
-                
+
                 var stopButton = SKSpriteNode(imageNamed: "Pause Button.png")
                 stopButton.size = CGSizeMake(50, 50)
                 stopButton.name = "stop"
-        
-                stopButton.position = CGPointMake(self.frame.size.width-self.theme.bucketThemeArray[0].shapeSize.width*1.5, CGRectGetMinY(self.frame)+self.theme.bucketThemeArray[0].shapeSize.height/5 + 20)
+
+                stopButton.position = CGPointMake(self.frame.size.width-stopButton.size.width*2, CGRectGetMinY(self.frame)+stopButton.size.height*2)
                 self.addChild(stopButton)
             }
-            
+
         }
     }
 
@@ -427,56 +405,49 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
             }
         }
     }
-    
-    
-    
+
+
+
     // function that checks, when the game is over, you can have different end conditions
     func isGameOver() -> Bool {
         return self.time >= theme.maxGameTime
-
     }
-    
-    
+
+
     //function that actually ends the game and loads the gameoverscreen
     func endGame() {
         if !self.gameEnding {
             self.gameEnding = true
 
             //calculate the accuracy of succ. throws:
-            
-            // if player did nothing
-            if(self.score == 0 && self.failedThrow == 0){
-                accuracy = 0
+            if (self.score == 0 && self.failedThrow == 0) {
+                accuracy = 0 // if player did nothing
+            } else if(self.score == 0) {
+                accuracy = 0 // if player did no reach any score
+            } else {
+                accuracy  = Int(round((Double(self.score) / Double((self.score + self.failedThrow))) * 100)) // normal case
             }
-            // if player did no reach any score
-            else if(self.score == 0){
-                accuracy = 0
-            }
-            // normal case
-            else{
-            accuracy  = Int(round((Double(self.score) / Double((self.score + self.failedThrow))) * 100))
-            }
-            
+
             // the number of all throws
             numberOfthrows = self.score + self.failedThrow
-            
+
             //the number of throws per second, higher values are better
             freq  = Double(numberOfthrows / self.time )
             print(freq)
-            
+
             //the average deviation, because of the gravity the items will be pulled to the buckets from a distance up to 130, so subtract it from the deviation, lower values are better
             self.deviation = abs((deviation / numberOfthrows) - 130 )
-            
+
             highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.numberOfthrows, numberSuccThrows: self.score, freq: self.freq, deviation: self.deviation)
 
             let gameOverScene: GameOverScene = GameOverScene(size: self.size)
             gameOverScene.setVCC(vcc)
             gameOverScene.setTheme(theme)
             view!.presentScene(gameOverScene, transition: SKTransition.fadeWithDuration(1.0))
-            
+
         }
     }
-    
+
 }
 
 
@@ -495,16 +466,13 @@ extension SKAction {
         actionsArray.append(SKAction.moveTo(initialPosition, duration: 0.015))
         return SKAction.sequence(actionsArray)
     }
-    
-   
-    
 }
 
 extension CGPoint {
-    
+
     /**
     Calculates a distance to the given point.
-    
+
     :param: point - the point to calculate a distance to
     
     :returns: distance between current and the given points

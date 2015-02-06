@@ -46,7 +46,7 @@ class ThemeSelectionViewController: UICollectionViewController, VCCCustomer {
         cell.icon.image = UIImage(named:themeFactory.getIconResource())
         cell.name.text = themeFactory.getName()
         cell.name.font = UIFont(name: "Dimitri Swank", size: 20.0)
-        
+
         return cell
     }
 
@@ -56,10 +56,10 @@ class ThemeSelectionViewController: UICollectionViewController, VCCCustomer {
         selectedTheme = themeFactoryForIndexPath(indexPath).makeTheme()
         vcc.goToTransitionScreen(selectedTheme!)
     }
-    
+
     //Hide statusbar
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
-
+    
 }

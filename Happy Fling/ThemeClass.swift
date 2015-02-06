@@ -8,19 +8,17 @@
 
 import UIKit
 
-class ThemeClass: NSObject
-{
-    //properties
+class ThemeClass: NSObject {
+
     var introBackgroundPicture: String = "Background"
-    var gameBackgroundPicture: String = "Background" //
+    var gameBackgroundPicture: String = "Background"
     var gameEndBackgroundPicture: String = "Background"
     var themeName: String!
     var themeIcon:String!
-    var themeStory: String = "" // The story to display on the transition screen
-    var bucketThemeArray:[BucketTheme] = [] //
-    var throwItemThemeArray:[ThrowItemTheme] = [] //
-    
-    //GameEnding screen
+    var themeStory: String! // The story to display on the transition screen
+    var bucketThemeArray:[BucketTheme] = []
+    var throwItemThemeArray:[ThrowItemTheme] = []
+
     var timeUpGreetingsMessage:String = ""
     var accuracyMessage:String = ""
     
@@ -29,6 +27,5 @@ class ThemeClass: NSObject
     var maxGameTime:Int = 120
     var maxNumBuckets:Int = 3
     var minNumBuckets:Int = 3
-    
     
 }

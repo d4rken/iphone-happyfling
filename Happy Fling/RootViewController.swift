@@ -17,9 +17,6 @@ protocol VCC {
     func goToTransitionScreen(theme: ThemeClass)
     func goToGame(theme: ThemeClass)
     func goToHighscore(theme: ThemeClass?)
-
-
-
 }
 
 protocol VCCCustomer {
