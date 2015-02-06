@@ -433,7 +433,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
         print(freq)
 
         //the average deviation, because of the gravity the items will be pulled to the buckets from a distance up to 130, so subtract it from the deviation, lower values are better
-        self.deviation = abs((deviation / numberOfthrows) - 130 )
+        if(numberOfthrows > 0) {
+            self.deviation = abs((deviation / numberOfthrows) - 130 )
+        }
 
         highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.numberOfthrows, numberSuccThrows: self.score, freq: self.freq, deviation: self.deviation)
 
