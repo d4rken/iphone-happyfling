@@ -8,9 +8,8 @@
 
 import UIKit
 
-class BucketTheme: NSObject
-{
-    var name:String = ""
+class BucketTheme: NSObject {
+    var name:String!
     var shapeSize: CGSize = CGSizeMake(70, 70)
     var acceptedThrowItems:[String] = []
     var successSounds: [String] = []

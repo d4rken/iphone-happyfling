@@ -17,7 +17,7 @@ class ThrowItemClass: SKSpriteNode {
     }
 
     //properties
-    var throwItemName: String = ""
+    var throwItemName: String!
     var throwItemSize: CGSize!
     var throwAnimations:[String] = []
     var throwSounds: [String] = []
@@ -61,7 +61,7 @@ class ThrowItemClass: SKSpriteNode {
             var particle = SKEmitterNode(fileNamed: "MyParticle"+String(3))
             self.insertChild(particle, atIndex: 0)
         } else if(state == State.Spawned) {
-             self.removeAllChildren()
+            self.removeAllChildren()
         }
     }
 
@@ -72,5 +72,5 @@ class ThrowItemClass: SKSpriteNode {
     func getPreviousState() -> State {
         return previousState
     }
-   
+    
 }

@@ -54,7 +54,7 @@ class ShapeThemeFactory: ThemeFactory {
         bucketSquare.failureSounds.append("Sounds/wrong.wav")
         bucketSquare.acceptedThrowItems.append(itemSquare.name)
         theme.bucketThemeArray.append(bucketSquare)
-        
+
         //Pentagon
         var itemPentagon = ThrowItemTheme()
         itemPentagon.name = "Pentagon Item"
@@ -67,7 +67,7 @@ class ShapeThemeFactory: ThemeFactory {
         bucketPentagon.failureSounds.append("Sounds/wrong.wav")
         bucketPentagon.acceptedThrowItems.append(itemPentagon.name)
         theme.bucketThemeArray.append(bucketPentagon)
-        
+
         //Hexagon
         var itemHexagon = ThrowItemTheme()
         itemHexagon.name = "Hexagon Item"
@@ -93,7 +93,7 @@ class ShapeThemeFactory: ThemeFactory {
         bucketCircle.failureSounds.append("Sounds/wrong.wav")
         bucketCircle.acceptedThrowItems.append(itemCircle.name)
         theme.bucketThemeArray.append(bucketCircle)
-        
+
         //Ellipse
         var itemEllipse = ThrowItemTheme()
         itemEllipse.name = "Ellipse Item"
@@ -106,10 +106,8 @@ class ShapeThemeFactory: ThemeFactory {
         bucketEllipse.failureSounds.append("Sounds/wrong.wav")
         bucketEllipse.acceptedThrowItems.append(itemEllipse.name)
         theme.bucketThemeArray.append(bucketEllipse)
-        
-        //
-        
+
         return theme
     }
-   
+    
 }
