@@ -16,7 +16,6 @@
 		18BACE861A5E90BD00D4D69C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BACE851A5E90BD00D4D69C /* GameScene.swift */; };
 		18BACE881A5E90BD00D4D69C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BACE871A5E90BD00D4D69C /* GameViewController.swift */; };
 		18BACE8B1A5E90BD00D4D69C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18BACE891A5E90BD00D4D69C /* Main.storyboard */; };
-		18BACE8D1A5E90BD00D4D69C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18BACE8C1A5E90BD00D4D69C /* Images.xcassets */; };
 		18BACE901A5E90BD00D4D69C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BACE8E1A5E90BD00D4D69C /* LaunchScreen.xib */; };
 		18BACE9C1A5E90BD00D4D69C /* Happy_FlingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BACE9B1A5E90BD00D4D69C /* Happy_FlingTests.swift */; };
 		18C7153B1A7FC0B6003B3864 /* InstantReplaceSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7153A1A7FC0B6003B3864 /* InstantReplaceSegue.swift */; };
@@ -79,7 +78,6 @@
 		18BACE851A5E90BD00D4D69C /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		18BACE871A5E90BD00D4D69C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		18BACE8A1A5E90BD00D4D69C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		18BACE8C1A5E90BD00D4D69C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		18BACE8F1A5E90BD00D4D69C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		18BACE951A5E90BD00D4D69C /* Happy FlingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Happy FlingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BACE9A1A5E90BD00D4D69C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -191,7 +189,6 @@
 				D1F9C8C61A6811C70017DAE8 /* StartViewController.swift */,
 				188140D51A7B932A005E4795 /* RootViewController.swift */,
 				18BACE891A5E90BD00D4D69C /* Main.storyboard */,
-				18BACE8C1A5E90BD00D4D69C /* Images.xcassets */,
 				18BACE8E1A5E90BD00D4D69C /* LaunchScreen.xib */,
 				18BACE7F1A5E90BD00D4D69C /* Supporting Files */,
 			);
@@ -331,7 +328,6 @@
 				928EB4EB1A7B8916003CC797 /* MyParticle1.sks in Resources */,
 				D199E63A1A6D688000B708C2 /* DIMIS___.otf in Resources */,
 				18BACE901A5E90BD00D4D69C /* LaunchScreen.xib in Resources */,
-				18BACE8D1A5E90BD00D4D69C /* Images.xcassets in Resources */,
 				D1217DDF1A7A78C2001BC6B8 /* Sounds in Resources */,
 				D1A089D01A7A9329002B1611 /* spark.png in Resources */,
 				D11A6B931A801ECE00EE5EF7 /* Happy Fling Hand Icon.png in Resources */,

@@ -38,10 +38,13 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
         } else {
             backgroundImage.image = UIImage(named: "Background")
         }
+        
+        backButton.titleLabel?.font = UIFont(name: "Dimitri Swank", size: 150.0)
+        //backButton.backgroundColor = UIColor(red: 255, green: 196, blue: 13, alpha: 0.5)
 
-        backButton.titleLabel?.font = UIFont(name: "Dimitri Swank", size: 130.0)
         cheerUpLabel.font = UIFont (name: "Dimitri Swank", size: 55)
 
+        
         //register cellclass
         var tableView: UITableView  =   UITableView()
         self.highscoreViewTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -67,13 +70,19 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
 
         var cell:UITableViewCell = self.highscoreViewTable.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
         let entry = self.highscoreDB.getEntry(indexPath.row)
-        cell.backgroundColor = UIColor.clearColor()
+        
+        cell.backgroundColor = UIColor(red: 51.0/255.0, green: 102.0/255.0, blue: 153.0/255.0, alpha: 1.0)
+        //cell.backgroundView = UIImageView(image: UIImage(named: "green"))
         cell.textLabel?.textColor = UIColor.blackColor()
 
-        cell.backgroundColor = UIColor.clearColor()
+        
+        
+        
+        
+        //cell.backgroundColor = UIColor.clearColor()
         let string1 =  String(indexPath.row + 1) + ": Points: " + String(entry.points) + "    Accuracy: " + String(entry.accuracy)
         let string2 = " %     Succesful Throws: " + String(entry.numberSuccThrows)
-        let string3 = " deviation: " + String(entry.deviation) + " points away from bucket"
+        let string3 = "    deviation: " + String(entry.deviation) + " points away from bucket"
 
 
         let out = string1 + string2 + string3

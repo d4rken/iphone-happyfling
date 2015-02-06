@@ -15,14 +15,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
 
     //parameters
     private var bucketPosition: Array<CGPoint>!
-    private var score: Int = 0
-    private var failedThrow: Int = 0
-    private var time: Int = 0
-    private var killContinues: Int = 0
-    private var accuracy: Int = 0
-    private var numberOfthrows: Int = 0
-    private var freq: Double = 0.0
-    private var deviation: Int = 0
+    private var score = 0
+    private var failedThrow = 0;
+    private var time = 0
+    private var killContinues = 0;
+    private var accuracy = 0
+    private var numberOfthrows = 0
+    private var freq = 0.0
+    private var deviation = 0
 
     // open highscore Database to store the data after the game
     var highscoreDB: DatabaseHighscore = DatabaseHighscore()
@@ -420,17 +420,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
 
     //function that actually ends the game and loads the gameoverscreen
     func endGame() {
-        if !self.gameEnding {
-            self.gameEnding = true
-
-            //calculate the accuracy of succ. throws:
-            if (self.score == 0 && self.failedThrow == 0) {
-                accuracy = 0 // if player did nothing
-            } else if(self.score == 0) {
-                accuracy = 0 // if player did not reach any score
-            } else {
-                accuracy  = Int(round((Double(self.score) / Double((self.score + self.failedThrow))) * 100)) // normal case
-            }
 
         if (self.score > 0) {
             accuracy  = Int(round((Float(self.score) / Float(self.score + self.failedThrow)) * 100)) // normal case
@@ -475,10 +464,10 @@ extension SKAction {
 }
 
 extension CGPoint {
-    
+
     /**
     Calculates a distance to the given point.
-    
+
     :param: point - the point to calculate a distance to
     
     :returns: distance between current and the given points
