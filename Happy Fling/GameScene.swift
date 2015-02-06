@@ -423,7 +423,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
             if (self.score == 0 && self.failedThrow == 0) {
                 accuracy = 0 // if player did nothing
             } else if(self.score == 0) {
-                accuracy = 0 // if player did no reach any score
+                accuracy = 0 // if player did not reach any score
             } else {
                 accuracy  = Int(round((Double(self.score) / Double((self.score + self.failedThrow))) * 100)) // normal case
             }
