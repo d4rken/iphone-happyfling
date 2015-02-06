@@ -15,14 +15,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
 
     //parameters
     private var bucketPosition: Array<CGPoint>!
-    private var score = 0
-    private var failedThrow = 0;
-    private var time = 0
-    private var killContinues = 0;
-    private var accuracy = 0
-    private var numberOfthrows = 0
-    private var freq = 0.0
-    private var deviation = 0
+    private var score: Int = 0
+    private var failedThrow: Int = 0
+    private var time: Int = 0
+    private var killContinues: Int = 0
+    private var accuracy: Int = 0
+    private var numberOfthrows: Int = 0
+    private var freq: Double = 0.0
+    private var deviation: Int = 0
 
     // open highscore Database to store the data after the game
     var highscoreDB: DatabaseHighscore = DatabaseHighscore()
@@ -161,8 +161,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
     override func update(currentTime: CFTimeInterval) {
 
         //check if game should be ended
-        if self.isGameOver() {
+        if self.isGameOver() && !self.gameEnding {
+            self.gameEnding = true
             self.endGame()
+            return
+        } else if self.isGameOver() && self.gameEnding {
+            return
         }
 
         /* Called before each frame is rendered */
@@ -416,36 +420,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate, VCCCustomer, ThemeCustomer {
 
     //function that actually ends the game and loads the gameoverscreen
     func endGame() {
-        if !self.gameEnding {
-            self.gameEnding = true
 
-            //calculate the accuracy of succ. throws:
-            if (self.score == 0 && self.failedThrow == 0) {
-                accuracy = 0 // if player did nothing
-            } else if(self.score == 0) {
-                accuracy = 0 // if player did no reach any score
-            } else {
-                accuracy  = Int(round((Double(self.score) / Double((self.score + self.failedThrow))) * 100)) // normal case
-            }
-
-            // the number of all throws
-            numberOfthrows = self.score + self.failedThrow
-
-            //the number of throws per second, higher values are better
-            freq  = Double(numberOfthrows / self.time )
-            print(freq)
-
-            //the average deviation, because of the gravity the items will be pulled to the buckets from a distance up to 130, so subtract it from the deviation, lower values are better
-            self.deviation = abs((deviation / numberOfthrows) - 130 )
-
-            highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.numberOfthrows, numberSuccThrows: self.score, freq: self.freq, deviation: self.deviation)
-
-            let gameOverScene: GameOverScene = GameOverScene(size: self.size)
-            gameOverScene.setVCC(vcc)
-            gameOverScene.setTheme(theme)
-            view!.presentScene(gameOverScene, transition: SKTransition.fadeWithDuration(1.0))
-
+        if (self.score > 0) {
+            accuracy  = Int(round((Float(self.score) / Float(self.score + self.failedThrow)) * 100)) // normal case
         }
+
+        // the number of all throws
+        numberOfthrows = self.score + self.failedThrow
+
+        //the number of throws per second, higher values are better
+        freq  = Double(numberOfthrows / self.time )
+        print(freq)
+
+        //the average deviation, because of the gravity the items will be pulled to the buckets from a distance up to 130, so subtract it from the deviation, lower values are better
+        self.deviation = abs((deviation / numberOfthrows) - 130 )
+
+        highscoreDB.addScore( self.score, time: self.time , accuracy: self.accuracy , numberOfThrows: self.numberOfthrows, numberSuccThrows: self.score, freq: self.freq, deviation: self.deviation)
+
+        let gameOverScene: GameOverScene = GameOverScene(size: self.size)
+        gameOverScene.setVCC(vcc)
+        gameOverScene.setTheme(theme)
+        view!.presentScene(gameOverScene, transition: SKTransition.fadeWithDuration(1.0))
     }
 
 }
@@ -469,10 +464,10 @@ extension SKAction {
 }
 
 extension CGPoint {
-
+    
     /**
     Calculates a distance to the given point.
-
+    
     :param: point - the point to calculate a distance to
     
     :returns: distance between current and the given points

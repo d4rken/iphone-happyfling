@@ -11,9 +11,6 @@ import SpriteKit
 
 
 class GameOverViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, VCCCustomer, ThemeCustomer {
-
-
-
     private var theme: ThemeClass!
     private var vcc: VCC!
     var highscoreDB: DatabaseHighscore = DatabaseHighscore()
