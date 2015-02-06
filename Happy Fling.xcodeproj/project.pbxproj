@@ -24,6 +24,8 @@
 		541CB4631A82A8E70028178C /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CB4621A82A8E70028178C /* GameOverScene.swift */; };
 		545C08F01A7244AC00383762 /* DatabaseHighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C08EF1A7244AC00383762 /* DatabaseHighScore.swift */; };
 		545C08F21A72479B00383762 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C08F11A72479B00383762 /* GameOverViewController.swift */; };
+		5484446A1A847B5500449B96 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 548444691A847B5500449B96 /* Images.xcassets */; };
+		5484446C1A847B6C00449B96 /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 5484446B1A847B6C00449B96 /* blue.png */; };
 		54ABEC081A7FBB2D00ECD221 /* highscores.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54ABEC071A7FBB2D00ECD221 /* highscores.plist */; };
 		928EB4E61A780159003CC797 /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = 928EB4E21A780159003CC797 /* bokeh.png */; };
 		928EB4E71A780159003CC797 /* MyParticle0.sks in Resources */ = {isa = PBXBuildFile; fileRef = 928EB4E31A780159003CC797 /* MyParticle0.sks */; };
@@ -88,6 +90,8 @@
 		541CB4621A82A8E70028178C /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		545C08EF1A7244AC00383762 /* DatabaseHighScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHighScore.swift; sourceTree = "<group>"; };
 		545C08F11A72479B00383762 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
+		548444691A847B5500449B96 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5484446B1A847B6C00449B96 /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue.png; sourceTree = "<group>"; };
 		54ABEC071A7FBB2D00ECD221 /* highscores.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = highscores.plist; sourceTree = "<group>"; };
 		928EB4E21A780159003CC797 /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bokeh.png; path = Resources/bokeh.png; sourceTree = "<group>"; };
 		928EB4E31A780159003CC797 /* MyParticle0.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MyParticle0.sks; path = Resources/MyParticle0.sks; sourceTree = "<group>"; };
@@ -190,6 +194,8 @@
 				188140D51A7B932A005E4795 /* RootViewController.swift */,
 				18BACE891A5E90BD00D4D69C /* Main.storyboard */,
 				18BACE8E1A5E90BD00D4D69C /* LaunchScreen.xib */,
+				548444691A847B5500449B96 /* Images.xcassets */,
+				5484446B1A847B6C00449B96 /* blue.png */,
 				18BACE7F1A5E90BD00D4D69C /* Supporting Files */,
 			);
 			path = "Happy Fling";
@@ -339,11 +345,13 @@
 				D11A6B921A801ECE00EE5EF7 /* LaunchScreenBackground.png in Resources */,
 				D12C4E2E1A724C6C008ED9C4 /* Themes in Resources */,
 				928EB4E61A780159003CC797 /* bokeh.png in Resources */,
+				5484446A1A847B5500449B96 /* Images.xcassets in Resources */,
 				928EB4E71A780159003CC797 /* MyParticle0.sks in Resources */,
 				D1A089CF1A7A9329002B1611 /* MyParticle2.sks in Resources */,
 				D1EC5D181A7F9F16007BC9D4 /* Pause Button.png in Resources */,
 				928EB4ED1A7B9C67003CC797 /* MyParticle3.sks in Resources */,
 				D11A6B941A801ECE00EE5EF7 /* Happy Fling Title.png in Resources */,
+				5484446C1A847B6C00449B96 /* blue.png in Resources */,
 				18BACE8B1A5E90BD00D4D69C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

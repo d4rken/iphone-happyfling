@@ -39,9 +39,25 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
             backgroundImage.image = UIImage(named: "Background")
         }
         
-        backButton.titleLabel?.font = UIFont(name: "Dimitri Swank", size: 150.0)
+        //backButton.titleLabel?.font = UIFont(name: "Dimitri Swank", size: 150.0)
         //backButton.backgroundColor = UIColor(red: 255, green: 196, blue: 13, alpha: 0.5)
-
+        //backButton.backgroundColor = UIColor(red: 51/255.0, green: 102/255.0, blue: 153/255, alpha: 1)
+        self.backButton.transform = CGAffineTransformMakeScale(0, 0)
+        
+        self.backButton.setBackgroundImage(UIImage(named: "backbutton"), forState: .Normal)
+        
+        
+        UIView.animateWithDuration(0.8, delay: 0.2, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+           
+            self.backButton.transform = CGAffineTransformMakeScale(1.1, 1.1)
+            }, completion: {(success) -> Void in
+                UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                    self.backButton.transform = CGAffineTransformIdentity
+                    }, completion: nil)
+        })
+        
+        
+        
         cheerUpLabel.font = UIFont (name: "Dimitri Swank", size: 55)
 
         
@@ -49,7 +65,7 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
         var tableView: UITableView  =   UITableView()
         self.highscoreViewTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.highscoreViewTable.backgroundView?.backgroundColor = UIColor.clearColor()
-        highscoreViewTable.backgroundView = nil;
+        self.highscoreViewTable.backgroundView = nil;
         self.view.addSubview(self.highscoreViewTable)
 
     }
@@ -71,15 +87,14 @@ class GameOverViewController: UIViewController, UITableViewDelegate, UITableView
         var cell:UITableViewCell = self.highscoreViewTable.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
         let entry = self.highscoreDB.getEntry(indexPath.row)
         
-        cell.backgroundColor = UIColor(red: 51.0/255.0, green: 102.0/255.0, blue: 153.0/255.0, alpha: 1.0)
-        //cell.backgroundView = UIImageView(image: UIImage(named: "green"))
-        cell.textLabel?.textColor = UIColor.blackColor()
-
+       
+        cell.backgroundView = UIImageView(image: UIImage(named: "stripe"))
+        cell.textLabel?.textColor = UIColor.whiteColor()
         
         
         
         
-        //cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor.clearColor()
         let string1 =  String(indexPath.row + 1) + ": Points: " + String(entry.points) + "    Accuracy: " + String(entry.accuracy)
         let string2 = " %     Succesful Throws: " + String(entry.numberSuccThrows)
         let string3 = "    deviation: " + String(entry.deviation) + " points away from bucket"
